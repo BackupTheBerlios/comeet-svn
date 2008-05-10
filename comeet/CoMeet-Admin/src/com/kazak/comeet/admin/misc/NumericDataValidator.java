@@ -1,23 +1,23 @@
 /**
- * Este archivo es parte de E-Maku (http://comunidad.qhatu.net)
+ *  This file is part of CoMeet: Tiny IM.
  *
- * E-Maku es Software Libre; usted puede redistribuirlo y/o realizar
- * modificaciones bajo los terminos de la Licencia Publica General
- * GNU GPL como esta publicada por la Fundacion del Software Libre (FSF);
- * tanto en la version 2 de la licencia, o cualquier version posterior.
+ *  CoMeet is free software: you can redistribute it and/or modify
+ *  it under the terms of the GNU General Public License as published by
+ *  the Free Software Foundation, either version 3 of the License, or
+ *  (at your option) any later version.
  *
- * E-Maku es distribuido con la expectativa de ser util, pero
- * SIN NINGUNA GARANTIA; sin ninguna garantia aun por COMERCIALIZACION
- * o por un PROPOSITO PARTICULAR. Consulte la Licencia Publica General
- * GNU GPL para mas detalles.
+ *  CoMeet is distributed in the hope that it will be useful,
+ *  but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ *  GNU General Public License for more details.
  *
- *
- * @author  Luis Felipe Hernandez Z.
- * @see e-mail felipe@qhatu.net
- *
- * NumericDataValidator.java
- *
- * Created on 29 de mayo de 2002, 10:02
+ *  You should have received a copy of the GNU General Public License
+ *  along with CoMeet.  If not, see <http://www.gnu.org/licenses/>.
+ * 
+ * @author Luis Felipe Hernandez
+ * @author Cristian David Cepeda
+ * 
+ * Contact: comeet@kazak.com.co
  */
 
 package com.kazak.comeet.admin.misc;
