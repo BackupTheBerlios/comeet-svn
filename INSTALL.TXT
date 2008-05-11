@@ -1,169 +1,167 @@
-Que es CoMeet?
+What is CoMeet?
 
-Es un sistema de mensajeria instantanea enfocado
-a redes en donde se requiere tener especial cuidado
-con el uso del ancho de banda, debido a que es muy
-poco o a que su consumo se factura por cada vez que
-se transmite informacion (Ej: GSM).
+It is a messaging system designed for huge networks 
+where is required special attention to the bandwidth 
+load, because it is low/scarce or because the access 
+is billed for every data transmission (i.e. GSM). 
 
-Licencia
+License
 
-CoMeet es un proyecto de Software Libre cubierto por
-los terminos de la licencia GNU GPL (version 3.0)
+CoMeet is a Free Software project covered under the
+terms of the GNU GPL License (version 3.0)
 
-Manual de Instalacion
+Installation Manual
 
-- Dependencias
+- Dependencies
 
   * Java 6.0 (SDK)
   * Ant
-  * Servidor de Correo SMTP (Ej. Postfix)
-  * Servidor de POP (Ej. Qpopper)
-  * Servidor PostgreSQL
+  * Mail Server SMTP (i.e. Postfix)
+  * Pop Server (i.e. Qpopper)
+  * PostgreSQL Server
 
-- Compilacion 
+- Compilation 
 
-  1. Ingrese al directorio donde se encuentra el
-     codigo fuente de CoMeet
-  2. Ejecute el comando:
+  1. Get into the directory where the CoMeet source
+     code is located
+  2. Run the command: 
      % ./build.sh compile
-  3. Ingrese al directorio "dist", ubicado en la
-     raiz del codigo fuente. Alli encontrara tres
-     subdirectorios:
-     - Cliente: contiene el comprimido con los 
-       binarios del cliente de mensajeria.
-     - Administrador: contiene el comprimido con 
-       los binarios del programa para realizar la
-       administracion de usuarios.
-     - Servidor: contiene el comprimido con los
-       binarios del servidor de mensajeria. 
+  3. Get into the directory called "dist", located in
+     the source code root. There you will find three
+     directories:
+     - Cliente: contains the compressed file with the
+       binaries for the IM client. 
+     - Administrador: contains the compressed file with
+       the binaries of the program for user management.
+     - Servidor: contains the compressed file with the
+       binaries of the IM server.
 
-- Instalacion
+- Installation
 
-  * Servidor CoMeet
+  * CoMeet Server
 
-    1. Cree un usuario en el servidor PostgreSQL y
-       llamelo "comeetadmin"
+    1. Create a user in the PostgreSQL server and
+       and call it "comeetadmin"
        % creatuser comeetadmin
 
-    2. Cree una base de datos en el servidor PostgreSQL
+    2. Create a data base in the PostgreSQL server
+       and call it "comeet"
        % createdb -U comeetadmin comeet
 
-    3. Cree un usuario de correo en su servidor SMTP
-       con el nombre "comeet" y asignele una clave
+    3. Create a mail user in your SMTP server with 
+       the name "comeet" and set it a password 
 
-    4. Copie el comprimido comeetserver.tar.gz en 
-       el directorio en donde desea hacer la instalacion
-       Ej: /usr/local
+    4. Copy the compressed file comeetserver.tar.gz in 
+       the directory where you want to make the 
+       installation
+       i.e.: /usr/local
 
-    5. Descomprima el archivo, el directorio "comeet"
-       sera creado:
+    5. Uncompress the file. The directory called "comeet"
+       will be created:
        % tar xvfz comeetserver.tar.gz
 
-    6. Ingrese al directorio "comeet/db" y cargue el 
-       script "comeet_dump.sql" en la base de datos que
-       creo en el paso 2
+    6. Get into the directory "comeet/db" and load the  
+       script called "comeet_dump.sql" into the data base
+       you created in the step 2
        % psql -U comeetadmin comeet < comeet_dump.sql 
 
-    7. Ingrese al directorio "comeet/conf" y edite el
-       archivo server.conf y asigne las variables segun
-       los valores de su configuracion, incluyendo,
-       base de datos, direccion del servidor Postgres,
-       direccion del servidor SMTP, usuario POP,
-       contraseñas, etc.
+    7. Get into the directory "comeet/conf" and edit the
+       file server.conf and set the variables according
+       your network settings, including, data base, 
+       PostgreSQL Server address, SMTP Server address,
+       POP user, passwords, etc. 
 
-       Nota: La seccion relacionada con Oracle solo 
-       aplica si usted desea sincronizar datos con 
-       registros almacenados en una base de datos de
-       ese tipo.
+       Note: The section about Oracle only is required
+       if you wants to sync IM data with records saved in 
+       an Oracle data.
 
-    8. Inicie el servidor de mensajeria ejecutando
-       el comando:
+    8. Start up the IM server, running the command:
        % /usr/local/comeet/bin/comeet.sh
 
-       Nota: Por defecto, utiliza el puerto 9119
+       Note: By default, it uses port 9119
 
-  * Administrador CoMeet
+  * CoMeet Admin
 
-    1. Una vez tenga un servidor CoMeet disponible
-       para conectarse, copie el comprimido del
-       administrador CoMeet en el equipo desde el
-       que desea hacer la gestion de usuarios
-       desea instalarlo
-       comeetadmin.zip : Para Windows
-       comeetadmin.tar.gz : Para Linux
+    1. Once you get your CoMeet server available
+       to allow connections, copy the compressed
+       file of the admin interface into the 
+       computer from you want to make users
+       management.
 
-    2. Descomprima las fuentes dependiendo del sistema
-       operativo donde desee hacer la instalacion:
+       comeetadmin.zip : For Windows
+       comeetadmin.tar.gz : For Linux
 
-       - Para Linux
-         a) Cree la carpeta en donde desea instalar los
-            binarios
+    2. Uncompress the compressed file taking special
+       care of your OS: 
+
+       - For Linux
+         a) Create the directory where your want to install
+            binary files
             % mkdir /usr/local/comeetadmin
-         b) Mueva el comprimido al directorio creado
+         b) Move the compressed file into the directory you 
+            created
             % mv comeetadmin.tar.gz /usr/local/comeetadmin
-         c) Descomprima el archivo
+         c) Uncompress the file 
             % tar xvfz comeetadmin.tar.gz
 
-       - Para Windows
-         a) Cree la carpeta "comeetadmin" en la particion C:
-         b) Utilice winzip o algun tipo de aplicativo para
-         descompresion de archivos y direccionelos a la
-         carpeta que acaba de crear
+       - For Windows
+         a) Create the directory "comeetadmin" into the C: drive 
+         b) Use winzip or any kind of app for file uncompression and
+            extract the files into the carpet you created in a)
 
-    3. Ingrese a la carpeta "comeetadmin" y ejecute el
-       binario correspondiente al sistema operativo:
-       En Linux: comeetadminUnix.sh 
-       Nota: Antes de ejecutar el script, editelo y 
-       asigne como primera instruccion, el comando:
+    3. Get into the directory "comeetadmin" and run the binary
+       for your OS:
+       In Linux: comeetadminUnix.sh 
+       Note: Befor your run the script, edit it and 
+       add as the first instruction:
        cd /usr/local/comeetadmin
 
-       En Windows: comeetadmin.exe 
+       In Windows: comeetadmin.exe 
 
-  * Cliente CoMeet
+    Note: "admin" is the default admin user, and the password 
+          is "12345"
 
-    1. Una vez tenga un servidor CoMeet disponible
-       para conectarse, copie el comprimido del
-       cliente CoMeet en los equipos en donde 
-       desea instalarlo
-       comeetclient.zip : Para Windows
-       comeetclient.tar.gz : Para Linux
+  * CoMeet Client
+
+    1. Once you got the CoMeet server available
+       to allow connections, copy the compressed file of the client
+       in every computer you want to use  
+       comeetclient.zip : For Windows
+       comeetclient.tar.gz : For Linux
    
-    2. Descomprima las fuentes dependiendo del sistema
-       operativo donde desee hacer la instalacion:
+    2. Uncompress the installer taking care of your OS:
 
-       - Para Linux
-         a) Cree la carpeta en donde desea instalar los
-            binarios
+       - For Linux
+         a) Create the directory where you want to install
+            the binaries
             % mkdir /usr/local/comeetclient
-         b) Mueva el comprimido al directorio creado 
+         b) Move the compressed file into the directory 
             % mv comeetclient.tar.gz /usr/local/comeetclient
-         c) Descomprima el archivo
+         c) Uncompress the file 
             % tar xvfz comeetclient.tar.gz
 
-       - Para Windows
-         a) Cree la carpeta "comeet" en la particion C:
-         b) Utilice winzip o algun tipo de aplicativo para
-         descompresion de archivos y direccionelos a la 
-         carpeta que acaba de crear
+       - For Windows
+         a) Create the directory "comeet" into the C: drive 
+         b) Use Winzip or any kind of app for file uncompression 
+            and extract the binaries into the directory you
+            created in a)
 
-    3. Edite el archivo "conf/comeet.conf" y adicione la
-       direccion o el nombre del servidor de mensajeria
-       en el campo "host"
+    3. Edit the file "conf/comeet.conf" and set the address 
+       or the name of the IM server in the field "host"
 
-    4. Ingrese a la carpeta "comeet" y ejecute el 
-       binario correspondiente al sistema operativo:
-       En Linux: comeetclient.sh  
-       Nota: Antes de ejecutar el script, editelo y
-       asigne como primera instruccion, el comando:
+    4. Get into the directory "comeet" and run the binary or
+       script for your OS:
+       In Linux: comeetclient.sh  
+       Note: Before you run the script, edit it and add a new
+       line in the beginning with the command:
        cd /usr/local/comeetclient
 
-       En Windows: comeetclient.exe
+       In Windows: comeetclient.exe
 
-- Contacto
+- Contact
 
-  * Dudas o comentarios: comeet@kazak.com.co
+  * Questions or comments: comeet@kazak.com.co
 
-  * Pagina del proyecto: 
+  * Project Website: 
     https://developer.berlios.de/projects/comeet/
   
