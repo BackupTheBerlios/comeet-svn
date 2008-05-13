@@ -62,8 +62,7 @@ public class Pop3Handler extends Thread {
 		}
 		if (result.length() == 0) {
 			return "Mensaje con formato enriquecido (No legible)\n";
-		}
-		
+		}		
 		return result;
 	}	
 	
@@ -88,7 +87,8 @@ public class Pop3Handler extends Thread {
 					String fullSubject =  message.getSubject();
 					fullSubject = fullSubject!=null ? fullSubject.trim() : null;
 
-					if(fullSubject.startsWith("Re:") || fullSubject.startsWith("RE:")) {
+					String lowercase = fullSubject.toLowerCase();
+					if(lowercase.startsWith("re:")) {
 						fullSubject = fullSubject.substring(3,fullSubject.length()).trim();
 					}
 								
