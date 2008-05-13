@@ -60,18 +60,15 @@ public class ClientConfigFile {
         	criticalError("No se encontró el archivo de configuración.\n" +
 							"(" + path + ")\n" + "Por favor, Contacte al administrador del sistema.");
         }
-        
-        System.out.println("Cargando Archivo de Configuracion: " + path);
     	
         try {
             saxBuilder = new SAXBuilder(false);   
-            doc = saxBuilder.build(path);
+            doc = saxBuilder.build(configFile);
             root = doc.getRootElement();
             List configList = root.getChildren();
             Iterator iterator = configList.iterator();
-            int counter = 0;
+
             while (iterator.hasNext()) {
-            	counter++;
                 Element data = (Element) iterator.next();
                 String name = data.getName();
                 if (name.equals("host")) {
@@ -110,25 +107,24 @@ public class ClientConfigFile {
                 	}
                 }
             }
-            
-            System.out.println("Counter: " + counter);
-            
+                
             if((host.length() == 0) || (serverPort == -1) || (time == -1)) {
             	criticalError("El archivo de configuración " + path 
             			+ " se encuentra corrupto.\nPor favor, verfiquelo.");
             }
             
         }
-        // TODO: Corregir el manejo de excepciones aqui / Precisar mensaje de error
-        /* catch (FileNotFoundException FNFEe) {
-            throw new ConfigFileNotLoadException();
-        } */
         catch (JDOMException JDOMEe) {
+        	System.out.println("Error: Inconsistencia en la sintaxis XML del archivo de configuracion");
             JDOMEe.printStackTrace();
-            //throw new ConfigFileNotLoadException();
         }
         catch (IOException IOEe) {
-            //throw new ConfigFileNotLoadException();
+        	System.out.println("Error: Problema de Entrada/Salida procesando el archivo de configuracion");
+        	IOEe.printStackTrace();
+        }
+        catch (Exception e) {
+        	System.out.println("Error: Excepcion general procesando el archivo de configuracion");
+        	e.printStackTrace();
         }
     }
     

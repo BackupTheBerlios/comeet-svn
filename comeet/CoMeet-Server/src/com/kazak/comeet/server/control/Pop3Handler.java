@@ -11,10 +11,12 @@ import javax.mail.Flags;
 import javax.mail.Folder;
 import javax.mail.Message;
 import javax.mail.MessagingException;
+import javax.mail.Multipart;
 import javax.mail.NoSuchProviderException;
 import javax.mail.Session;
 import javax.mail.Store;
 import javax.mail.internet.InternetAddress;
+import javax.mail.Part;
 
 import org.jdom.Element;
 
@@ -40,6 +42,31 @@ public class Pop3Handler extends Thread {
 		Pop3Handler.password = ConfigFileHandler.getMailPasswd();
 		start();
 	}
+	
+	private static String processMimeMail(Part mail) {
+		String result = "";
+		try {
+			if (mail.isMimeType("multipart/*")) {
+				Multipart multi;
+				multi = (Multipart) mail.getContent();
+				for (int j = 0; j < multi.getCount(); j++) {
+					mail = multi.getBodyPart(j);
+					if (mail.isMimeType("text/plain")) {
+						result = mail.getContent().toString();
+					} 
+				}
+			}
+		}
+		catch (Exception e) {
+			e.printStackTrace();
+		}
+		if (result.length() == 0) {
+			return "Mensaje con formato enriquecido (No legible)\n";
+		}
+		
+		return result;
+	}	
+	
 	
 	public void run() {
 		Session session = Session.getInstance(new Properties());
@@ -71,8 +98,19 @@ public class Pop3Handler extends Thread {
 
 					String to = "";
 					String subject = "";
-					String content = message.getContent().toString();
+					String msgType = "";
+					String content = "";
+					
+					if (message.isMimeType("multipart/*")) {
+						msgType = "multipart/*";
+						content = processMimeMail(message);
+					} else {
+						msgType = "text/*";
+						content = message.getContent().toString();
+					}
+					
 					LogWriter.write("INFO: Leyendo correo del buzon de mensajes");
+					System.out.println("INFO: Formato de mensaje -> " + msgType);
 					LogWriter.write("INFO: Nuevo mensaje desde {" + address.getAddress() + "} con asunto [ " +  fullSubject + " ]");
 
 					if (index2==-1 && !fullSubject.startsWith("[Error CoMeet]")) {
