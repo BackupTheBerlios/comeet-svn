@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Config>
+<config>
 	<host>localhost</host>
-	<serverport>9119</serverport>
+	<serverPort>9119</serverPort>
 	<time>1</time>
-</Config>
+</config>

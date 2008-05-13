@@ -42,8 +42,8 @@ public class ClientConfigFile {
     private static SAXBuilder saxBuilder;
     private static Document doc;
     private static Element root;
-    private static int serverPort;
-    private static String host;
+    private static String host; 
+    private static int serverPort = -1;
     private static int time = -1;
     
     public static void loadSettings() { 
@@ -51,39 +51,73 @@ public class ClientConfigFile {
     	String os = System.getProperty("os.name");
         String path = ClientConstants.unixConfigPath + "comeet.conf";
         if (os.startsWith("Windows")) {
-            path = ClientConstants.winConfigPath + "conf" + ClientConstants.SEPARATOR + "comeet.conf";
+            path = ClientConstants.winConfigPath + ClientConstants.SEPARATOR + 
+			"conf" + ClientConstants.SEPARATOR + "comeet.conf";
         } 
         
         File configFile = new File(path);
         if (!configFile.exists()) {
-			JOptionPane.showMessageDialog(
-					null,
-					"No se encontró el archivo de configuración.\n" +
-					"Por favor, Contacte al administrador del sistema.",
-					"Error del Sistema",
-					JOptionPane.ERROR_MESSAGE);
-			
-			System.exit(0);
+        	criticalError("No se encontró el archivo de configuración.\n" +
+							"(" + path + ")\n" + "Por favor, Contacte al administrador del sistema.");
         }
+        
+        System.out.println("Cargando Archivo de Configuracion: " + path);
     	
         try {
-            saxBuilder = new SAXBuilder(false);
-                        
+            saxBuilder = new SAXBuilder(false);   
             doc = saxBuilder.build(path);
             root = doc.getRootElement();
             List configList = root.getChildren();
             Iterator iterator = configList.iterator();
+            int counter = 0;
             while (iterator.hasNext()) {
+            	counter++;
                 Element data = (Element) iterator.next();
                 String name = data.getName();
                 if (name.equals("host")) {
-                    host = data.getValue();
-                } else if (name.equals("serverport")) {
-                    serverPort = Integer.parseInt(data.getValue());
+                	String serverString = data.getValue();
+                	if (serverString.length() > 0) {
+                		host = serverString;
+                	} else {
+                		criticalError("El campo <server> no tiene ningún valor en el archivo de configuración.\n" +
+                				"Por favor, asignele una dirección IP o un nombre válido.");              		
+                	}
+                } else if (name.equals("serverPort")) {
+                	String portString = data.getValue();
+                	if (portString.length() > 0) {
+                		if (hasNumberFormat(portString)) { 
+                			serverPort = Integer.parseInt(portString);
+                		} else {
+                			criticalError("El campo <serverPort> debe poseer un valor númerico.\n" +
+                					"Por favor, corrija el valor del campo.");
+                		}
+                	} else {
+                		criticalError("El campo <serverPort> no tiene ningún valor en el archivo de configuración.\n" +
+                					"Por favor, asignele un valor numerico.");
+                	}
                 } else if (name.equals("time")) {
-                    time = Integer.parseInt(data.getValue());
+                	String timeString = data.getValue();
+                	if (timeString.length() > 0) {
+                		if (hasNumberFormat(timeString)) { 
+                			time = Integer.parseInt(timeString);
+                		} else {
+                			criticalError("El campo <time> debe poseer un valor númerico.\n" +
+                					"Por favor, corrija el valor del campo.");
+                		}
+                	} else {
+                		criticalError("El campo <time> no tiene ningún valor en el archivo de configuración.\n" +
+                					"Por favor, asignele un valor numerico.");
+                	}
                 }
             }
+            
+            System.out.println("Counter: " + counter);
+            
+            if((host.length() == 0) || (serverPort == -1) || (time == -1)) {
+            	criticalError("El archivo de configuración " + path 
+            			+ " se encuentra corrupto.\nPor favor, verfiquelo.");
+            }
+            
         }
         // TODO: Corregir el manejo de excepciones aqui / Precisar mensaje de error
         /* catch (FileNotFoundException FNFEe) {
@@ -97,7 +131,27 @@ public class ClientConfigFile {
             //throw new ConfigFileNotLoadException();
         }
     }
+    
+    private static void criticalError(String msg) {
+    	JOptionPane.showMessageDialog(
+    			null,
+    			msg,
+    			"Error del Sistema",
+    			JOptionPane.ERROR_MESSAGE);
 
+    	System.exit(0);
+    }
+    
+    private static boolean hasNumberFormat(String s) {
+        for(int i = 0; i < s.length(); i++) {
+            char c = s.charAt(i);
+            if (!Character.isDigit(c)) {
+                return false;
+            }
+          }
+        return true;
+    }
+    
     public static String getHost() {
         return host;
     }

@@ -27,7 +27,7 @@ import java.awt.Toolkit;
 public interface ClientConstants {
 
 	public final String KeyClient = "client";
-	public final String winConfigPath = "C:\\comeet\\";
+	public final String winConfigPath = "C:\\Archivos de programa\\CoMeet\\Client";
 	public final String unixConfigPath = "/etc/";
 	public final String HOME = System.getProperty("user.home");
     public final String SEPARATOR = System.getProperty("file.separator");
