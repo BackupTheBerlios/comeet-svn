@@ -5,6 +5,6 @@
 	<classpathentry kind="lib" path="dist/libs/jdom.jar"/>
 	<classpathentry kind="lib" path="dist/libs/nimrodlf.jar"/>
 	<classpathentry kind="lib" path="dist/libs/icons.jar"/>
-	<classpathentry combineaccessrules="false" kind="src" path="/Comeet-Lib"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/CoMeet-Lib"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

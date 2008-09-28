@@ -12,6 +12,6 @@
 	<classpathentry kind="lib" path="comeet/libs/wrapper.jar"/>
 	<classpathentry kind="lib" path="comeet/libs/ojdbc14.jar"/>
 	<classpathentry kind="lib" path="comeet/libs/poi.jar"/>
-	<classpathentry combineaccessrules="false" kind="src" path="/Comeet-Lib"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/CoMeet-Lib"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

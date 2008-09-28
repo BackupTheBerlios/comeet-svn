@@ -11,6 +11,6 @@
 	<classpathentry kind="lib" path="dist/libs/activation.jar"/>
 	<classpathentry kind="lib" path="dist/libs/samskivert.jar"/>
 	<classpathentry kind="lib" path="dist/libs/icons.jar"/>
-	<classpathentry combineaccessrules="false" kind="src" path="/Comeet-Lib"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/CoMeet-Lib"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
