@@ -307,7 +307,7 @@
 			SELECT
 				u.uid,login,nombres,correo,
 				admin,audit,u.gid,
-				g.nombre_grupo 
+				g.nombre_grupo,tipo_usuario 
 			FROM 
 				usuarios u ,puntosv pv,usuarios_pventa upv,grupos g 
 			WHERE 

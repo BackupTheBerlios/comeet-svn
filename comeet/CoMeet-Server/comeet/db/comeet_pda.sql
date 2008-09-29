@@ -143,6 +143,24 @@ ALTER TABLE public.usuarios_uid_seq OWNER TO comeetadmin;
 
 SELECT pg_catalog.setval('usuarios_uid_seq', 5238, true);
 
+--
+-- Name: tipo_usuario; Type: TABLE; Schema: public; Owner: comeetadmin; Tablespace: 
+--
+
+CREATE TABLE tipo_usuario (
+    id_tipo integer NOT NULL,
+    descripcion character varying(30) NOT NULL,
+    PRIMARY KEY(id_tipo)
+);
+
+
+ALTER TABLE public.tipo_usuario OWNER TO comeetadmin;
+
+COPY tipo_usuario (id_tipo, descripcion) FROM stdin;
+0	PC
+1	PUNTO DE VENTA
+2	LOTE
+\.
 
 --
 -- Name: usuarios; Type: TABLE; Schema: public; Owner: comeetadmin; Tablespace: 
@@ -150,14 +168,15 @@ SELECT pg_catalog.setval('usuarios_uid_seq', 5238, true);
 
 CREATE TABLE usuarios (
     uid integer DEFAULT nextval('usuarios_uid_seq'::regclass) NOT NULL,
-    "login" character varying(30) NOT NULL,
+    login character varying(30) NOT NULL,
     clave character(32) DEFAULT 'd41d8cd98f00b204e9800998ecf8427e'::bpchar NOT NULL,
     nombres character varying(100) DEFAULT 'Sin Nombre'::character varying,
     correo character varying(200),
-    "admin" boolean DEFAULT false NOT NULL,
+    admin boolean DEFAULT false NOT NULL,
     habilitado boolean DEFAULT true NOT NULL,
     gid integer DEFAULT 5,
-    audit boolean DEFAULT false NOT NULL
+    audit boolean DEFAULT false NOT NULL,
+    tipo_usuario integer REFERENCES tipo_usuario DEFAULT 0
 );
 
 

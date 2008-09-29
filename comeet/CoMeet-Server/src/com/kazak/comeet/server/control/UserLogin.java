@@ -47,6 +47,7 @@ public class UserLogin {
     private String groupName;
     private String ip;
     private String wsName = "";
+    private Integer userDevice; // 0: PC - 1: POS - 2: PDA CENTRAL 
     
     public String getLogin() {
         return login;
@@ -186,7 +187,8 @@ public class UserLogin {
 					admin	= resultSet.getBoolean(5);
 					audit	= resultSet.getBoolean(6);
 					gid		= resultSet.getInt(7);
-					groupName	 = resultSet.getString(8);
+					groupName	= resultSet.getString(8);
+					userDevice 	= resultSet.getInt(9);
 																				
 					if (validate) {
 		    			if (admin) {
