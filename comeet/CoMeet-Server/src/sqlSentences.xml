@@ -19,25 +19,35 @@
 			ORDER BY nombre_grupo 
 		</sql>
 	</sentence>
-        <sentence>
-                <!--Descripcion: Esta consulta muestra las direcciones ip que deben ser validadas dado un login -->
-                <code>SEL0002</code>
-                <sql>
-                        SELECT DISTINCT pv.nombre,pv.ip,up.valid_ip
-                        FROM usuarios_pventa up, puntosv pv
-                        WHERE up.uid = (SELECT uid FROM usuarios WHERE login='?')
-                        AND up.codigo_pventa=pv.codigo;
-                </sql>
-        </sentence>
-        <sentence>
-                <!--Descripcion: Esta consulta muestra las direcciones ip que deben ser validadas dado un login -->
-                <code>SEL0003</code>
-                <sql>
+    <sentence>
+    <!--Descripcion: Esta consulta muestra las direcciones ip que deben ser validadas dado un login -->
+        <code>SEL0002</code>
+        <sql>
+            SELECT DISTINCT pv.nombre,pv.ip,up.valid_ip
+            FROM usuarios_pventa up, puntosv pv
+            WHERE up.uid = (SELECT uid FROM usuarios WHERE login='?')
+            AND up.codigo_pventa=pv.codigo;
+        </sql>
+    </sentence>
+    <sentence>
+    <!--Descripcion: Esta consulta muestra las direcciones ip que deben ser validadas dado un login -->
+        <code>SEL0002A</code>
+        <sql>
+            SELECT DISTINCT ul.nombre,ul.ip,lt.valid_ip
+            FROM lotes_sitio lt, ubicacion_lotes ul
+            WHERE lt.codigo_lote = (SELECT uid FROM usuarios WHERE login='?')
+            AND lt.codigo_sitio = ul.codigo;
+        </sql>
+    </sentence>
+    <sentence>
+    <!--Descripcion: Esta consulta muestra las direcciones ip que deben ser validadas dado un login -->
+        <code>SEL0003</code>
+        <sql>
 			SELECT nombre 
 			FROM puntosv 
 			WHERE ip='?'
-                </sql>
-        </sentence>
+       </sql>
+    </sentence>
 	<sentence>
 	<!--Descripcion: Esta consulta retorna la informacion de todos los grupos del sistema -->
 		<code>SEL0004</code>
@@ -300,10 +310,32 @@
 		</sql>
 	</sentence>
 	<sentence>
-	<!--Descripcion: ... -->
+	<!--Descripcion: Captura el tipo de usuario dado un login-->
 		<code>SEL0025</code>
 		<sql>
-                        SELECT DISTINCT * FROM (
+          SELECT tipo_usuario 
+          FROM usuarios
+          WHERE login='?'
+		</sql>
+	</sentence>
+	<sentence>	
+	<!--Descripcion: Consulta datos de usuario admin/auditor -->
+		<code>SEL0025A</code>
+		<sql>
+            SELECT u.uid,login,nombres,correo,
+                   admin,audit,u.gid,
+                   g.nombre_grupo,tipo_usuario
+			FROM 
+                   usuarios u,grupos g 
+			WHERE 
+                   login='?' AND (admin=true OR audit=true) 
+                   AND g.gid=u.gid
+		</sql>
+	</sentence>
+	<sentence>	
+	<!--Descripcion: Consulta datos de usuario POS -->
+		<code>SEL0025B</code>
+		<sql>
 			SELECT
 				u.uid,login,nombres,correo,
 				admin,audit,u.gid,
@@ -311,17 +343,21 @@
 			FROM 
 				usuarios u ,puntosv pv,usuarios_pventa upv,grupos g 
 			WHERE 
-				u.login='?' AND pv.codigo=upv.codigo_pventa AND u.uid=upv.uid AND g.gid=u.gid 
-			UNION SELECT
-				u.uid,login,nombres,correo,
-				admin,audit,u.gid,g.nombre_grupo 
-			FROM 
-				usuarios u,grupos g 
-			WHERE 
-				login='?' AND (admin=true OR audit=true) AND g.gid=u.gid
-			ORDER BY login ) AS foo
+				u.login='?' AND pv.codigo=upv.codigo_pventa 
+                AND u.uid=upv.uid AND g.gid=u.gid 
 		</sql>
 	</sentence>
+	<sentence>	
+	<!--Descripcion: Consulta datos de lote PDA -->
+		<code>SEL0025C</code>
+		<sql>
+		  SELECT u.uid,login,nombres,correo,
+               admin,audit,u.gid,
+			   g.nombre_grupo,tipo_usuario 
+          FROM usuarios u, grupos g 
+          WHERE login='?' AND tipo_usuario=2 AND g.gid=u.gid 
+        </sql>
+	</sentence>	
 	<sentence>
 	<!--Descripcion: Retorna los datos de un usuario a partir de su login -->
 		<code>SEL0026</code>

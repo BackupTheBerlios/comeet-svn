@@ -2,16 +2,11 @@
 -- PostgreSQL database dump
 --
 
-SET client_encoding = 'LATIN1';
+SET client_encoding = 'UTF8';
+SET standard_conforming_strings = off;
 SET check_function_bodies = false;
 SET client_min_messages = warning;
-
---
--- Name: SCHEMA public; Type: COMMENT; Schema: -; Owner: postgres
---
-
-COMMENT ON SCHEMA public IS 'Standard public schema';
-
+SET escape_string_warning = off;
 
 SET search_path = public, pg_catalog;
 
@@ -32,7 +27,7 @@ ALTER TABLE public.grupos_gid_seq OWNER TO comeetadmin;
 -- Name: grupos_gid_seq; Type: SEQUENCE SET; Schema: public; Owner: comeetadmin
 --
 
-SELECT pg_catalog.setval('grupos_gid_seq', 65, true);
+SELECT pg_catalog.setval('grupos_gid_seq', 66, true);
 
 
 SET default_tablespace = '';
@@ -89,7 +84,7 @@ CREATE TABLE mensajes (
     tiempo_vida integer DEFAULT 1 NOT NULL,
     uid_origen integer NOT NULL,
     control boolean DEFAULT false NOT NULL,
-    minutos smallint DEFAULT -1 NOT NULL,
+    minutos smallint DEFAULT (-1) NOT NULL,
     fecha_confirmacion timestamp without time zone
 );
 
@@ -109,6 +104,18 @@ CREATE TABLE puntosv (
 
 
 ALTER TABLE public.puntosv OWNER TO comeetadmin;
+
+--
+-- Name: tipo_usuario; Type: TABLE; Schema: public; Owner: comeetadmin; Tablespace: 
+--
+
+CREATE TABLE tipo_usuario (
+    id_tipo integer NOT NULL,
+    descripcion character varying(30) NOT NULL
+);
+
+
+ALTER TABLE public.tipo_usuario OWNER TO comeetadmin;
 
 --
 -- Name: transacciones; Type: TABLE; Schema: public; Owner: comeetadmin; Tablespace: 
@@ -141,26 +148,8 @@ ALTER TABLE public.usuarios_uid_seq OWNER TO comeetadmin;
 -- Name: usuarios_uid_seq; Type: SEQUENCE SET; Schema: public; Owner: comeetadmin
 --
 
-SELECT pg_catalog.setval('usuarios_uid_seq', 5238, true);
+SELECT pg_catalog.setval('usuarios_uid_seq', 5239, true);
 
---
--- Name: tipo_usuario; Type: TABLE; Schema: public; Owner: comeetadmin; Tablespace: 
---
-
-CREATE TABLE tipo_usuario (
-    id_tipo integer NOT NULL,
-    descripcion character varying(30) NOT NULL,
-    PRIMARY KEY(id_tipo)
-);
-
-
-ALTER TABLE public.tipo_usuario OWNER TO comeetadmin;
-
-COPY tipo_usuario (id_tipo, descripcion) FROM stdin;
-0	PC
-1	PUNTO DE VENTA
-2	LOTE
-\.
 
 --
 -- Name: usuarios; Type: TABLE; Schema: public; Owner: comeetadmin; Tablespace: 
@@ -176,11 +165,25 @@ CREATE TABLE usuarios (
     habilitado boolean DEFAULT true NOT NULL,
     gid integer DEFAULT 5,
     audit boolean DEFAULT false NOT NULL,
-    tipo_usuario integer REFERENCES tipo_usuario DEFAULT 0
+    tipo_usuario integer DEFAULT 0
 );
 
 
 ALTER TABLE public.usuarios OWNER TO comeetadmin;
+
+--
+-- Name: ubicacion_lotes; Type: TABLE; Schema: public; Owner: comeetadmin; Tablespace: 
+--
+
+CREATE TABLE ubicacion_lotes (
+    codigo character(4) NOT NULL,
+    nombre character varying(50) NOT NULL,
+    ip inet DEFAULT '127.0.0.1'::inet,
+    gid integer DEFAULT 10 NOT NULL,
+    PRIMARY KEY(codigo)
+);
+
+ALTER TABLE public.ubicacion_lotes OWNER TO comeetadmin;
 
 --
 -- Name: usuarios_pventa; Type: TABLE; Schema: public; Owner: comeetadmin; Tablespace: 
@@ -211,6 +214,7 @@ COPY grupos (gid, nombre_grupo, mostrable, zona) FROM stdin;
 9	OCCIDENTE	f	t
 65	CORABASTOS	f	t
 0	COMEET	f	f
+10	LOTE_SUBA	f	f
 \.
 
 
@@ -269,10 +273,10 @@ COPY mensajes (mid, uid_destino, fecha, hora, asunto, texto, confirmado, valido,
 4193	16	2007-10-31	12:20:00	Mensaje de Prueba	Prueba X	f	t	3	4	f	0	\N
 4194	16	2007-10-31	12:22:00	Sigamos intentando!	Cheto?	f	t	3	4	f	0	\N
 4195	16	2007-10-31	12:35:00	Otra prueba	a ver si si	f	t	3	4	f	0	\N
-4196	4	2007-10-31	12:36:00	Otra prueba	El miÈ, 31-10-2007 a las 12:35 -0500, comeet@saludtotal.com escribiÛ:\r\n> Carolina Perez Pum escribio desde PORVENIR:\r\n> --------------------------------------------\r\n> a ver si si\r\n> --------------------------------------------\r\n> .\r\n> \r\nDale a ver!	t	t	3	16	f	-1	2007-10-31 12:36:56
+4196	4	2007-10-31	12:36:00	Otra prueba	El mi√©, 31-10-2007 a las 12:35 -0500, comeet@saludtotal.com escribi√≥:\r\n> Carolina Perez Pum escribio desde PORVENIR:\r\n> --------------------------------------------\r\n> a ver si si\r\n> --------------------------------------------\r\n> .\r\n> \r\nDale a ver!	t	t	3	16	f	-1	2007-10-31 12:36:56
 4197	4	2007-10-31	12:48:00	Solicitud!	Por favor!	t	t	3	16	f	-1	2007-10-31 12:48:50
 4198	4	2007-10-31	12:57:00	prueba	Ja!	t	t	3	16	f	-1	2007-10-31 12:57:58
-4199	4	2007-10-31	12:58:00	Sigamos intentando!	De que diablos me hablas?\r\n\r\nEl miÈ, 31-10-2007 a las 12:22 -0500, comeet@saludtotal.com escribiÛ:\r\n> Carolina Perez Pum escribio desde PORVENIR:\r\n> --------------------------------------------\r\n> Cheto?\r\n> --------------------------------------------\r\n> .\r\n>	t	t	3	16	f	-1	2007-10-31 12:58:19
+4199	4	2007-10-31	12:58:00	Sigamos intentando!	De que diablos me hablas?\r\n\r\nEl mi√©, 31-10-2007 a las 12:22 -0500, comeet@saludtotal.com escribi√≥:\r\n> Carolina Perez Pum escribio desde PORVENIR:\r\n> --------------------------------------------\r\n> Cheto?\r\n> --------------------------------------------\r\n> .\r\n>	t	t	3	16	f	-1	2007-10-31 12:58:19
 4200	16	2007-10-31	13:05:00	Prueba!!!	Si o no?	f	t	3	4	f	0	\N
 4201	16	2007-10-31	13:07:00	Probando	a ver que pasa!	f	t	3	4	f	0	\N
 4202	16	2007-10-31	13:12:00	Hola	Si o no?	f	t	3	4	f	0	\N
@@ -350,26 +354,26 @@ COPY mensajes (mid, uid_destino, fecha, hora, asunto, texto, confirmado, valido,
 4274	16	2007-10-31	13:54:00	[RE:aviso urgente]	de que se trata?	f	t	3	4	f	0	\N
 4275	4	2007-10-31	13:55:00	probando!!!	a que no te la crees?	t	t	3	16	f	-1	2007-10-31 13:55:28
 4276	16	2007-10-31	13:57:00	Sigamos probando	o que no?	f	t	3	4	f	0	\N
-4277	4	2007-10-31	14:02:00	Sigamos probando	Ultima bola!\r\n\r\nEl miÈ, 31-10-2007 a las 13:57 -0500, comeet@saludtotal.com escribiÛ:\r\n> Carolina Perez Pum escribio desde PORVENIR:\r\n> --------------------------------------------\r\n> o que no?\r\n> --------------------------------------------\r\n> .\r\n>	t	t	3	16	f	-1	2007-10-31 14:02:14
+4277	4	2007-10-31	14:02:00	Sigamos probando	Ultima bola!\r\n\r\nEl mi√©, 31-10-2007 a las 13:57 -0500, comeet@saludtotal.com escribi√≥:\r\n> Carolina Perez Pum escribio desde PORVENIR:\r\n> --------------------------------------------\r\n> o que no?\r\n> --------------------------------------------\r\n> .\r\n>	t	t	3	16	f	-1	2007-10-31 14:02:14
 4278	16	2007-10-31	23:00:00	Hola amigo	desde aca! ja!	f	t	3	5238	f	0	\N
 4279	16	2007-10-31	23:15:00	Probando	A ver si llega	f	t	3	5238	f	0	\N
-4280	5238	2007-10-31	23:28:00	Probando	Ok computer!\r\n\r\nEl miÈ, 31-10-2007 a las 23:15 -0500, comeet@saludtotal.com escribiÛ:\r\n> Durango Palomino escribio desde PORVENIR:\r\n> --------------------------------------------\r\n> A ver si llega\r\n> --------------------------------------------\r\n> .\r\n>	t	t	3	16	f	-1	2007-10-31 23:28:49
+4280	5238	2007-10-31	23:28:00	Probando	Ok computer!\r\n\r\nEl mi√©, 31-10-2007 a las 23:15 -0500, comeet@saludtotal.com escribi√≥:\r\n> Durango Palomino escribio desde PORVENIR:\r\n> --------------------------------------------\r\n> A ver si llega\r\n> --------------------------------------------\r\n> .\r\n>	t	t	3	16	f	-1	2007-10-31 23:28:49
 4281	16	2007-11-02	09:01:00	Bullet proof	I wish i was	f	t	3	5235	f	0	\N
 4283	16	2007-11-02	09:09:00	Mensaje de Prueba	Ja!	f	t	3	5235	f	0	\N
 4286	16	2007-11-02	09:13:00	Ensayando!	A ver si si!	f	t	3	5235	f	0	\N
-4287	5235	2007-11-02	09:15:00	Ensayando!	No esta ni tibio!!!\r\n\r\nEl vie, 02-11-2007 a las 09:13 -0500, comeet@saludtotal.com escribiÛ:\r\n> Diego Rodriguez escribio desde PORVENIR:\r\n> --------------------------------------------\r\n> A ver si si!\r\n> --------------------------------------------\r\n> .\r\n>	t	t	3	16	f	-1	2007-11-02 09:15:13
-4284	5235	2007-11-02	09:13:00	Mensaje de Prueba	Prueba!!!\r\n\r\nEl vie, 02-11-2007 a las 09:09 -0500, comeet@saludtotal.com escribiÛ:\r\n> Diego Rodriguez escribio desde PORVENIR:\r\n> --------------------------------------------\r\n> Ja!\r\n> --------------------------------------------\r\n> .\r\n>	t	t	3	16	f	-1	2007-11-02 09:15:14
-4285	5235	2007-11-02	09:13:00	Bullet proof	Plop!\r\n\r\nEl vie, 02-11-2007 a las 09:01 -0500, comeet@saludtotal.com escribiÛ:\r\n> Diego Rodriguez escribio desde PORVENIR:\r\n> --------------------------------------------\r\n> I wish i was\r\n> --------------------------------------------\r\n> .\r\n>	t	t	3	16	f	-1	2007-11-02 09:15:14
-4282	5235	2007-11-02	09:08:00	Bullet proof	El vie, 02-11-2007 a las 09:01 -0500, comeet@saludtotal.com escribiÛ:\r\n> Diego Rodriguez escribio desde PORVENIR:\r\n> --------------------------------------------\r\n> I wish i was\r\n> --------------------------------------------\r\n> .\r\n>	t	t	3	16	f	-1	2007-11-02 09:15:19
-4288	5235	2007-11-02	09:16:00	Ensayando!	El vie, 02-11-2007 a las 09:13 -0500, comeet@saludtotal.com escribiÛ:\r\n> Diego Rodriguez escribio desde PORVENIR:\r\n> --------------------------------------------\r\n> A ver si si!\r\n> --------------------------------------------\r\n> .\r\n>	t	t	3	16	f	-1	2007-11-02 09:16:44
+4287	5235	2007-11-02	09:15:00	Ensayando!	No esta ni tibio!!!\r\n\r\nEl vie, 02-11-2007 a las 09:13 -0500, comeet@saludtotal.com escribi√≥:\r\n> Diego Rodriguez escribio desde PORVENIR:\r\n> --------------------------------------------\r\n> A ver si si!\r\n> --------------------------------------------\r\n> .\r\n>	t	t	3	16	f	-1	2007-11-02 09:15:13
+4284	5235	2007-11-02	09:13:00	Mensaje de Prueba	Prueba!!!\r\n\r\nEl vie, 02-11-2007 a las 09:09 -0500, comeet@saludtotal.com escribi√≥:\r\n> Diego Rodriguez escribio desde PORVENIR:\r\n> --------------------------------------------\r\n> Ja!\r\n> --------------------------------------------\r\n> .\r\n>	t	t	3	16	f	-1	2007-11-02 09:15:14
+4285	5235	2007-11-02	09:13:00	Bullet proof	Plop!\r\n\r\nEl vie, 02-11-2007 a las 09:01 -0500, comeet@saludtotal.com escribi√≥:\r\n> Diego Rodriguez escribio desde PORVENIR:\r\n> --------------------------------------------\r\n> I wish i was\r\n> --------------------------------------------\r\n> .\r\n>	t	t	3	16	f	-1	2007-11-02 09:15:14
+4282	5235	2007-11-02	09:08:00	Bullet proof	El vie, 02-11-2007 a las 09:01 -0500, comeet@saludtotal.com escribi√≥:\r\n> Diego Rodriguez escribio desde PORVENIR:\r\n> --------------------------------------------\r\n> I wish i was\r\n> --------------------------------------------\r\n> .\r\n>	t	t	3	16	f	-1	2007-11-02 09:15:19
+4288	5235	2007-11-02	09:16:00	Ensayando!	El vie, 02-11-2007 a las 09:13 -0500, comeet@saludtotal.com escribi√≥:\r\n> Diego Rodriguez escribio desde PORVENIR:\r\n> --------------------------------------------\r\n> A ver si si!\r\n> --------------------------------------------\r\n> .\r\n>	t	t	3	16	f	-1	2007-11-02 09:16:44
 4289	16	2007-11-02	09:16:00	Prueba 13	pa que afine!	f	t	3	5235	f	0	\N
-4290	5235	2007-11-02	09:17:00	Prueba 13	Pa las que sean papa!\r\n\r\nEl vie, 02-11-2007 a las 09:16 -0500, comeet@saludtotal.com escribiÛ:\r\n> Diego Rodriguez escribio desde PORVENIR:\r\n> --------------------------------------------\r\n> pa que afine!\r\n> --------------------------------------------\r\n> .\r\n>	t	t	3	16	f	-1	2007-11-02 09:17:23
-4291	5235	2007-11-02	09:17:00	Mensaje de Prueba	No falle!\r\n\r\nEl vie, 02-11-2007 a las 09:09 -0500, comeet@saludtotal.com escribiÛ:\r\n> Diego Rodriguez escribio desde PORVENIR:\r\n> --------------------------------------------\r\n> Ja!\r\n> --------------------------------------------\r\n> .\r\n>	t	t	3	16	f	-1	2007-11-02 09:17:43
-4292	5235	2007-11-02	09:18:00	Bullet proof	Por que tan salsa?\r\n\r\nEl vie, 02-11-2007 a las 09:01 -0500, comeet@saludtotal.com escribiÛ:\r\n> Diego Rodriguez escribio desde PORVENIR:\r\n> --------------------------------------------\r\n> I wish i was\r\n> --------------------------------------------\r\n> .\r\n>	t	t	3	16	f	-1	2007-11-02 09:18:04
+4290	5235	2007-11-02	09:17:00	Prueba 13	Pa las que sean papa!\r\n\r\nEl vie, 02-11-2007 a las 09:16 -0500, comeet@saludtotal.com escribi√≥:\r\n> Diego Rodriguez escribio desde PORVENIR:\r\n> --------------------------------------------\r\n> pa que afine!\r\n> --------------------------------------------\r\n> .\r\n>	t	t	3	16	f	-1	2007-11-02 09:17:23
+4291	5235	2007-11-02	09:17:00	Mensaje de Prueba	No falle!\r\n\r\nEl vie, 02-11-2007 a las 09:09 -0500, comeet@saludtotal.com escribi√≥:\r\n> Diego Rodriguez escribio desde PORVENIR:\r\n> --------------------------------------------\r\n> Ja!\r\n> --------------------------------------------\r\n> .\r\n>	t	t	3	16	f	-1	2007-11-02 09:17:43
+4292	5235	2007-11-02	09:18:00	Bullet proof	Por que tan salsa?\r\n\r\nEl vie, 02-11-2007 a las 09:01 -0500, comeet@saludtotal.com escribi√≥:\r\n> Diego Rodriguez escribio desde PORVENIR:\r\n> --------------------------------------------\r\n> I wish i was\r\n> --------------------------------------------\r\n> .\r\n>	t	t	3	16	f	-1	2007-11-02 09:18:04
 4293	16	2007-11-02	09:18:00	Care pop	Ya veremos!	f	t	3	5235	f	0	\N
-4294	5235	2007-11-02	09:18:00	Care pop	U2!\r\n\r\nEl vie, 02-11-2007 a las 09:18 -0500, comeet@saludtotal.com escribiÛ:\r\n> Diego Rodriguez escribio desde PORVENIR:\r\n> --------------------------------------------\r\n> Ya veremos!\r\n> --------------------------------------------\r\n> .\r\n>	t	t	3	16	f	-1	2007-11-02 09:18:44
+4294	5235	2007-11-02	09:18:00	Care pop	U2!\r\n\r\nEl vie, 02-11-2007 a las 09:18 -0500, comeet@saludtotal.com escribi√≥:\r\n> Diego Rodriguez escribio desde PORVENIR:\r\n> --------------------------------------------\r\n> Ya veremos!\r\n> --------------------------------------------\r\n> .\r\n>	t	t	3	16	f	-1	2007-11-02 09:18:44
 4295	16	2007-11-02	09:20:00	Probando	123	f	t	3	5235	f	0	\N
-4296	5235	2007-11-02	09:21:00	Probando	Houston! i copy that!\r\n\r\nEl vie, 02-11-2007 a las 09:20 -0500, comeet@saludtotal.com escribiÛ:\r\n> Diego Rodriguez escribio desde PORVENIR:\r\n> --------------------------------------------\r\n> 123\r\n> --------------------------------------------\r\n> .\r\n>	t	t	3	16	f	-1	2007-11-02 09:21:06
+4296	5235	2007-11-02	09:21:00	Probando	Houston! i copy that!\r\n\r\nEl vie, 02-11-2007 a las 09:20 -0500, comeet@saludtotal.com escribi√≥:\r\n> Diego Rodriguez escribio desde PORVENIR:\r\n> --------------------------------------------\r\n> 123\r\n> --------------------------------------------\r\n> .\r\n>	t	t	3	16	f	-1	2007-11-02 09:21:06
 \.
 
 
@@ -401,6 +405,17 @@ COPY puntosv (codigo, nombre, ip, gid) FROM stdin;
 
 
 --
+-- Data for Name: tipo_usuario; Type: TABLE DATA; Schema: public; Owner: comeetadmin
+--
+
+COPY tipo_usuario (id_tipo, descripcion) FROM stdin;
+0	PC
+1	PUNTO DE VENTA
+2	LOTE
+\.
+
+
+--
 -- Data for Name: transacciones; Type: TABLE DATA; Schema: public; Owner: comeetadmin
 --
 
@@ -413,9 +428,9 @@ TR005	Edita un grupo	com.kazak.comeet.server.businessrules.GroupManager	<root>\n
 TR006	Borra un grupo	com.kazak.comeet.server.businessrules.GroupManager	<root>\n    <action>remove</action>\n    <arg>SEL0013</arg>\n    <arg>SEL0014</arg>\n    <arg>DEL0003</arg>\n</root>
 TR007	Nuevo Punto de Venta	com.kazak.comeet.server.businessrules.PointOfSaleManager	<root>\n    <action>add</action>\n    <arg>INS0007</arg>\n</root>
 TR009	Borrar Punto de Venta	com.kazak.comeet.server.businessrules.PointOfSaleManager	<root>\n    <action>remove</action>\n    <arg>DEL0004</arg>\n</root>
-TR010	Actualizacion de Contrase√±a	com.kazak.comeet.server.businessrules.PasswordExchanger	<root>\n<args>UPD0002</args>\n</root>
+TR010	Actualizacion de Contrase√É¬±a	com.kazak.comeet.server.businessrules.PasswordExchanger	<root>\n<args>UPD0002</args>\n</root>
 TR011	Confirmacion de mensaje	com.kazak.comeet.server.businessrules.MessageConfirmer	<root>\n    <args>UPD0003</args>\n</root>
-TR012	SincronizaciÛn de las bases de datos Oracle con PostgreSQL	com.kazak.comeet.server.businessrules.SyncManager	<root/>
+TR012	Sincronizaci√≥n de las bases de datos Oracle con PostgreSQL	com.kazak.comeet.server.businessrules.SyncManager	<root/>
 TR008	Editar Punto de Venta	com.kazak.comeet.server.businessrules.PointOfSaleManager	<root>\n    <action>edit</action>\n    <arg>UPD0005</arg>\n</root>
 \.
 
@@ -424,35 +439,36 @@ TR008	Editar Punto de Venta	com.kazak.comeet.server.businessrules.PointOfSaleMan
 -- Data for Name: usuarios; Type: TABLE DATA; Schema: public; Owner: comeetadmin
 --
 
-COPY usuarios (uid, "login", clave, nombres, correo, "admin", habilitado, gid, audit) FROM stdin;
-3	comeetadmin	827ccb0eea8a706c4c34a16891f84e7b	Usuario CoMeet	comeet@localhost	t	t	0	f
-5	CV0002	827ccb0eea8a706c4c34a16891f84e7b	Adriana Medina		f	t	6	f
-6	CV0003	827ccb0eea8a706c4c34a16891f84e7b	Jorge Triana		f	t	7	f
-7	CV0004	827ccb0eea8a706c4c34a16891f84e7b	Joanna Arango		f	t	6	f
-8	CV0005	827ccb0eea8a706c4c34a16891f84e7b	Pedro Garcia		f	t	7	f
-9	CV0006	827ccb0eea8a706c4c34a16891f84e7b	Jose Viena		f	t	7	f
-10	CV0007	827ccb0eea8a706c4c34a16891f84e7b	Daniel Rios		f	t	8	f
-11	CV0008	827ccb0eea8a706c4c34a16891f84e7b	Andres Naranjo		f	t	8	f
-12	CV0009	827ccb0eea8a706c4c34a16891f84e7b	Jairo Perez		f	t	8	f
-13	CV0010	827ccb0eea8a706c4c34a16891f84e7b	Mario Andrade		f	t	9	f
-14	CV0011	827ccb0eea8a706c4c34a16891f84e7b	Marisol Correa		f	t	9	f
-15	CV0012	827ccb0eea8a706c4c34a16891f84e7b	Joaquin Aranda		f	t	9	f
-17	gustavo2	827ccb0eea8a706c4c34a16891f84e7b	Gustavo Gonzalez	gustavo@localhost	t	t	2	t
-18	gustavo3	827ccb0eea8a706c4c34a16891f84e7b	Gustavo Gonzalez	gustavo@localhost	t	t	3	t
-5227	CV0090	827ccb0eea8a706c4c34a16891f84e7b	Guz		f	t	1	f
-5228	CV0092	827ccb0eea8a706c4c34a16891f84e7b	Proof		f	t	1	f
-5229	CV0098	827ccb0eea8a706c4c34a16891f84e7b	Proof 2		f	t	1	f
-5232	support	827ccb0eea8a706c4c34a16891f84e7b	Support User	support@localhost	t	t	0	f
-5233	pollito	827ccb0eea8a706c4c34a16891f84e7b	Pollito Gallina	pollito@localhost	t	t	4	f
-5234	CV0070	827ccb0eea8a706c4c34a16891f84e7b	Vendedor X		f	t	1	f
-2	auditor	827ccb0eea8a706c4c34a16891f84e7b	Usuario Auditor	auditor@localhost	f	t	4	t
-1	admin	21232f297a57a5a743894a0e4a801fc3	Usuario Administrador	admin@localhost	t	t	2	f
-16	gustavo	827ccb0eea8a706c4c34a16891f84e7b	Gustavo Gonzalez G	gustavo@saludtotal.com	t	t	5	f
-5235	DiegoR	827ccb0eea8a706c4c34a16891f84e7b	Diego Rodriguez		f	t	1	f
-5236	pCastro	827ccb0eea8a706c4c34a16891f84e7b	Pablo Castro		f	t	1	f
-4	CV0001	21232f297a57a5a743894a0e4a801fc3	Carolina Perez Pum		f	t	1	f
-5237	canciller	827ccb0eea8a706c4c34a16891f84e7b	Canciller X	canciller@saludtotal.com	f	t	4	t
-5238	DurangoP	827ccb0eea8a706c4c34a16891f84e7b	Durango Palomino		f	t	1	f
+COPY usuarios (uid, login, clave, nombres, correo, admin, habilitado, gid, audit, tipo_usuario) FROM stdin;
+3	comeetadmin	827ccb0eea8a706c4c34a16891f84e7b	Usuario CoMeet	comeet@localhost	t	t	0	f	0
+17	gustavo2	827ccb0eea8a706c4c34a16891f84e7b	Gustavo Gonzalez	gustavo@localhost	t	t	2	t	0
+5232	support	827ccb0eea8a706c4c34a16891f84e7b	Support User	support@localhost	t	t	0	f	0
+5233	pollito	827ccb0eea8a706c4c34a16891f84e7b	Pollito Gallina	pollito@localhost	t	t	4	f	0
+2	auditor	827ccb0eea8a706c4c34a16891f84e7b	Usuario Auditor	auditor@localhost	f	t	4	t	0
+1	admin	21232f297a57a5a743894a0e4a801fc3	Usuario Administrador	admin@localhost	t	t	2	f	0
+16	gustavo	827ccb0eea8a706c4c34a16891f84e7b	Gustavo Gonzalez G	gustavo@saludtotal.com	t	t	5	f	0
+5237	canciller	827ccb0eea8a706c4c34a16891f84e7b	Canciller X	canciller@saludtotal.com	f	t	4	t	0
+18	gustavo3	827ccb0eea8a706c4c34a16891f84e7b	Gustavo Gonzalez	xtingray@localhost	t	t	3	t	0
+5	CV0002	827ccb0eea8a706c4c34a16891f84e7b	Adriana Medina		f	t	6	f	1
+6	CV0003	827ccb0eea8a706c4c34a16891f84e7b	Jorge Triana		f	t	7	f	1
+7	CV0004	827ccb0eea8a706c4c34a16891f84e7b	Joanna Arango		f	t	6	f	1
+8	CV0005	827ccb0eea8a706c4c34a16891f84e7b	Pedro Garcia		f	t	7	f	1
+9	CV0006	827ccb0eea8a706c4c34a16891f84e7b	Jose Viena		f	t	7	f	1
+10	CV0007	827ccb0eea8a706c4c34a16891f84e7b	Daniel Rios		f	t	8	f	1
+11	CV0008	827ccb0eea8a706c4c34a16891f84e7b	Andres Naranjo		f	t	8	f	1
+12	CV0009	827ccb0eea8a706c4c34a16891f84e7b	Jairo Perez		f	t	8	f	1
+13	CV0010	827ccb0eea8a706c4c34a16891f84e7b	Mario Andrade		f	t	9	f	1
+14	CV0011	827ccb0eea8a706c4c34a16891f84e7b	Marisol Correa		f	t	9	f	1
+15	CV0012	827ccb0eea8a706c4c34a16891f84e7b	Joaquin Aranda		f	t	9	f	1
+5227	CV0090	827ccb0eea8a706c4c34a16891f84e7b	Guz		f	t	1	f	1
+5228	CV0092	827ccb0eea8a706c4c34a16891f84e7b	Proof		f	t	1	f	1
+5229	CV0098	827ccb0eea8a706c4c34a16891f84e7b	Proof 2		f	t	1	f	1
+5234	CV0070	827ccb0eea8a706c4c34a16891f84e7b	Vendedor X		f	t	1	f	1
+5235	DiegoR	827ccb0eea8a706c4c34a16891f84e7b	Diego Rodriguez		f	t	1	f	1
+5236	pCastro	827ccb0eea8a706c4c34a16891f84e7b	Pablo Castro		f	t	1	f	1
+5238	DurangoP	827ccb0eea8a706c4c34a16891f84e7b	Durango Palomino		f	t	1	f	1
+4	CV0001	827ccb0eea8a706c4c34a16891f84e7b	Carolina Perez Pum		f	t	1	f	1
+5239	suba	827ccb0eea8a706c4c34a16891f84e7b	Lote Suba	suba@localhost	f	t	10	f	2
 \.
 
 
@@ -478,9 +494,9 @@ COPY usuarios_pventa (uid, codigo_pventa, valid_ip) FROM stdin;
 5234	14  	f
 5235	0001	f
 5236	0001	f
+5238	20  	f
 4	0000	f
 4	0001	f
-5238	20  	f
 \.
 
 
@@ -525,6 +541,14 @@ ALTER TABLE ONLY puntosv
 
 
 --
+-- Name: tipo_usuario_pkey; Type: CONSTRAINT; Schema: public; Owner: comeetadmin; Tablespace: 
+--
+
+ALTER TABLE ONLY tipo_usuario
+    ADD CONSTRAINT tipo_usuario_pkey PRIMARY KEY (id_tipo);
+
+
+--
 -- Name: transacciones_pkey; Type: CONSTRAINT; Schema: public; Owner: comeetadmin; Tablespace: 
 --
 
@@ -537,7 +561,7 @@ ALTER TABLE ONLY transacciones
 --
 
 ALTER TABLE ONLY usuarios
-    ADD CONSTRAINT usuarios_login_key UNIQUE ("login");
+    ADD CONSTRAINT usuarios_login_key UNIQUE (login);
 
 
 --
@@ -579,6 +603,25 @@ ALTER TABLE ONLY usuarios_pventa
 ALTER TABLE ONLY usuarios_pventa
     ADD CONSTRAINT usuarios_pventa_uid_fkey FOREIGN KEY (uid) REFERENCES usuarios(uid);
 
+
+--
+-- Name: usuarios_tipo_usuario_fkey; Type: FK CONSTRAINT; Schema: public; Owner: comeetadmin
+--
+
+ALTER TABLE ONLY usuarios
+    ADD CONSTRAINT usuarios_tipo_usuario_fkey FOREIGN KEY (tipo_usuario) REFERENCES tipo_usuario(id_tipo);
+
+--
+-- Name: lotes_puntos; Type: TABLE; Schema: public; Owner: comeetadmin; Tablespace: 
+--
+
+CREATE TABLE lotes_sitio (
+    codigo_lote integer NOT NULL references usuarios(uid),
+    codigo_sitio character(4) NOT NULL references ubicacion_lotes(codigo),
+    valid_ip boolean DEFAULT false NOT NULL
+);
+
+ALTER TABLE public.lotes_sitio OWNER TO comeetadmin;
 
 --
 -- Name: public; Type: ACL; Schema: -; Owner: postgres
