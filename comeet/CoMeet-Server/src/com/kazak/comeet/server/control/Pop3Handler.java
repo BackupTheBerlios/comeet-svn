@@ -1,10 +1,14 @@
 package com.kazak.comeet.server.control;
 
 import java.io.IOException;
+import java.nio.channels.SocketChannel;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.Properties;
+import java.util.Enumeration;
 
 import javax.mail.AuthenticationFailedException;
 import javax.mail.Flags;
@@ -17,9 +21,10 @@ import javax.mail.Session;
 import javax.mail.Store;
 import javax.mail.internet.InternetAddress;
 import javax.mail.Part;
-
 import org.jdom.Element;
 
+import com.kazak.comeet.server.control.QuerySender;
+import com.kazak.comeet.server.comunications.SocketServer;
 import com.kazak.comeet.server.Run;
 import com.kazak.comeet.server.database.sql.QueryClosingHandler;
 import com.kazak.comeet.server.database.sql.QueryRunner;
@@ -81,7 +86,7 @@ public class Pop3Handler extends Thread {
 				Folder folder = store.getFolder("INBOX");
 				folder.open(Folder.READ_WRITE);
 				Message messages[] = folder.getMessages();
-						
+
 				for (Message message : messages) {
 					InternetAddress address = (InternetAddress) message.getFrom()[0];
 					String fullSubject =  message.getSubject();
@@ -91,7 +96,7 @@ public class Pop3Handler extends Thread {
 					if(lowercase.startsWith("re:")) {
 						fullSubject = fullSubject.substring(3,fullSubject.length()).trim();
 					}
-								
+
 					int index1  = address.getAddress().indexOf('@');
 					String from = address.getAddress().substring(0,index1);
 					int index2  = fullSubject!=null ? fullSubject.indexOf(',') : -1;
@@ -100,7 +105,7 @@ public class Pop3Handler extends Thread {
 					String subject = "";
 					String msgType = "";
 					String content = "";
-					
+
 					if (message.isMimeType("multipart/*")) {
 						msgType = "multipart/*";
 						content = processMimeMail(message);
@@ -108,7 +113,7 @@ public class Pop3Handler extends Thread {
 						msgType = "text/*";
 						content = message.getContent().toString();
 					}
-					
+
 					LogWriter.write("INFO: Leyendo correo del buzon de mensajes");
 					System.out.println("INFO: Formato de mensaje -> " + msgType);
 					LogWriter.write("INFO: Nuevo mensaje desde {" + address.getAddress() + "} con asunto [ " +  fullSubject + " ]");
@@ -121,7 +126,7 @@ public class Pop3Handler extends Thread {
 							LogWriter.write(content);
 							EmailSender mail = new EmailSender();
 							mail.setFrom(user+"@"+host);
-							mail.setSender(address.getAddress());
+							mail.setDestination(address.getAddress());
 							mail.setSubject("Error");
 							mail.setDate(new Date());
 							mail.setMessage (
@@ -129,7 +134,7 @@ public class Pop3Handler extends Thread {
 									"Por favor verifique el asunto del mensaje\n" +
 									"Contenido Original\n" +
 									"-------------------------------------\n" +
-									"Asunto:"   + fullSubject+"\n" +
+									"Asunto: "   + fullSubject+"\n" +
 									"Mensage:\n"+ content    +"\n" +
 									"-------------------------------------\n" +
 							"Este mensaje fue generado automaticamente por el Sistema de Mensajeria Instantanea." );
@@ -151,32 +156,32 @@ public class Pop3Handler extends Thread {
 								lifeTime = "-1";
 							}
 						}
-						
+
 						if (index2 == -1) {
 							to = "COMEET";
 						} else {
 							to = fullSubject.substring(0,index2).trim();
 						}
-						
+
 						subject = fullSubject.substring(index2+1,fullSubject.length()).trim();
-						
+
 						QueryRunner qRunner = null;
-					    ResultSet resultSet = null;
-					    String groupID = null;
-					    boolean toAllUsers = false;
-					    
-					    if ("TODOS".equals(to)) { 
-					    	toAllUsers=true; 
-					    }
-					    
+						ResultSet resultSet = null;
+						String groupID = null;
+						boolean toAllUsers = false;
+
+						if ("TODOS".equals(to)) { 
+							toAllUsers=true; 
+						}
+
 						try {
-							qRunner = toAllUsers ?
-									new QueryRunner("SEL0028") :
-									new QueryRunner("SEL0024",new String[]{to,to});
+							qRunner = toAllUsers ? new QueryRunner("SEL0028") :	new QueryRunner("SEL0024",new String[]{to,to});
 							resultSet = qRunner.select();
+							int counter = 0;
 							while (resultSet.next()) {
 								groupID =  resultSet.getString(1);
 								if (groupID!=null) {
+									counter++;
 									Element xml = new Element("Message");
 									xml.addContent(createXMLElement("idgroup",groupID));
 									xml.addContent(createXMLElement("toName",toAllUsers ? resultSet.getString(2): to ));
@@ -187,9 +192,41 @@ public class Pop3Handler extends Thread {
 									new MessageDistributor(xml,true);
 								}
 								else {
-									LogWriter.write("ERROR: La cuenta de correo {" + to + "} no existe en el sistema.");
+									LogWriter.write("ERROR: El usuario {" + to + "} no existe en el sistema.");
+									LogWriter.write("ERROR: Verificar posible inconsistencia en base de datos.");
 								}
 							}
+
+							if (counter == 0) {
+								LogWriter.write("INFO: Consultando si usuario {" + to + "} existe en LOTES");
+								Enumeration keys = SocketServer.getPDdaHash().getKeys();
+								boolean inside = false;
+								while (keys.hasMoreElements()) {
+									SocketChannel socket = (SocketChannel)keys.nextElement();
+									String code = QuerySender.getId();
+									if (QuerySender.verifyPDAUser(socket,code,to)) {
+										// Guardando mensaje en base de datos
+										Date date = Calendar.getInstance().getTime();
+										SimpleDateFormat formatDate = new SimpleDateFormat("yyyy-MM-dd");
+										SimpleDateFormat formatHour = new SimpleDateFormat("hh:mm aaa");
+										String dateString     = formatDate.format(date);
+										String hourString     = formatHour.format(date);
+										String[] argsArray = {"user_pda","user_pda",
+												dateString,hourString,subject.trim(),content,"true",
+												String.valueOf(ConfigFileHandler.getMessageLifeTimeForClients()),
+												"true",String.valueOf(lifeTime)};
+										savePDAMessage(to,argsArray);
+										inside = true;
+										break;
+									}
+								}
+								if (!inside) {
+									LogWriter.write("ERROR: El usuario {" + to + "} no existe en el sistema.");
+									LogWriter.write("ERROR: Notificando al remitente -> {" + from + "}");
+									notifyBadDestination(address.getAddress(),to,fullSubject,content);
+								}
+							}					    								    	
+
 						} catch (SQLNotFoundException e) {
 							e.printStackTrace();
 						} catch (SQLBadArgumentsException e) {
@@ -223,6 +260,54 @@ public class Pop3Handler extends Thread {
 				e1.printStackTrace();
 			}
 		}
+	}	
+	
+	private void savePDAMessage(String login, String[] argsArray) {
+		QueryRunner qRunner = null;
+		try {
+			LogWriter.write("INFO: Almacenando registro de mensaje en la base de datos  para {" + login + "}");
+			qRunner = new QueryRunner("INS0003",argsArray);
+			qRunner.setAutoCommit(false);
+			qRunner.executeSQL();
+			qRunner.commit();
+		} catch (SQLNotFoundException e) {
+			qRunner.rollback();
+			LogWriter.write("ERROR: No se pudo almacenar mensaje en la base de datos. Instruccion SQL no encontrada");
+			e.printStackTrace();
+		} catch (SQLBadArgumentsException e) {
+			qRunner.rollback();
+			LogWriter.write("ERROR: No se pudo almacenar mensaje en la base de datos. Argumentos Invalidos");
+			e.printStackTrace();
+		} catch (SQLException e) {
+			qRunner.rollback();
+			LogWriter.write("ERROR: No se pudo almacenar mensaje en la base de datos. Excepcion SQL");
+			e.printStackTrace();
+		} finally {
+			qRunner.closeStatement();
+			qRunner.setAutoCommit(true);
+		}
+	}
+		
+	private void notifyBadDestination(String sender,String target,String fullSubject,String content) {
+		EmailSender mail = new EmailSender();
+		mail.setFrom(user+"@"+host);
+		mail.setDestination(sender);
+		mail.setSubject("[CoMeet] Error enviando mensaje");
+		mail.setDate(new Date());
+		mail.setMessage (
+				"El mensaje que usted envió al usuario o grupo {" + target + "} \n" +
+				"no pudo ser entregado.\n" +
+				"Motivo: \n" + 
+				"El usuario o grupo {" + target + "} no existe en el sistema.\n" +
+				"Por favor verifique el nombre del destino o consulte\n" +
+				"con soporte tecnico.\n\n" +
+				"Contenido Original\n" +
+				"-------------------------------------\n" +
+				"Asunto: "   + fullSubject+"\n" +
+				"Mensage:\n"+ content    +"\n" +
+				"-------------------------------------\n" +
+		"Este mensaje fue generado automaticamente por CoMeet." );
+		mail.send();		
 	}
 	
 	private Element createXMLElement(String name,String value) {

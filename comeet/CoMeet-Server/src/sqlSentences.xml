@@ -13,38 +13,28 @@
 		<!--Descripcion: ... -->
 		<code>SEL0001</code>
 		<sql>
-			SELECT gid,nombre_grupo 
+			SELECT gid,nombre 
 			FROM grupos 
-			WHERE mostrable=true
-			ORDER BY nombre_grupo 
+			WHERE visible=true
+			ORDER BY nombre 
 		</sql>
 	</sentence>
     <sentence>
     <!--Descripcion: Esta consulta muestra las direcciones ip que deben ser validadas dado un login -->
         <code>SEL0002</code>
         <sql>
-            SELECT DISTINCT pv.nombre,pv.ip,up.valid_ip
-            FROM usuarios_pventa up, puntosv pv
-            WHERE up.uid = (SELECT uid FROM usuarios WHERE login='?')
-            AND up.codigo_pventa=pv.codigo;
+            SELECT DISTINCT b.nombre,b.ip,a.validar_ip
+            FROM usuarios_ubicacion a, ubicaciones b
+            WHERE a.id_usuario = (SELECT uid FROM usuarios WHERE login='?')
+            AND a.codigo_ubicacion=b.codigo;
         </sql>
     </sentence>
     <sentence>
-    <!--Descripcion: Esta consulta muestra las direcciones ip que deben ser validadas dado un login -->
-        <code>SEL0002A</code>
-        <sql>
-            SELECT DISTINCT ul.nombre,ul.ip,lt.valid_ip
-            FROM lotes_sitio lt, ubicacion_lotes ul
-            WHERE lt.codigo_lote = (SELECT uid FROM usuarios WHERE login='?')
-            AND lt.codigo_sitio = ul.codigo;
-        </sql>
-    </sentence>
-    <sentence>
-    <!--Descripcion: Esta consulta muestra las direcciones ip que deben ser validadas dado un login -->
+    <!--Descripcion: Esta consulta muestra el nombre de un POS dado su ip -->
         <code>SEL0003</code>
         <sql>
 			SELECT nombre 
-			FROM puntosv 
+			FROM ubicaciones
 			WHERE ip='?'
        </sql>
     </sentence>
@@ -54,7 +44,7 @@
 		<sql>
 			SELECT * 
 			FROM grupos 
-			ORDER BY nombre_grupo,zona desc
+			ORDER BY nombre_grupo,tipo_grupo desc
 		</sql>
 	</sentence>
 	<sentence>
@@ -62,7 +52,7 @@
 		<code>SEL0005</code>
 		<sql>
 			SELECT pv.*,g.nombre_grupo 
-			FROM puntosv pv, grupos g 
+			FROM ubicaciones pv, grupos g 
 			WHERE g.gid=pv.gid 
 			ORDER BY nombre
 		</sql>
@@ -75,7 +65,7 @@
 			u.uid,u.login,u.clave,u.nombres,u.correo,u.admin,u.audit,u.gid,g.nombre_grupo 
 			FROM 
 			usuarios u, grupos g 
-			WHERE g.gid=u.gid AND g.zona=false AND 
+			WHERE g.gid=u.gid AND g.tipo_grupo=false AND 
 			u.habilitado=true
 			ORDER BY u.login 
 		</sql>
@@ -87,11 +77,11 @@
 			SELECT DISTINCT
 			u.uid,u.login,u.clave,u.nombres,u.correo,u.admin,u.audit,u.gid,pv.nombre,upv.valid_ip,g.nombre_grupo
 			FROM 
-			usuarios u, grupos g, puntosv pv, usuarios_pventa upv
+			usuarios u, grupos g, ubicaciones pv, usuarios_ubicacion upv
 			WHERE 
-			g.zona=true AND 
+			g.tipo_grupo=true AND 
 			upv.codigo_pventa=pv.codigo AND 
-			g.zona=true AND 
+			g.tipo_grupo=true AND 
 			u.uid=upv.uid AND pv.gid=g.gid
 			ORDER BY u.login
 		</sql>
@@ -112,7 +102,7 @@
 			SELECT 
 			pv.codigo,Upv.valid_ip 
 			FROM 
-			usuarios u, puntosv pv, usuarios_pventa upv 
+			usuarios u, ubicaciones pv, usuarios_ubicacion upv 
 			WHERE 
 			u.uid=upv.uid AND pv.codigo=upv.codigo_pventa AND u.login='?' 
 			ORDER BY pv.codigo
@@ -122,7 +112,7 @@
 	<!--Descripcion: ... -->
 		<code>SEL0010</code>
 		<sql>
-			SELECT mostrable,zona 
+			SELECT visible,tipo_grupo 
 			FROM grupos WHERE nombre_grupo='?'
 		</sql>
 	</sentence>
@@ -143,7 +133,7 @@
 		<code>SEL0012</code>
 		<sql>
 			SELECT
-			m.fecha,m.hora,g.nombre_grupo,m.asunto,m.texto,m.confirmado
+			m.fecha_envio,m.hora_envio,g.nombre,m.asunto,m.texto,m.confirmado
 			FROM 
 			mensajes m,
 			usuarios u, 
@@ -154,8 +144,8 @@
 			u.uid=m.uid_origen AND
 			u.gid=g.gid AND 
 			foo.id=m.uid_destino AND
-			current_date&lt;(fecha+tiempo_vida) AND u.uid&lt;&gt;(SELECT uid FROM usuarios WHERE login='?')
-			ORDER BY fecha desc ,hora desc
+			current_date&lt;(fecha_envio+tiempo_vida) AND u.uid&lt;&gt;(SELECT uid FROM usuarios WHERE login='?')
+			ORDER BY fecha_envio desc ,hora_envio desc
 		</sql>
 	</sentence>
 	<sentence>
@@ -166,7 +156,7 @@
 			FROM 
 			usuarios u 
 			WHERE 
-			u.gid=(SELECT gid FROM grupos g WHERE g.nombre_grupo='?')
+			u.gid=(SELECT gid FROM grupos g WHERE g.nombre='?')
 		</sql>
 	</sentence>
 	<sentence>
@@ -174,8 +164,8 @@
 		<code>SEL0014</code>
 		<sql>
 			SELECT count(*) AS count
-			FROM puntosv  
-			WHERE gid=(SELECT gid FROM grupos g WHERE g.nombre_grupo='?')
+			FROM ubicaciones  
+			WHERE gid=(SELECT gid FROM grupos g WHERE g.nombre='?')
 		</sql>
 	</sentence>
 	<sentence>
@@ -306,65 +296,29 @@
 		<code>SEL0024</code>
 		<sql>
 			SELECT uid FROM usuarios u WHERE login='?' UNION 
-			SELECT gid FROM grupos WHERE nombre_grupo='?'
-		</sql>
-	</sentence>
-	<sentence>
-	<!--Descripcion: Captura el tipo de usuario dado un login-->
-		<code>SEL0025</code>
-		<sql>
-          SELECT tipo_usuario 
-          FROM usuarios
-          WHERE login='?'
+			SELECT gid FROM grupos WHERE nombre='?'
 		</sql>
 	</sentence>
 	<sentence>	
 	<!--Descripcion: Consulta datos de usuario admin/auditor -->
-		<code>SEL0025A</code>
+		<code>SEL0025</code>
 		<sql>
             SELECT u.uid,login,nombres,correo,
-                   admin,audit,u.gid,
-                   g.nombre_grupo,tipo_usuario
+                   u.gid,g.nombre,
+                   rol
 			FROM 
-                   usuarios u,grupos g 
+                   usuarios u, grupos g
 			WHERE 
-                   login='?' AND (admin=true OR audit=true) 
-                   AND g.gid=u.gid
+                   login='?' AND g.gid=u.gid
 		</sql>
 	</sentence>
-	<sentence>	
-	<!--Descripcion: Consulta datos de usuario POS -->
-		<code>SEL0025B</code>
-		<sql>
-			SELECT
-				u.uid,login,nombres,correo,
-				admin,audit,u.gid,
-				g.nombre_grupo,tipo_usuario 
-			FROM 
-				usuarios u ,puntosv pv,usuarios_pventa upv,grupos g 
-			WHERE 
-				u.login='?' AND pv.codigo=upv.codigo_pventa 
-                AND u.uid=upv.uid AND g.gid=u.gid 
-		</sql>
-	</sentence>
-	<sentence>	
-	<!--Descripcion: Consulta datos de lote PDA -->
-		<code>SEL0025C</code>
-		<sql>
-		  SELECT u.uid,login,nombres,correo,
-               admin,audit,u.gid,
-			   g.nombre_grupo,tipo_usuario 
-          FROM usuarios u, grupos g 
-          WHERE login='?' AND tipo_usuario=2 AND g.gid=u.gid 
-        </sql>
-	</sentence>	
 	<sentence>
 	<!--Descripcion: Retorna los datos de un usuario a partir de su login -->
 		<code>SEL0026</code>
 		<sql>
 			SELECT 
 				u.uid,login,nombres,correo,
-				admin,audit,u.gid,false,'Sin punto asignado',g.gid,null,g.nombre_grupo 
+				admin,audit,u.gid,false,'Sin punto asignado',g.gid,null,g.nombre 
 			FROM 
 				usuarios u,grupos g 
 			WHERE 
@@ -384,8 +338,8 @@
 		        (SELECT 
 					u.uid AS codigo
 			 	 FROM 
-					usuarios_pventa u, 
-					(SELECT codigo FROM puntosv WHERE gid=(SELECT gid FROM grupos WHERE nombre_grupo='?')) as c
+					usuarios_ubicacion u, 
+					(SELECT codigo FROM ubicaciones WHERE gid=(SELECT gid FROM grupos WHERE nombre='?')) as c
 				 WHERE u.codigo_pventa=c.codigo) AS p
 			WHERE   a.uid = p.codigo
 			ORDER BY login			
@@ -395,10 +349,10 @@
 	<!--Descripcion: ... -->
 		<code>SEL0028</code>
 		<sql>
-			SELECT DISTINCT g.gid,g.nombre_grupo 
+			SELECT DISTINCT g.gid,g.nombre 
 			FROM grupos g, usuarios u 
 			WHERE u.gid=g.gid AND u.login ILIKE 'CV%'
-			ORDER BY g.nombre_grupo
+			ORDER BY g.nombre
 		</sql>
 	</sentence>
 	<sentence>
@@ -424,7 +378,7 @@
                                 date_part('minute',(m.fecha_confirmacion - (CAST(m.fecha AS timestamp)+m.hora))) &gt; m.minutos
                                 AND u.uid=m.uid_destino AND control=true
 			)
-                        AS foo, usuarios u, puntosv pv, usuarios_pventa upv
+                        AS foo, usuarios u, ubicaciones pv, usuarios_ubicacion upv
                         WHERE
                               u.login=foo.login AND upv.uid=(SELECT uid FROM usuarios WHERE login=foo.login)
                               AND pv.codigo=upv.codigo_pventa AND foo.fecha_mensaje=(CAST('?' AS timestamp)+'?')
@@ -447,7 +401,7 @@
                               WHERE
                                 u.uid=m.uid_destino AND control=true AND confirmado=false
 			)
-                        AS foo, usuarios u, puntosv pv, usuarios_pventa upv
+                        AS foo, usuarios u, ubicaciones pv, usuarios_ubicacion upv
                         WHERE
                               u.login=foo.login AND upv.uid=(SELECT uid FROM usuarios WHERE login=foo.login)
                               AND pv.codigo=upv.codigo_pventa AND foo.fecha_mensaje=(CAST('?' AS timestamp)+'?')
@@ -472,7 +426,7 @@
                                 date_part('minute',(m.fecha_confirmacion - (CAST(m.fecha AS timestamp)+m.hora))) &lt;= m.minutos
                                 AND u.uid=m.uid_destino AND control=true
                              )
-                        AS foo, usuarios u, puntosv pv, usuarios_pventa upv
+                        AS foo, usuarios u, ubicaciones pv, usuarios_ubicacion upv
                         WHERE
                               u.login=foo.login AND upv.uid=(SELECT uid FROM usuarios WHERE login=foo.login)
                               AND pv.codigo=upv.codigo_pventa AND foo.fecha_mensaje=(CAST('?' AS timestamp)+'?')
@@ -484,7 +438,7 @@
                 <code>SEL0033</code>
                 <sql>
                         SELECT u.login AS login, u.nombres, pv.nombre AS punto_colocacion 
-			FROM usuarios u, puntosv pv, usuarios_pventa upv
+			FROM usuarios u, ubicaciones pv, usuarios_ubicacion upv
                         WHERE login LIKE 'CV%' AND upv.uid=u.uid AND pv.codigo=upv.codigo_pventa 
 			      AND NOT EXISTS 
                         	(
@@ -501,7 +455,7 @@
                 <code>SEL0034</code>
                 <sql>
 			SELECT CAST(codigo AS integer)+1 
-			FROM puntosv 
+			FROM ubicaciones 
 			ORDER BY codigo DESC LIMIT 1
                 </sql>
         </sentence>
@@ -511,7 +465,7 @@
                 <sql>
 			SELECT 
 				u.uid,login,nombres,correo,
-				admin,audit,u.gid,false,'Sin punto asignado',g.gid,null,g.nombre_grupo 
+				admin,audit,u.gid,false,'Sin punto asignado',g.gid,null,g.nombre 
 			FROM 
 				usuarios u,grupos g 
 			WHERE 
@@ -525,7 +479,7 @@
 		 <sql>
 			SELECT 
 				u.uid,login,nombres,correo,
-				admin,audit,u.gid,false,'Sin punto asignado',g.gid,null,g.nombre_grupo 
+				admin,audit,u.gid,false,'Sin punto asignado',g.gid,null,g.nombre 
 			FROM 
 				usuarios u,grupos g 
 			WHERE 
@@ -538,9 +492,9 @@
 		<code>SEL0037</code>
 		 <sql>
    	 	   SELECT 
-		 		g.nombre_grupo 
-			FROM puntosv p,grupos g,
-				(SELECT codigo_pventa AS codigo FROM usuarios_pventa WHERE uid=?) AS r
+		 		g.nombre 
+			FROM ubicaciones p,grupos g,
+				(SELECT codigo_pventa AS codigo FROM usuarios_ubicacion WHERE uid=?) AS r
 		   WHERE
 				p.codigo=r.codigo AND p.gid=g.gid
 		 </sql>
@@ -560,7 +514,7 @@
 		<code>INS0002</code>
 		<sql>
 			INSERT INTO 
-			usuarios_pventa (uid,codigo_pventa,valid_ip) 
+			usuarios_ubicacion (uid,codigo_pventa,valid_ip) 
 			VALUES 
 			((SELECT uid FROM usuarios WHERE login='?'),'?','?');
 		</sql>
@@ -579,7 +533,7 @@
 		<code>INS0006</code>
 		<sql>
 			INSERT INTO 
-			grupos (nombre_grupo,mostrable,zona) 
+			grupos (nombre,visible,tipo_grupo) 
 			VALUES ('?','?','?')
 		</sql>
 	</sentence>
@@ -588,7 +542,7 @@
 		<code>INS0007</code>
 		<sql>
 			INSERT INTO 
-			puntosv (codigo,nombre,ip,gid) 
+			ubicaciones (codigo,nombre,ip,gid) 
 			VALUES ('?','?','?','?')
 		</sql>
 	</sentence>
@@ -598,9 +552,9 @@
 		<code>DEL0001</code>
 		<sql>
 			DELETE FROM 
-			usuarios_pventa 
+			usuarios_ubicacion 
 			WHERE 
-			usuarios_pventa.uid='?'
+			usuarios_ubicacion.uid='?'
 		</sql>
 	</sentence>
 	<sentence>
@@ -614,14 +568,14 @@
 	<!--Descripcion: ... -->
 		<code>DEL0003</code>
 		<sql>
-			DELETE FROM grupos WHERE nombre_grupo='?'
+			DELETE FROM grupos WHERE nombre='?'
 		</sql>
 	</sentence>
 	<sentence>
 	<!--Descripcion: ... -->
 		<code>DEL0004</code>
 		<sql>
-			DELETE FROM puntosv WHERE codigo='?'
+			DELETE FROM ubicaciones WHERE codigo='?'
 		</sql>
 	</sentence>
 	<!-- ======================== Upate =====================================-->
@@ -630,8 +584,8 @@
 		<code>UPD0001</code>
 		<sql>
 			UPDATE 
-			grupos SET nombre_grupo='?',mostrable='?',zona='?'  
-			WHERE nombre_grupo='?'
+			grupos SET nombre='?',visible='?',tipo_grupo='?'  
+			WHERE nombre='?'
 		</sql>
 	</sentence>
 	<sentence>
@@ -663,7 +617,7 @@
 	<!--Descripcion: ... -->
 		<code>UPD0005</code>
 		<sql>
-			UPDATE puntosv SET ip='?',gid='?' WHERE nombre='?'
+			UPDATE ubicaciones SET ip='?',gid='?' WHERE nombre='?'
 		</sql>
 	</sentence>
 	<sentence>
@@ -672,7 +626,7 @@
 		<sql>
 			UPDATE usuarios SET gid=foo.gid
 			FROM
-			(SELECT pv.gid,up.uid FROM puntosv pv,usuarios_pventa up WHERE pv.codigo=up.codigo_pventa) AS foo 
+			(SELECT pv.gid,up.uid FROM ubicaciones pv,usuarios_ubicacion up WHERE pv.codigo=up.codigo_pventa) AS foo 
 			WHERE foo.uid=usuarios.uid
 		</sql>
 	</sentence>

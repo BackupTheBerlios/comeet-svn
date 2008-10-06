@@ -64,7 +64,8 @@ public class SocketServer {
      * las conexiones activas.
      */
 
-    private static Hashtable <SocketChannel,SocketInfo>socketsInfoHash = new Hashtable<SocketChannel,SocketInfo>();
+    private static Hashtable <SocketChannel,SocketInfo>generalSocketsHash = new Hashtable<SocketChannel,SocketInfo>();
+    private static PDASocketsHash pdaHash = new PDASocketsHash();
     private static ServerSocketChannel serverSocketChannel = null;
     private static int SocketsCounter = 0;
 
@@ -98,7 +99,7 @@ public class SocketServer {
                                 SocketChannel socketChannel = server.accept();
                                 socketChannel.configureBlocking(false);
                                 socketChannel.register(selector,SelectionKey.OP_READ);
-                                socketsInfoHash.put(socketChannel, new SocketInfo(socketChannel.socket()));
+                                generalSocketsHash.put(socketChannel, new SocketInfo(socketChannel.socket()));
                                 LogWriter.write(Language.getWord("NEW_SOCKET_CLIENT")
                                             + " "
                                             + socketChannel.socket());
@@ -132,7 +133,7 @@ public class SocketServer {
      *         retorna false
      */
     public static boolean isLogged(SocketChannel sock) {
-        return socketsInfoHash.get(sock).isLogged();
+        return generalSocketsHash.get(sock).isLogged();
     }
     
     /**
@@ -141,15 +142,15 @@ public class SocketServer {
      * @return algo
      */
     public static String getLogin(SocketChannel sock) {
-        return socketsInfoHash.get(sock).getLogin();
+        return generalSocketsHash.get(sock).getLogin();
     }
     
     public static String getConnectionTime(SocketChannel sock) {
-        return socketsInfoHash.get(sock).getConnectionTime();
+        return generalSocketsHash.get(sock).getConnectionTime();
     }
 
     public static String getCurrentIp(SocketChannel sock) {
-        return socketsInfoHash.get(sock).getCurrentIp();
+        return generalSocketsHash.get(sock).getCurrentIp();
     }
     
     /**
@@ -158,7 +159,7 @@ public class SocketServer {
      * @return user's login
      */
     public static String getName(SocketChannel sock) {
-        return socketsInfoHash.get(sock).getNames();
+        return generalSocketsHash.get(sock).getNames();
     }
     
     /**
@@ -167,7 +168,7 @@ public class SocketServer {
      * @return user's pos name
      */
     public static String getPosName(SocketChannel sock) {
-        return socketsInfoHash.get(sock).getWsName();
+        return generalSocketsHash.get(sock).getWsName();
     }
     
     public static Document getUsersOnLine(String pattern,String areaID) {
@@ -178,14 +179,14 @@ public class SocketServer {
     	doc.setRootElement(root);
     	root.addContent(id);
     	
-    	for ( Enumeration e = socketsInfoHash.keys() ; e.hasMoreElements() ; ) {
+    	for ( Enumeration e = generalSocketsHash.keys() ; e.hasMoreElements() ; ) {
     		SocketChannel connection = (SocketChannel) e.nextElement();
 
     		if (isLogged(connection)) {
     			switch(area) {
                 // Search by code    			
     			case 0:
-    				String login = socketsInfoHash.get(connection).getLogin();
+    				String login = generalSocketsHash.get(connection).getLogin();
     				login = login.toLowerCase();
     				pattern = pattern.toLowerCase();
     				if (login.contains(pattern) || pattern.equals("*")) {
@@ -194,7 +195,7 @@ public class SocketServer {
     				break;
     			// Search by names
     			case 1:
-    				String name = socketsInfoHash.get(connection).getNames();
+    				String name = generalSocketsHash.get(connection).getNames();
     				name = name.toLowerCase();
     				pattern = pattern.toLowerCase();
     				if (name.contains(pattern) || pattern.equals("*")) {
@@ -203,7 +204,7 @@ public class SocketServer {
     				break;
        			// Search by pos name
     			case 2:
-    				String posName = socketsInfoHash.get(connection).getWsName();
+    				String posName = generalSocketsHash.get(connection).getWsName();
     				posName = posName.toLowerCase();
     				pattern = pattern.toLowerCase();
     	    		if (posName.contains(pattern) || pattern.equals("*")) {
@@ -213,14 +214,14 @@ public class SocketServer {
 
     			// Search by ip
     			case 3:
-    				String ip = socketsInfoHash.get(connection).getCurrentIp();
+    				String ip = generalSocketsHash.get(connection).getCurrentIp();
     				if (ip.contains(pattern) || pattern.equals("*")) {
     					root.addContent(addElement(connection));
     				}
     				break;
     			// Search by group id
     			case 4:
-    				String group = Integer.toString(socketsInfoHash.get(connection).getGroupID());
+    				String group = Integer.toString(generalSocketsHash.get(connection).getGroupID());
     	    		if (group.equals(pattern) || pattern.equals("*")) {
     					root.addContent(addElement(connection));
     	    		}
@@ -261,7 +262,7 @@ public class SocketServer {
 		Element id = new Element("id").setText("TOTAL");
 		root.addContent(id);
 		Element rows = new Element("row");
-		Element total = new Element("cols").setText(Integer.toString(socketsInfoHash.size()));
+		Element total = new Element("cols").setText(Integer.toString(generalSocketsHash.size()));
 		rows.addContent(total);
  		root.addContent(rows);
  		
@@ -293,15 +294,15 @@ public class SocketServer {
     public static void removeSock(SocketChannel sock) throws IOException {
         setDecrementSocketsCount();
         sock.close();
-        socketsInfoHash.remove(sock);
+        generalSocketsHash.remove(sock);
     }
     
     public static ByteArrayOutputStream getTemporalBuffer(SocketChannel sock) {
-        return socketsInfoHash.get(sock).getTemporalBuffer();
+        return generalSocketsHash.get(sock).getTemporalBuffer();
     }
 
     public static void setTemporalBuffer(SocketChannel sock,ByteArrayOutputStream temporalBuffer) {
-        socketsInfoHash.get(sock).setTemporalBuffer(temporalBuffer);
+        generalSocketsHash.get(sock).setTemporalBuffer(temporalBuffer);
     }
     
     /**
@@ -310,7 +311,7 @@ public class SocketServer {
      * @return El nombre de la base de datos
      */
     public static String getDataBase(SocketChannel sock){
-    	return socketsInfoHash.get(sock).getDBName();    	
+    	return generalSocketsHash.get(sock).getDBName();    	
     }
 
     /**
@@ -320,9 +321,9 @@ public class SocketServer {
      */
 
     public static void setLogin(SocketChannel sock, String db, String login) {
-        socketsInfoHash.get(sock).setLogged();
-        socketsInfoHash.get(sock).setDB(db);
-        socketsInfoHash.get(sock).setLogin(login);
+        generalSocketsHash.get(sock).setLogged();
+        generalSocketsHash.get(sock).setDB(db);
+        generalSocketsHash.get(sock).setLogin(login);
     }
 
     /**
@@ -342,8 +343,13 @@ public class SocketServer {
     public static int setDecrementSocketsCount() {
         return --SocketsCounter;
     }
+    
     public static Hashtable getClientChannelsHash() {
-        return socketsInfoHash;
+        return generalSocketsHash;
+    }
+    
+    public static PDASocketsHash getPDdaHash() {
+        return pdaHash;
     }
 
     public static String getCompanyNameKey(SocketChannel sock) {
@@ -355,7 +361,7 @@ public class SocketServer {
     }
     
     public static SocketInfo getSocketInfo(SocketChannel sock) {
-    	return socketsInfoHash.get(sock);
+    	return generalSocketsHash.get(sock);
     }
     
     public static SocketInfo getSocketInfo(String login) {	
@@ -363,7 +369,7 @@ public class SocketServer {
     		LogWriter.write("ERROR: Llamado a getInfoSocket con parametro nulo (login).");
     	}
     	
-    	for (SocketInfo socketInfo : socketsInfoHash.values()) {
+    	for (SocketInfo socketInfo : generalSocketsHash.values()) {
     		if (socketInfo.getLogin().equals(login)) {
     			return socketInfo;
     		}
@@ -396,6 +402,7 @@ public class SocketServer {
         private String wsName;
         private String connectionTime;
         private ByteArrayOutputStream temporalBuffer;
+        private int userDevice;
         
     	public SocketInfo() {}
     	
@@ -468,6 +475,14 @@ public class SocketServer {
 
     	public void setEmail(String email) {
     		this.email = email;
+    	}
+    	
+    	public int getUserDevice() {
+    		return userDevice;
+    	}
+    	
+    	public void setUserDevice(int userDevice) {
+    		this.userDevice = userDevice;
     	}
         
         /**
@@ -596,7 +611,7 @@ public class SocketServer {
 		QueryRunner qRunner = null;
 	    ResultSet resultSet = null;
 	    
-	    for (SocketInfo socketInfo : socketsInfoHash.values()) {    
+	    for (SocketInfo socketInfo : generalSocketsHash.values()) {    
             if (socketInfo.getGroupID()==groupID) {
                 usersVector.add(socketInfo);
 				System.out.println("1. Adicionando usuario: " + socketInfo.getLogin() + ":" + socketInfo.getGroupName());
@@ -679,7 +694,7 @@ public class SocketServer {
 		QueryRunner qRunner = null;
 	    ResultSet resultSet = null;
 	    
-        for (SocketInfo socketInfo : socketsInfoHash.values()) { 
+        for (SocketInfo socketInfo : generalSocketsHash.values()) { 
         	Vector groups = getUserGroups(String.valueOf(socketInfo.getUid()));
             if (groups.contains(groupName)) {
                 groupVector.add(socketInfo);

@@ -10,8 +10,8 @@ public class EmailSender extends Thread {
 	private String subject;
 	private String message;
 	private Date date;
-	private String toFullName;
-	private String workStation;
+	private String toFullName = "Soporte Tecnico";
+	private String workStation = "Centro de Datos";
 	
 	public void setFrom(String from) {
 		this.from = from;
@@ -25,7 +25,7 @@ public class EmailSender extends Thread {
 		this.subject = subject;
 	}
 
-	public void setSender(String to) {
+	public void setDestination(String to) {
 		this.to = to;
 	}
 	

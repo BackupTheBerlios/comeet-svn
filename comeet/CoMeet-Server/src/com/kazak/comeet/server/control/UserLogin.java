@@ -36,18 +36,22 @@ import com.kazak.comeet.server.misc.LogWriter;
 public class UserLogin {
 	
     private Element data;
-    private int userLevel;
+    //private int userLevel;
     private Integer	uid;
     private String login;
     private String names;
     private String email;
-    private Boolean	admin;
-    private Boolean audit;
+  //  private Boolean	admin;
+  //  private Boolean audit;
     private Integer gid;
     private String groupName;
     private String ip;
     private String wsName = "";
-    private Integer userDevice; // 0: PC - 1: POS - 2: PDA CENTRAL 
+    //private Integer userDevice; // 1: PC - 2: POS - 3: PDA CENTRAL
+    private int rol;
+    private final int ADMIN = 1;
+    private final int AUDITOR = 2;
+    private final int SALES = 3;
     
     public String getLogin() {
         return login;
@@ -112,97 +116,59 @@ public class UserLogin {
 	    if (count==1) {	
 	    	Vector<String> ips = new Vector<String>();
 	    	Vector<String> posNameVector = new Vector<String>();
-	    	boolean doControl = false;
-
-  			userDevice = getUserType(login);
+	    	boolean doControl = false;				
   			
-			// For POS Users: Querying for ip address with validation flag on
-  			if (userDevice == 1) { 
-  				try {	    		
-  					queryRunner = new QueryRunner("SEL0002",new String[]{login});
-  					resultSet = queryRunner.select();
-  					while (resultSet.next()) {
-  						String posName = resultSet.getString(1);
-  						if(posName.length()>0) {
-  							posNameVector.add(posName);
-  						}
-  						String ipAddress = resultSet.getString(2);
-  						if(ipAddress.length()>0) {
-  							ips.add(ipAddress);
-  						}
-  						Boolean flag = resultSet.getBoolean(3);
-  						if(flag) {
-  							doControl = true;
-  						}
+  			try {
+  				queryRunner = new QueryRunner("SEL0002",new String[]{login});
+  				resultSet = queryRunner.select();
+  				while (resultSet.next()) {
+  					String posName = resultSet.getString(1);
+  					if(posName.length()>0) {
+  						posNameVector.add(posName);
   					}
-  				} catch (SQLNotFoundException e) {
-  					e.printStackTrace();
-  				} catch (SQLBadArgumentsException e) {
-  					e.printStackTrace();
-  				} catch (SQLException e) {
-  					e.printStackTrace();
-  				} finally {
-  					QueryClosingHandler.close(resultSet);
-  					queryRunner.closeStatement();
-  				}
-  				
-  		    	// Querying for pos name for a ip address given
-  		    	try {	    		
-  					queryRunner = new QueryRunner("SEL0003",new String[]{ip});
-  					resultSet = queryRunner.select();
-  					if (resultSet.next()) {
-  						wsName = resultSet.getString(1);
+  					String ipAddress = resultSet.getString(2);
+  					if(ipAddress.length()>0) {
+  						ips.add(ipAddress);
   					}
-  					if (wsName.length() == 0) {
-  						wsName = "Ubicación No Registrada (" + ip + ")";
+  					Boolean flag = resultSet.getBoolean(3);
+  					if(flag) {
+  						doControl = true;
   					}
-  		    	} catch (SQLNotFoundException e) {
-  					e.printStackTrace();
-  				} catch (SQLBadArgumentsException e) {
-  					e.printStackTrace();
-  				} catch (SQLException e) {
-  					e.printStackTrace();
-  				} finally {
-  					QueryClosingHandler.close(resultSet);
-  					queryRunner.closeStatement();
   				}
-  			} else {
-				// For PDA Users: Querying for ip address with validation flag on
-  				if (userDevice == 2) {
-  					try {	    		
-  						queryRunner = new QueryRunner("SEL0002A",new String[]{login});
-  						resultSet = queryRunner.select();
-  						while (resultSet.next()) {
-  							String posName = resultSet.getString(1);
-  							if(posName.length()>0) {
-  								posNameVector.add(posName);
-  							}
-  							String ipAddress = resultSet.getString(2);
-  							if(ipAddress.length()>0) {
-  								ips.add(ipAddress);
-  							}
-  							Boolean flag = resultSet.getBoolean(3);
-  							if(flag) {
-  								doControl = true;
-  							}
-  						}
-  					} catch (SQLNotFoundException e) {
-  						e.printStackTrace();
-  					} catch (SQLBadArgumentsException e) {
-  						e.printStackTrace();
-  					} catch (SQLException e) {
-  						e.printStackTrace();
-  					} finally {
-  						QueryClosingHandler.close(resultSet);
-  						queryRunner.closeStatement();
-  					}			
-  					
-  					wsName = "ARO DE FUEGO";
-  				}
+  			} catch (SQLNotFoundException e) {
+  				e.printStackTrace();
+  			} catch (SQLBadArgumentsException e) {
+  				e.printStackTrace();
+  			} catch (SQLException e) {
+  				e.printStackTrace();
+  			} finally {
+  				QueryClosingHandler.close(resultSet);
+  				queryRunner.closeStatement();
   			}
-						
-			// Check if is "ip control access" enabled for user 
-			if (doControl) {
+
+  			// Querying for pos name for a ip address given
+  			try {	    		
+  				queryRunner = new QueryRunner("SEL0003",new String[]{ip});
+  				resultSet = queryRunner.select();
+  				if (resultSet.next()) {
+  					wsName = resultSet.getString(1);
+  				}
+  				if (wsName.length() == 0) {
+  					wsName = "Ubicación No Registrada";
+  				}
+  			} catch (SQLNotFoundException e) {
+  				e.printStackTrace();
+  			} catch (SQLBadArgumentsException e) {
+  				e.printStackTrace();
+  			} catch (SQLException e) {
+  				e.printStackTrace();
+  			} finally {
+  				QueryClosingHandler.close(resultSet);
+  				queryRunner.closeStatement();
+  			}
+
+  			// Check if is "ip control access" enabled for user 
+  			if (doControl) {
 				LogWriter.write("INFO: Realizando control de acceso sobre direcciones ip...");
 				if (!ips.contains(ip)) {
 					LogWriter.write("ADVERTENCIA: La ip {" + ip + "} no esta autorizada para el usuario " + login);
@@ -210,59 +176,41 @@ public class UserLogin {
 				}
 			} else {
 				LogWriter.write("INFO: Control de acceso sobre direcciones ip no habilitado para este usuario");
-			}
-		
-  			// Querying user data	    		
-	    	String queryID = "";
-	    	switch(userDevice) {
-	    	   case 0: // A mail client user
-	    		   queryID = "SEL0025A";
-	    		   break;
-	    	   case 1: // A POS user
-	    		   queryID = "SEL0025B";
-	    		   break;
-	    	   case 2: // A PDA user
-	    		   queryID = "SEL0025C";
-	    		   break;
-	    	   default:
-	    	       LogWriter.write("ERROR: El usuario {" + login + "} no tiene un valor asignado en el campo tipo de usuario");
-	    		   return false;
-	    	}
+			}		
 	    	
 	    	try {	    	
-	    		queryRunner = new QueryRunner(queryID,new String[]{login});
+	    		queryRunner = new QueryRunner("SEL0025",new String[]{login});
 	    		resultSet = queryRunner.select();
 	    		if (resultSet.next()) {
 	    			uid 	= resultSet.getInt(1);
 	    			login	= resultSet.getString(2);
 	    			names	= resultSet.getString(3);
 	    			email	= resultSet.getString(4);
-	    			admin	= resultSet.getBoolean(5);
-	    			audit	= resultSet.getBoolean(6);
-	    			gid		= resultSet.getInt(7);
-	    			groupName	= resultSet.getString(8);
-
+	    			gid		= resultSet.getInt(5);
+	    			groupName  = resultSet.getString(6);
+	    			rol = resultSet.getInt(7);
+                    //userDevice = resultSet.getInt(7);
+	    			
 	    			if (validate) {
-	    				if (admin) {
+	    				if (rol == ADMIN) {
 	    					LogWriter.write("INFO: Usuario Administrador autenticado {" + login + "} desde " 
 	    							+ wsName + " [" + ip + "]");
-	    					userLevel = 1;
+	    					//userLevel = 1;
 	    					return true;
-	    				} else if (audit) {
+	    				} else if (rol == AUDITOR) {
 	    					LogWriter.write("INFO: Auditor Autenticado {" + login + "} desde " 
 	    							+ wsName + " [" + ip + "]");
-	    					userLevel = 2;
+	    					//userLevel = 2;
 	    					return true;
 	    				}
 	    			}
 	    			else {
-	    				if (userDevice == 2 ) {
-	    					LogWriter.write("INFO: Lote Autenticado {" + login + "} desde " + wsName  + " [" + ip + "]");
-	    					userLevel = 3;
-	    				} else {					
+	    				if (rol == SALES ) {
 	    					LogWriter.write("INFO: Colocador Autenticado {" + login + "} desde " + wsName  + " [" + ip + "]");
-	    					userLevel = 3;
+	    				} else {					
+	    					LogWriter.write("INFO: Lote Autenticado {" + login + "} desde " + wsName  + " [" + ip + "]");
 	    				}
+    					//userLevel = 3;
 	    				return true;
 	    			}
 	    		}
@@ -282,7 +230,7 @@ public class UserLogin {
 	    		" ingresando como " + (validate ? "Administrador/Auditor" :"Colocador") + " [Clave incorrecta]");
 	    return false;
     }
-    
+   /* 
     private int getUserType(String login) {
     	QueryRunner queryRunner = null;
     	ResultSet resultSet = null;
@@ -304,11 +252,11 @@ public class UserLogin {
 			queryRunner.closeStatement();
 		}
 		return type;
-    }
+    } */
  
     
 	public int getUserLevel() {
-		return userLevel;
+		return rol;
 	}
 	public String getEmail() {
 		return email;
@@ -326,15 +274,19 @@ public class UserLogin {
 		return ip;
 	}
 	public Boolean getAdmin() {
-		return admin;
+		return rol == ADMIN;
 	}
 	public Boolean getAudit() {
-		return audit;
+		return rol == AUDITOR;
 	}
 	public String getWsName() {
 		return wsName;
 	}
 	public String getGroupName() {
 		return groupName;
-	}
+	}	
+	/*
+	public int getUserDevice() {
+		return userDevice;
+	}*/
 }

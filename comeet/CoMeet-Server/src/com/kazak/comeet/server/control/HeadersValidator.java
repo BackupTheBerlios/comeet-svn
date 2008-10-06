@@ -46,7 +46,7 @@ public class HeadersValidator {
     
     /**
      * Este metodo se encarga de revisar toda las raices de los documentos que llegan 
-     * al servidor de transacciones desde el cliente JMClient.
+     * al servidor de transacciones desde el cliente CoMeet.
      * @param doc Documento a validar
      * @param sock Socket por que se esta comunicando
      */
@@ -207,6 +207,15 @@ public class HeadersValidator {
         		SocketServer.getSocketInfo(sock).setGroupName(user.getGroupName());
         		SocketServer.getSocketInfo(sock).setNames(user.getNames());
         		SocketServer.getSocketInfo(sock).setConnectionTime();
+        		if(user.getUserLevel() == 3) {
+        			SocketServer.getPDdaHash().addSocket(sock,SocketServer.getSocketInfo(login));
+        			int size = SocketServer.getPDdaHash().size();
+        			String connections = " conexion activa";
+        			if (size > 1) {
+        				connections = " conexiones activas";
+        			}
+        			LogWriter.write("INFO: " + SocketServer.getPDdaHash().size() + connections + " en el pool de lotes");
+        		}
                 new ACPSender(sock,login,user.getUserLevel());
             } else {
                 try {
@@ -218,6 +227,11 @@ public class HeadersValidator {
 				}
             }
         } 
+        /* Comprobacion de usuario pda en lote */
+        else if (rootName.equals("VERIFY")) {
+        	String id = root.getChildText("id");
+        	QuerySender.putResultOnPool(id,doc);
+        }
         /* Validación de solicitud de paquetes no autorizados */
         else {
             LogWriter.write("ERROR: Paquete no autorizado. Contenido:");

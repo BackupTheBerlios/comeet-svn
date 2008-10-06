@@ -357,3 +357,542 @@
 2008-09-30 20:36:00 ADVERTENCIA: Motivo -> Base de datos deshabilitada desde configuracion [oracle]
 2008-09-30 20:37:00 ADVERTENCIA: Tarea de sincronizacion con Oracle aplazada
 2008-09-30 20:37:00 ADVERTENCIA: Motivo -> Base de datos deshabilitada desde configuracion [oracle]
+2008-10-02 16:45:03 INFO: ConfigFile -> /home/xtingray/Projects/javertec/comeet/comeet/CoMeet-Server/comeet/conf/server.conf
+2008-10-02 16:45:03 INFO: Cargando archivo de configuracion...
+2008-10-02 16:45:03 INFO: Cargando base de datos... comeet
+2008-10-02 16:45:03 ADVERTENCIA: Base de datos deshabilitada desde configuracion -> oracle
+2008-10-02 16:45:03 INFO: Cargando cache de enlace [comeet]
+2008-10-02 16:45:04 INFO: Iniciando demonio pop3
+2008-10-02 16:45:04 INFO: Servidor de correo {localhost}
+2008-10-02 16:45:04 INFO: Iniciando demonio de sincronizacion
+2008-10-02 16:45:04 INFO: Servidor CoMeet escuchando por el puerto 9119
+2008-10-02 16:45:28 INFO: Se ha establecido una nueva conexion TCP/IP Socket[addr=/127.0.0.1,port=42566,localport=9119]
+2008-10-02 16:45:29 INFO: Inicio de autenticacion para el usuario {CV0001} con la clave {827ccb0eea8a706c4c34a16891f84e7b}
+2008-10-02 16:45:29 INFO: Control de acceso sobre direcciones ip no habilitado para este usuario
+2008-10-02 16:45:29 INFO: Colocador Autenticado {CV0001} desde PORVENIR [127.0.0.1]
+2008-10-02 16:45:50 INFO: ConfigFile -> /home/xtingray/Projects/javertec/comeet/comeet/CoMeet-Server/comeet/conf/server.conf
+2008-10-02 16:45:51 INFO: Cargando archivo de configuracion...
+2008-10-02 16:45:51 INFO: Cargando base de datos... comeet
+2008-10-02 16:45:51 ADVERTENCIA: Base de datos deshabilitada desde configuracion -> oracle
+2008-10-02 16:45:51 INFO: Cargando cache de enlace [comeet]
+2008-10-02 16:45:51 INFO: Iniciando demonio pop3
+2008-10-02 16:45:51 INFO: Servidor de correo {localhost}
+2008-10-02 16:45:51 INFO: Iniciando demonio de sincronizacion
+2008-10-02 16:45:51 INFO: Servidor CoMeet escuchando por el puerto 9119
+2008-10-02 16:45:58 INFO: ConfigFile -> /home/xtingray/Projects/javertec/comeet/comeet/CoMeet-Server/comeet/conf/server.conf
+2008-10-02 16:45:58 INFO: Cargando archivo de configuracion...
+2008-10-02 16:45:58 INFO: Cargando base de datos... comeet
+2008-10-02 16:45:58 ADVERTENCIA: Base de datos deshabilitada desde configuracion -> oracle
+2008-10-02 16:45:58 INFO: Cargando cache de enlace [comeet]
+2008-10-02 16:45:59 INFO: Iniciando demonio pop3
+2008-10-02 16:45:59 INFO: Servidor de correo {localhost}
+2008-10-02 16:45:59 INFO: Iniciando demonio de sincronizacion
+2008-10-02 16:45:59 INFO: Servidor CoMeet escuchando por el puerto 9119
+2008-10-02 16:49:14 INFO: Se ha establecido una nueva conexion TCP/IP Socket[addr=/127.0.0.1,port=53891,localport=9119]
+2008-10-02 16:49:14 INFO: Inicio de autenticacion para el usuario {suba} con la clave {827ccb0eea8a706c4c34a16891f84e7b}
+2008-10-02 16:49:14 INFO: Control de acceso sobre direcciones ip no habilitado para este usuario
+2008-10-02 16:49:14 INFO: Lote Autenticado {suba} desde ARO DE FUEGO [127.0.0.1]
+2008-10-02 16:56:30 INFO: ConfigFile -> /home/xtingray/Projects/javertec/comeet/comeet/CoMeet-Server/comeet/conf/server.conf
+2008-10-02 16:56:30 INFO: Cargando archivo de configuracion...
+2008-10-02 16:56:30 INFO: Cargando base de datos... comeet
+2008-10-02 16:56:30 ADVERTENCIA: Base de datos deshabilitada desde configuracion -> oracle
+2008-10-02 16:56:30 INFO: Cargando cache de enlace [comeet]
+2008-10-02 16:56:30 INFO: Iniciando demonio pop3
+2008-10-02 16:56:30 INFO: Servidor de correo {localhost}
+2008-10-02 16:56:30 INFO: Iniciando demonio de sincronizacion
+2008-10-02 16:56:30 INFO: Servidor CoMeet escuchando por el puerto 9119
+2008-10-02 16:56:41 INFO: Se ha establecido una nueva conexion TCP/IP Socket[addr=/127.0.0.1,port=41579,localport=9119]
+2008-10-02 16:56:42 INFO: Inicio de autenticacion para el usuario {suba} con la clave {827ccb0eea8a706c4c34a16891f84e7b}
+2008-10-02 16:56:42 INFO: Control de acceso sobre direcciones ip no habilitado para este usuario
+2008-10-02 16:56:42 INFO: Lote Autenticado {suba} desde  [127.0.0.1]
+2008-10-02 17:22:33 INFO: ConfigFile -> /home/xtingray/Projects/javertec/comeet/comeet/CoMeet-Server/comeet/conf/server.conf
+2008-10-02 17:22:33 INFO: Cargando archivo de configuracion...
+2008-10-02 17:22:33 INFO: Cargando base de datos... comeet
+2008-10-02 17:22:33 ADVERTENCIA: Base de datos deshabilitada desde configuracion -> oracle
+2008-10-02 17:22:33 INFO: Cargando cache de enlace [comeet]
+2008-10-02 17:22:34 INFO: Iniciando demonio pop3
+2008-10-02 17:22:34 INFO: Servidor de correo {localhost}
+2008-10-02 17:22:34 INFO: Iniciando demonio de sincronizacion
+2008-10-02 17:22:34 INFO: Servidor CoMeet escuchando por el puerto 9119
+2008-10-02 17:22:48 INFO: Se ha establecido una nueva conexion TCP/IP Socket[addr=/127.0.0.1,port=50964,localport=9119]
+2008-10-02 17:22:48 INFO: Inicio de autenticacion para el usuario {CV0001} con la clave {827ccb0eea8a706c4c34a16891f84e7b}
+2008-10-02 17:22:48 INFO: Control de acceso sobre direcciones ip no habilitado para este usuario
+2008-10-02 17:22:48 INFO: Colocador Autenticado {CV0001} desde PORVENIR [127.0.0.1]
+2008-10-02 17:23:29 INFO: Se ha establecido una nueva conexion TCP/IP Socket[addr=/127.0.0.1,port=50975,localport=9119]
+2008-10-02 17:23:29 INFO: Inicio de autenticacion para el usuario {suba} con la clave {827ccb0eea8a706c4c34a16891f84e7b}
+2008-10-02 17:23:29 INFO: Control de acceso sobre direcciones ip no habilitado para este usuario
+2008-10-02 17:23:29 INFO: Lote Autenticado {suba} desde Ubicación No Registrada (127.0.0.1) [127.0.0.1]
+2008-10-02 17:25:31 INFO: ConfigFile -> /home/xtingray/Projects/javertec/comeet/comeet/CoMeet-Server/comeet/conf/server.conf
+2008-10-02 17:25:31 INFO: Cargando archivo de configuracion...
+2008-10-02 17:25:31 INFO: Cargando base de datos... comeet
+2008-10-02 17:25:31 ADVERTENCIA: Base de datos deshabilitada desde configuracion -> oracle
+2008-10-02 17:25:31 INFO: Cargando cache de enlace [comeet]
+2008-10-02 17:25:32 INFO: Iniciando demonio pop3
+2008-10-02 17:25:32 INFO: Servidor de correo {localhost}
+2008-10-02 17:25:32 INFO: Iniciando demonio de sincronizacion
+2008-10-02 17:25:32 INFO: Servidor CoMeet escuchando por el puerto 9119
+2008-10-02 17:25:43 INFO: Se ha establecido una nueva conexion TCP/IP Socket[addr=/127.0.0.1,port=40946,localport=9119]
+2008-10-02 17:25:43 INFO: Inicio de autenticacion para el usuario {suba} con la clave {827ccb0eea8a706c4c34a16891f84e7b}
+2008-10-02 17:25:43 INFO: Control de acceso sobre direcciones ip no habilitado para este usuario
+2008-10-02 17:25:43 INFO: Lote Autenticado {suba} desde ARO DE FUEGO [127.0.0.1]
+2008-10-02 17:54:14 INFO: Se ha establecido una nueva conexion TCP/IP Socket[addr=/127.0.0.1,port=38998,localport=9119]
+2008-10-02 17:54:14 INFO: Inicio de autenticacion para el usuario {admin} con la clave {827ccb0eea8a706c4c34a16891f84e7b}
+2008-10-02 17:54:14 INFO: Acceso denegado a {admin} desde la ip 127.0.0.1 ingresando como Administrador/Auditor [Clave incorrecta]
+2008-10-02 17:54:24 INFO: Se ha establecido una nueva conexion TCP/IP Socket[addr=/127.0.0.1,port=39001,localport=9119]
+2008-10-02 17:54:24 INFO: Inicio de autenticacion para el usuario {admin} con la clave {21232f297a57a5a743894a0e4a801fc3}
+2008-10-02 17:54:24 INFO: Control de acceso sobre direcciones ip no habilitado para este usuario
+2008-10-02 17:54:24 INFO: Usuario Administrador autenticado {admin} desde  [127.0.0.1]
+2008-10-02 18:10:47 INFO: ConfigFile -> /home/xtingray/Projects/javertec/comeet/comeet/CoMeet-Server/comeet/conf/server.conf
+2008-10-02 18:10:48 INFO: Cargando archivo de configuracion...
+2008-10-02 18:10:48 INFO: Cargando base de datos... comeet
+2008-10-02 18:10:48 ADVERTENCIA: Base de datos deshabilitada desde configuracion -> oracle
+2008-10-02 18:10:48 INFO: Cargando cache de enlace [comeet]
+2008-10-02 18:10:48 INFO: Iniciando demonio pop3
+2008-10-02 18:10:48 INFO: Servidor de correo {localhost}
+2008-10-02 18:10:48 INFO: Iniciando demonio de sincronizacion
+2008-10-02 18:10:48 INFO: Servidor CoMeet escuchando por el puerto 9119
+2008-10-02 18:17:57 INFO: Se ha establecido una nueva conexion TCP/IP Socket[addr=/127.0.0.1,port=52289,localport=9119]
+2008-10-02 18:17:57 INFO: Inicio de autenticacion para el usuario {admin} con la clave {21232f297a57a5a743894a0e4a801fc3}
+2008-10-02 18:17:57 INFO: Control de acceso sobre direcciones ip no habilitado para este usuario
+2008-10-02 18:17:58 INFO: Usuario Administrador autenticado {admin} desde PORVENIR [127.0.0.1]
+2008-10-02 19:25:55 INFO: ConfigFile -> /home/xtingray/Projects/javertec/comeet/comeet/CoMeet-Server/comeet/conf/server.conf
+2008-10-02 19:25:56 INFO: Cargando archivo de configuracion...
+2008-10-02 19:25:56 INFO: Cargando base de datos... comeet
+2008-10-02 19:25:56 ADVERTENCIA: Base de datos deshabilitada desde configuracion -> oracle
+2008-10-02 19:25:56 INFO: Cargando cache de enlace [comeet]
+2008-10-02 19:25:56 INFO: Iniciando demonio pop3
+2008-10-02 19:25:56 INFO: Servidor de correo {localhost}
+2008-10-02 19:25:56 INFO: Iniciando demonio de sincronizacion
+2008-10-02 19:25:56 INFO: Servidor CoMeet escuchando por el puerto 9119
+2008-10-02 19:26:47 INFO: Leyendo correo del buzon de mensajes
+2008-10-02 19:26:47 INFO: Nuevo mensaje desde {xtingray@localhost} con asunto [ FRANCIA, prueba de error ]
+2008-10-02 19:30:30 INFO: ConfigFile -> /home/xtingray/Projects/javertec/comeet/comeet/CoMeet-Server/comeet/conf/server.conf
+2008-10-02 19:30:30 INFO: Cargando archivo de configuracion...
+2008-10-02 19:30:30 INFO: Cargando base de datos... comeet
+2008-10-02 19:30:30 ADVERTENCIA: Base de datos deshabilitada desde configuracion -> oracle
+2008-10-02 19:30:30 INFO: Cargando cache de enlace [comeet]
+2008-10-02 19:30:31 INFO: Iniciando demonio pop3
+2008-10-02 19:30:31 INFO: Servidor de correo {localhost}
+2008-10-02 19:30:31 INFO: Iniciando demonio de sincronizacion
+2008-10-02 19:30:31 INFO: Servidor CoMeet escuchando por el puerto 9119
+2008-10-02 19:31:11 INFO: Leyendo correo del buzon de mensajes
+2008-10-02 19:31:11 INFO: Nuevo mensaje desde {xtingray@localhost} con asunto [ FRANCIA, prueba de envio ]
+2008-10-02 20:36:00 ADVERTENCIA: Tarea de sincronizacion con Oracle aplazada
+2008-10-02 20:36:00 ADVERTENCIA: Motivo -> Base de datos deshabilitada desde configuracion [oracle]
+2008-10-02 20:37:00 ADVERTENCIA: Tarea de sincronizacion con Oracle aplazada
+2008-10-02 20:37:00 ADVERTENCIA: Motivo -> Base de datos deshabilitada desde configuracion [oracle]
+2008-10-04 10:04:17 INFO: ConfigFile -> /home/xtingray/Projects/javertec/comeet/comeet/CoMeet-Server/comeet/conf/server.conf
+2008-10-04 10:04:18 INFO: Cargando archivo de configuracion...
+2008-10-04 10:04:18 INFO: Cargando base de datos... comeet
+2008-10-04 10:04:18 ADVERTENCIA: Base de datos deshabilitada desde configuracion -> oracle
+2008-10-04 10:04:18 INFO: Cargando cache de enlace [comeet]
+2008-10-04 10:04:18 INFO: Iniciando demonio pop3
+2008-10-04 10:04:18 INFO: Servidor de correo {localhost}
+2008-10-04 10:04:18 INFO: Iniciando demonio de sincronizacion
+2008-10-04 10:04:19 INFO: Servidor CoMeet escuchando por el puerto 9119
+2008-10-04 10:04:59 INFO: Leyendo correo del buzon de mensajes
+2008-10-04 10:04:59 INFO: Nuevo mensaje desde {xtingray@localhost} con asunto [ FRANCIA, hola mundo! ]
+2008-10-04 10:17:50 INFO: ConfigFile -> /home/xtingray/Projects/javertec/comeet/comeet/CoMeet-Server/comeet/conf/server.conf
+2008-10-04 10:17:50 INFO: Cargando archivo de configuracion...
+2008-10-04 10:17:50 INFO: Cargando base de datos... comeet
+2008-10-04 10:17:50 ADVERTENCIA: Base de datos deshabilitada desde configuracion -> oracle
+2008-10-04 10:17:50 INFO: Cargando cache de enlace [comeet]
+2008-10-04 10:17:51 INFO: Iniciando demonio pop3
+2008-10-04 10:17:51 INFO: Servidor de correo {localhost}
+2008-10-04 10:17:51 INFO: Iniciando demonio de sincronizacion
+2008-10-04 10:17:51 INFO: Servidor CoMeet escuchando por el puerto 9119
+2008-10-04 10:18:51 INFO: Leyendo correo del buzon de mensajes
+2008-10-04 10:18:51 INFO: Nuevo mensaje desde {xtingray@localhost} con asunto [ FRANCIA, hola mundo! ]
+2008-10-04 10:18:51 ERROR: La cuenta de correo {FRANCIA} no existe en el sistema.
+2008-10-04 10:18:51 ERROR: Notificando a {xtingray}
+2008-10-04 10:33:55 INFO: ConfigFile -> /home/xtingray/Projects/javertec/comeet/comeet/CoMeet-Server/comeet/conf/server.conf
+2008-10-04 10:33:55 INFO: Cargando archivo de configuracion...
+2008-10-04 10:33:55 INFO: Cargando base de datos... comeet
+2008-10-04 10:33:55 ADVERTENCIA: Base de datos deshabilitada desde configuracion -> oracle
+2008-10-04 10:33:55 INFO: Cargando cache de enlace [comeet]
+2008-10-04 10:33:56 INFO: Iniciando demonio pop3
+2008-10-04 10:33:56 INFO: Servidor de correo {localhost}
+2008-10-04 10:33:56 INFO: Iniciando demonio de sincronizacion
+2008-10-04 10:33:56 INFO: Servidor CoMeet escuchando por el puerto 9119
+2008-10-04 10:33:59 INFO: ConfigFile -> /home/xtingray/Projects/javertec/comeet/comeet/CoMeet-Server/comeet/conf/server.conf
+2008-10-04 10:33:59 INFO: Cargando archivo de configuracion...
+2008-10-04 10:33:59 INFO: Cargando base de datos... comeet
+2008-10-04 10:33:59 ADVERTENCIA: Base de datos deshabilitada desde configuracion -> oracle
+2008-10-04 10:33:59 INFO: Cargando cache de enlace [comeet]
+2008-10-04 10:33:59 INFO: Iniciando demonio pop3
+2008-10-04 10:33:59 INFO: Servidor de correo {localhost}
+2008-10-04 10:33:59 INFO: Iniciando demonio de sincronizacion
+2008-10-04 10:33:59 ERROR: Finalizando el servidor de transacciones. Causa: Address already in use
+2008-10-04 10:34:27 INFO: Leyendo correo del buzon de mensajes
+2008-10-04 10:34:27 INFO: Nuevo mensaje desde {xtingray@localhost} con asunto [ FRANCIA, hola mundo! ]
+2008-10-04 10:34:27 ERROR: El usuario {FRANCIA} no existe en el sistema.
+2008-10-04 10:34:27 ERROR: Notificando al remitente -> {xtingray}
+2008-10-04 10:37:19 INFO: ConfigFile -> /home/xtingray/Projects/javertec/comeet/comeet/CoMeet-Server/comeet/conf/server.conf
+2008-10-04 10:37:20 INFO: Cargando archivo de configuracion...
+2008-10-04 10:37:20 INFO: Cargando base de datos... comeet
+2008-10-04 10:37:20 ADVERTENCIA: Base de datos deshabilitada desde configuracion -> oracle
+2008-10-04 10:37:20 INFO: Cargando cache de enlace [comeet]
+2008-10-04 10:37:20 INFO: Iniciando demonio pop3
+2008-10-04 10:37:20 INFO: Servidor de correo {localhost}
+2008-10-04 10:37:20 INFO: Iniciando demonio de sincronizacion
+2008-10-04 10:37:20 INFO: Servidor CoMeet escuchando por el puerto 9119
+2008-10-04 10:38:21 INFO: Leyendo correo del buzon de mensajes
+2008-10-04 10:38:21 INFO: Nuevo mensaje desde {xtingray@localhost} con asunto [ FRANCIA, hola mundo! ]
+2008-10-04 10:38:21 ERROR: El usuario {FRANCIA} no existe en el sistema.
+2008-10-04 10:38:21 ERROR: Notificando al remitente -> {xtingray}
+2008-10-04 10:42:47 INFO: ConfigFile -> /home/xtingray/Projects/javertec/comeet/comeet/CoMeet-Server/comeet/conf/server.conf
+2008-10-04 10:42:47 INFO: Cargando archivo de configuracion...
+2008-10-04 10:42:47 INFO: Cargando base de datos... comeet
+2008-10-04 10:42:47 ADVERTENCIA: Base de datos deshabilitada desde configuracion -> oracle
+2008-10-04 10:42:47 INFO: Cargando cache de enlace [comeet]
+2008-10-04 10:42:48 INFO: Iniciando demonio pop3
+2008-10-04 10:42:48 INFO: Servidor de correo {localhost}
+2008-10-04 10:42:48 INFO: Iniciando demonio de sincronizacion
+2008-10-04 10:42:48 INFO: Servidor CoMeet escuchando por el puerto 9119
+2008-10-04 10:43:39 INFO: Leyendo correo del buzon de mensajes
+2008-10-04 10:43:39 INFO: Nuevo mensaje desde {xtingray@localhost} con asunto [ FRANCIA, hola mundo! ]
+2008-10-04 10:43:39 ERROR: El usuario {FRANCIA} no existe en el sistema.
+2008-10-04 10:43:39 ERROR: Notificando al remitente -> {xtingray}
+2008-10-04 10:49:31 INFO: ConfigFile -> /home/xtingray/Projects/javertec/comeet/comeet/CoMeet-Server/comeet/conf/server.conf
+2008-10-04 10:49:31 INFO: Cargando archivo de configuracion...
+2008-10-04 10:49:31 INFO: Cargando base de datos... comeet
+2008-10-04 10:49:31 ADVERTENCIA: Base de datos deshabilitada desde configuracion -> oracle
+2008-10-04 10:49:31 INFO: Cargando cache de enlace [comeet]
+2008-10-04 10:49:31 INFO: Iniciando demonio pop3
+2008-10-04 10:49:31 INFO: Servidor de correo {localhost}
+2008-10-04 10:49:31 INFO: Iniciando demonio de sincronizacion
+2008-10-04 10:49:31 INFO: Servidor CoMeet escuchando por el puerto 9119
+2008-10-04 10:50:12 INFO: Leyendo correo del buzon de mensajes
+2008-10-04 10:50:12 INFO: Nuevo mensaje desde {xtingray@localhost} con asunto [ FRANCIA, hola mundo ]
+2008-10-04 10:50:12 ERROR: El usuario {FRANCIA} no existe en el sistema.
+2008-10-04 10:50:12 ERROR: Notificando al remitente -> {xtingray}
+2008-10-04 10:50:12 ERROR[SendFailedException]: Falla en el envio del mensaje desde comeet@localhost para FRANCIA
+2008-10-04 10:50:12 ERROR: Invalid Addresses
+2008-10-04 10:51:46 INFO: ConfigFile -> /home/xtingray/Projects/javertec/comeet/comeet/CoMeet-Server/comeet/conf/server.conf
+2008-10-04 10:51:47 INFO: Cargando archivo de configuracion...
+2008-10-04 10:51:47 INFO: Cargando base de datos... comeet
+2008-10-04 10:51:47 ADVERTENCIA: Base de datos deshabilitada desde configuracion -> oracle
+2008-10-04 10:51:47 INFO: Cargando cache de enlace [comeet]
+2008-10-04 10:51:47 INFO: Iniciando demonio pop3
+2008-10-04 10:51:47 INFO: Servidor de correo {localhost}
+2008-10-04 10:51:47 INFO: Iniciando demonio de sincronizacion
+2008-10-04 10:51:47 INFO: Servidor CoMeet escuchando por el puerto 9119
+2008-10-04 10:52:18 INFO: Leyendo correo del buzon de mensajes
+2008-10-04 10:52:18 INFO: Nuevo mensaje desde {xtingray@localhost} con asunto [ FRANCIA, hola mundo! ]
+2008-10-04 10:52:18 ERROR: El usuario {FRANCIA} no existe en el sistema.
+2008-10-04 10:52:18 ERROR: Notificando al remitente -> {xtingray}
+2008-10-04 10:53:37 INFO: ConfigFile -> /home/xtingray/Projects/javertec/comeet/comeet/CoMeet-Server/comeet/conf/server.conf
+2008-10-04 10:53:37 INFO: Cargando archivo de configuracion...
+2008-10-04 10:53:37 INFO: Cargando base de datos... comeet
+2008-10-04 10:53:38 ADVERTENCIA: Base de datos deshabilitada desde configuracion -> oracle
+2008-10-04 10:53:38 INFO: Cargando cache de enlace [comeet]
+2008-10-04 10:53:38 INFO: Iniciando demonio pop3
+2008-10-04 10:53:38 INFO: Servidor de correo {localhost}
+2008-10-04 10:53:38 INFO: Iniciando demonio de sincronizacion
+2008-10-04 10:53:38 INFO: Servidor CoMeet escuchando por el puerto 9119
+2008-10-04 10:54:09 INFO: Leyendo correo del buzon de mensajes
+2008-10-04 10:54:09 INFO: Nuevo mensaje desde {xtingray@localhost} con asunto [ FRANCIA, hola mundo! ]
+2008-10-04 10:54:09 ERROR: El usuario {FRANCIA} no existe en el sistema.
+2008-10-04 10:54:09 ERROR: Notificando al remitente -> {xtingray}
+2008-10-04 10:55:47 INFO: ConfigFile -> /home/xtingray/Projects/javertec/comeet/comeet/CoMeet-Server/comeet/conf/server.conf
+2008-10-04 10:55:48 INFO: Cargando archivo de configuracion...
+2008-10-04 10:55:48 INFO: Cargando base de datos... comeet
+2008-10-04 10:55:48 ADVERTENCIA: Base de datos deshabilitada desde configuracion -> oracle
+2008-10-04 10:55:48 INFO: Cargando cache de enlace [comeet]
+2008-10-04 10:55:48 INFO: Iniciando demonio pop3
+2008-10-04 10:55:48 INFO: Servidor de correo {localhost}
+2008-10-04 10:55:48 INFO: Iniciando demonio de sincronizacion
+2008-10-04 10:55:48 INFO: Servidor CoMeet escuchando por el puerto 9119
+2008-10-04 10:56:29 INFO: Leyendo correo del buzon de mensajes
+2008-10-04 10:56:29 INFO: Nuevo mensaje desde {xtingray@localhost} con asunto [ FRANCIA, hola mundo! ]
+2008-10-04 10:56:29 ERROR: El usuario {FRANCIA} no existe en el sistema.
+2008-10-04 10:56:29 ERROR: Notificando al remitente -> {xtingray}
+2008-10-04 11:51:04 INFO: ConfigFile -> /home/xtingray/Projects/javertec/comeet/comeet/CoMeet-Server/comeet/conf/server.conf
+2008-10-04 11:51:05 INFO: Cargando archivo de configuracion...
+2008-10-04 11:51:05 INFO: Cargando base de datos... comeet
+2008-10-04 11:51:05 ADVERTENCIA: Base de datos deshabilitada desde configuracion -> oracle
+2008-10-04 11:51:05 INFO: Cargando cache de enlace [comeet]
+2008-10-04 11:51:05 INFO: Iniciando demonio pop3
+2008-10-04 11:51:05 INFO: Servidor de correo {localhost}
+2008-10-04 11:51:05 INFO: Iniciando demonio de sincronizacion
+2008-10-04 11:51:05 INFO: Servidor CoMeet escuchando por el puerto 9119
+2008-10-04 11:51:29 INFO: Se ha establecido una nueva conexion TCP/IP Socket[addr=/127.0.0.1,port=55762,localport=9119]
+2008-10-04 11:51:29 INFO: Inicio de autenticacion para el usuario {CV0001} con la clave {827ccb0eea8a706c4c34a16891f84e7b}
+2008-10-04 11:51:29 INFO: Control de acceso sobre direcciones ip no habilitado para este usuario
+2008-10-04 11:51:29 INFO: Colocador Autenticado {CV0001} desde PORVENIR [127.0.0.1]
+2008-10-04 12:12:12 INFO: ConfigFile -> /home/xtingray/Projects/javertec/comeet/comeet/CoMeet-Server/comeet/conf/server.conf
+2008-10-04 12:12:12 INFO: Cargando archivo de configuracion...
+2008-10-04 12:12:12 INFO: Cargando base de datos... comeet
+2008-10-04 12:12:12 ADVERTENCIA: Base de datos deshabilitada desde configuracion -> oracle
+2008-10-04 12:12:12 INFO: Cargando cache de enlace [comeet]
+2008-10-04 12:12:13 INFO: Iniciando demonio pop3
+2008-10-04 12:12:13 INFO: Servidor de correo {localhost}
+2008-10-04 12:12:13 INFO: Iniciando demonio de sincronizacion
+2008-10-04 12:12:13 INFO: Servidor CoMeet escuchando por el puerto 9119
+2008-10-04 12:13:52 INFO: Se ha establecido una nueva conexion TCP/IP Socket[addr=/127.0.0.1,port=34500,localport=9119]
+2008-10-04 12:13:52 INFO: Inicio de autenticacion para el usuario {suba} con la clave {827ccb0eea8a706c4c34a16891f84e7b}
+2008-10-04 12:13:52 INFO: Control de acceso sobre direcciones ip no habilitado para este usuario
+2008-10-04 12:13:52 INFO: Lote Autenticado {suba} desde ARO DE FUEGO [127.0.0.1]
+2008-10-04 12:18:20 INFO: ConfigFile -> /home/xtingray/Projects/javertec/comeet/comeet/CoMeet-Server/comeet/conf/server.conf
+2008-10-04 12:18:20 INFO: Cargando archivo de configuracion...
+2008-10-04 12:18:20 INFO: Cargando base de datos... comeet
+2008-10-04 12:18:20 ADVERTENCIA: Base de datos deshabilitada desde configuracion -> oracle
+2008-10-04 12:18:20 INFO: Cargando cache de enlace [comeet]
+2008-10-04 12:18:21 INFO: Iniciando demonio pop3
+2008-10-04 12:18:21 INFO: Servidor de correo {localhost}
+2008-10-04 12:18:21 INFO: Iniciando demonio de sincronizacion
+2008-10-04 12:18:21 INFO: Servidor CoMeet escuchando por el puerto 9119
+2008-10-04 12:18:37 INFO: Se ha establecido una nueva conexion TCP/IP Socket[addr=/127.0.0.1,port=60583,localport=9119]
+2008-10-04 12:18:37 INFO: Inicio de autenticacion para el usuario {suba} con la clave {827ccb0eea8a706c4c34a16891f84e7b}
+2008-10-04 12:18:37 INFO: Control de acceso sobre direcciones ip no habilitado para este usuario
+2008-10-04 12:18:37 INFO: Lote Autenticado {suba} desde ARO DE FUEGO [127.0.0.1]
+2008-10-04 12:18:37 INFO: 1 conexion en el pool de lotes
+2008-10-04 12:20:31 INFO: ConfigFile -> /home/xtingray/Projects/javertec/comeet/comeet/CoMeet-Server/comeet/conf/server.conf
+2008-10-04 12:20:31 INFO: Cargando archivo de configuracion...
+2008-10-04 12:20:31 INFO: Cargando base de datos... comeet
+2008-10-04 12:20:32 ADVERTENCIA: Base de datos deshabilitada desde configuracion -> oracle
+2008-10-04 12:20:32 INFO: Cargando cache de enlace [comeet]
+2008-10-04 12:20:32 INFO: Iniciando demonio pop3
+2008-10-04 12:20:32 INFO: Servidor de correo {localhost}
+2008-10-04 12:20:32 INFO: Iniciando demonio de sincronizacion
+2008-10-04 12:20:32 INFO: Servidor CoMeet escuchando por el puerto 9119
+2008-10-04 12:20:42 INFO: Se ha establecido una nueva conexion TCP/IP Socket[addr=/127.0.0.1,port=45665,localport=9119]
+2008-10-04 12:20:42 INFO: Inicio de autenticacion para el usuario {suba} con la clave {827ccb0eea8a706c4c34a16891f84e7b}
+2008-10-04 12:20:42 INFO: Control de acceso sobre direcciones ip no habilitado para este usuario
+2008-10-04 12:20:42 INFO: Lote Autenticado {suba} desde ARO DE FUEGO [127.0.0.1]
+2008-10-04 12:20:42 INFO: 1 conexion activa en el pool de lotes
+2008-10-04 13:00:00 ADVERTENCIA: Tarea de sincronizacion con Oracle aplazada
+2008-10-04 13:00:00 ADVERTENCIA: Motivo -> Base de datos deshabilitada desde configuracion [oracle]
+2008-10-05 13:18:27 INFO: ConfigFile -> /home/xtingray/Projects/javertec/comeet/comeet/CoMeet-Server/comeet/conf/server.conf
+2008-10-05 13:18:28 INFO: Cargando archivo de configuracion...
+2008-10-05 13:18:28 INFO: Cargando base de datos... comeet
+2008-10-05 13:18:28 ADVERTENCIA: Base de datos deshabilitada desde configuracion -> oracle
+2008-10-05 13:18:28 INFO: Cargando cache de enlace [comeet]
+2008-10-05 13:18:29 INFO: Iniciando demonio pop3
+2008-10-05 13:18:29 INFO: Servidor de correo {localhost}
+2008-10-05 13:18:29 INFO: Iniciando demonio de sincronizacion
+2008-10-05 13:18:29 INFO: Servidor CoMeet escuchando por el puerto 9119
+2008-10-05 13:18:44 INFO: Se ha establecido una nueva conexion TCP/IP Socket[addr=/127.0.0.1,port=57160,localport=9119]
+2008-10-05 13:18:44 INFO: Inicio de autenticacion para el usuario {CV0001} con la clave {827ccb0eea8a706c4c34a16891f84e7b}
+2008-10-05 13:18:45 INFO: Control de acceso sobre direcciones ip no habilitado para este usuario
+2008-10-05 13:18:45 INFO: Colocador Autenticado {CV0001} desde PORVENIR [127.0.0.1]
+2008-10-05 13:19:40 INFO: Leyendo correo del buzon de mensajes
+2008-10-05 13:19:40 INFO: Nuevo mensaje desde {xtingray@localhost} con asunto [ CV0001, Bullet Proof ]
+2008-10-05 13:19:40 INFO: Enviando mensaje a 1 usuario
+2008-10-05 13:19:40 INFO: [Envio a Punto de Venta] Remitente {gustavo3} - Destino: CV0001 - Asunto: Bullet Proof
+2008-10-05 13:19:40 INFO: Almacenando registro de mensaje en la base de datos [CV0001]
+2008-10-05 13:19:44 INFO: Confirmada lectura del mensaje con destino {CV0001} / Asunto: [Bullet Proof] / Remitido por: {GERENCIA}
+2008-10-05 19:19:23 INFO: ConfigFile -> /home/xtingray/Projects/javertec/comeet/comeet/CoMeet-Server/comeet/conf/server.conf
+2008-10-05 19:19:24 INFO: Cargando archivo de configuracion...
+2008-10-05 19:19:24 INFO: Cargando base de datos... comeet
+2008-10-05 19:19:24 ADVERTENCIA: Base de datos deshabilitada desde configuracion -> oracle
+2008-10-05 19:19:24 INFO: Cargando cache de enlace [comeet]
+2008-10-05 19:19:24 INFO: Iniciando demonio pop3
+2008-10-05 19:19:24 INFO: Servidor de correo {localhost}
+2008-10-05 19:19:24 INFO: Iniciando demonio de sincronizacion
+2008-10-05 19:19:24 INFO: Servidor CoMeet escuchando por el puerto 9119
+2008-10-05 19:19:45 INFO: Se ha establecido una nueva conexion TCP/IP Socket[addr=/127.0.0.1,port=50409,localport=9119]
+2008-10-05 19:19:45 INFO: Inicio de autenticacion para el usuario {CV0001} con la clave {827ccb0eea8a706c4c34a16891f84e7b}
+2008-10-05 19:19:45 INFO: Control de acceso sobre direcciones ip no habilitado para este usuario
+2008-10-05 19:19:45 INFO: Acceso denegado a {CV0001} desde la ip 127.0.0.1 ingresando como Colocador [Clave incorrecta]
+2008-10-05 19:28:19 INFO: ConfigFile -> /home/xtingray/Projects/javertec/comeet/comeet/CoMeet-Server/comeet/conf/server.conf
+2008-10-05 19:28:19 INFO: Cargando archivo de configuracion...
+2008-10-05 19:28:19 INFO: Cargando base de datos... comeet
+2008-10-05 19:28:19 ADVERTENCIA: Base de datos deshabilitada desde configuracion -> oracle
+2008-10-05 19:28:19 INFO: Cargando cache de enlace [comeet]
+2008-10-05 19:28:20 INFO: Iniciando demonio pop3
+2008-10-05 19:28:20 INFO: Servidor de correo {localhost}
+2008-10-05 19:28:20 INFO: Iniciando demonio de sincronizacion
+2008-10-05 19:28:20 INFO: Servidor CoMeet escuchando por el puerto 9119
+2008-10-05 19:28:34 INFO: Se ha establecido una nueva conexion TCP/IP Socket[addr=/127.0.0.1,port=34395,localport=9119]
+2008-10-05 19:28:34 INFO: Inicio de autenticacion para el usuario {CV0001} con la clave {827ccb0eea8a706c4c34a16891f84e7b}
+2008-10-05 19:28:34 INFO: Control de acceso sobre direcciones ip no habilitado para este usuario
+2008-10-05 19:28:34 INFO: Acceso denegado a {CV0001} desde la ip 127.0.0.1 ingresando como Colocador [Clave incorrecta]
+2008-10-05 19:37:57 INFO: ConfigFile -> /home/xtingray/Projects/javertec/comeet/comeet/CoMeet-Server/comeet/conf/server.conf
+2008-10-05 19:37:57 INFO: Cargando archivo de configuracion...
+2008-10-05 19:37:57 INFO: Cargando base de datos... comeet
+2008-10-05 19:37:57 ADVERTENCIA: Base de datos deshabilitada desde configuracion -> oracle
+2008-10-05 19:37:57 INFO: Cargando cache de enlace [comeet]
+2008-10-05 19:37:57 INFO: Iniciando demonio pop3
+2008-10-05 19:37:57 INFO: Servidor de correo {localhost}
+2008-10-05 19:37:57 INFO: Iniciando demonio de sincronizacion
+2008-10-05 19:37:57 INFO: Servidor CoMeet escuchando por el puerto 9119
+2008-10-05 19:38:07 INFO: Se ha establecido una nueva conexion TCP/IP Socket[addr=/127.0.0.1,port=37076,localport=9119]
+2008-10-05 19:38:08 INFO: Inicio de autenticacion para el usuario {CV0001} con la clave {827ccb0eea8a706c4c34a16891f84e7b}
+2008-10-05 19:38:08 INFO: Control de acceso sobre direcciones ip no habilitado para este usuario
+2008-10-05 19:38:08 INFO: Acceso denegado a {CV0001} desde la ip 127.0.0.1 ingresando como Colocador [Clave incorrecta]
+2008-10-05 19:41:55 INFO: ConfigFile -> /home/xtingray/Projects/javertec/comeet/comeet/CoMeet-Server/comeet/conf/server.conf
+2008-10-05 19:41:56 INFO: Cargando archivo de configuracion...
+2008-10-05 19:41:56 INFO: Cargando base de datos... comeet
+2008-10-05 19:41:56 ADVERTENCIA: Base de datos deshabilitada desde configuracion -> oracle
+2008-10-05 19:41:56 INFO: Cargando cache de enlace [comeet]
+2008-10-05 19:41:56 INFO: Iniciando demonio pop3
+2008-10-05 19:41:56 INFO: Servidor de correo {localhost}
+2008-10-05 19:41:56 INFO: Iniciando demonio de sincronizacion
+2008-10-05 19:41:56 INFO: Servidor CoMeet escuchando por el puerto 9119
+2008-10-05 19:42:10 INFO: Se ha establecido una nueva conexion TCP/IP Socket[addr=/127.0.0.1,port=37122,localport=9119]
+2008-10-05 19:42:10 INFO: Inicio de autenticacion para el usuario {CV0001} con la clave {827ccb0eea8a706c4c34a16891f84e7b}
+2008-10-05 19:42:10 INFO: Control de acceso sobre direcciones ip no habilitado para este usuario
+2008-10-05 19:42:10 INFO: Acceso denegado a {CV0001} desde la ip 127.0.0.1 ingresando como Colocador [Clave incorrecta]
+2008-10-05 19:42:20 INFO: Se ha establecido una nueva conexion TCP/IP Socket[addr=/127.0.0.1,port=37125,localport=9119]
+2008-10-05 19:42:20 INFO: Inicio de autenticacion para el usuario {CV0001} con la clave {827ccb0eea8a706c4c34a16891f84e7b}
+2008-10-05 19:42:20 INFO: Control de acceso sobre direcciones ip no habilitado para este usuario
+2008-10-05 19:42:20 INFO: Acceso denegado a {CV0001} desde la ip 127.0.0.1 ingresando como Colocador [Clave incorrecta]
+2008-10-05 19:54:14 INFO: ConfigFile -> /home/xtingray/Projects/javertec/comeet/comeet/CoMeet-Server/comeet/conf/server.conf
+2008-10-05 19:54:14 INFO: Cargando archivo de configuracion...
+2008-10-05 19:54:14 INFO: Cargando base de datos... comeet
+2008-10-05 19:54:14 ADVERTENCIA: Base de datos deshabilitada desde configuracion -> oracle
+2008-10-05 19:54:14 INFO: Cargando cache de enlace [comeet]
+2008-10-05 19:54:15 INFO: Iniciando demonio pop3
+2008-10-05 19:54:15 INFO: Servidor de correo {localhost}
+2008-10-05 19:54:15 INFO: Iniciando demonio de sincronizacion
+2008-10-05 19:54:15 INFO: Servidor CoMeet escuchando por el puerto 9119
+2008-10-05 20:34:24 INFO: ConfigFile -> /home/xtingray/Projects/javertec/comeet/comeet/CoMeet-Server/comeet/conf/server.conf
+2008-10-05 20:34:24 INFO: Cargando archivo de configuracion...
+2008-10-05 20:34:24 INFO: Cargando base de datos... comeet
+2008-10-05 20:34:24 ADVERTENCIA: Base de datos deshabilitada desde configuracion -> oracle
+2008-10-05 20:34:24 INFO: Cargando cache de enlace [comeet]
+2008-10-05 20:34:24 INFO: Iniciando demonio pop3
+2008-10-05 20:34:24 INFO: Servidor de correo {localhost}
+2008-10-05 20:34:24 INFO: Iniciando demonio de sincronizacion
+2008-10-05 20:34:24 INFO: Servidor CoMeet escuchando por el puerto 9119
+2008-10-05 20:34:42 INFO: Se ha establecido una nueva conexion TCP/IP Socket[addr=/127.0.0.1,port=44920,localport=9119]
+2008-10-05 20:34:42 INFO: Inicio de autenticacion para el usuario {CV0001} con la clave {827ccb0eea8a706c4c34a16891f84e7b}
+2008-10-05 20:34:42 INFO: Control de acceso sobre direcciones ip no habilitado para este usuario
+2008-10-05 20:34:42 INFO: Acceso denegado a {CV0001} desde la ip 127.0.0.1 ingresando como Colocador [Clave incorrecta]
+2008-10-05 20:35:34 INFO: ConfigFile -> /home/xtingray/Projects/javertec/comeet/comeet/CoMeet-Server/comeet/conf/server.conf
+2008-10-05 20:35:34 INFO: Cargando archivo de configuracion...
+2008-10-05 20:35:34 INFO: Cargando base de datos... comeet
+2008-10-05 20:35:34 ADVERTENCIA: Base de datos deshabilitada desde configuracion -> oracle
+2008-10-05 20:35:34 INFO: Cargando cache de enlace [comeet]
+2008-10-05 20:35:35 INFO: Iniciando demonio pop3
+2008-10-05 20:35:35 INFO: Servidor de correo {localhost}
+2008-10-05 20:35:35 INFO: Iniciando demonio de sincronizacion
+2008-10-05 20:35:35 INFO: Servidor CoMeet escuchando por el puerto 9119
+2008-10-05 20:35:51 INFO: Se ha establecido una nueva conexion TCP/IP Socket[addr=/127.0.0.1,port=44933,localport=9119]
+2008-10-05 20:35:51 INFO: Inicio de autenticacion para el usuario {CV0001} con la clave {827ccb0eea8a706c4c34a16891f84e7b}
+2008-10-05 20:35:51 INFO: Control de acceso sobre direcciones ip no habilitado para este usuario
+2008-10-05 20:35:51 INFO: Colocador Autenticado {CV0001} desde PORVENIR [127.0.0.1]
+2008-10-05 20:35:51 INFO: 1 conexion activa en el pool de lotes
+2008-10-05 20:35:51 No se pudo crear el estamento SEL0001 ERROR:  column "nombre_grupo" does not exist at character 12
+
+2008-10-05 20:35:51 No se pudo crear el estamento SEL0012 ERROR:  column m.fecha does not exist at character 11
+
+2008-10-05 20:36:00 ADVERTENCIA: Tarea de sincronizacion con Oracle aplazada
+2008-10-05 20:36:00 ADVERTENCIA: Motivo -> Base de datos deshabilitada desde configuracion [oracle]
+2008-10-05 20:36:55 INFO: ConfigFile -> /home/xtingray/Projects/javertec/comeet/comeet/CoMeet-Server/comeet/conf/server.conf
+2008-10-05 20:36:55 INFO: Cargando archivo de configuracion...
+2008-10-05 20:36:55 INFO: Cargando base de datos... comeet
+2008-10-05 20:36:55 ADVERTENCIA: Base de datos deshabilitada desde configuracion -> oracle
+2008-10-05 20:36:55 INFO: Cargando cache de enlace [comeet]
+2008-10-05 20:36:56 INFO: Iniciando demonio pop3
+2008-10-05 20:36:56 INFO: Servidor de correo {localhost}
+2008-10-05 20:36:56 INFO: Iniciando demonio de sincronizacion
+2008-10-05 20:36:56 INFO: Servidor CoMeet escuchando por el puerto 9119
+2008-10-05 20:37:00 ADVERTENCIA: Tarea de sincronizacion con Oracle aplazada
+2008-10-05 20:37:00 ADVERTENCIA: Motivo -> Base de datos deshabilitada desde configuracion [oracle]
+2008-10-05 20:37:12 INFO: Se ha establecido una nueva conexion TCP/IP Socket[addr=/127.0.0.1,port=44950,localport=9119]
+2008-10-05 20:37:12 INFO: Inicio de autenticacion para el usuario {CV0001} con la clave {827ccb0eea8a706c4c34a16891f84e7b}
+2008-10-05 20:37:12 INFO: Control de acceso sobre direcciones ip no habilitado para este usuario
+2008-10-05 20:37:12 INFO: Colocador Autenticado {CV0001} desde PORVENIR [127.0.0.1]
+2008-10-05 20:37:12 INFO: 1 conexion activa en el pool de lotes
+2008-10-05 20:37:13 No se pudo crear el estamento SEL0012 ERROR:  column m.fecha does not exist at character 11
+
+2008-10-05 20:40:32 INFO: ConfigFile -> /home/xtingray/Projects/javertec/comeet/comeet/CoMeet-Server/comeet/conf/server.conf
+2008-10-05 20:40:32 INFO: Cargando archivo de configuracion...
+2008-10-05 20:40:32 INFO: Cargando base de datos... comeet
+2008-10-05 20:40:32 ADVERTENCIA: Base de datos deshabilitada desde configuracion -> oracle
+2008-10-05 20:40:32 INFO: Cargando cache de enlace [comeet]
+2008-10-05 20:40:33 INFO: Iniciando demonio pop3
+2008-10-05 20:40:33 INFO: Servidor de correo {localhost}
+2008-10-05 20:40:33 INFO: Iniciando demonio de sincronizacion
+2008-10-05 20:40:33 INFO: Servidor CoMeet escuchando por el puerto 9119
+2008-10-05 20:40:35 INFO: ConfigFile -> /home/xtingray/Projects/javertec/comeet/comeet/CoMeet-Server/comeet/conf/server.conf
+2008-10-05 20:40:35 INFO: Cargando archivo de configuracion...
+2008-10-05 20:40:35 INFO: Cargando base de datos... comeet
+2008-10-05 20:40:35 ADVERTENCIA: Base de datos deshabilitada desde configuracion -> oracle
+2008-10-05 20:40:35 INFO: Cargando cache de enlace [comeet]
+2008-10-05 20:40:36 INFO: Iniciando demonio pop3
+2008-10-05 20:40:36 INFO: Servidor de correo {localhost}
+2008-10-05 20:40:36 INFO: Iniciando demonio de sincronizacion
+2008-10-05 20:40:36 ERROR: Finalizando el servidor de transacciones. Causa: Address already in use
+2008-10-05 20:40:54 INFO: Se ha establecido una nueva conexion TCP/IP Socket[addr=/127.0.0.1,port=51856,localport=9119]
+2008-10-05 20:40:54 INFO: Inicio de autenticacion para el usuario {CV0001} con la clave {827ccb0eea8a706c4c34a16891f84e7b}
+2008-10-05 20:40:54 INFO: Control de acceso sobre direcciones ip no habilitado para este usuario
+2008-10-05 20:40:54 INFO: Colocador Autenticado {CV0001} desde PORVENIR [127.0.0.1]
+2008-10-05 20:40:54 INFO: 1 conexion activa en el pool de lotes
+2008-10-05 20:41:11 INFO: ConfigFile -> /home/xtingray/Projects/javertec/comeet/comeet/CoMeet-Server/comeet/conf/server.conf
+2008-10-05 20:41:12 INFO: Cargando archivo de configuracion...
+2008-10-05 20:41:12 INFO: Cargando base de datos... comeet
+2008-10-05 20:41:12 ADVERTENCIA: Base de datos deshabilitada desde configuracion -> oracle
+2008-10-05 20:41:12 INFO: Cargando cache de enlace [comeet]
+2008-10-05 20:41:12 INFO: Iniciando demonio pop3
+2008-10-05 20:41:12 INFO: Servidor de correo {localhost}
+2008-10-05 20:41:12 INFO: Iniciando demonio de sincronizacion
+2008-10-05 20:41:12 INFO: Servidor CoMeet escuchando por el puerto 9119
+2008-10-05 20:41:26 INFO: Se ha establecido una nueva conexion TCP/IP Socket[addr=/127.0.0.1,port=51864,localport=9119]
+2008-10-05 20:41:26 INFO: Inicio de autenticacion para el usuario {CV0001} con la clave {827ccb0eea8a706c4c34a16891f84e7b}
+2008-10-05 20:41:26 INFO: Control de acceso sobre direcciones ip no habilitado para este usuario
+2008-10-05 20:41:26 INFO: Colocador Autenticado {CV0001} desde PORVENIR [127.0.0.1]
+2008-10-05 20:41:26 INFO: 1 conexion activa en el pool de lotes
+2008-10-05 20:41:44 INFO: ConfigFile -> /home/xtingray/Projects/javertec/comeet/comeet/CoMeet-Server/comeet/conf/server.conf
+2008-10-05 20:41:45 INFO: Cargando archivo de configuracion...
+2008-10-05 20:41:45 INFO: Cargando base de datos... comeet
+2008-10-05 20:41:45 ADVERTENCIA: Base de datos deshabilitada desde configuracion -> oracle
+2008-10-05 20:41:45 INFO: Cargando cache de enlace [comeet]
+2008-10-05 20:41:45 INFO: Iniciando demonio pop3
+2008-10-05 20:41:45 INFO: Servidor de correo {localhost}
+2008-10-05 20:41:45 INFO: Iniciando demonio de sincronizacion
+2008-10-05 20:41:45 INFO: Servidor CoMeet escuchando por el puerto 9119
+2008-10-05 20:43:22 INFO: Se ha establecido una nueva conexion TCP/IP Socket[addr=/127.0.0.1,port=59556,localport=9119]
+2008-10-05 20:43:22 INFO: Inicio de autenticacion para el usuario {suba} con la clave {827ccb0eea8a706c4c34a16891f84e7b}
+2008-10-05 20:43:23 INFO: Control de acceso sobre direcciones ip no habilitado para este usuario
+2008-10-05 20:43:23 INFO: Acceso denegado a {suba} desde la ip 127.0.0.1 ingresando como Colocador [Clave incorrecta]
+2008-10-05 20:45:43 INFO: ConfigFile -> /home/xtingray/Projects/javertec/comeet/comeet/CoMeet-Server/comeet/conf/server.conf
+2008-10-05 20:45:43 INFO: Cargando archivo de configuracion...
+2008-10-05 20:45:43 INFO: Cargando base de datos... comeet
+2008-10-05 20:45:43 ADVERTENCIA: Base de datos deshabilitada desde configuracion -> oracle
+2008-10-05 20:45:43 INFO: Cargando cache de enlace [comeet]
+2008-10-05 20:45:43 INFO: Iniciando demonio pop3
+2008-10-05 20:45:43 INFO: Servidor de correo {localhost}
+2008-10-05 20:45:43 INFO: Iniciando demonio de sincronizacion
+2008-10-05 20:45:43 INFO: Servidor CoMeet escuchando por el puerto 9119
+2008-10-05 21:05:21 INFO: ConfigFile -> /home/xtingray/Projects/javertec/comeet/comeet/CoMeet-Server/comeet/conf/server.conf
+2008-10-05 21:05:21 INFO: Cargando archivo de configuracion...
+2008-10-05 21:05:21 INFO: Cargando base de datos... comeet
+2008-10-05 21:05:21 ADVERTENCIA: Base de datos deshabilitada desde configuracion -> oracle
+2008-10-05 21:05:21 INFO: Cargando cache de enlace [comeet]
+2008-10-05 21:05:21 INFO: Iniciando demonio pop3
+2008-10-05 21:05:21 INFO: Servidor de correo {localhost}
+2008-10-05 21:05:21 INFO: Iniciando demonio de sincronizacion
+2008-10-05 21:05:22 INFO: Servidor CoMeet escuchando por el puerto 9119
+2008-10-05 21:05:33 INFO: Se ha establecido una nueva conexion TCP/IP Socket[addr=/127.0.0.1,port=48237,localport=9119]
+2008-10-05 21:05:33 INFO: Inicio de autenticacion para el usuario {CV0001} con la clave {827ccb0eea8a706c4c34a16891f84e7b}
+2008-10-05 21:05:33 INFO: Control de acceso sobre direcciones ip no habilitado para este usuario
+2008-10-05 21:05:33 INFO: Acceso denegado a {CV0001} desde la ip 127.0.0.1 ingresando como Colocador [Clave incorrecta]
+2008-10-05 21:06:24 INFO: ConfigFile -> /home/xtingray/Projects/javertec/comeet/comeet/CoMeet-Server/comeet/conf/server.conf
+2008-10-05 21:06:24 INFO: Cargando archivo de configuracion...
+2008-10-05 21:06:24 INFO: Cargando base de datos... comeet
+2008-10-05 21:06:24 ADVERTENCIA: Base de datos deshabilitada desde configuracion -> oracle
+2008-10-05 21:06:24 INFO: Cargando cache de enlace [comeet]
+2008-10-05 21:06:25 INFO: Iniciando demonio pop3
+2008-10-05 21:06:25 INFO: Servidor de correo {localhost}
+2008-10-05 21:06:25 INFO: Iniciando demonio de sincronizacion
+2008-10-05 21:06:25 INFO: Servidor CoMeet escuchando por el puerto 9119
+2008-10-05 21:06:37 INFO: Se ha establecido una nueva conexion TCP/IP Socket[addr=/127.0.0.1,port=48247,localport=9119]
+2008-10-05 21:06:37 INFO: Inicio de autenticacion para el usuario {CV0001} con la clave {827ccb0eea8a706c4c34a16891f84e7b}
+2008-10-05 21:06:37 INFO: Control de acceso sobre direcciones ip no habilitado para este usuario
+2008-10-05 21:06:37 INFO: Lote Autenticado {CV0001} desde PORVENIR [127.0.0.1]
+2008-10-05 21:06:48 INFO: ConfigFile -> /home/xtingray/Projects/javertec/comeet/comeet/CoMeet-Server/comeet/conf/server.conf
+2008-10-05 21:06:48 INFO: Cargando archivo de configuracion...
+2008-10-05 21:06:48 INFO: Cargando base de datos... comeet
+2008-10-05 21:06:48 ADVERTENCIA: Base de datos deshabilitada desde configuracion -> oracle
+2008-10-05 21:06:48 INFO: Cargando cache de enlace [comeet]
+2008-10-05 21:06:49 INFO: Iniciando demonio pop3
+2008-10-05 21:06:49 INFO: Servidor de correo {localhost}
+2008-10-05 21:06:49 INFO: Iniciando demonio de sincronizacion
+2008-10-05 21:06:49 INFO: Servidor CoMeet escuchando por el puerto 9119
+2008-10-05 21:06:59 INFO: Se ha establecido una nueva conexion TCP/IP Socket[addr=/127.0.0.1,port=48254,localport=9119]
+2008-10-05 21:06:59 INFO: Inicio de autenticacion para el usuario {suba} con la clave {827ccb0eea8a706c4c34a16891f84e7b}
+2008-10-05 21:06:59 INFO: Control de acceso sobre direcciones ip no habilitado para este usuario
+2008-10-05 21:06:59 INFO: Lote Autenticado {suba} desde PORVENIR [127.0.0.1]
