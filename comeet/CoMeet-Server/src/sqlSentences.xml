@@ -461,7 +461,7 @@
         </sentence>
         <sentence>
         <!--Descripcion:  Dado el id de un grupo, retorna todos los usuarios que pertenecen a dicho grupo-->
-                <code>SEL0035</code>
+        <code>SEL0035</code>
                 <sql>
 			SELECT 
 				u.uid,login,nombres,correo,
@@ -499,9 +499,16 @@
 				p.codigo=r.codigo AND p.gid=g.gid
 		 </sql>
   	    </sentence>
+  	    <sentence>
+	    <!--Descripcion: Dado un email, retorna el id del grupo al que pertenece -->
+		<code>SEL0038</code>
+		 <sql>
+              SELECT gid FROM grupos WHERE gid=(SELECT gid FROM usuarios WHERE correo='?')
+		 </sql>
+  	    </sentence>	    
 	<!--============================= Inserts ===============================-->
 	<sentence>
-	<!--Descripcion: ... -->
+	<!--Descripcion: Esta instruccion ingresa un registro de usuario al sistema -->
 		<code>INS0001</code>
 		<sql>
 			INSERT INTO 
@@ -510,7 +517,7 @@
 		</sql>
 	</sentence>
 	<sentence>
-	<!--Descripcion: ... -->
+	<!--Descripcion: Esta instruccion registra la ubicacion de un usuario -->
 		<code>INS0002</code>
 		<sql>
 			INSERT INTO 
@@ -520,12 +527,21 @@
 		</sql>
 	</sentence>
 	<sentence>
-	<!--Descripcion: ... -->
+	<!--Descripcion: Esta instruccion registra un mensaje para un usuario PC/POS -->
 		<code>INS0003</code>
 		<sql>
 			INSERT INTO 
 			mensajes (uid_destino,uid_origen,fecha,hora,asunto,texto,valido,tiempo_vida,control,minutos) 
 			VALUES ('?','?','?','?','?','?','?','?','?','?');
+		</sql>
+	</sentence>
+	<sentence>
+	<!--Descripcion: Esta instruccion registra un mensaje para un usuario PDA -->
+		<code>INS0004</code>
+		<sql>
+			INSERT INTO 
+			mensajes_pda (login,gid_origen,fecha_envio,hora_envio,asunto,texto,confirmado) 
+			VALUES ('?','?','?','?','?','?','?');
 		</sql>
 	</sentence>
 	<sentence>

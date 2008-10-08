@@ -27,6 +27,7 @@ public class QuerySenderException extends Exception {
 	private static final long serialVersionUID = 1278468904256344708L;
 
 	public String getMessage() {
-        return  "No se pudo ejecutar la transacción";
+        return  "Tiempo de espera agotado para el paquete VERIFY" + 
+        		"No se pudo ejecutar la transacción";
     }
 }

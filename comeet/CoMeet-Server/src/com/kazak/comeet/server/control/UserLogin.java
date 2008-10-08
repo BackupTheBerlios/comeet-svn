@@ -193,12 +193,12 @@ public class UserLogin {
 	    			
 	    			if (validate) {
 	    				if (rol == ADMIN) {
-	    					LogWriter.write("INFO: Usuario Administrador autenticado {" + login + "} desde " 
+	    					LogWriter.write("INFO: Usuario Administrador {" + login + "} autenticado desde " 
 	    							+ wsName + " [" + ip + "]");
 	    					//userLevel = 1;
 	    					return true;
 	    				} else if (rol == AUDITOR) {
-	    					LogWriter.write("INFO: Auditor Autenticado {" + login + "} desde " 
+	    					LogWriter.write("INFO: Auditor {" + login + "} autenticado desde " 
 	    							+ wsName + " [" + ip + "]");
 	    					//userLevel = 2;
 	    					return true;
@@ -206,9 +206,9 @@ public class UserLogin {
 	    			}
 	    			else {
 	    				if (rol == SALES ) {
-	    					LogWriter.write("INFO: Colocador Autenticado {" + login + "} desde " + wsName  + " [" + ip + "]");
+	    					LogWriter.write("INFO: Colocador {" + login + "} autenticado desde " + wsName  + " [" + ip + "]");
 	    				} else {					
-	    					LogWriter.write("INFO: Lote Autenticado {" + login + "} desde " + wsName  + " [" + ip + "]");
+	    					LogWriter.write("INFO: Lote {" + login + "} autenticado desde " + wsName  + " [" + ip + "]");
 	    				}
     					//userLevel = 3;
 	    				return true;

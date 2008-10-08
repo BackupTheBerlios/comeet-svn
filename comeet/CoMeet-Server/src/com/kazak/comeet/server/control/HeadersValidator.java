@@ -186,6 +186,11 @@ public class HeadersValidator {
             		e.printStackTrace();
             	}
             }
+            /* Comprobacion de usuario pda en lote */
+            else if (rootName.equals("VERIFY")) {
+            	String id = root.getChildText("id");
+            	QuerySender.putResultOnPool(id,doc);
+            }
             else {
                   LogWriter.write(Language.getWord("ERR_FORMAT_PROTOCOL") + ": " + sock.socket());
             }
@@ -207,7 +212,7 @@ public class HeadersValidator {
         		SocketServer.getSocketInfo(sock).setGroupName(user.getGroupName());
         		SocketServer.getSocketInfo(sock).setNames(user.getNames());
         		SocketServer.getSocketInfo(sock).setConnectionTime();
-        		if(user.getUserLevel() == 3) {
+        		if(user.getUserLevel() == 4) {
         			SocketServer.getPDdaHash().addSocket(sock,SocketServer.getSocketInfo(login));
         			int size = SocketServer.getPDdaHash().size();
         			String connections = " conexion activa";
@@ -227,11 +232,6 @@ public class HeadersValidator {
 				}
             }
         } 
-        /* Comprobacion de usuario pda en lote */
-        else if (rootName.equals("VERIFY")) {
-        	String id = root.getChildText("id");
-        	QuerySender.putResultOnPool(id,doc);
-        }
         /* Validación de solicitud de paquetes no autorizados */
         else {
             LogWriter.write("ERROR: Paquete no autorizado. Contenido:");

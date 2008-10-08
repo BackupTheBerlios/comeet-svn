@@ -74,10 +74,9 @@ public class QuerySender {
 				e.printStackTrace();
 			}
 		}
-
-		Document result = (Document)verificationsHash.get(id);
+		Document result = (Document)verificationsHash.get(code);
 		Element root = result.getRootElement();
-		String exist = root.getChildText("exist");
+		String exist = root.getChildText("answer");
 		boolean flag = Boolean.valueOf(exist);
 		verificationsHash.remove(id);
 

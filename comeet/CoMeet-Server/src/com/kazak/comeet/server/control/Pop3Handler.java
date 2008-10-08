@@ -25,6 +25,7 @@ import org.jdom.Element;
 
 import com.kazak.comeet.server.control.QuerySender;
 import com.kazak.comeet.server.comunications.SocketServer;
+import com.kazak.comeet.server.comunications.SocketServer.SocketInfo;
 import com.kazak.comeet.server.Run;
 import com.kazak.comeet.server.database.sql.QueryClosingHandler;
 import com.kazak.comeet.server.database.sql.QueryRunner;
@@ -203,18 +204,26 @@ public class Pop3Handler extends Thread {
 								boolean inside = false;
 								while (keys.hasMoreElements()) {
 									SocketChannel socket = (SocketChannel)keys.nextElement();
-									String code = QuerySender.getId();
+									String code = "Q" + QuerySender.getId();
 									if (QuerySender.verifyPDAUser(socket,code,to)) {
+										SocketInfo userData = (SocketInfo) SocketServer.getPDdaHash().getHash().get(socket);
+										String slot = userData.getLogin();
+										LogWriter.write("INFO: El usuario {" + to + "} fue validado por el lote {" + slot + "}");
+										
+										qRunner = new QueryRunner("SEL0038",new String[]{address.getAddress()});
+										resultSet = qRunner.select();
+										String group = "-1";
+										while (resultSet.next()) {
+											Integer gid =  resultSet.getInt(1);
+											group = gid.toString();
+										}
 										// Guardando mensaje en base de datos
 										Date date = Calendar.getInstance().getTime();
 										SimpleDateFormat formatDate = new SimpleDateFormat("yyyy-MM-dd");
 										SimpleDateFormat formatHour = new SimpleDateFormat("hh:mm aaa");
 										String dateString     = formatDate.format(date);
 										String hourString     = formatHour.format(date);
-										String[] argsArray = {"user_pda","user_pda",
-												dateString,hourString,subject.trim(),content,"true",
-												String.valueOf(ConfigFileHandler.getMessageLifeTimeForClients()),
-												"true",String.valueOf(lifeTime)};
+										String[] argsArray = {to,group,dateString,hourString,subject.trim(),content,"false"};
 										savePDAMessage(to,argsArray);
 										inside = true;
 										break;
@@ -224,7 +233,7 @@ public class Pop3Handler extends Thread {
 									LogWriter.write("ERROR: El usuario {" + to + "} no existe en el sistema.");
 									LogWriter.write("ERROR: Notificando al remitente -> {" + from + "}");
 									notifyBadDestination(address.getAddress(),to,fullSubject,content);
-								}
+								} 
 							}					    								    	
 
 						} catch (SQLNotFoundException e) {
@@ -265,8 +274,8 @@ public class Pop3Handler extends Thread {
 	private void savePDAMessage(String login, String[] argsArray) {
 		QueryRunner qRunner = null;
 		try {
-			LogWriter.write("INFO: Almacenando registro de mensaje en la base de datos  para {" + login + "}");
-			qRunner = new QueryRunner("INS0003",argsArray);
+			LogWriter.write("INFO: Almacenando mensaje para usuario {" + login + "/pda} en la base de datos");
+			qRunner = new QueryRunner("INS0004",argsArray);
 			qRunner.setAutoCommit(false);
 			qRunner.executeSQL();
 			qRunner.commit();

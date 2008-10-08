@@ -164,14 +164,14 @@ SELECT pg_catalog.setval('mensajes_pda_mid_seq', 1, true);
 CREATE TABLE mensajes_pda (
     mid integer DEFAULT nextval('mensajes_pda_mid_seq'::regclass) NOT NULL,
     login character varying(30) NOT NULL,
-    uid_origen integer NOT NULL,
+    gid_origen integer NOT NULL,
     fecha_envio date NOT NULL,
     hora_envio time without time zone NOT NULL,
     asunto character varying(256) NOT NULL,
     texto text NOT NULL,
     confirmado boolean DEFAULT false NOT NULL,
-    fecha_confirmacion date NOT NULL,
-    hora_confirmacion time without time zone NOT NULL
+    fecha_confirmacion date DEFAULT '1900-01-01' NOT NULL,
+    hora_confirmacion time without time zone DEFAULT '00:00' NOT NULL    
 );
 
 ALTER TABLE public.mensajes_pda OWNER TO comeetadmin;
@@ -559,7 +559,7 @@ ALTER TABLE ONLY grupos
 --
 
 ALTER TABLE ONLY mensajes_pda
-    ADD CONSTRAINT mensajes_pda_uid_origen_fkey FOREIGN KEY (uid_origen) REFERENCES usuarios(uid);
+    ADD CONSTRAINT mensajes_pda_uid_origen_fkey FOREIGN KEY (gid_origen) REFERENCES grupos(gid);
 
 --
 -- Name: mensajes_uid_destino_fkey; Type: FK CONSTRAINT; Schema: public; Owner: comeetadmin
