@@ -69,9 +69,9 @@ public class ResultSetToXMLConverter extends Document {
 	}
 
 	/**
-	 * Metodo encargado de ejcutar y trancomeettir la sentencia sql
+	 * Metodo encargado de ejecutar la sentencia sql y retornar el resultado
 	 */
-	public void trancomeett(SocketChannel socket, String id) {
+	public void sqlHandler(SocketChannel socket, String id) {
 
 		synchronized(socket) {
 			try {

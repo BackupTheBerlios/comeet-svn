@@ -60,7 +60,8 @@ public class ConfigFileHandler {
     private static int messageLifeTimeForClients;
     private static int messageLifeTimeInDB;
     private static int maxMessagesNumAllowed;
-    private static ArrayList<OracleSyncTask> syncTaskList = new ArrayList<OracleSyncTask>();;
+    private static ArrayList<OracleSyncTask> syncTaskList = new ArrayList<OracleSyncTask>();
+    private static boolean movilSupport = false;
       
     /**
      * Este metodo se encarga de cargar el archivo de configuracion
@@ -114,6 +115,8 @@ public class ConfigFileHandler {
     				maxMessagesNumAllowed = Integer.parseInt(records.getValue());
     			} else if (records.getName().equalsIgnoreCase("SyncTask")) {
     				syncTaskList.add(createSyncTask(records));
+    			} else if (records.getName().equalsIgnoreCase("MovilSupport")) {
+    				movilSupport = new Boolean(records.getValue()).booleanValue();
     			}
     		}
     		LogWriter.write(Language.getWord("LOADING_CF"));
@@ -330,7 +333,13 @@ public class ConfigFileHandler {
 
 	public static int getMessageLifeTimeInDataBase() {
 		return messageLifeTimeInDB;
-	}}
+	}
+	
+	public static boolean getMovilSupport() {
+		return movilSupport;
+	}
+	
+}
     
 /**
  * Esta clase almacena una estructura con la informaci�n necesaria

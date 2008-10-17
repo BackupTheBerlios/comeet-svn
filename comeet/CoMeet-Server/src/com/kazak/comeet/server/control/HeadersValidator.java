@@ -3,6 +3,8 @@ package com.kazak.comeet.server.control;
 import java.io.IOException;
 import java.nio.channels.SocketChannel;
 import java.sql.SQLException;
+import java.util.Iterator;
+import java.util.List;
 
 import org.jdom.Document;
 import org.jdom.Element;
@@ -16,6 +18,9 @@ import com.kazak.comeet.server.comunications.AcpFailure;
 import com.kazak.comeet.server.comunications.ResultSetToXMLConverter;
 import com.kazak.comeet.server.comunications.SocketServer;
 import com.kazak.comeet.server.comunications.SocketWriter;
+import com.kazak.comeet.server.database.sql.QueryRunner;
+import com.kazak.comeet.server.database.sql.SQLBadArgumentsException;
+import com.kazak.comeet.server.database.sql.SQLNotFoundException;
 import com.kazak.comeet.server.misc.LogWriter;
 import com.kazak.comeet.server.misc.settings.ConfigFileHandler;
 
@@ -81,6 +86,12 @@ public class HeadersValidator {
                 LogWriter.write("INFO: Nuevo mensaje enviado por Colocador desde " + sock.socket().getInetAddress().getHostAddress());
                 new MessageDistributor(root,false);
             }
+        	/*
+        	else if ((rootName.equals("PDAMessage")) && ConfigFileHandler.getMovilSupport()) { 
+                LogWriter.write("INFO: Nuevo mensaje enviado por usuario PDA desde " + sock.socket().getInetAddress().getHostAddress());
+                new MessageDistributor(root,false);
+            }
+            */
         	else if (rootName.equals("Transaction")) {
                 new TransactionRunner(sock,doc);
             }
@@ -130,7 +141,37 @@ public class HeadersValidator {
                         } else {
                             answer = new ResultSetToXMLConverter(code);
                         }
-                        answer.trancomeett(sock,validQuery.getId());   
+                        answer.sqlHandler(sock,validQuery.getId());
+                        
+                        if (ConfigFileHandler.getMovilSupport()) { 
+                        	if (code.equals("SEL0012A")) {
+                        		Element element = root.getChild("params");
+                                List list = element.getChildren();
+                                Iterator iterator = list.iterator();
+                                String user = "";
+                                for (int i =0 ;iterator.hasNext(); i++){
+                                    Element login = (Element)iterator.next();
+                                    user = login.getValue();
+                                }
+                                
+                        		String data[] = new String[1];
+                        		data[0] = user;
+                        		QueryRunner runQuery;
+                        		try {
+                        			runQuery = new QueryRunner("UPD0007",data);
+                        			runQuery.setAutoCommit(false);
+                        			runQuery.executeSQL();
+                        			runQuery.commit();
+                        		} catch (SQLNotFoundException e) {
+                        			e.printStackTrace();
+                        		} catch (SQLBadArgumentsException e) {
+                        			e.printStackTrace();
+                        		} catch (SQLException e) {
+                        			// TODO Auto-generated catch block
+                        			e.printStackTrace();
+                        		}
+                        	}
+                        }
                 	}
                 };
                 t.start();         
@@ -187,7 +228,7 @@ public class HeadersValidator {
             	}
             }
             /* Comprobacion de usuario pda en lote */
-            else if (rootName.equals("VERIFY")) {
+            else if (rootName.equals("VERIFY") && ConfigFileHandler.getMovilSupport()) {
             	String id = root.getChildText("id");
             	QuerySender.putResultOnPool(id,doc);
             }

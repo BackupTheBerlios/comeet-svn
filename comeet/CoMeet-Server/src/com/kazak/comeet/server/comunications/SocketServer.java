@@ -402,7 +402,7 @@ public class SocketServer {
         private String wsName;
         private String connectionTime;
         private ByteArrayOutputStream temporalBuffer;
-        private int userDevice;
+        private int rol;
         
     	public SocketInfo() {}
     	
@@ -477,14 +477,14 @@ public class SocketServer {
     		this.email = email;
     	}
     	
-    	public int getUserDevice() {
-    		return userDevice;
+    	public int getUserRol() {
+    		return rol;
     	}
-    	
-    	public void setUserDevice(int userDevice) {
-    		this.userDevice = userDevice;
+    	    	
+    	public void setUserRol(int rol) {
+    		this.rol = rol;
     	}
-        
+    	        
         /**
          * @param sock
          */
@@ -627,11 +627,10 @@ public class SocketServer {
 				user.setLogin(resultSet.getString(2));
 				user.setNames(resultSet.getString(3));
 				user.setEmail(resultSet.getString(4));
-				user.setAdmin(resultSet.getBoolean(5));
-				user.setAudit(resultSet.getBoolean(6));
-				user.setGroupID(resultSet.getInt(7));
-				user.setWsName(resultSet.getString(9));
-				user.setGroupName(resultSet.getString(12));
+				user.setGroupID(resultSet.getInt(5));
+				user.setUserRol(resultSet.getInt(6));
+				user.setWsName(resultSet.getString(7));
+				user.setGroupName(resultSet.getString(8));	
 				
 				if (!containsSocketInfo(usersVector, user)) {
 					if (user.getGroupID()==groupID) {

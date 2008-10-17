@@ -30,6 +30,7 @@ import com.kazak.comeet.server.misc.ServerConstants;
 //This class delivers all the messages received by the comeet account
 
 public class MessageDistributor {
+	
 	private static final boolean LOTTERY_MODE = false;
 	private static final boolean CONTROL_MODE = false;
 	private static SimpleDateFormat formatDate = new SimpleDateFormat("yyyy-MM-dd");
@@ -56,6 +57,8 @@ public class MessageDistributor {
 		// Getting the destination list for this message 
 		Vector<SocketInfo> usersVector = getDestinationList(element,senderIsMailUser);
 		int groupSize = usersVector.size();
+		
+		System.out.println("TOKEN I");
 
 		if(groupSize == 0) {
 			LogWriter.write("INFO: El destino seleccionado no aparece registrado en el sistema local");
@@ -68,6 +71,8 @@ public class MessageDistributor {
 		}
 
 		LogWriter.write("INFO: Enviando mensaje a "+ groupSize + " usuario" + many);
+		
+		System.out.println("TOKEN II");
 
 		// In this cycle, the message is sent to every user in the destination list 
 		for (SocketInfo destination : usersVector) {
@@ -118,15 +123,15 @@ public class MessageDistributor {
 			}
 
 			// if destination user is offline
-			if (!control || (control && (sock!=null))) {
-				String isValid = groupSize > 0 ? "true" : "false";
+			if (!control || (control && (sock!=null))) {			
 				String[] argsArray = {String.valueOf(destination.getUid()),String.valueOf(sender.getUid()),
-						dateString,hourString,subject.trim(),body.trim(),isValid,
+						dateString,hourString,subject.trim(),body.trim(),"false",
 						String.valueOf(ConfigFileHandler.getMessageLifeTimeForClients()),
 						String.valueOf(control),String.valueOf(lifeTime)};
 
 				QueryRunner qRunner = null;
 				try {
+					System.out.println("TOKEN III");
 					LogWriter.write("INFO: Almacenando registro de mensaje en la base de datos [" + destination.getLogin() + "]");
 					qRunner = new QueryRunner("INS0003",argsArray);
 					qRunner.setAutoCommit(false);

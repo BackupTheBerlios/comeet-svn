@@ -176,13 +176,13 @@ public class Pop3Handler extends Thread {
 						}
 
 						try {
+							boolean inside = false;
 							qRunner = toAllUsers ? new QueryRunner("SEL0028") :	new QueryRunner("SEL0024",new String[]{to,to});
 							resultSet = qRunner.select();
-							int counter = 0;
 							while (resultSet.next()) {
 								groupID =  resultSet.getString(1);
 								if (groupID!=null) {
-									counter++;
+									inside = true;
 									Element xml = new Element("Message");
 									xml.addContent(createXMLElement("idgroup",groupID));
 									xml.addContent(createXMLElement("toName",toAllUsers ? resultSet.getString(2): to ));
@@ -197,11 +197,10 @@ public class Pop3Handler extends Thread {
 									LogWriter.write("ERROR: Verificar posible inconsistencia en base de datos.");
 								}
 							}
-
-							if (counter == 0) {
+						
+							if (!inside && ConfigFileHandler.getMovilSupport()) {
 								LogWriter.write("INFO: Consultando si usuario {" + to + "} existe en LOTES");
 								Enumeration keys = SocketServer.getPDdaHash().getKeys();
-								boolean inside = false;
 								while (keys.hasMoreElements()) {
 									SocketChannel socket = (SocketChannel)keys.nextElement();
 									String code = "Q" + QuerySender.getId();
@@ -229,13 +228,14 @@ public class Pop3Handler extends Thread {
 										break;
 									}
 								}
-								if (!inside) {
-									LogWriter.write("ERROR: El usuario {" + to + "} no existe en el sistema.");
-									LogWriter.write("ERROR: Notificando al remitente -> {" + from + "}");
-									notifyBadDestination(address.getAddress(),to,fullSubject,content);
-								} 
 							}					    								    	
 
+							if (!inside) {
+								LogWriter.write("ERROR: El usuario {" + to + "} no existe en el sistema.");
+								LogWriter.write("ERROR: Notificando al remitente -> {" + from + "}");
+								notifyBadDestination(address.getAddress(),to,fullSubject,content);
+							} 
+							
 						} catch (SQLNotFoundException e) {
 							e.printStackTrace();
 						} catch (SQLBadArgumentsException e) {

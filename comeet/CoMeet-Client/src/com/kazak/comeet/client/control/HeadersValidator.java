@@ -42,7 +42,7 @@ import com.kazak.comeet.lib.network.ArrivedPackageEvent;
 import com.kazak.comeet.lib.network.PackageComingListener;
 
 // Solo para pruebas con pda's
-import com.kazak.comeet.client.network.SocketWriter;
+// import com.kazak.comeet.client.network.SocketWriter;
 
 public class HeadersValidator implements PackageComingListener {
 
@@ -103,6 +103,7 @@ public class HeadersValidator implements PackageComingListener {
         else if(name.equals("ERROR")) {
 			displayError();
         }
+    	/*
     	// Codigo experimental para probar con PDA's
         else if(name.equals("VERIFY")) {
         	String id = root.getChildText("id");
@@ -116,7 +117,7 @@ public class HeadersValidator implements PackageComingListener {
     		} catch (IOException e) {
     			e.printStackTrace();
     		}
-        }
+        } */
         else {
         	System.out.println("Error en el formato del protocolo");
         	XMLOutputter out = new XMLOutputter();

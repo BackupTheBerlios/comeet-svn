@@ -182,13 +182,13 @@ public class UserLogin {
 	    		queryRunner = new QueryRunner("SEL0025",new String[]{login});
 	    		resultSet = queryRunner.select();
 	    		if (resultSet.next()) {
-	    			uid 	= resultSet.getInt(1);
-	    			login	= resultSet.getString(2);
-	    			names	= resultSet.getString(3);
-	    			email	= resultSet.getString(4);
-	    			gid		= resultSet.getInt(5);
+	    			uid 	   = resultSet.getInt(1);
+	    			login	   = resultSet.getString(2);
+	    			names	   = resultSet.getString(3);
+	    			email	   = resultSet.getString(4);
+	    			gid		   = resultSet.getInt(5);
 	    			groupName  = resultSet.getString(6);
-	    			rol = resultSet.getInt(7);
+	    			rol        = resultSet.getInt(7);
                     //userDevice = resultSet.getInt(7);
 	    			
 	    			if (validate) {

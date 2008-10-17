@@ -149,6 +149,20 @@
 		</sql>
 	</sentence>
 	<sentence>
+	<!--Descripcion: Retorna los mensajes nuevos para un usuario pda -->
+		<code>SEL0012A</code>
+		<sql>
+			SELECT
+			m.fecha_envio,m.hora_envio,g.nombre,m.asunto,m.texto
+			FROM 
+			mensajes_pda m,
+			grupos g
+			WHERE 
+			m.entregado=false AND g.gid=m.gid_origen AND m.login='?'
+			ORDER BY fecha_envio desc ,hora_envio desc
+		</sql>
+	</sentence>
+	<sentence>
 	<!--Descripcion: ... -->
 		<code>SEL0013</code>
 		<sql>
@@ -464,12 +478,11 @@
         <code>SEL0035</code>
                 <sql>
 			SELECT 
-				u.uid,login,nombres,correo,
-				admin,audit,u.gid,false,'Sin punto asignado',g.gid,null,g.nombre 
+				u.uid,login,nombres,correo,u.gid,rol,b.nombre,g.nombre 
 			FROM 
-				usuarios u,grupos g 
+				usuarios u, grupos g, usuarios_ubicacion a, ubicaciones b
 			WHERE 
-				g.gid=u.gid AND g.gid='?'
+				g.gid=u.gid AND g.gid='?' AND a.id_usuario=u.uid AND a.codigo_ubicacion=b.codigo
 			ORDER BY login
                 </sql>
         </sentence>     
@@ -531,7 +544,7 @@
 		<code>INS0003</code>
 		<sql>
 			INSERT INTO 
-			mensajes (uid_destino,uid_origen,fecha,hora,asunto,texto,valido,tiempo_vida,control,minutos) 
+			mensajes (uid_destino,uid_origen,fecha_envio,hora_envio,asunto,texto,confirmado,tiempo_vida,control,minutos) 
 			VALUES ('?','?','?','?','?','?','?','?','?','?');
 		</sql>
 	</sentence>
@@ -613,7 +626,7 @@
 	</sentence>
 	<sentence>
 	<!--Descripcion: ... -->
-		<code>UPD0003</code>
+    	<code>UPD0003</code>
 		<sql>
 			UPDATE mensajes SET confirmado='?', fecha_confirmacion='?'
 			WHERE fecha='?' AND hora='?' AND confirmado=false AND
@@ -644,6 +657,14 @@
 			FROM
 			(SELECT pv.gid,up.uid FROM ubicaciones pv,usuarios_ubicacion up WHERE pv.codigo=up.codigo_pventa) AS foo 
 			WHERE foo.uid=usuarios.uid
+		</sql>
+	</sentence>
+	<sentence>
+	<!--Descripcion: Actualiza mensajes entregados al servidor de pdas -->
+    	<code>UPD0007</code>
+		<sql>
+			UPDATE mensajes_pda SET entregado='true' 
+			WHERE login='?'
 		</sql>
 	</sentence>
 </root>
