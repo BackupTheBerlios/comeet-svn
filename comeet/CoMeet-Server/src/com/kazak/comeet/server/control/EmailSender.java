@@ -35,7 +35,7 @@ public class EmailSender extends Thread {
 	
 	public void run() {
 		String fulltext = 
-			toFullName+" escribio desde "+workStation+":\n" +
+			toFullName + " escribio desde " + workStation + ":\n" +
 			"--------------------------------------------\n"+
 			message+ "\n"+
 			"--------------------------------------------\n" +

@@ -246,13 +246,13 @@ public class HeadersValidator {
         		SocketServer.getSocketInfo(sock).setEmail(user.getEmail());
         		SocketServer.getSocketInfo(sock).setUid(user.getUid());
         		SocketServer.getSocketInfo(sock).setGroupID(user.getGid());
-        		SocketServer.getSocketInfo(sock).setAdmin(user.getAdmin());
-        		SocketServer.getSocketInfo(sock).setAudit(user.getAudit());
+        		SocketServer.getSocketInfo(sock).setUserRol(user.getUserLevel());
         		SocketServer.getSocketInfo(sock).setCurrentIP(user.getIp());
         		SocketServer.getSocketInfo(sock).setWsName(user.getWsName());
         		SocketServer.getSocketInfo(sock).setGroupName(user.getGroupName());
         		SocketServer.getSocketInfo(sock).setNames(user.getNames());
         		SocketServer.getSocketInfo(sock).setConnectionTime();
+        		
         		if(user.getUserLevel() == 4) {
         			SocketServer.getPDdaHash().addSocket(sock,SocketServer.getSocketInfo(login));
         			int size = SocketServer.getPDdaHash().size();
@@ -261,7 +261,7 @@ public class HeadersValidator {
         				connections = " conexiones activas";
         			}
         			LogWriter.write("INFO: " + SocketServer.getPDdaHash().size() + connections + " en el pool de lotes");
-        		}
+        		}        		
                 new ACPSender(sock,login,user.getUserLevel());
             } else {
                 try {

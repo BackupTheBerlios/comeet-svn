@@ -116,7 +116,7 @@ public class Pop3Handler extends Thread {
 					}
 
 					LogWriter.write("INFO: Leyendo correo del buzon de mensajes");
-					System.out.println("INFO: Formato de mensaje -> " + msgType);
+					LogWriter.write("INFO: Formato de mensaje -> " + msgType);
 					LogWriter.write("INFO: Nuevo mensaje desde {" + address.getAddress() + "} con asunto [ " +  fullSubject + " ]");
 
 					if (index2==-1 && !fullSubject.startsWith("[Error CoMeet]")) {
@@ -201,31 +201,32 @@ public class Pop3Handler extends Thread {
 							if (!inside && ConfigFileHandler.getMovilSupport()) {
 								LogWriter.write("INFO: Consultando si usuario {" + to + "} existe en LOTES");
 								Enumeration keys = SocketServer.getPDdaHash().getKeys();
-								while (keys.hasMoreElements()) {
-									SocketChannel socket = (SocketChannel)keys.nextElement();
-									String code = "Q" + QuerySender.getId();
-									if (QuerySender.verifyPDAUser(socket,code,to)) {
-										SocketInfo userData = (SocketInfo) SocketServer.getPDdaHash().getHash().get(socket);
-										String slot = userData.getLogin();
-										LogWriter.write("INFO: El usuario {" + to + "} fue validado por el lote {" + slot + "}");
-										
-										qRunner = new QueryRunner("SEL0038",new String[]{address.getAddress()});
-										resultSet = qRunner.select();
-										String group = "-1";
-										while (resultSet.next()) {
-											Integer gid =  resultSet.getInt(1);
-											group = gid.toString();
+								if (SocketServer.getPDdaHashSize() > 0) {
+									while (keys.hasMoreElements()) {
+										SocketChannel socket = (SocketChannel)keys.nextElement();
+										String code = "Q" + QuerySender.getId();
+										if (QuerySender.verifyPDAUser(socket,code,to)) {
+											SocketInfo userData = (SocketInfo) SocketServer.getDataSocket(socket);
+											String slot = userData.getLogin();
+											LogWriter.write("INFO: El usuario {" + to + "} fue validado por el lote {" + slot + "}");
+											qRunner = new QueryRunner("SEL0038",new String[]{address.getAddress()});
+											resultSet = qRunner.select();
+											String group = "-1";
+											while (resultSet.next()) {
+												Integer gid =  resultSet.getInt(1);
+												group = gid.toString();
+											}
+											// Guardando mensaje en base de datos
+											Date date = Calendar.getInstance().getTime();
+											SimpleDateFormat formatDate = new SimpleDateFormat("yyyy-MM-dd");
+											SimpleDateFormat formatHour = new SimpleDateFormat("hh:mm aaa");
+											String dateString     = formatDate.format(date);
+											String hourString     = formatHour.format(date);
+											String[] argsArray = {to,group,dateString,hourString,subject.trim(),content,"false"};
+											savePDAMessage(to,argsArray);
+											inside = true;
+											break;
 										}
-										// Guardando mensaje en base de datos
-										Date date = Calendar.getInstance().getTime();
-										SimpleDateFormat formatDate = new SimpleDateFormat("yyyy-MM-dd");
-										SimpleDateFormat formatHour = new SimpleDateFormat("hh:mm aaa");
-										String dateString     = formatDate.format(date);
-										String hourString     = formatHour.format(date);
-										String[] argsArray = {to,group,dateString,hourString,subject.trim(),content,"false"};
-										savePDAMessage(to,argsArray);
-										inside = true;
-										break;
 									}
 								}
 							}					    								    	

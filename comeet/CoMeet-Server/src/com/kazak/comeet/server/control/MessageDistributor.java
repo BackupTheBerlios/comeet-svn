@@ -34,7 +34,7 @@ public class MessageDistributor {
 	private static final boolean LOTTERY_MODE = false;
 	private static final boolean CONTROL_MODE = false;
 	private static SimpleDateFormat formatDate = new SimpleDateFormat("yyyy-MM-dd");
-	private static SimpleDateFormat formatHour = new SimpleDateFormat("hh:mm aaa");
+	private static SimpleDateFormat formatHour = new SimpleDateFormat("hh:mm a");
 	private Date   date;
 	private String groupIDString;
 	private int    groupID;
@@ -43,6 +43,7 @@ public class MessageDistributor {
 	private String hourString;
 	private String subject;
 	private String body;
+	private int rol;
 
 	private int lifeTime = -1;
 	private boolean control = false;
@@ -53,17 +54,18 @@ public class MessageDistributor {
 		getMessageParams(element);
 		// Gets the sender info
 		SocketInfo sender = getSenderInfo(senderIsMailUser);
+		rol = sender.getUserRol();
 
 		// Getting the destination list for this message 
 		Vector<SocketInfo> usersVector = getDestinationList(element,senderIsMailUser);
 		int groupSize = usersVector.size();
 		
-		System.out.println("TOKEN I");
-
-		if(groupSize == 0) {
+		/*
+		if((groupSize == 0) && ConfigFileHandler.getMovilSupport()) {
 			LogWriter.write("INFO: El destino seleccionado no aparece registrado en el sistema local");
 			LogWriter.write("INFO: Consultando usuario destino en LOTES...");
 		}
+		*/
 		
 		String many = "";
 		if (groupSize > 1 || groupSize==0) {
@@ -72,8 +74,6 @@ public class MessageDistributor {
 
 		LogWriter.write("INFO: Enviando mensaje a "+ groupSize + " usuario" + many);
 		
-		System.out.println("TOKEN II");
-
 		// In this cycle, the message is sent to every user in the destination list 
 		for (SocketInfo destination : usersVector) {
 			SocketChannel sock = destination.getSock()!=null ? destination.getSock().getChannel() : null;
@@ -85,7 +85,7 @@ public class MessageDistributor {
 
 				message.addContent(root);
 				root.addContent(addColumn(dateString));
-				root.addContent(addColumn(hourString));
+				//root.addContent(addColumn(hourString));
 				root.addContent(addColumn(sender.getGroupName()));
 				root.addContent(addColumn(subject));
 				root.addContent(addColumn(body));
@@ -111,10 +111,14 @@ public class MessageDistributor {
 				EmailSender mail = new EmailSender();
 				mail.setFrom(Pop3Handler.getUser()+"@"+Pop3Handler.getHost());
 				mail.setDestination(destination.getEmail());
-				mail.setSubject(sender.getLogin() + "," + subject);
+				mail.setSubject(sender.getLogin() + ", " + subject);
 				mail.setDate(date);
 				mail.setMessage(body);
-				mail.setSenderFullName(sender.getNames());
+				if (rol == 4) {
+					mail.setSenderFullName(sender.getLogin() + " [PDA]");
+				} else {
+					mail.setSenderFullName(sender.getNames());
+				}
 				mail.setWorkStation(sender.getWsName());
 				mail.send();
 				LogWriter.write("INFO: [Envio a Cuenta de Correo] Remitente {" + sender.getLogin() 
@@ -124,14 +128,13 @@ public class MessageDistributor {
 
 			// if destination user is offline
 			if (!control || (control && (sock!=null))) {			
-				String[] argsArray = {String.valueOf(destination.getUid()),String.valueOf(sender.getUid()),
-						dateString,hourString,subject.trim(),body.trim(),"false",
-						String.valueOf(ConfigFileHandler.getMessageLifeTimeForClients()),
-						String.valueOf(control),String.valueOf(lifeTime)};
-
+				String[] argsArray = {String.valueOf(destination.getUid()),
+						dateString,hourString,subject.trim(),body.trim(),
+						"0",String.valueOf(ConfigFileHandler.getMessageLifeTimeForClients()),
+						String.valueOf(sender.getUid()),"0","0"};
+						
 				QueryRunner qRunner = null;
 				try {
-					System.out.println("TOKEN III");
 					LogWriter.write("INFO: Almacenando registro de mensaje en la base de datos [" + destination.getLogin() + "]");
 					qRunner = new QueryRunner("INS0003",argsArray);
 					qRunner.setAutoCommit(false);
@@ -163,7 +166,7 @@ public class MessageDistributor {
 		date           = Calendar.getInstance().getTime();
 		from           = (element.getChildText("from")).trim();
 		dateString     = formatDate.format(date);
-		hourString     = formatHour.format(date);
+		hourString     = formatHour.format(date);                 
 		subject        = element.getChildText("subject");
 		body           = element.getChildText("message");
 		Element mailLifeTime = element.getChild("timeAlife");
@@ -241,11 +244,9 @@ public class MessageDistributor {
 				user.setLogin(resultSet.getString(2));
 				user.setNames(resultSet.getString(3));
 				user.setEmail(resultSet.getString(4));
-				user.setAdmin(resultSet.getBoolean(5));
-				user.setAudit(resultSet.getBoolean(6));
-				user.setGroupID(resultSet.getInt(7));
-				user.setWsName(resultSet.getString(9));
-				user.setGroupName(resultSet.getString(12));	
+				user.setGroupID(resultSet.getInt(5));
+				user.setGroupName(resultSet.getString(6));
+				user.setWsName(resultSet.getString(7));	
 			}
 		} catch (SQLNotFoundException e) {
 			e.printStackTrace();
@@ -293,7 +294,7 @@ public class MessageDistributor {
 	// This method sends an alarm message to the CoMeet group when the system fails
 	public static void sendAlarm(String subject, String body) {
 		Vector<SocketInfo> usersVector = SocketServer.getAllClients("COMEET");
-		int groupSize = usersVector.size();
+		//int groupSize = usersVector.size();
 		Date date = Calendar.getInstance().getTime();
 		String dateString = formatDate.format(date);
 		String hourString = formatHour.format(date);
@@ -309,12 +310,11 @@ public class MessageDistributor {
 			mail.setWorkStation("Servidor");
 			mail.send();
 			LogWriter.write("INFO: Enviando notificacion de alarma a {" + destination.getEmail() + "} / Asunto: [" + subject + "]");
-
-			String isValid = groupSize > 0 ? "true" : "false";
-			String[] argsArray = {String.valueOf(destination.getUid()),String.valueOf(0),
-					dateString,hourString,subject.trim(),body.trim(),isValid,
-					String.valueOf(ConfigFileHandler.getMessageLifeTimeForClients()),
-					"false","-1"};
+			
+			String[] argsArray = {String.valueOf(destination.getUid()),
+					dateString,hourString,subject.trim(),body.trim(),
+					"0",String.valueOf(ConfigFileHandler.getMessageLifeTimeForClients()),
+					"1","0","0"};
 
 			QueryRunner qRunner = null;
 			try {
@@ -445,8 +445,8 @@ public class MessageDistributor {
 		socketInfo.setLogin(userInfoArray[0]);
 		socketInfo.setNames(userInfoArray[2]);
 		socketInfo.setEmail(userInfoArray[3]);
-		socketInfo.setAdmin(new Boolean(userInfoArray[4]).booleanValue());
-		socketInfo.setAudit(new Boolean(userInfoArray[5]).booleanValue());
+		//socketInfo.setAdmin(new Boolean(userInfoArray[4]).booleanValue());
+		//socketInfo.setAudit(new Boolean(userInfoArray[5]).booleanValue());
 		socketInfo.setGroupID(Integer.parseInt(userInfoArray[6]));
 		socketInfo.setWsName("");
 		socketInfo.setGroupName(groupName);	

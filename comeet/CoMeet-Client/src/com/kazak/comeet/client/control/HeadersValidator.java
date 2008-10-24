@@ -119,6 +119,8 @@ public class HeadersValidator implements PackageComingListener {
     		}
         } */
         else {
+        	System.out.println();
+        	System.out.println("***************************************************************");
         	System.out.println("Error en el formato del protocolo");
         	XMLOutputter out = new XMLOutputter();
         	out.setFormat(Format.getPrettyFormat());;
@@ -127,6 +129,8 @@ public class HeadersValidator implements PackageComingListener {
     		} catch (IOException e) {
     			e.printStackTrace();
     		}
+        	System.out.println("***************************************************************");
+        	System.out.println();
         }
     }
     

@@ -230,30 +230,6 @@ public class UserLogin {
 	    		" ingresando como " + (validate ? "Administrador/Auditor" :"Colocador") + " [Clave incorrecta]");
 	    return false;
     }
-   /* 
-    private int getUserType(String login) {
-    	QueryRunner queryRunner = null;
-    	ResultSet resultSet = null;
-    	int type = -1;
-    	try {	    		
-    		queryRunner = new QueryRunner("SEL0025",new String[]{login});
-    		resultSet = queryRunner.select();
-    		if (resultSet.next()) {
-    			type = resultSet.getInt(1);
-			}
-		} catch (SQLNotFoundException e) {
-			e.printStackTrace();
-		} catch (SQLBadArgumentsException e) {
-			e.printStackTrace();
-		} catch (SQLException e) {
-			e.printStackTrace();
-		} finally {
-			QueryClosingHandler.close(resultSet);
-			queryRunner.closeStatement();
-		}
-		return type;
-    } */
- 
     
 	public int getUserLevel() {
 		return rol;

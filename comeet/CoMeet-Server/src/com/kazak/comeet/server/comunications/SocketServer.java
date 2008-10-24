@@ -351,7 +351,15 @@ public class SocketServer {
     public static PDASocketsHash getPDdaHash() {
         return pdaHash;
     }
-
+    
+    public static int getPDdaHashSize() {
+        return pdaHash.size();
+    } 
+    
+    public static SocketInfo getDataSocket(SocketChannel socket) {
+    	return (SocketInfo) pdaHash.getHash().get(socket);
+    }
+    
     public static String getCompanyNameKey(SocketChannel sock) {
         return "K-"+ getDataBase(sock) + "-company";
     }
@@ -393,8 +401,8 @@ public class SocketServer {
         private String names;
         private int uid;
         private String email;
-        private boolean admin;
-        private boolean audit;
+        //private boolean admin;
+        //private boolean audit;
         private int gid;
         private String groupName;
         private String currentIP;
@@ -445,13 +453,14 @@ public class SocketServer {
     		this.names = names;
     	}
     	
+    	/*
     	public void setAudit(boolean audit) {
     		this.audit = audit;
     	}
     	
     	public boolean getAudit() { // TODO: Preguntar donde se llama? se necesita?
     		return audit;
-    	}
+    	}*/
     	
         public int getUid() {
     		return uid;
@@ -461,6 +470,7 @@ public class SocketServer {
     		this.uid = userID;
     	}
 
+    	/*
     	public boolean isAdmin() {
     		return admin;
     	}
@@ -468,6 +478,7 @@ public class SocketServer {
     	public void setAdmin(boolean admin) {
     		this.admin = admin;
     	}
+    	*/
 
     	public String getEmail() {
     		return email;
@@ -614,7 +625,6 @@ public class SocketServer {
 	    for (SocketInfo socketInfo : generalSocketsHash.values()) {    
             if (socketInfo.getGroupID()==groupID) {
                 usersVector.add(socketInfo);
-				System.out.println("1. Adicionando usuario: " + socketInfo.getLogin() + ":" + socketInfo.getGroupName());
             }
         }
 	    
@@ -634,7 +644,6 @@ public class SocketServer {
 				
 				if (!containsSocketInfo(usersVector, user)) {
 					if (user.getGroupID()==groupID) {
-						System.out.println("11. Adicionando usuario: " + user.getLogin() + ":" + user.getGroupName());
 						usersVector.add(user);
 					}
 				}
@@ -710,11 +719,12 @@ public class SocketServer {
 				user.setLogin(resultSet.getString(2));
 				user.setNames(resultSet.getString(3));
 				user.setEmail(resultSet.getString(4));
-				user.setAdmin(resultSet.getBoolean(5));
-				user.setAudit(resultSet.getBoolean(6));
-				user.setGroupID(resultSet.getInt(7));
-				user.setWsName(resultSet.getString(8));
-				user.setGroupName(resultSet.getString(9));		
+				//user.setAdmin(resultSet.getBoolean(5));
+				//user.setAudit(resultSet.getBoolean(6));
+				user.setUserRol(resultSet.getInt(5));
+				user.setGroupID(resultSet.getInt(6));
+				user.setWsName(resultSet.getString(7));
+				user.setGroupName(resultSet.getString(8));		
 				
 				if (!containsSocketInfo(groupVector, user)) {
 						groupVector.add(user);

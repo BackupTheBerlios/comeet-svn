@@ -50,16 +50,19 @@ public class QueryRunner extends Element {
     public QueryRunner() {}
     
     public QueryRunner(String sqlCode) throws SQLNotFoundException, SQLBadArgumentsException {
+    	System.out.println("Ejecutando consulta: " + sqlCode);
         this.sqlCode = sqlCode;
         sql = SQLInstructions.getSentence(sqlCode);
     }
     
     public QueryRunner(String sqlCode,String[] args) throws SQLNotFoundException, SQLBadArgumentsException{
+    	System.out.println("Ejecutando consulta: " + sqlCode);
         this.sqlCode = sqlCode;
         sql = SQLInstructions.getSentence(sqlCode,args);
     }
     
     public QueryRunner(String sqlCode,String sql) {
+    	System.out.println("Ejecutando consulta: " + sqlCode);
         this.sqlCode = sqlCode;
         this.sql = sql;
     }
@@ -81,6 +84,7 @@ public class QueryRunner extends Element {
         this.sqlCode = sqlCode;
         sql = SQLInstructions.getSentence(sqlCode,args);
         statement = ConnectionsPool.getConnection(ConfigFileHandler.getMainDataBase()).createStatement();
+        LogWriter.write("SENTENCIA SQL :: "+sql);
         boolean status = statement.execute(sql);
         statement.close();
         
@@ -106,6 +110,7 @@ public class QueryRunner extends Element {
      */
     public boolean executeSQL() throws SQLException{
         statement = ConnectionsPool.getConnection(ConfigFileHandler.getMainDataBase()).createStatement();
+        LogWriter.write("SENTENCIA SQL :: "+sql);
         boolean status = statement.execute(sql);
         statement.close();
 

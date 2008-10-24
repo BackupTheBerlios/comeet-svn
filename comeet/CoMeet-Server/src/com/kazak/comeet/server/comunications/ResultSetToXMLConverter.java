@@ -79,7 +79,7 @@ public class ResultSetToXMLConverter extends Document {
 					bufferOutputStream = new ByteArrayOutputStream();
 					XMLOutputter XMLformat = new XMLOutputter();
 					QueryRunner qRunner;
-
+					
 					if(argsArray==null ) {
 						qRunner = new QueryRunner(sql);
 					}
@@ -90,7 +90,6 @@ public class ResultSetToXMLConverter extends Document {
 					ResultSet resultSet = qRunner.select();
 
 					try {
-
 						ResultSetMetaData rsMetaData = resultSet.getMetaData();
 						int columns = rsMetaData.getColumnCount();
 						writeSocketBuffer(socket,
@@ -113,18 +112,26 @@ public class ResultSetToXMLConverter extends Document {
 						 * Se recorre el resulset para añadir los datos que contenga, y
 						 * se escriben directamente en el socket en formato XML
 						 */
-						byte [] data;
+						byte [] data = null;
 						
 						while (resultSet.next()) {
 							writeSocketBuffer(socket,ServerConstants.TAGS_ROW[0]);
+							String value = "";
 							for (int j = 1; j <= columns; j++) {
 
-								data = resultSet.getBytes(j);
+								String type = rsMetaData.getColumnTypeName(j);
+								if (type.equals("NUMBER")) {
+								    Integer number = resultSet.getInt(j);
+								    value = number.toString();
+								} else {
+									data = resultSet.getBytes(j);
+									value = new String(data,"ISO-8859-1");
+								}
 
 								if (data==null)
 									data= new String("").getBytes();
 								writeSocketBuffer(socket,ServerConstants.TAGS_COL[0] + 
-										escapeCharacters(new String(data,"ISO-8859-1"))+
+										escapeCharacters(value)+
 										ServerConstants.TAGS_COL[1]
 								);
 							}

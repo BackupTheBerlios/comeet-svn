@@ -65,7 +65,7 @@ ALTER TABLE public.mensajes_mid_seq OWNER TO comeetadmin;
 -- Name: mensajes_mid_seq; Type: SEQUENCE SET; Schema: public; Owner: comeetadmin
 --
 
-SELECT pg_catalog.setval('mensajes_mid_seq', 4298, true);
+SELECT pg_catalog.setval('mensajes_mid_seq', 4309, true);
 
 
 --
@@ -109,7 +109,7 @@ ALTER TABLE public.mensajes_pda_mid_seq OWNER TO comeetadmin;
 -- Name: mensajes_pda_mid_seq; Type: SEQUENCE SET; Schema: public; Owner: comeetadmin
 --
 
-SELECT pg_catalog.setval('mensajes_pda_mid_seq', 4, true);
+SELECT pg_catalog.setval('mensajes_pda_mid_seq', 7, true);
 
 
 --
@@ -196,18 +196,6 @@ CREATE TABLE tipo_grupo (
 
 
 ALTER TABLE public.tipo_grupo OWNER TO comeetadmin;
-
---
--- Name: tipo_usuario; Type: TABLE; Schema: public; Owner: comeetadmin; Tablespace: 
---
-
-CREATE TABLE tipo_usuario (
-    id_tipo integer NOT NULL,
-    descripcion character varying(30) NOT NULL
-);
-
-
-ALTER TABLE public.tipo_usuario OWNER TO comeetadmin;
 
 --
 -- Name: transacciones; Type: TABLE; Schema: public; Owner: comeetadmin; Tablespace: 
@@ -313,6 +301,17 @@ COPY grupos (gid, nombre, visible, tipo_grupo) FROM stdin;
 --
 
 COPY mensajes (mid, uid_destino, fecha_envio, hora_envio, asunto, texto, confirmado, respuesta_valida, tiempo_vida, uid_origen, control, minutos, fecha_confirmacion, hora_confirmacion) FROM stdin;
+4299	2	2008-10-16	21:30:00	Never mind	wOw!	f	f	3	5239	f	0	1900-01-01	00:00:00
+4300	1	2008-10-17	18:37:00	Ja!	Amanecerá y veremos...	f	f	3	5239	f	0	1900-01-01	00:00:00
+4301	1	2008-10-17	18:38:00	Ja!	Never mind!	f	f	3	5239	f	0	1900-01-01	00:00:00
+4302	1	2008-10-17	21:11:00	Bullet proof	no way!	f	f	3	5239	f	0	1900-01-01	00:00:00
+4303	1	2008-10-17	21:14:00	Bullet proof!	no way!	f	f	3	5239	f	0	1900-01-01	00:00:00
+4304	1	2008-10-17	22:05:00	Bullet Proof	No way!	f	f	3	5239	f	0	1900-01-01	00:00:00
+4305	1	2008-10-18	15:55:00	Prueba de concepto	Adivina quien?	f	f	3	5239	f	0	1900-01-01	00:00:00
+4306	1	2008-10-18	16:19:00	Prueba de concepto	revisa esto!	f	f	3	5239	f	0	1900-01-01	00:00:00
+4307	1	2008-10-18	16:43:00	Hey now now!	Blow me!	f	f	3	5239	f	0	1900-01-01	00:00:00
+4308	1	2008-10-18	18:35:00	probando	no me crees?	f	f	3	5239	f	0	1900-01-01	00:00:00
+4309	1	2008-10-18	18:42:00	Prueba de concepto	transmitiendo desde la calle!	f	f	3	5239	f	0	1900-01-01	00:00:00
 \.
 
 
@@ -324,6 +323,9 @@ COPY mensajes_pda (mid, login, gid_origen, fecha_envio, hora_envio, asunto, text
 3	8900001	3	2008-10-08	16:06:00	hola mundo	Por que no nos reunimos?\r\n\r\n\r\n	f	1900-01-01	00:00:00	f
 2	FRANCIA	3	2008-10-08	00:32:00	adivina quien?	ja ja ja!\r\n\r\n\r\n	f	1900-01-01	00:00:00	t
 4	FRANCIA	3	2008-10-16	14:42:00	proof!	\r\n\r\n\r\n	f	1900-01-01	00:00:00	t
+5	FRANCIA	3	2008-10-18	15:50:00	prueba de concepto	never mind!\r\n\r\n\r\n	f	1900-01-01	00:00:00	t
+6	FRANCIA	3	2008-10-18	16:38:00	bullet proof!	no way!\r\n\r\n\r\n	f	1900-01-01	00:00:00	t
+7	FRANCIA	3	2008-10-18	18:35:00	never mind!	wow!\r\n\r\n\r\n	f	1900-01-01	00:00:00	t
 \.
 
 
@@ -347,17 +349,6 @@ COPY tipo_grupo (id_tipo, nombre) FROM stdin;
 1	ZONA POS
 2	GRUPO ADMIN
 3	GRUPO LOTE
-\.
-
-
---
--- Data for Name: tipo_usuario; Type: TABLE DATA; Schema: public; Owner: comeetadmin
---
-
-COPY tipo_usuario (id_tipo, descripcion) FROM stdin;
-1	PC
-2	PUNTO DE VENTA
-3	LOTE
 \.
 
 
@@ -406,6 +397,7 @@ COPY ubicaciones (codigo, nombre, ip, gid) FROM stdin;
 0002	LA CAMPINA	0.0.0.1	6
 20  	EL ELEFANTE	0.0.0.4	8
 0099	OFICINA AUDITORIA	127.0.0.1	4
+0100	OFICINA GERENCIA	127.0.0.1	3
 \.
 
 
@@ -419,7 +411,6 @@ COPY usuarios (uid, login, clave, nombres, correo, habilitado, gid, rol) FROM st
 5232	support	827ccb0eea8a706c4c34a16891f84e7b	Support User	support@localhost	t	0	1
 5233	pollito	827ccb0eea8a706c4c34a16891f84e7b	Pollito Gallina	pollito@localhost	t	4	1
 2	auditor	827ccb0eea8a706c4c34a16891f84e7b	Usuario Auditor	auditor@localhost	f	4	1
-1	admin	21232f297a57a5a743894a0e4a801fc3	Usuario Administrador	admin@localhost	t	2	1
 16	gustavo	827ccb0eea8a706c4c34a16891f84e7b	Gustavo Gonzalez G	gustavo@saludtotal.com	t	5	1
 5237	canciller	827ccb0eea8a706c4c34a16891f84e7b	Canciller X	canciller@saludtotal.com	f	4	1
 18	gustavo3	827ccb0eea8a706c4c34a16891f84e7b	Gustavo Gonzalez	xtingray@localhost	t	3	1
@@ -443,6 +434,7 @@ COPY usuarios (uid, login, clave, nombres, correo, habilitado, gid, rol) FROM st
 5238	DurangoP	827ccb0eea8a706c4c34a16891f84e7b	Durango Palomino		f	1	2
 4	CV0001	827ccb0eea8a706c4c34a16891f84e7b	Carolina Perez Pum		f	1	2
 5239	suba	827ccb0eea8a706c4c34a16891f84e7b	Lote Suba	suba@localhost	f	10	4
+1	admin	21232f297a57a5a743894a0e4a801fc3	Usuario Administrador	xtingray@localhost	t	3	1
 \.
 
 
@@ -472,6 +464,7 @@ COPY usuarios_ubicacion (id_usuario, codigo_ubicacion, validar_ip) FROM stdin;
 4	0000	f
 4	0001	f
 2	0099	f
+1	0100	f
 \.
 
 
@@ -513,14 +506,6 @@ ALTER TABLE ONLY roles
 
 ALTER TABLE ONLY tipo_grupo
     ADD CONSTRAINT tipo_grupo_id_tipo_key UNIQUE (id_tipo);
-
-
---
--- Name: tipo_usuario_pkey; Type: CONSTRAINT; Schema: public; Owner: comeetadmin; Tablespace: 
---
-
-ALTER TABLE ONLY tipo_usuario
-    ADD CONSTRAINT tipo_usuario_pkey PRIMARY KEY (id_tipo);
 
 
 --
