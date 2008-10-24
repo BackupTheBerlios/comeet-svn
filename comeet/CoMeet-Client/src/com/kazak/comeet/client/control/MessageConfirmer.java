@@ -35,14 +35,14 @@ import com.kazak.comeet.client.network.SocketWriter;
 
 public class MessageConfirmer extends Thread {
 
-	private Boolean confirm;
+	private String confirm;
 	private String date;
 	private String time;
 	private String subject;
 	private String from;
 	
-	public MessageConfirmer(Boolean confirm,String date, String time,String subject,String from) {
-		this.confirm = confirm;
+	public MessageConfirmer(int confirm,String date, String time,String subject,String from) {
+		this.confirm = "" + confirm;
 		this.date = date;
 		this.time = time;
 		this.subject = subject;
@@ -63,7 +63,7 @@ public class MessageConfirmer extends Thread {
         transaction.addContent(driver);
         
 		Element pack = new Element("package");
-		pack.addContent(new Element("field").setText(confirm.toString()));
+		pack.addContent(new Element("field").setText(confirm));
 		pack.addContent(new Element("field").setText(date));
 		pack.addContent(new Element("field").setText(time));
 		pack.addContent(new Element("field").setText(Run.user));

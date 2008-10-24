@@ -2,6 +2,8 @@ package com.kazak.comeet.server.businessrules;
 
 import java.nio.channels.SocketChannel;
 import java.sql.SQLException;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.Iterator;
 import java.util.List;
@@ -16,6 +18,7 @@ import com.kazak.comeet.server.misc.LogWriter;
 public class MessageConfirmer {
 
 	private Iterator iterator;
+	private static SimpleDateFormat formatDate = new SimpleDateFormat("yyyy-MM-dd");
 	
 	public MessageConfirmer(SocketChannel sock, Element args, Element packet, String id) {
 		this.iterator = packet.getChildren("package").iterator();
@@ -32,7 +35,8 @@ public class MessageConfirmer {
 			Iterator listIterator = list.iterator();
 
 			sqlArgs[0] = ((Element) listIterator.next()).getValue();
-			sqlArgs[1] = new Date().toString();
+			Date date  = Calendar.getInstance().getTime();
+			sqlArgs[1] = formatDate.format(date); 
 			sqlArgs[2] = ((Element) listIterator.next()).getValue();
 			sqlArgs[3] = ((Element) listIterator.next()).getValue();
 			sqlArgs[4] = ((Element) listIterator.next()).getValue();

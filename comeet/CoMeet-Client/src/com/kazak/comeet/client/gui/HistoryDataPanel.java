@@ -110,7 +110,7 @@ public class HistoryDataPanel extends JPanel implements MessageListener {
 							if (((Boolean)table.getValueAt(rowIndex, 6))==false) {
 								table.setValueAt(true,rowIndex,6);
 								new MessageConfirmer(
-										true,
+										1,
 										(String )table.getValueAt(rowIndex,1),
 										(String )table.getValueAt(rowIndex,2),
 										(String )table.getValueAt(rowIndex,4),

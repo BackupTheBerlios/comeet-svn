@@ -6,6 +6,7 @@ import java.nio.channels.SocketChannel;
 import java.sql.ResultSet;
 import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
+import java.util.Date;
 
 import org.jdom.Document;
 import org.jdom.output.XMLOutputter;
@@ -124,8 +125,13 @@ public class ResultSetToXMLConverter extends Document {
 								    Integer number = resultSet.getInt(j);
 								    value = number.toString();
 								} else {
-									data = resultSet.getBytes(j);
-									value = new String(data,"ISO-8859-1");
+									if (type.equals("DATE")) {
+									    Date date = resultSet.getDate(j);
+									    value = date.toString();
+									} else {							
+									    data = resultSet.getBytes(j);
+									    value = new String(data,"ISO-8859-1");
+									}
 								}
 
 								if (data==null)

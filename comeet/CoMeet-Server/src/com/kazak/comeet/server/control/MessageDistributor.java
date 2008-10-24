@@ -85,11 +85,11 @@ public class MessageDistributor {
 
 				message.addContent(root);
 				root.addContent(addColumn(dateString));
-				//root.addContent(addColumn(hourString));
+				root.addContent(addColumn(hourString));
 				root.addContent(addColumn(sender.getGroupName()));
 				root.addContent(addColumn(subject));
 				root.addContent(addColumn(body));
-				root.addContent(addColumn("f"));
+				root.addContent(addColumn("0"));
 
 				Document doc = new Document((Element) message.clone());
 				// Sending message to POS user online

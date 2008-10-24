@@ -39,7 +39,8 @@ public class MessageList {
 		messageList.add(((Element)it.next()).getValue());
 		messageList.add(((Element)it.next()).getValue());
 		messageList.add(((Element)it.next()).getValue());
-		Boolean flag = ((Element)it.next()).getValue().equals("t") ? true : false;
+		String value = ((Element)it.next()).getValue();
+		Boolean flag = value.equals("1") ? true : false;
 		messageList.add(flag);
 	}
 	
