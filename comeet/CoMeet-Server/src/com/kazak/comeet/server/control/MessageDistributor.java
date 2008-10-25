@@ -34,7 +34,7 @@ public class MessageDistributor {
 	private static final boolean LOTTERY_MODE = false;
 	private static final boolean CONTROL_MODE = false;
 	private static SimpleDateFormat formatDate = new SimpleDateFormat("yyyy-MM-dd");
-	private static SimpleDateFormat formatHour = new SimpleDateFormat("hh:mm a");
+	private static SimpleDateFormat formatHour = new SimpleDateFormat("hh:mm:ss a");
 	private Date   date;
 	private String groupIDString;
 	private int    groupID;
@@ -445,8 +445,6 @@ public class MessageDistributor {
 		socketInfo.setLogin(userInfoArray[0]);
 		socketInfo.setNames(userInfoArray[2]);
 		socketInfo.setEmail(userInfoArray[3]);
-		//socketInfo.setAdmin(new Boolean(userInfoArray[4]).booleanValue());
-		//socketInfo.setAudit(new Boolean(userInfoArray[5]).booleanValue());
 		socketInfo.setGroupID(Integer.parseInt(userInfoArray[6]));
 		socketInfo.setWsName("");
 		socketInfo.setGroupName(groupName);	

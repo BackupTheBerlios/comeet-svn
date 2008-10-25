@@ -145,8 +145,8 @@
 			u.gid=g.grupo_id AND 
 			foo.id=m.uid_destino AND
 			current_date &lt; (fecha_envio+tiempo_vida) AND u.codigo &lt;&gt; (SELECT codigo FROM usuarios WHERE login='?')
-			ORDER BY fecha_envio desc
-		</sql>
+			ORDER BY fecha_envio, hora_envio, asunto ASC
+		</sql> 
 	</sentence>
 	<sentence>
 	<!--Descripcion: Retorna los mensajes nuevos para un usuario pda -->
@@ -159,7 +159,7 @@
 			grupos g
 			WHERE 
 			m.entregado=0 AND g.grupo_id=m.gid_origen AND m.login_destino='?'
-			ORDER BY fecha_envio desc
+			ORDER BY fecha_envio, hora_envio ASC
 		</sql>
 	</sentence>
 	<sentence>
@@ -515,7 +515,7 @@
 	    <!--Descripcion: Dado un email, retorna el id del grupo al que pertenece -->
 		<code>SEL0038</code>
 		 <sql>
-              SELECT grupo_id FROM grupos WHERE grupo_id=(SELECT gid FROM usuarios WHERE correo='?' LIMIT 1)
+              SELECT grupo_id FROM grupos WHERE grupo_id=(SELECT gid FROM usuarios WHERE correo='?' AND rownum=1)
 		 </sql>
   	    </sentence>	    
 	<!--============================= Inserts ===============================-->
@@ -552,8 +552,8 @@
 		<code>INS0004</code>
 		<sql>
 			INSERT INTO 
-			mensajes_pda (login,gid_origen,fecha_envio,hora_envio,asunto,texto,confirmado) 
-			VALUES ('?','?','?','?','?','?','?')
+			mensajes_pda (login_destino,gid_origen,fecha_envio,hora_envio,asunto,texto) 
+			VALUES ('?',?,to_date('?','yyyy-mm-dd'),'?','?','?')
 		</sql>
 	</sentence>
 	<sentence>
@@ -620,16 +620,24 @@
 	<!--Descripcion: ... -->
 		<code>UPD0002</code>
 		<sql>
-			UPDATE usuarios SET clave='?' WHERE "login"='?'
+			UPDATE usuarios SET clave='?' WHERE login='?'
 		</sql>
 	</sentence>
 	<sentence>
-	<!--Descripcion: ... -->
+	<!--Descripcion: Confirma que un mensaje a PC fue leido por su destinatario -->
     	<code>UPD0003</code>
 		<sql>
-			UPDATE mensajes SET confirmado=?, fecha_confirmacion=to_date('?','yyyy-mm-dd')
+			UPDATE mensajes SET confirmado=?, fecha_confirmacion=to_date('?','yyyy-mm-dd'), hora_confirmacion=('?')
 			WHERE fecha_envio=to_date('?','yyyy-mm-dd') AND hora_envio='?' AND confirmado=0 AND
 			uid_destino=(SELECT codigo FROM usuarios WHERE login='?')
+		</sql>
+	</sentence>
+		<sentence>
+	<!--Descripcion: Confirma que un mensaje a PC fue leido por su destinatario -->
+    	<code>UPD0003A</code>
+		<sql>
+			UPDATE mensajes_pda SET confirmado=?, fecha_confirmacion=to_date('?','yyyy-mm-dd'), hora_confirmacion=('?')
+			WHERE fecha_envio=to_date('?','yyyy-mm-dd') AND hora_envio='?' AND confirmado=0 AND login_destino='?'
 		</sql>
 	</sentence>
 	<sentence>

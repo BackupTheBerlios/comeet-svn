@@ -68,8 +68,8 @@ import com.kazak.comeet.lib.network.PackageToXMLConverter;
 public class LoginWindow implements ActionListener {
 	
 	private static final long serialVersionUID = 4515846092744596420L;
-	private static final boolean UPPERCASE = false;
-	private static final boolean LOTTERY_MODE = false;
+	//private static final boolean UPPERCASE = false;
+	//private static final boolean LOTTERY_MODE = false;
 	private static JTextField userTextField;
 	private static JPasswordField passwordField;
 	private static JButton acceptButton;
@@ -91,7 +91,7 @@ public class LoginWindow implements ActionListener {
 		initComponents();
 		LoginWindow.logged = false;
 		frame.setVisible(true);
-		if(LOTTERY_MODE) {
+		if(ClientConstants.LOTTERY_MODE) {
 		 new Displayer();
 		}
 	}
@@ -101,7 +101,7 @@ public class LoginWindow implements ActionListener {
 		frame.setLayout(new BorderLayout());
 		frame.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
 		
-		if(LOTTERY_MODE) {
+		if(ClientConstants.LOTTERY_MODE) {
 			frame.setSize(400,320);
 			frame.setUndecorated(true);
 			frame.getRootPane().setBorder(new LineBorder(Color.BLACK,4));
@@ -115,12 +115,12 @@ public class LoginWindow implements ActionListener {
 
 		frame.addWindowListener(new WindowAdapter() {
 			public void windowIconified(WindowEvent e) {
-				if(LOTTERY_MODE) {
+				if(ClientConstants.LOTTERY_MODE) {
 					frame.setState(JFrame.NORMAL);
 				}
 			}
 			public void windowClosing(WindowEvent e) {
-				if(LOTTERY_MODE) {
+				if(ClientConstants.LOTTERY_MODE) {
 					frame.setVisible(true);
 				} else {
 					System.exit(0);
@@ -132,18 +132,17 @@ public class LoginWindow implements ActionListener {
 		LoginWindow.userTextField  = new JTextField(12);
 		LoginWindow.userTextField.setFont(font);
 		
-			LoginWindow.userTextField.addKeyListener(new KeyAdapter() {
-				public void keyReleased(KeyEvent e) {
-					int keyCode = e.getKeyCode();
-					if (keyCode==KeyEvent.VK_ENTER){
-						passwordField.requestFocus();
-					}
-					if(UPPERCASE) {
-						userTextField.setText(userTextField.getText().toUpperCase());
-					}
-
+		LoginWindow.userTextField.addKeyListener(new KeyAdapter() {
+			public void keyReleased(KeyEvent e) {
+				int keyCode = e.getKeyCode();
+				if (keyCode==KeyEvent.VK_ENTER){
+					passwordField.requestFocus();
 				}
-			});
+				if(ClientConstants.UPPERCASE) {
+					userTextField.setText(userTextField.getText().toUpperCase());
+				}
+			}
+		});
 		
 		passwordField = new JPasswordField(12);
 		LoginWindow.userTextField.setDocument(new FixedSizePlainDocument(10));
@@ -183,7 +182,7 @@ public class LoginWindow implements ActionListener {
 		
 		southPanel.add(acceptButton);
 		
-		if(!LOTTERY_MODE) {
+		if(!ClientConstants.LOTTERY_MODE) {
 			cancelButton = new JButton("Cancelar");
 			cancelButton.setMnemonic('C');
 			cancelButton.addActionListener(this);
@@ -213,7 +212,7 @@ public class LoginWindow implements ActionListener {
 		panel.add(southPanel,BorderLayout.SOUTH);
 		panel.setBackground(background);
 		
-		if(LOTTERY_MODE) {
+		if(ClientConstants.LOTTERY_MODE) {
 			Component box1 = Box.createVerticalStrut(60);
 			Component box2 = Box.createVerticalStrut(60);	
 			frame.add(box1,BorderLayout.NORTH);

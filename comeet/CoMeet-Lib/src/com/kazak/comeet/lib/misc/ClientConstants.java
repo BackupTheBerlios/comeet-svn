@@ -40,5 +40,7 @@ public interface ClientConstants {
     public final int MESSAGE = 2;
     public final long MAX_SIZE_FILE_LOG = 5242880;
     public static int MAX_WIN_SIZE_HEIGHT = (int) Toolkit.getDefaultToolkit().getScreenSize().getHeight();
-    public static int MAX_WIN_SIZE_WIDTH = (int) Toolkit.getDefaultToolkit().getScreenSize().getWidth();
+    public static int MAX_WIN_SIZE_WIDTH = (int) Toolkit.getDefaultToolkit().getScreenSize().getWidth();    
+	public final boolean UPPERCASE = false;
+	public final boolean LOTTERY_MODE = false;
 }

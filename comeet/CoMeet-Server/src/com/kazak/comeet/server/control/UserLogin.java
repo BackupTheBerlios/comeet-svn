@@ -35,19 +35,17 @@ import com.kazak.comeet.server.misc.LogWriter;
  */
 public class UserLogin {
 	
-    private Element data;
-    //private int userLevel;
+    //private Element data;
     private Integer	uid;
     private String login;
+    private String password;
+    private Boolean validate;
     private String names;
     private String email;
-  //  private Boolean	admin;
-  //  private Boolean audit;
     private Integer gid;
     private String groupName;
     private String ip;
     private String wsName = "";
-    //private Integer userDevice; // 1: PC - 2: POS - 3: PDA CENTRAL
     private int rol;
     private final int ADMIN = 1;
     private final int AUDITOR = 2;
@@ -58,15 +56,18 @@ public class UserLogin {
     }
     
     public UserLogin(Element data){
-    	this.data = data;
+    	//this.data = data;
+    	login = data.getChild("login").getValue();
+	    password = data.getChild("password").getValue();
+	    ip = data.getChild("ip").getValue();
+	    validate = data.getChild("validate")!=null ? true : false;
     }
     
     public boolean isValid() {
-    	
-	    login = data.getChild("login").getValue();
-	    String password = data.getChild("password").getValue();
-	    ip = data.getChild("ip").getValue();
-	    boolean validate = data.getChild("validate")!=null ? true : false;
+	    //login = data.getChild("login").getValue();
+	    //String password = data.getChild("password").getValue();
+	    //ip = data.getChild("ip").getValue();
+	    // boolean validate = data.getChild("validate")!=null ? true : false;
 	    
 	    QueryRunner queryRunner = null;
 	    ResultSet resultSet = null;

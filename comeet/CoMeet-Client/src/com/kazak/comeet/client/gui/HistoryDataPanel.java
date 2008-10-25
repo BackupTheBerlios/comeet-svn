@@ -101,11 +101,10 @@ public class HistoryDataPanel extends JPanel implements MessageListener {
 		table.getSelectionModel().addListSelectionListener(
 				new ListSelectionListener() {
 					public void valueChanged(ListSelectionEvent e) {
-						
 						int rowIndex = table.getSelectedRow(); 
-						if (0<=rowIndex) {
-							if (rowIndex < table.getRowCount()) {
-								messagePanel.setData(getSelectedData(e.getFirstIndex()));
+						if (rowIndex>=0) {
+							if (rowIndex < table.getRowCount()) {							
+								messagePanel.setData(getSelectedData(rowIndex));
 							}
 							if (((Boolean)table.getValueAt(rowIndex, 6))==false) {
 								table.setValueAt(true,rowIndex,6);
@@ -124,8 +123,8 @@ public class HistoryDataPanel extends JPanel implements MessageListener {
 	public String[] getSelectedData(int row) {
 		int rowIndex =  row; 
 		String[] data = new String[5];
-		for (int i =0 ; i < data.length ; i++) {
-			data[i] = String.valueOf(table.getValueAt(rowIndex,(i+1)));
+		for (int col =0 ; col < data.length ; col++) {
+			data[col] = String.valueOf(table.getValueAt(rowIndex,col+1));
 		}
 		return data;
 	}

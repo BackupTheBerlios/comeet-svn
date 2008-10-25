@@ -3370,3 +3370,1359 @@
 2008-10-23 23:42:22 SENTENCIA SQL :: INSERT INTO 
 			mensajes (uid_destino,fecha_envio,hora_envio,asunto,texto,confirmado,tiempo_vida,uid_origen,control,minutos)
 			VALUES (1,to_date('2008-10-23','yyyy-mm-dd'),'11:42 PM','Prueba de concepto','Llegan los mensajes?',0,3,4,0,0)
+2008-10-24 14:37:08 INFO: ConfigFile -> /home/xtingray/Projects/javertec/comeet/comeet/CoMeet-Server/comeet/conf/server.conf
+2008-10-24 14:37:08 INFO: Cargando archivo de configuracion...
+2008-10-24 14:37:08 INFO: Cargando base de datos... bullet
+2008-10-24 14:37:09 INFO: Cargando base de datos... comeet
+2008-10-24 14:37:09 ADVERTENCIA: Base de datos deshabilitada desde configuracion -> oracle
+2008-10-24 14:37:09 INFO: Cargando cache de enlace [bullet]
+2008-10-24 14:37:10 INFO: Iniciando demonio pop3
+2008-10-24 14:37:10 INFO: Servidor de correo {localhost}
+2008-10-24 14:37:10 INFO: Iniciando demonio de sincronizacion
+2008-10-24 14:37:10 INFO: Servidor CoMeet escuchando por el puerto 9119
+2008-10-24 14:37:28 INFO: Se ha establecido una nueva conexion TCP/IP Socket[addr=/127.0.0.1,port=36505,localport=9119]
+2008-10-24 14:37:29 INFO: Inicio de autenticacion para el usuario {pos01} con la clave {827ccb0eea8a706c4c34a16891f84e7b}
+2008-10-24 14:37:29 INFO: Control de acceso sobre direcciones ip no habilitado para este usuario
+2008-10-24 14:37:29 INFO: Colocador {pos01} autenticado desde OFICINA GERENCIA [127.0.0.1]
+2008-10-24 14:44:04 SENTENCIA SQL :: UPDATE usuarios SET clave='827ccb0eea8a706c4c34a16891f84e7b' WHERE "login"='pos01'
+2008-10-24 14:44:04 Codigo error: 904
+2008-10-24 14:54:20 INFO: ConfigFile -> /home/xtingray/Projects/javertec/comeet/comeet/CoMeet-Server/comeet/conf/server.conf
+2008-10-24 14:54:20 INFO: Cargando archivo de configuracion...
+2008-10-24 14:54:20 INFO: Cargando base de datos... bullet
+2008-10-24 14:54:21 INFO: Cargando base de datos... comeet
+2008-10-24 14:54:21 ADVERTENCIA: Base de datos deshabilitada desde configuracion -> oracle
+2008-10-24 14:54:21 INFO: Cargando cache de enlace [bullet]
+2008-10-24 14:54:21 INFO: Iniciando demonio pop3
+2008-10-24 14:54:21 INFO: Servidor de correo {localhost}
+2008-10-24 14:54:21 INFO: Iniciando demonio de sincronizacion
+2008-10-24 14:54:21 INFO: Servidor CoMeet escuchando por el puerto 9119
+2008-10-24 14:54:36 INFO: Se ha establecido una nueva conexion TCP/IP Socket[addr=/127.0.0.1,port=57053,localport=9119]
+2008-10-24 14:54:36 INFO: Inicio de autenticacion para el usuario {pos01} con la clave {827ccb0eea8a706c4c34a16891f84e7b}
+2008-10-24 14:54:36 INFO: Control de acceso sobre direcciones ip no habilitado para este usuario
+2008-10-24 14:54:36 INFO: Colocador {pos01} autenticado desde OFICINA GERENCIA [127.0.0.1]
+2008-10-24 14:54:55 SENTENCIA SQL :: UPDATE usuarios SET clave='827ccb0eea8a706c4c34a16891f84e7b' WHERE login='pos01'
+2008-10-24 14:54:55 INFO: Operacion realizada exitosamente [Cambio de clave]
+2008-10-24 15:14:21 INFO: Se ha establecido una nueva conexion TCP/IP Socket[addr=/127.0.0.1,port=45045,localport=9119]
+2008-10-24 15:14:21 INFO: Inicio de autenticacion para el usuario {pos01} con la clave {827ccb0eea8a706c4c34a16891f84e7b}
+2008-10-24 15:14:21 INFO: Control de acceso sobre direcciones ip no habilitado para este usuario
+2008-10-24 15:14:21 INFO: Colocador {pos01} autenticado desde OFICINA GERENCIA [127.0.0.1]
+2008-10-24 15:15:18 INFO: ConfigFile -> /home/xtingray/Projects/javertec/comeet/comeet/CoMeet-Server/comeet/conf/server.conf
+2008-10-24 15:15:19 INFO: Cargando archivo de configuracion...
+2008-10-24 15:15:19 INFO: Cargando base de datos... bullet
+2008-10-24 15:15:19 INFO: Cargando base de datos... comeet
+2008-10-24 15:15:19 ADVERTENCIA: Base de datos deshabilitada desde configuracion -> oracle
+2008-10-24 15:15:19 INFO: Cargando cache de enlace [bullet]
+2008-10-24 15:15:19 INFO: Iniciando demonio pop3
+2008-10-24 15:15:19 INFO: Servidor de correo {localhost}
+2008-10-24 15:15:20 INFO: Iniciando demonio de sincronizacion
+2008-10-24 15:15:20 INFO: Servidor CoMeet escuchando por el puerto 9119
+2008-10-24 15:15:32 INFO: Se ha establecido una nueva conexion TCP/IP Socket[addr=/127.0.0.1,port=41085,localport=9119]
+2008-10-24 15:15:32 INFO: Inicio de autenticacion para el usuario {pos01} con la clave {827ccb0eea8a706c4c34a16891f84e7b}
+2008-10-24 15:15:32 INFO: Control de acceso sobre direcciones ip no habilitado para este usuario
+2008-10-24 15:15:32 INFO: Colocador {pos01} autenticado desde OFICINA GERENCIA [127.0.0.1]
+2008-10-24 15:18:09 INFO: ConfigFile -> /home/xtingray/Projects/javertec/comeet/comeet/CoMeet-Server/comeet/conf/server.conf
+2008-10-24 15:18:09 INFO: Cargando archivo de configuracion...
+2008-10-24 15:18:09 INFO: Cargando base de datos... bullet
+2008-10-24 15:18:10 INFO: Cargando base de datos... comeet
+2008-10-24 15:18:10 ADVERTENCIA: Base de datos deshabilitada desde configuracion -> oracle
+2008-10-24 15:18:10 INFO: Cargando cache de enlace [bullet]
+2008-10-24 15:18:10 INFO: Iniciando demonio pop3
+2008-10-24 15:18:10 INFO: Servidor de correo {localhost}
+2008-10-24 15:18:10 INFO: Iniciando demonio de sincronizacion
+2008-10-24 15:18:10 INFO: Servidor CoMeet escuchando por el puerto 9119
+2008-10-24 15:18:27 INFO: Se ha establecido una nueva conexion TCP/IP Socket[addr=/127.0.0.1,port=41123,localport=9119]
+2008-10-24 15:18:27 INFO: Inicio de autenticacion para el usuario {pos01} con la clave {827ccb0eea8a706c4c34a16891f84e7b}
+2008-10-24 15:18:27 INFO: Control de acceso sobre direcciones ip no habilitado para este usuario
+2008-10-24 15:18:27 INFO: Colocador {pos01} autenticado desde OFICINA GERENCIA [127.0.0.1]
+2008-10-24 15:40:37 INFO: ConfigFile -> /home/xtingray/Projects/javertec/comeet/comeet/CoMeet-Server/comeet/conf/server.conf
+2008-10-24 15:40:38 INFO: Cargando archivo de configuracion...
+2008-10-24 15:40:38 INFO: Cargando base de datos... bullet
+2008-10-24 15:40:38 INFO: Cargando base de datos... comeet
+2008-10-24 15:40:38 ADVERTENCIA: Base de datos deshabilitada desde configuracion -> oracle
+2008-10-24 15:40:38 INFO: Cargando cache de enlace [bullet]
+2008-10-24 15:40:38 INFO: Iniciando demonio pop3
+2008-10-24 15:40:38 INFO: Servidor de correo {localhost}
+2008-10-24 15:40:38 INFO: Iniciando demonio de sincronizacion
+2008-10-24 15:40:39 INFO: Servidor CoMeet escuchando por el puerto 9119
+2008-10-24 15:40:53 INFO: Se ha establecido una nueva conexion TCP/IP Socket[addr=/127.0.0.1,port=54693,localport=9119]
+2008-10-24 15:40:53 INFO: Inicio de autenticacion para el usuario {pos01} con la clave {827ccb0eea8a706c4c34a16891f84e7b}
+2008-10-24 15:40:53 INFO: Control de acceso sobre direcciones ip no habilitado para este usuario
+2008-10-24 15:40:53 INFO: Colocador {pos01} autenticado desde OFICINA GERENCIA [127.0.0.1]
+2008-10-24 15:45:21 INFO: Se ha establecido una nueva conexion TCP/IP Socket[addr=/127.0.0.1,port=48043,localport=9119]
+2008-10-24 15:45:21 INFO: Inicio de autenticacion para el usuario {pos01} con la clave {827ccb0eea8a706c4c34a16891f84e7b}
+2008-10-24 15:45:21 INFO: Control de acceso sobre direcciones ip no habilitado para este usuario
+2008-10-24 15:45:21 INFO: Colocador {pos01} autenticado desde OFICINA GERENCIA [127.0.0.1]
+2008-10-24 15:48:45 INFO: ConfigFile -> /home/xtingray/Projects/javertec/comeet/comeet/CoMeet-Server/comeet/conf/server.conf
+2008-10-24 15:48:46 INFO: Cargando archivo de configuracion...
+2008-10-24 15:48:46 INFO: Cargando base de datos... bullet
+2008-10-24 15:48:46 INFO: Cargando base de datos... comeet
+2008-10-24 15:48:46 ADVERTENCIA: Base de datos deshabilitada desde configuracion -> oracle
+2008-10-24 15:48:46 INFO: Cargando cache de enlace [bullet]
+2008-10-24 15:48:46 INFO: Iniciando demonio pop3
+2008-10-24 15:48:46 INFO: Servidor de correo {localhost}
+2008-10-24 15:48:47 INFO: Iniciando demonio de sincronizacion
+2008-10-24 15:48:47 INFO: Servidor CoMeet escuchando por el puerto 9119
+2008-10-24 15:48:57 INFO: Se ha establecido una nueva conexion TCP/IP Socket[addr=/127.0.0.1,port=48099,localport=9119]
+2008-10-24 15:48:57 INFO: Inicio de autenticacion para el usuario {pos01} con la clave {827ccb0eea8a706c4c34a16891f84e7b}
+2008-10-24 15:48:57 INFO: Control de acceso sobre direcciones ip no habilitado para este usuario
+2008-10-24 15:48:57 INFO: Colocador {pos01} autenticado desde OFICINA GERENCIA [127.0.0.1]
+2008-10-24 15:51:19 INFO: Se ha establecido una nueva conexion TCP/IP Socket[addr=/127.0.0.1,port=53073,localport=9119]
+2008-10-24 15:51:19 INFO: Inicio de autenticacion para el usuario {pos01} con la clave {827ccb0eea8a706c4c34a16891f84e7b}
+2008-10-24 15:51:19 INFO: Control de acceso sobre direcciones ip no habilitado para este usuario
+2008-10-24 15:51:19 INFO: Colocador {pos01} autenticado desde OFICINA GERENCIA [127.0.0.1]
+2008-10-24 15:58:29 INFO: ConfigFile -> /home/xtingray/Projects/javertec/comeet/comeet/CoMeet-Server/comeet/conf/server.conf
+2008-10-24 15:58:29 INFO: Cargando archivo de configuracion...
+2008-10-24 15:58:29 INFO: Cargando base de datos... bullet
+2008-10-24 15:58:29 INFO: Cargando base de datos... comeet
+2008-10-24 15:58:29 ADVERTENCIA: Base de datos deshabilitada desde configuracion -> oracle
+2008-10-24 15:58:29 INFO: Cargando cache de enlace [bullet]
+2008-10-24 15:58:30 INFO: Iniciando demonio pop3
+2008-10-24 15:58:30 INFO: Servidor de correo {localhost}
+2008-10-24 15:58:30 INFO: Iniciando demonio de sincronizacion
+2008-10-24 15:58:30 INFO: Servidor CoMeet escuchando por el puerto 9119
+2008-10-24 15:58:42 INFO: Se ha establecido una nueva conexion TCP/IP Socket[addr=/127.0.0.1,port=40504,localport=9119]
+2008-10-24 15:58:42 INFO: Inicio de autenticacion para el usuario {pos01} con la clave {827ccb0eea8a706c4c34a16891f84e7b}
+2008-10-24 15:58:42 INFO: Control de acceso sobre direcciones ip no habilitado para este usuario
+2008-10-24 15:58:42 INFO: Colocador {pos01} autenticado desde OFICINA GERENCIA [127.0.0.1]
+2008-10-24 16:09:01 INFO: ConfigFile -> /home/xtingray/Projects/javertec/comeet/comeet/CoMeet-Server/comeet/conf/server.conf
+2008-10-24 16:09:01 INFO: Cargando archivo de configuracion...
+2008-10-24 16:09:01 INFO: Cargando base de datos... bullet
+2008-10-24 16:09:01 INFO: Cargando base de datos... comeet
+2008-10-24 16:09:02 ADVERTENCIA: Base de datos deshabilitada desde configuracion -> oracle
+2008-10-24 16:09:02 INFO: Cargando cache de enlace [bullet]
+2008-10-24 16:09:02 INFO: Iniciando demonio pop3
+2008-10-24 16:09:02 INFO: Servidor de correo {localhost}
+2008-10-24 16:09:02 INFO: Iniciando demonio de sincronizacion
+2008-10-24 16:09:02 ERROR: Finalizando el servidor de transacciones. Causa: Address already in use
+2008-10-24 16:10:42 INFO: ConfigFile -> /home/xtingray/Projects/javertec/comeet/comeet/CoMeet-Server/comeet/conf/server.conf
+2008-10-24 16:10:42 INFO: Cargando archivo de configuracion...
+2008-10-24 16:10:42 INFO: Cargando base de datos... bullet
+2008-10-24 16:10:43 INFO: Cargando base de datos... comeet
+2008-10-24 16:10:43 ADVERTENCIA: Base de datos deshabilitada desde configuracion -> oracle
+2008-10-24 16:10:43 INFO: Cargando cache de enlace [bullet]
+2008-10-24 16:10:43 INFO: Iniciando demonio pop3
+2008-10-24 16:10:43 INFO: Servidor de correo {localhost}
+2008-10-24 16:10:43 INFO: Iniciando demonio de sincronizacion
+2008-10-24 16:10:43 INFO: Servidor CoMeet escuchando por el puerto 9119
+2008-10-24 16:10:54 INFO: Se ha establecido una nueva conexion TCP/IP Socket[addr=/127.0.0.1,port=40812,localport=9119]
+2008-10-24 16:10:55 INFO: Inicio de autenticacion para el usuario {pos01} con la clave {827ccb0eea8a706c4c34a16891f84e7b}
+2008-10-24 16:10:55 INFO: Control de acceso sobre direcciones ip no habilitado para este usuario
+2008-10-24 16:10:55 INFO: Colocador {pos01} autenticado desde OFICINA GERENCIA [127.0.0.1]
+2008-10-24 16:13:35 INFO: ConfigFile -> /home/xtingray/Projects/javertec/comeet/comeet/CoMeet-Server/comeet/conf/server.conf
+2008-10-24 16:13:35 INFO: Cargando archivo de configuracion...
+2008-10-24 16:13:35 INFO: Cargando base de datos... bullet
+2008-10-24 16:13:36 INFO: Cargando base de datos... comeet
+2008-10-24 16:13:36 ADVERTENCIA: Base de datos deshabilitada desde configuracion -> oracle
+2008-10-24 16:13:36 INFO: Cargando cache de enlace [bullet]
+2008-10-24 16:13:36 INFO: Iniciando demonio pop3
+2008-10-24 16:13:36 INFO: Servidor de correo {localhost}
+2008-10-24 16:13:36 INFO: Iniciando demonio de sincronizacion
+2008-10-24 16:13:36 INFO: Servidor CoMeet escuchando por el puerto 9119
+2008-10-24 16:13:51 INFO: Se ha establecido una nueva conexion TCP/IP Socket[addr=/127.0.0.1,port=40844,localport=9119]
+2008-10-24 16:13:51 INFO: Inicio de autenticacion para el usuario {pos01} con la clave {827ccb0eea8a706c4c34a16891f84e7b}
+2008-10-24 16:13:51 INFO: Control de acceso sobre direcciones ip no habilitado para este usuario
+2008-10-24 16:13:51 INFO: Colocador {pos01} autenticado desde OFICINA GERENCIA [127.0.0.1]
+2008-10-24 16:21:24 INFO: Nuevo mensaje enviado por Colocador desde 127.0.0.1
+2008-10-24 16:21:24 INFO: Enviando mensaje a 1 usuario
+2008-10-24 16:21:25 INFO: [Envio a Cuenta de Correo] Remitente {pos01} - Destino: admin - Asunto: Pop tropper
+2008-10-24 16:21:25 INFO: Almacenando registro de mensaje en la base de datos [admin]
+2008-10-24 16:21:25 SENTENCIA SQL :: INSERT INTO 
+			mensajes (uid_destino,fecha_envio,hora_envio,asunto,texto,confirmado,tiempo_vida,uid_origen,control,minutos)
+			VALUES (1,to_date('2008-10-24','yyyy-mm-dd'),'04:21 PM','Pop tropper','je je je!',0,3,4,0,0)
+2008-10-24 16:22:37 INFO: Leyendo correo del buzon de mensajes
+2008-10-24 16:22:37 INFO: Formato de mensaje -> text/*
+2008-10-24 16:22:37 INFO: Nuevo mensaje desde {xtingray@localhost} con asunto [ pos01, confirmando... ]
+2008-10-24 16:22:37 INFO: Enviando mensaje a 1 usuario
+2008-10-24 16:22:37 INFO: [Envio a Punto de Venta] Remitente {admin} - Destino: pos01 - Asunto: confirmando...
+2008-10-24 16:22:37 INFO: Almacenando registro de mensaje en la base de datos [pos01]
+2008-10-24 16:22:37 SENTENCIA SQL :: INSERT INTO 
+			mensajes (uid_destino,fecha_envio,hora_envio,asunto,texto,confirmado,tiempo_vida,uid_origen,control,minutos)
+			VALUES (4,to_date('2008-10-24','yyyy-mm-dd'),'04:22 PM','confirmando...','me llegó el mensaje! :P',0,3,1,0,0)
+2008-10-24 16:22:59 SENTENCIA SQL :: UPDATE mensajes SET confirmado=1, fecha_confirmacion=to_date('2008-10-24','yyyy-mm-dd')
+			WHERE fecha_envio=to_date('2008-10-24','yyyy-mm-dd') AND hora_envio='04:22 PM' AND confirmado=0 AND
+			uid_destino=(SELECT codigo FROM usuarios WHERE login='pos01')
+2008-10-24 16:22:59 INFO: Confirmada lectura del mensaje con destino {pos01} / Asunto: [confirmando...] / Remitido por: {GERENCIA}
+2008-10-24 16:27:48 INFO: ConfigFile -> /home/xtingray/Projects/javertec/comeet/comeet/CoMeet-Server/comeet/conf/server.conf
+2008-10-24 16:27:48 INFO: Cargando archivo de configuracion...
+2008-10-24 16:27:48 INFO: Cargando base de datos... bullet
+2008-10-24 16:27:49 INFO: Cargando base de datos... comeet
+2008-10-24 16:27:49 ADVERTENCIA: Base de datos deshabilitada desde configuracion -> oracle
+2008-10-24 16:27:49 INFO: Cargando cache de enlace [bullet]
+2008-10-24 16:27:49 INFO: Iniciando demonio pop3
+2008-10-24 16:27:49 INFO: Servidor de correo {localhost}
+2008-10-24 16:27:49 INFO: Iniciando demonio de sincronizacion
+2008-10-24 16:27:49 INFO: Servidor CoMeet escuchando por el puerto 9119
+2008-10-24 16:28:05 INFO: Se ha establecido una nueva conexion TCP/IP Socket[addr=/127.0.0.1,port=58958,localport=9119]
+2008-10-24 16:28:05 INFO: Inicio de autenticacion para el usuario {pos01} con la clave {827ccb0eea8a706c4c34a16891f84e7b}
+2008-10-24 16:28:05 INFO: Control de acceso sobre direcciones ip no habilitado para este usuario
+2008-10-24 16:28:05 INFO: Colocador {pos01} autenticado desde OFICINA GERENCIA [127.0.0.1]
+2008-10-24 16:29:00 INFO: Leyendo correo del buzon de mensajes
+2008-10-24 16:29:00 INFO: Formato de mensaje -> text/*
+2008-10-24 16:29:00 INFO: Nuevo mensaje desde {xtingray@localhost} con asunto [ pos01, a que no adivinas! ]
+2008-10-24 16:29:00 INFO: Enviando mensaje a 1 usuario
+2008-10-24 16:29:00 INFO: [Envio a Punto de Venta] Remitente {admin} - Destino: pos01 - Asunto: a que no adivinas!
+2008-10-24 16:29:00 INFO: Almacenando registro de mensaje en la base de datos [pos01]
+2008-10-24 16:29:00 SENTENCIA SQL :: INSERT INTO 
+			mensajes (uid_destino,fecha_envio,hora_envio,asunto,texto,confirmado,tiempo_vida,uid_origen,control,minutos)
+			VALUES (4,to_date('2008-10-24','yyyy-mm-dd'),'04:29 PM','a que no adivinas!','ji ji ji',0,3,1,0,0)
+2008-10-24 16:30:24 INFO: ConfigFile -> /home/xtingray/Projects/javertec/comeet/comeet/CoMeet-Server/comeet/conf/server.conf
+2008-10-24 16:30:24 INFO: Cargando archivo de configuracion...
+2008-10-24 16:30:24 INFO: Cargando base de datos... bullet
+2008-10-24 16:30:24 INFO: Cargando base de datos... comeet
+2008-10-24 16:30:24 ADVERTENCIA: Base de datos deshabilitada desde configuracion -> oracle
+2008-10-24 16:30:24 INFO: Cargando cache de enlace [bullet]
+2008-10-24 16:30:25 INFO: Iniciando demonio pop3
+2008-10-24 16:30:25 INFO: Servidor de correo {localhost}
+2008-10-24 16:30:25 INFO: Iniciando demonio de sincronizacion
+2008-10-24 16:30:25 INFO: Servidor CoMeet escuchando por el puerto 9119
+2008-10-24 16:30:39 INFO: Se ha establecido una nueva conexion TCP/IP Socket[addr=/127.0.0.1,port=51946,localport=9119]
+2008-10-24 16:30:39 INFO: Inicio de autenticacion para el usuario {pos01} con la clave {827ccb0eea8a706c4c34a16891f84e7b}
+2008-10-24 16:30:39 INFO: Control de acceso sobre direcciones ip no habilitado para este usuario
+2008-10-24 16:30:39 INFO: Colocador {pos01} autenticado desde OFICINA GERENCIA [127.0.0.1]
+2008-10-24 16:31:35 INFO: Leyendo correo del buzon de mensajes
+2008-10-24 16:31:35 INFO: Formato de mensaje -> text/*
+2008-10-24 16:31:35 INFO: Nuevo mensaje desde {xtingray@localhost} con asunto [ pos01, la ultima es... ]
+2008-10-24 16:31:35 INFO: Enviando mensaje a 1 usuario
+2008-10-24 16:31:35 INFO: [Envio a Punto de Venta] Remitente {admin} - Destino: pos01 - Asunto: la ultima es...
+2008-10-24 16:31:35 INFO: Almacenando registro de mensaje en la base de datos [pos01]
+2008-10-24 16:31:35 SENTENCIA SQL :: INSERT INTO 
+			mensajes (uid_destino,fecha_envio,hora_envio,asunto,texto,confirmado,tiempo_vida,uid_origen,control,minutos)
+			VALUES (4,to_date('2008-10-24','yyyy-mm-dd'),'04:31 PM','la ultima es...','la vencida!',0,3,1,0,0)
+2008-10-24 16:32:41 INFO: ConfigFile -> /home/xtingray/Projects/javertec/comeet/comeet/CoMeet-Server/comeet/conf/server.conf
+2008-10-24 16:32:41 INFO: Cargando archivo de configuracion...
+2008-10-24 16:32:41 INFO: Cargando base de datos... bullet
+2008-10-24 16:32:41 INFO: Cargando base de datos... comeet
+2008-10-24 16:32:41 ADVERTENCIA: Base de datos deshabilitada desde configuracion -> oracle
+2008-10-24 16:32:41 INFO: Cargando cache de enlace [bullet]
+2008-10-24 16:32:42 INFO: Iniciando demonio pop3
+2008-10-24 16:32:42 INFO: Servidor de correo {localhost}
+2008-10-24 16:32:42 INFO: Iniciando demonio de sincronizacion
+2008-10-24 16:32:42 INFO: Servidor CoMeet escuchando por el puerto 9119
+2008-10-24 16:32:53 INFO: Se ha establecido una nueva conexion TCP/IP Socket[addr=/127.0.0.1,port=51979,localport=9119]
+2008-10-24 16:32:53 INFO: Inicio de autenticacion para el usuario {pos01} con la clave {827ccb0eea8a706c4c34a16891f84e7b}
+2008-10-24 16:32:53 INFO: Control de acceso sobre direcciones ip no habilitado para este usuario
+2008-10-24 16:32:53 INFO: Colocador {pos01} autenticado desde OFICINA GERENCIA [127.0.0.1]
+2008-10-24 16:34:17 INFO: ConfigFile -> /home/xtingray/Projects/javertec/comeet/comeet/CoMeet-Server/comeet/conf/server.conf
+2008-10-24 16:34:17 INFO: Cargando archivo de configuracion...
+2008-10-24 16:34:17 INFO: Cargando base de datos... bullet
+2008-10-24 16:34:17 INFO: Cargando base de datos... comeet
+2008-10-24 16:34:17 ADVERTENCIA: Base de datos deshabilitada desde configuracion -> oracle
+2008-10-24 16:34:17 INFO: Cargando cache de enlace [bullet]
+2008-10-24 16:34:18 INFO: Iniciando demonio pop3
+2008-10-24 16:34:18 INFO: Servidor de correo {localhost}
+2008-10-24 16:34:18 INFO: Iniciando demonio de sincronizacion
+2008-10-24 16:34:18 INFO: Servidor CoMeet escuchando por el puerto 9119
+2008-10-24 16:34:28 INFO: Se ha establecido una nueva conexion TCP/IP Socket[addr=/127.0.0.1,port=52003,localport=9119]
+2008-10-24 16:34:28 INFO: Inicio de autenticacion para el usuario {pos01} con la clave {827ccb0eea8a706c4c34a16891f84e7b}
+2008-10-24 16:34:28 INFO: Control de acceso sobre direcciones ip no habilitado para este usuario
+2008-10-24 16:34:28 INFO: Colocador {pos01} autenticado desde OFICINA GERENCIA [127.0.0.1]
+2008-10-24 16:39:40 INFO: ConfigFile -> /home/xtingray/Projects/javertec/comeet/comeet/CoMeet-Server/comeet/conf/server.conf
+2008-10-24 16:39:40 INFO: Cargando archivo de configuracion...
+2008-10-24 16:39:40 INFO: Cargando base de datos... bullet
+2008-10-24 16:39:40 INFO: Cargando base de datos... comeet
+2008-10-24 16:39:40 ADVERTENCIA: Base de datos deshabilitada desde configuracion -> oracle
+2008-10-24 16:39:40 INFO: Cargando cache de enlace [bullet]
+2008-10-24 16:39:41 INFO: Iniciando demonio pop3
+2008-10-24 16:39:41 INFO: Servidor de correo {localhost}
+2008-10-24 16:39:41 INFO: Iniciando demonio de sincronizacion
+2008-10-24 16:39:41 INFO: Servidor CoMeet escuchando por el puerto 9119
+2008-10-24 16:39:54 INFO: Se ha establecido una nueva conexion TCP/IP Socket[addr=/127.0.0.1,port=49834,localport=9119]
+2008-10-24 16:39:54 INFO: Inicio de autenticacion para el usuario {pos01} con la clave {827ccb0eea8a706c4c34a16891f84e7b}
+2008-10-24 16:39:54 INFO: Control de acceso sobre direcciones ip no habilitado para este usuario
+2008-10-24 16:39:54 INFO: Colocador {pos01} autenticado desde OFICINA GERENCIA [127.0.0.1]
+2008-10-24 16:41:06 INFO: ConfigFile -> /home/xtingray/Projects/javertec/comeet/comeet/CoMeet-Server/comeet/conf/server.conf
+2008-10-24 16:41:06 INFO: Cargando archivo de configuracion...
+2008-10-24 16:41:06 INFO: Cargando base de datos... bullet
+2008-10-24 16:41:06 INFO: Cargando base de datos... comeet
+2008-10-24 16:41:06 ADVERTENCIA: Base de datos deshabilitada desde configuracion -> oracle
+2008-10-24 16:41:06 INFO: Cargando cache de enlace [bullet]
+2008-10-24 16:41:07 INFO: Iniciando demonio pop3
+2008-10-24 16:41:07 INFO: Servidor de correo {localhost}
+2008-10-24 16:41:07 INFO: Iniciando demonio de sincronizacion
+2008-10-24 16:41:07 INFO: Servidor CoMeet escuchando por el puerto 9119
+2008-10-24 16:41:19 INFO: Se ha establecido una nueva conexion TCP/IP Socket[addr=/127.0.0.1,port=49867,localport=9119]
+2008-10-24 16:41:19 INFO: Inicio de autenticacion para el usuario {pos01} con la clave {827ccb0eea8a706c4c34a16891f84e7b}
+2008-10-24 16:41:19 INFO: Control de acceso sobre direcciones ip no habilitado para este usuario
+2008-10-24 16:41:19 INFO: Colocador {pos01} autenticado desde OFICINA GERENCIA [127.0.0.1]
+2008-10-24 16:42:48 INFO: Leyendo correo del buzon de mensajes
+2008-10-24 16:42:48 INFO: Formato de mensaje -> text/*
+2008-10-24 16:42:48 INFO: Nuevo mensaje desde {xtingray@localhost} con asunto [ pos01, mensaje 1 ]
+2008-10-24 16:42:48 INFO: Enviando mensaje a 1 usuario
+2008-10-24 16:42:48 INFO: [Envio a Punto de Venta] Remitente {admin} - Destino: pos01 - Asunto: mensaje 1
+2008-10-24 16:42:48 INFO: Almacenando registro de mensaje en la base de datos [pos01]
+2008-10-24 16:42:48 SENTENCIA SQL :: INSERT INTO 
+			mensajes (uid_destino,fecha_envio,hora_envio,asunto,texto,confirmado,tiempo_vida,uid_origen,control,minutos)
+			VALUES (4,to_date('2008-10-24','yyyy-mm-dd'),'04:42 PM','mensaje 1','para probar 1',0,3,1,0,0)
+2008-10-24 16:43:18 INFO: Leyendo correo del buzon de mensajes
+2008-10-24 16:43:18 INFO: Formato de mensaje -> text/*
+2008-10-24 16:43:18 INFO: Nuevo mensaje desde {xtingray@localhost} con asunto [ pos01, mensaje 2 ]
+2008-10-24 16:43:18 INFO: Enviando mensaje a 1 usuario
+2008-10-24 16:43:18 INFO: [Envio a Punto de Venta] Remitente {admin} - Destino: pos01 - Asunto: mensaje 2
+2008-10-24 16:43:18 INFO: Almacenando registro de mensaje en la base de datos [pos01]
+2008-10-24 16:43:18 SENTENCIA SQL :: INSERT INTO 
+			mensajes (uid_destino,fecha_envio,hora_envio,asunto,texto,confirmado,tiempo_vida,uid_origen,control,minutos)
+			VALUES (4,to_date('2008-10-24','yyyy-mm-dd'),'04:43 PM','mensaje 2','mensaje de prueba 2',0,3,1,0,0)
+2008-10-24 16:43:48 INFO: Leyendo correo del buzon de mensajes
+2008-10-24 16:43:48 INFO: Formato de mensaje -> text/*
+2008-10-24 16:43:48 INFO: Nuevo mensaje desde {xtingray@localhost} con asunto [ pos01, mensaje 3 ]
+2008-10-24 16:43:48 INFO: Enviando mensaje a 1 usuario
+2008-10-24 16:43:48 INFO: [Envio a Punto de Venta] Remitente {admin} - Destino: pos01 - Asunto: mensaje 3
+2008-10-24 16:43:48 INFO: Almacenando registro de mensaje en la base de datos [pos01]
+2008-10-24 16:43:48 SENTENCIA SQL :: INSERT INTO 
+			mensajes (uid_destino,fecha_envio,hora_envio,asunto,texto,confirmado,tiempo_vida,uid_origen,control,minutos)
+			VALUES (4,to_date('2008-10-24','yyyy-mm-dd'),'04:43 PM','mensaje 3','mensaje de prueba 3',0,3,1,0,0)
+2008-10-24 16:44:25 SENTENCIA SQL :: UPDATE mensajes SET confirmado=1, fecha_confirmacion=to_date('2008-10-24','yyyy-mm-dd')
+			WHERE fecha_envio=to_date('2008-10-24','yyyy-mm-dd') AND hora_envio='04:42 PM' AND confirmado=0 AND
+			uid_destino=(SELECT codigo FROM usuarios WHERE login='pos01')
+2008-10-24 16:44:25 INFO: Confirmada lectura del mensaje con destino {pos01} / Asunto: [mensaje 1] / Remitido por: {GERENCIA}
+2008-10-24 16:44:26 SENTENCIA SQL :: UPDATE mensajes SET confirmado=1, fecha_confirmacion=to_date('2008-10-24','yyyy-mm-dd')
+			WHERE fecha_envio=to_date('2008-10-24','yyyy-mm-dd') AND hora_envio='04:43 PM' AND confirmado=0 AND
+			uid_destino=(SELECT codigo FROM usuarios WHERE login='pos01')
+2008-10-24 16:44:26 INFO: Confirmada lectura del mensaje con destino {pos01} / Asunto: [mensaje 2] / Remitido por: {GERENCIA}
+2008-10-24 16:44:26 SENTENCIA SQL :: UPDATE mensajes SET confirmado=1, fecha_confirmacion=to_date('2008-10-24','yyyy-mm-dd')
+			WHERE fecha_envio=to_date('2008-10-24','yyyy-mm-dd') AND hora_envio='04:43 PM' AND confirmado=0 AND
+			uid_destino=(SELECT codigo FROM usuarios WHERE login='pos01')
+2008-10-24 16:44:26 INFO: Confirmada lectura del mensaje con destino {pos01} / Asunto: [mensaje 3] / Remitido por: {GERENCIA}
+2008-10-24 16:44:45 INFO: Se ha establecido una nueva conexion TCP/IP Socket[addr=/127.0.0.1,port=49919,localport=9119]
+2008-10-24 16:44:45 INFO: Inicio de autenticacion para el usuario {pos01} con la clave {827ccb0eea8a706c4c34a16891f84e7b}
+2008-10-24 16:44:45 INFO: Control de acceso sobre direcciones ip no habilitado para este usuario
+2008-10-24 16:44:45 INFO: Colocador {pos01} autenticado desde OFICINA GERENCIA [127.0.0.1]
+2008-10-24 16:45:28 INFO: Leyendo correo del buzon de mensajes
+2008-10-24 16:45:28 INFO: Formato de mensaje -> text/*
+2008-10-24 16:45:28 INFO: Nuevo mensaje desde {xtingray@localhost} con asunto [ pos01, mensaje 4 ]
+2008-10-24 16:45:28 INFO: Enviando mensaje a 1 usuario
+2008-10-24 16:45:28 INFO: [Envio a Punto de Venta] Remitente {admin} - Destino: pos01 - Asunto: mensaje 4
+2008-10-24 16:45:28 INFO: Almacenando registro de mensaje en la base de datos [pos01]
+2008-10-24 16:45:28 SENTENCIA SQL :: INSERT INTO 
+			mensajes (uid_destino,fecha_envio,hora_envio,asunto,texto,confirmado,tiempo_vida,uid_origen,control,minutos)
+			VALUES (4,to_date('2008-10-24','yyyy-mm-dd'),'04:45 PM','mensaje 4','mensaje de prueba 4',0,3,1,0,0)
+2008-10-24 16:48:24 SENTENCIA SQL :: UPDATE mensajes SET confirmado=1, fecha_confirmacion=to_date('2008-10-24','yyyy-mm-dd')
+			WHERE fecha_envio=to_date('2008-10-24','yyyy-mm-dd') AND hora_envio='04:45 PM' AND confirmado=0 AND
+			uid_destino=(SELECT codigo FROM usuarios WHERE login='pos01')
+2008-10-24 16:48:24 INFO: Confirmada lectura del mensaje con destino {pos01} / Asunto: [mensaje 4] / Remitido por: {GERENCIA}
+2008-10-24 17:40:22 INFO: ConfigFile -> /home/xtingray/Projects/javertec/comeet/comeet/CoMeet-Server/comeet/conf/server.conf
+2008-10-24 17:40:22 INFO: Cargando archivo de configuracion...
+2008-10-24 17:40:22 INFO: Cargando base de datos... bullet
+2008-10-24 17:40:23 INFO: Cargando base de datos... comeet
+2008-10-24 17:40:23 ADVERTENCIA: Base de datos deshabilitada desde configuracion -> oracle
+2008-10-24 17:40:23 INFO: Cargando cache de enlace [bullet]
+2008-10-24 17:40:23 INFO: Iniciando demonio pop3
+2008-10-24 17:40:23 INFO: Servidor de correo {localhost}
+2008-10-24 17:40:23 INFO: Iniciando demonio de sincronizacion
+2008-10-24 17:40:23 INFO: Servidor CoMeet escuchando por el puerto 9119
+2008-10-24 17:40:37 INFO: Se ha establecido una nueva conexion TCP/IP Socket[addr=/127.0.0.1,port=55195,localport=9119]
+2008-10-24 17:40:37 INFO: Inicio de autenticacion para el usuario {pos01} con la clave {827ccb0eea8a706c4c34a16891f84e7b}
+2008-10-24 17:40:37 INFO: Control de acceso sobre direcciones ip no habilitado para este usuario
+2008-10-24 17:40:37 INFO: Colocador {pos01} autenticado desde OFICINA GERENCIA [127.0.0.1]
+2008-10-24 17:41:17 INFO: ConfigFile -> /home/xtingray/Projects/javertec/comeet/comeet/CoMeet-Server/comeet/conf/server.conf
+2008-10-24 17:41:17 INFO: Cargando archivo de configuracion...
+2008-10-24 17:41:17 INFO: Cargando base de datos... bullet
+2008-10-24 17:41:17 INFO: Cargando base de datos... comeet
+2008-10-24 17:41:17 ADVERTENCIA: Base de datos deshabilitada desde configuracion -> oracle
+2008-10-24 17:41:17 INFO: Cargando cache de enlace [bullet]
+2008-10-24 17:41:18 INFO: Iniciando demonio pop3
+2008-10-24 17:41:18 INFO: Servidor de correo {localhost}
+2008-10-24 17:41:18 INFO: Iniciando demonio de sincronizacion
+2008-10-24 17:41:18 INFO: Servidor CoMeet escuchando por el puerto 9119
+2008-10-24 17:41:31 INFO: Se ha establecido una nueva conexion TCP/IP Socket[addr=/127.0.0.1,port=55207,localport=9119]
+2008-10-24 17:41:31 INFO: Inicio de autenticacion para el usuario {pos01} con la clave {827ccb0eea8a706c4c34a16891f84e7b}
+2008-10-24 17:41:31 INFO: Control de acceso sobre direcciones ip no habilitado para este usuario
+2008-10-24 17:41:31 INFO: Colocador {pos01} autenticado desde OFICINA GERENCIA [127.0.0.1]
+2008-10-24 17:42:26 INFO: ConfigFile -> /home/xtingray/Projects/javertec/comeet/comeet/CoMeet-Server/comeet/conf/server.conf
+2008-10-24 17:42:27 INFO: Cargando archivo de configuracion...
+2008-10-24 17:42:27 INFO: Cargando base de datos... bullet
+2008-10-24 17:42:27 INFO: Cargando base de datos... comeet
+2008-10-24 17:42:27 ADVERTENCIA: Base de datos deshabilitada desde configuracion -> oracle
+2008-10-24 17:42:27 INFO: Cargando cache de enlace [bullet]
+2008-10-24 17:42:27 INFO: Iniciando demonio pop3
+2008-10-24 17:42:27 INFO: Servidor de correo {localhost}
+2008-10-24 17:42:27 INFO: Iniciando demonio de sincronizacion
+2008-10-24 17:42:28 INFO: Servidor CoMeet escuchando por el puerto 9119
+2008-10-24 17:42:38 INFO: Se ha establecido una nueva conexion TCP/IP Socket[addr=/127.0.0.1,port=55223,localport=9119]
+2008-10-24 17:42:38 INFO: Inicio de autenticacion para el usuario {pos01} con la clave {827ccb0eea8a706c4c34a16891f84e7b}
+2008-10-24 17:42:38 INFO: Control de acceso sobre direcciones ip no habilitado para este usuario
+2008-10-24 17:42:38 INFO: Colocador {pos01} autenticado desde OFICINA GERENCIA [127.0.0.1]
+2008-10-24 17:45:48 INFO: Leyendo correo del buzon de mensajes
+2008-10-24 17:45:48 INFO: Formato de mensaje -> text/*
+2008-10-24 17:45:48 INFO: Nuevo mensaje desde {xtingray@localhost} con asunto [ pos01, como saber? ]
+2008-10-24 17:45:48 INFO: Enviando mensaje a 1 usuario
+2008-10-24 17:45:48 INFO: [Envio a Punto de Venta] Remitente {admin} - Destino: pos01 - Asunto: como saber?
+2008-10-24 17:45:48 INFO: Almacenando registro de mensaje en la base de datos [pos01]
+2008-10-24 17:45:48 SENTENCIA SQL :: INSERT INTO 
+			mensajes (uid_destino,fecha_envio,hora_envio,asunto,texto,confirmado,tiempo_vida,uid_origen,control,minutos)
+			VALUES (4,to_date('2008-10-24','yyyy-mm-dd'),'05:45 PM','como saber?','quien eres?',0,3,1,0,0)
+2008-10-24 17:47:41 INFO: ConfigFile -> /home/xtingray/Projects/javertec/comeet/comeet/CoMeet-Server/comeet/conf/server.conf
+2008-10-24 17:47:42 INFO: Cargando archivo de configuracion...
+2008-10-24 17:47:42 INFO: Cargando base de datos... bullet
+2008-10-24 17:47:42 INFO: Cargando base de datos... comeet
+2008-10-24 17:47:42 ADVERTENCIA: Base de datos deshabilitada desde configuracion -> oracle
+2008-10-24 17:47:42 INFO: Cargando cache de enlace [bullet]
+2008-10-24 17:47:43 INFO: Iniciando demonio pop3
+2008-10-24 17:47:43 INFO: Servidor de correo {localhost}
+2008-10-24 17:47:43 INFO: Iniciando demonio de sincronizacion
+2008-10-24 17:47:43 INFO: Servidor CoMeet escuchando por el puerto 9119
+2008-10-24 17:47:57 INFO: Se ha establecido una nueva conexion TCP/IP Socket[addr=/127.0.0.1,port=35279,localport=9119]
+2008-10-24 17:47:57 INFO: Inicio de autenticacion para el usuario {pos01} con la clave {827ccb0eea8a706c4c34a16891f84e7b}
+2008-10-24 17:47:57 INFO: Control de acceso sobre direcciones ip no habilitado para este usuario
+2008-10-24 17:47:57 INFO: Colocador {pos01} autenticado desde OFICINA GERENCIA [127.0.0.1]
+2008-10-24 17:48:23 INFO: Leyendo correo del buzon de mensajes
+2008-10-24 17:48:23 INFO: Formato de mensaje -> text/*
+2008-10-24 17:48:23 INFO: Nuevo mensaje desde {xtingray@localhost} con asunto [ pos01, never mind ]
+2008-10-24 17:48:23 INFO: Enviando mensaje a 1 usuario
+2008-10-24 17:48:23 INFO: [Envio a Punto de Venta] Remitente {admin} - Destino: pos01 - Asunto: never mind
+2008-10-24 17:48:23 INFO: Almacenando registro de mensaje en la base de datos [pos01]
+2008-10-24 17:48:23 SENTENCIA SQL :: INSERT INTO 
+			mensajes (uid_destino,fecha_envio,hora_envio,asunto,texto,confirmado,tiempo_vida,uid_origen,control,minutos)
+			VALUES (4,to_date('2008-10-24','yyyy-mm-dd'),'05:48 PM','never mind','hello beautiful!',0,3,1,0,0)
+2008-10-24 17:50:29 INFO: ConfigFile -> /home/xtingray/Projects/javertec/comeet/comeet/CoMeet-Server/comeet/conf/server.conf
+2008-10-24 17:50:29 INFO: Cargando archivo de configuracion...
+2008-10-24 17:50:29 INFO: Cargando base de datos... bullet
+2008-10-24 17:50:29 INFO: Cargando base de datos... comeet
+2008-10-24 17:50:29 ADVERTENCIA: Base de datos deshabilitada desde configuracion -> oracle
+2008-10-24 17:50:29 INFO: Cargando cache de enlace [bullet]
+2008-10-24 17:50:30 INFO: Iniciando demonio pop3
+2008-10-24 17:50:30 INFO: Servidor de correo {localhost}
+2008-10-24 17:50:30 INFO: Iniciando demonio de sincronizacion
+2008-10-24 17:50:30 INFO: Servidor CoMeet escuchando por el puerto 9119
+2008-10-24 17:50:31 INFO: ConfigFile -> /home/xtingray/Projects/javertec/comeet/comeet/CoMeet-Server/comeet/conf/server.conf
+2008-10-24 17:50:32 INFO: Cargando archivo de configuracion...
+2008-10-24 17:50:32 INFO: Cargando base de datos... bullet
+2008-10-24 17:50:32 INFO: Cargando base de datos... comeet
+2008-10-24 17:50:32 ADVERTENCIA: Base de datos deshabilitada desde configuracion -> oracle
+2008-10-24 17:50:32 INFO: Cargando cache de enlace [bullet]
+2008-10-24 17:50:33 INFO: Iniciando demonio pop3
+2008-10-24 17:50:33 INFO: Servidor de correo {localhost}
+2008-10-24 17:50:33 INFO: Iniciando demonio de sincronizacion
+2008-10-24 17:50:33 ERROR: Finalizando el servidor de transacciones. Causa: Address already in use
+2008-10-24 17:50:44 INFO: Se ha establecido una nueva conexion TCP/IP Socket[addr=/127.0.0.1,port=40670,localport=9119]
+2008-10-24 17:50:44 INFO: Inicio de autenticacion para el usuario {pos01} con la clave {827ccb0eea8a706c4c34a16891f84e7b}
+2008-10-24 17:50:44 INFO: Control de acceso sobre direcciones ip no habilitado para este usuario
+2008-10-24 17:50:44 INFO: Colocador {pos01} autenticado desde OFICINA GERENCIA [127.0.0.1]
+2008-10-24 17:51:10 INFO: Leyendo correo del buzon de mensajes
+2008-10-24 17:51:10 INFO: Formato de mensaje -> text/*
+2008-10-24 17:51:10 INFO: Nuevo mensaje desde {xtingray@localhost} con asunto [ pos01, vete ]
+2008-10-24 17:51:10 INFO: Enviando mensaje a 1 usuario
+2008-10-24 17:51:10 INFO: [Envio a Punto de Venta] Remitente {admin} - Destino: pos01 - Asunto: vete
+2008-10-24 17:51:10 INFO: Almacenando registro de mensaje en la base de datos [pos01]
+2008-10-24 17:51:10 SENTENCIA SQL :: INSERT INTO 
+			mensajes (uid_destino,fecha_envio,hora_envio,asunto,texto,confirmado,tiempo_vida,uid_origen,control,minutos)
+			VALUES (4,to_date('2008-10-24','yyyy-mm-dd'),'05:51 PM','vete','vete vete',0,3,1,0,0)
+2008-10-24 18:06:38 INFO: ConfigFile -> /home/xtingray/Projects/javertec/comeet/comeet/CoMeet-Server/comeet/conf/server.conf
+2008-10-24 18:06:39 INFO: Cargando archivo de configuracion...
+2008-10-24 18:06:39 INFO: Cargando base de datos... bullet
+2008-10-24 18:06:39 INFO: Cargando base de datos... comeet
+2008-10-24 18:06:39 ADVERTENCIA: Base de datos deshabilitada desde configuracion -> oracle
+2008-10-24 18:06:39 INFO: Cargando cache de enlace [bullet]
+2008-10-24 18:06:40 INFO: Iniciando demonio pop3
+2008-10-24 18:06:40 INFO: Servidor de correo {localhost}
+2008-10-24 18:06:40 INFO: Iniciando demonio de sincronizacion
+2008-10-24 18:06:40 INFO: Servidor CoMeet escuchando por el puerto 9119
+2008-10-24 18:07:32 INFO: Se ha establecido una nueva conexion TCP/IP Socket[addr=/127.0.0.1,port=36316,localport=9119]
+2008-10-24 18:07:32 INFO: Inicio de autenticacion para el usuario {pos01} con la clave {827ccb0eea8a706c4c34a16891f84e7b}
+2008-10-24 18:07:32 INFO: Control de acceso sobre direcciones ip no habilitado para este usuario
+2008-10-24 18:07:32 INFO: Colocador {pos01} autenticado desde OFICINA GERENCIA [127.0.0.1]
+2008-10-24 18:08:31 INFO: Leyendo correo del buzon de mensajes
+2008-10-24 18:08:31 INFO: Formato de mensaje -> text/*
+2008-10-24 18:08:31 INFO: Nuevo mensaje desde {xtingray@localhost} con asunto [ pos01, un minuto mas ]
+2008-10-24 18:08:31 INFO: Enviando mensaje a 1 usuario
+2008-10-24 18:08:31 INFO: [Envio a Punto de Venta] Remitente {admin} - Destino: pos01 - Asunto: un minuto mas
+2008-10-24 18:08:31 INFO: Almacenando registro de mensaje en la base de datos [pos01]
+2008-10-24 18:08:31 SENTENCIA SQL :: INSERT INTO 
+			mensajes (uid_destino,fecha_envio,hora_envio,asunto,texto,confirmado,tiempo_vida,uid_origen,control,minutos)
+			VALUES (4,to_date('2008-10-24','yyyy-mm-dd'),'06:08 PM','un minuto mas','decrezco tras mis cien edades',0,3,1,0,0)
+2008-10-24 18:08:37 SENTENCIA SQL :: UPDATE mensajes SET confirmado=1, fecha_confirmacion=to_date('2008-10-24','yyyy-mm-dd')
+			WHERE fecha_envio=to_date('2008-10-24','yyyy-mm-dd') AND hora_envio='06:08 PM' AND confirmado=0 AND
+			uid_destino=(SELECT codigo FROM usuarios WHERE login='pos01')
+2008-10-24 18:08:37 INFO: Confirmada lectura del mensaje con destino {pos01} / Asunto: [un minuto mas] / Remitido por: {GERENCIA}
+2008-10-24 18:08:39 SENTENCIA SQL :: UPDATE mensajes SET confirmado=1, fecha_confirmacion=to_date('2008-10-24','yyyy-mm-dd')
+			WHERE fecha_envio=to_date('2008-10-24','yyyy-mm-dd') AND hora_envio='05:51 PM' AND confirmado=0 AND
+			uid_destino=(SELECT codigo FROM usuarios WHERE login='pos01')
+2008-10-24 18:08:39 INFO: Confirmada lectura del mensaje con destino {pos01} / Asunto: [vete] / Remitido por: {GERENCIA}
+2008-10-24 18:08:40 SENTENCIA SQL :: UPDATE mensajes SET confirmado=1, fecha_confirmacion=to_date('2008-10-24','yyyy-mm-dd')
+			WHERE fecha_envio=to_date('2008-10-24','yyyy-mm-dd') AND hora_envio='05:48 PM' AND confirmado=0 AND
+			uid_destino=(SELECT codigo FROM usuarios WHERE login='pos01')
+2008-10-24 18:08:40 INFO: Confirmada lectura del mensaje con destino {pos01} / Asunto: [never mind] / Remitido por: {GERENCIA}
+2008-10-24 18:08:40 SENTENCIA SQL :: UPDATE mensajes SET confirmado=1, fecha_confirmacion=to_date('2008-10-24','yyyy-mm-dd')
+			WHERE fecha_envio=to_date('2008-10-24','yyyy-mm-dd') AND hora_envio='05:45 PM' AND confirmado=0 AND
+			uid_destino=(SELECT codigo FROM usuarios WHERE login='pos01')
+2008-10-24 18:08:40 INFO: Confirmada lectura del mensaje con destino {pos01} / Asunto: [como saber?] / Remitido por: {GERENCIA}
+2008-10-24 18:17:25 INFO: ConfigFile -> /home/xtingray/Projects/javertec/comeet/comeet/CoMeet-Server/comeet/conf/server.conf
+2008-10-24 18:17:25 INFO: Cargando archivo de configuracion...
+2008-10-24 18:17:25 INFO: Cargando base de datos... bullet
+2008-10-24 18:17:26 INFO: Cargando base de datos... comeet
+2008-10-24 18:17:26 ADVERTENCIA: Base de datos deshabilitada desde configuracion -> oracle
+2008-10-24 18:17:26 INFO: Cargando cache de enlace [bullet]
+2008-10-24 18:17:26 INFO: Iniciando demonio pop3
+2008-10-24 18:17:26 INFO: Servidor de correo {localhost}
+2008-10-24 18:17:26 INFO: Iniciando demonio de sincronizacion
+2008-10-24 18:17:26 INFO: Servidor CoMeet escuchando por el puerto 9119
+2008-10-24 18:17:39 INFO: Se ha establecido una nueva conexion TCP/IP Socket[addr=/127.0.0.1,port=34695,localport=9119]
+2008-10-24 18:17:39 INFO: Inicio de autenticacion para el usuario {pos01} con la clave {827ccb0eea8a706c4c34a16891f84e7b}
+2008-10-24 18:17:39 INFO: Control de acceso sobre direcciones ip no habilitado para este usuario
+2008-10-24 18:17:39 INFO: Colocador {pos01} autenticado desde OFICINA GERENCIA [127.0.0.1]
+2008-10-24 18:19:16 INFO: ConfigFile -> /home/xtingray/Projects/javertec/comeet/comeet/CoMeet-Server/comeet/conf/server.conf
+2008-10-24 18:19:16 INFO: Cargando archivo de configuracion...
+2008-10-24 18:19:16 INFO: Cargando base de datos... bullet
+2008-10-24 18:19:17 INFO: Cargando base de datos... comeet
+2008-10-24 18:19:17 ADVERTENCIA: Base de datos deshabilitada desde configuracion -> oracle
+2008-10-24 18:19:17 INFO: Cargando cache de enlace [bullet]
+2008-10-24 18:19:17 INFO: Iniciando demonio pop3
+2008-10-24 18:19:17 INFO: Servidor de correo {localhost}
+2008-10-24 18:19:17 INFO: Iniciando demonio de sincronizacion
+2008-10-24 18:19:17 INFO: Servidor CoMeet escuchando por el puerto 9119
+2008-10-24 18:19:27 INFO: Se ha establecido una nueva conexion TCP/IP Socket[addr=/127.0.0.1,port=34713,localport=9119]
+2008-10-24 18:19:28 INFO: Inicio de autenticacion para el usuario {pos01} con la clave {827ccb0eea8a706c4c34a16891f84e7b}
+2008-10-24 18:19:28 INFO: Control de acceso sobre direcciones ip no habilitado para este usuario
+2008-10-24 18:19:28 INFO: Colocador {pos01} autenticado desde OFICINA GERENCIA [127.0.0.1]
+2008-10-24 18:20:57 INFO: ConfigFile -> /home/xtingray/Projects/javertec/comeet/comeet/CoMeet-Server/comeet/conf/server.conf
+2008-10-24 18:20:57 INFO: Cargando archivo de configuracion...
+2008-10-24 18:20:57 INFO: Cargando base de datos... bullet
+2008-10-24 18:20:57 INFO: Cargando base de datos... comeet
+2008-10-24 18:20:57 ADVERTENCIA: Base de datos deshabilitada desde configuracion -> oracle
+2008-10-24 18:20:57 INFO: Cargando cache de enlace [bullet]
+2008-10-24 18:20:58 INFO: Iniciando demonio pop3
+2008-10-24 18:20:58 INFO: Servidor de correo {localhost}
+2008-10-24 18:20:58 INFO: Iniciando demonio de sincronizacion
+2008-10-24 18:20:58 INFO: Servidor CoMeet escuchando por el puerto 9119
+2008-10-24 18:21:09 INFO: Se ha establecido una nueva conexion TCP/IP Socket[addr=/127.0.0.1,port=34744,localport=9119]
+2008-10-24 18:21:09 INFO: Inicio de autenticacion para el usuario {pos01} con la clave {827ccb0eea8a706c4c34a16891f84e7b}
+2008-10-24 18:21:09 INFO: Control de acceso sobre direcciones ip no habilitado para este usuario
+2008-10-24 18:21:09 INFO: Colocador {pos01} autenticado desde OFICINA GERENCIA [127.0.0.1]
+2008-10-24 18:22:34 INFO: ConfigFile -> /home/xtingray/Projects/javertec/comeet/comeet/CoMeet-Server/comeet/conf/server.conf
+2008-10-24 18:22:34 INFO: Cargando archivo de configuracion...
+2008-10-24 18:22:34 INFO: Cargando base de datos... bullet
+2008-10-24 18:22:34 INFO: Cargando base de datos... comeet
+2008-10-24 18:22:34 ADVERTENCIA: Base de datos deshabilitada desde configuracion -> oracle
+2008-10-24 18:22:34 INFO: Cargando cache de enlace [bullet]
+2008-10-24 18:22:35 INFO: Iniciando demonio pop3
+2008-10-24 18:22:35 INFO: Servidor de correo {localhost}
+2008-10-24 18:22:35 INFO: Iniciando demonio de sincronizacion
+2008-10-24 18:22:35 INFO: Servidor CoMeet escuchando por el puerto 9119
+2008-10-24 18:22:46 INFO: Se ha establecido una nueva conexion TCP/IP Socket[addr=/127.0.0.1,port=53239,localport=9119]
+2008-10-24 18:22:46 INFO: Inicio de autenticacion para el usuario {pos01} con la clave {827ccb0eea8a706c4c34a16891f84e7b}
+2008-10-24 18:22:46 INFO: Control de acceso sobre direcciones ip no habilitado para este usuario
+2008-10-24 18:22:46 INFO: Colocador {pos01} autenticado desde OFICINA GERENCIA [127.0.0.1]
+2008-10-24 18:47:14 INFO: ConfigFile -> /home/xtingray/Projects/javertec/comeet/comeet/CoMeet-Server/comeet/conf/server.conf
+2008-10-24 18:47:14 INFO: Cargando archivo de configuracion...
+2008-10-24 18:47:14 INFO: Cargando base de datos... bullet
+2008-10-24 18:47:15 INFO: Cargando base de datos... comeet
+2008-10-24 18:47:15 ADVERTENCIA: Base de datos deshabilitada desde configuracion -> oracle
+2008-10-24 18:47:15 INFO: Cargando cache de enlace [bullet]
+2008-10-24 18:47:15 INFO: Iniciando demonio pop3
+2008-10-24 18:47:15 INFO: Servidor de correo {localhost}
+2008-10-24 18:47:15 INFO: Iniciando demonio de sincronizacion
+2008-10-24 18:47:16 INFO: Servidor CoMeet escuchando por el puerto 9119
+2008-10-24 18:47:26 INFO: Se ha establecido una nueva conexion TCP/IP Socket[addr=/127.0.0.1,port=42499,localport=9119]
+2008-10-24 18:47:26 INFO: Inicio de autenticacion para el usuario {pos01} con la clave {827ccb0eea8a706c4c34a16891f84e7b}
+2008-10-24 18:47:26 INFO: Control de acceso sobre direcciones ip no habilitado para este usuario
+2008-10-24 18:47:26 INFO: Colocador {pos01} autenticado desde OFICINA GERENCIA [127.0.0.1]
+2008-10-24 18:48:34 INFO: ConfigFile -> /home/xtingray/Projects/javertec/comeet/comeet/CoMeet-Server/comeet/conf/server.conf
+2008-10-24 18:48:34 INFO: Cargando archivo de configuracion...
+2008-10-24 18:48:34 INFO: Cargando base de datos... bullet
+2008-10-24 18:48:35 INFO: Cargando base de datos... comeet
+2008-10-24 18:48:35 ADVERTENCIA: Base de datos deshabilitada desde configuracion -> oracle
+2008-10-24 18:48:35 INFO: Cargando cache de enlace [bullet]
+2008-10-24 18:48:35 INFO: Iniciando demonio pop3
+2008-10-24 18:48:35 INFO: Servidor de correo {localhost}
+2008-10-24 18:48:35 INFO: Iniciando demonio de sincronizacion
+2008-10-24 18:48:35 INFO: Servidor CoMeet escuchando por el puerto 9119
+2008-10-24 18:48:45 INFO: Se ha establecido una nueva conexion TCP/IP Socket[addr=/127.0.0.1,port=42520,localport=9119]
+2008-10-24 18:48:45 INFO: Inicio de autenticacion para el usuario {pos01} con la clave {827ccb0eea8a706c4c34a16891f84e7b}
+2008-10-24 18:48:45 INFO: Control de acceso sobre direcciones ip no habilitado para este usuario
+2008-10-24 18:48:45 INFO: Colocador {pos01} autenticado desde OFICINA GERENCIA [127.0.0.1]
+2008-10-24 18:53:20 INFO: ConfigFile -> /home/xtingray/Projects/javertec/comeet/comeet/CoMeet-Server/comeet/conf/server.conf
+2008-10-24 18:53:20 INFO: Cargando archivo de configuracion...
+2008-10-24 18:53:20 INFO: Cargando base de datos... bullet
+2008-10-24 18:53:21 INFO: Cargando base de datos... comeet
+2008-10-24 18:53:21 ADVERTENCIA: Base de datos deshabilitada desde configuracion -> oracle
+2008-10-24 18:53:21 INFO: Cargando cache de enlace [bullet]
+2008-10-24 18:53:21 INFO: Iniciando demonio pop3
+2008-10-24 18:53:21 INFO: Servidor de correo {localhost}
+2008-10-24 18:53:21 INFO: Iniciando demonio de sincronizacion
+2008-10-24 18:53:21 INFO: Servidor CoMeet escuchando por el puerto 9119
+2008-10-24 18:53:31 INFO: Se ha establecido una nueva conexion TCP/IP Socket[addr=/127.0.0.1,port=36316,localport=9119]
+2008-10-24 18:53:31 INFO: Inicio de autenticacion para el usuario {pos01} con la clave {827ccb0eea8a706c4c34a16891f84e7b}
+2008-10-24 18:53:31 INFO: Control de acceso sobre direcciones ip no habilitado para este usuario
+2008-10-24 18:53:31 INFO: Colocador {pos01} autenticado desde OFICINA GERENCIA [127.0.0.1]
+2008-10-24 18:54:26 INFO: ConfigFile -> /home/xtingray/Projects/javertec/comeet/comeet/CoMeet-Server/comeet/conf/server.conf
+2008-10-24 18:54:26 INFO: Cargando archivo de configuracion...
+2008-10-24 18:54:26 INFO: Cargando base de datos... bullet
+2008-10-24 18:54:27 INFO: Cargando base de datos... comeet
+2008-10-24 18:54:27 ADVERTENCIA: Base de datos deshabilitada desde configuracion -> oracle
+2008-10-24 18:54:27 INFO: Cargando cache de enlace [bullet]
+2008-10-24 18:54:27 INFO: Iniciando demonio pop3
+2008-10-24 18:54:27 INFO: Servidor de correo {localhost}
+2008-10-24 18:54:27 INFO: Iniciando demonio de sincronizacion
+2008-10-24 18:54:27 INFO: Servidor CoMeet escuchando por el puerto 9119
+2008-10-24 18:54:37 INFO: Se ha establecido una nueva conexion TCP/IP Socket[addr=/127.0.0.1,port=36361,localport=9119]
+2008-10-24 18:54:37 INFO: Inicio de autenticacion para el usuario {pos01} con la clave {827ccb0eea8a706c4c34a16891f84e7b}
+2008-10-24 18:54:38 INFO: Control de acceso sobre direcciones ip no habilitado para este usuario
+2008-10-24 18:54:38 INFO: Colocador {pos01} autenticado desde OFICINA GERENCIA [127.0.0.1]
+2008-10-24 19:12:50 INFO: ConfigFile -> /home/xtingray/Projects/javertec/comeet/comeet/CoMeet-Server/comeet/conf/server.conf
+2008-10-24 19:12:50 INFO: Cargando archivo de configuracion...
+2008-10-24 19:12:50 INFO: Cargando base de datos... bullet
+2008-10-24 19:12:51 INFO: Cargando base de datos... comeet
+2008-10-24 19:12:51 ADVERTENCIA: Base de datos deshabilitada desde configuracion -> oracle
+2008-10-24 19:12:51 INFO: Cargando cache de enlace [bullet]
+2008-10-24 19:12:51 INFO: Iniciando demonio pop3
+2008-10-24 19:12:51 INFO: Servidor de correo {localhost}
+2008-10-24 19:12:51 INFO: Iniciando demonio de sincronizacion
+2008-10-24 19:12:51 INFO: Servidor CoMeet escuchando por el puerto 9119
+2008-10-24 19:13:00 INFO: Se ha establecido una nueva conexion TCP/IP Socket[addr=/127.0.0.1,port=60486,localport=9119]
+2008-10-24 19:13:00 INFO: Inicio de autenticacion para el usuario {pos01} con la clave {827ccb0eea8a706c4c34a16891f84e7b}
+2008-10-24 19:13:00 INFO: Control de acceso sobre direcciones ip no habilitado para este usuario
+2008-10-24 19:13:00 INFO: Colocador {pos01} autenticado desde OFICINA GERENCIA [127.0.0.1]
+2008-10-24 19:20:44 INFO: ConfigFile -> /home/xtingray/Projects/javertec/comeet/comeet/CoMeet-Server/comeet/conf/server.conf
+2008-10-24 19:20:45 INFO: Cargando archivo de configuracion...
+2008-10-24 19:20:45 INFO: Cargando base de datos... bullet
+2008-10-24 19:20:45 INFO: Cargando base de datos... comeet
+2008-10-24 19:20:45 ADVERTENCIA: Base de datos deshabilitada desde configuracion -> oracle
+2008-10-24 19:20:45 INFO: Cargando cache de enlace [bullet]
+2008-10-24 19:20:45 INFO: Iniciando demonio pop3
+2008-10-24 19:20:45 INFO: Servidor de correo {localhost}
+2008-10-24 19:20:45 INFO: Iniciando demonio de sincronizacion
+2008-10-24 19:20:46 INFO: Servidor CoMeet escuchando por el puerto 9119
+2008-10-24 19:21:00 INFO: Se ha establecido una nueva conexion TCP/IP Socket[addr=/127.0.0.1,port=34940,localport=9119]
+2008-10-24 19:21:00 INFO: Inicio de autenticacion para el usuario {pos01} con la clave {827ccb0eea8a706c4c34a16891f84e7b}
+2008-10-24 19:21:00 INFO: Control de acceso sobre direcciones ip no habilitado para este usuario
+2008-10-24 19:21:00 INFO: Colocador {pos01} autenticado desde OFICINA GERENCIA [127.0.0.1]
+2008-10-24 19:25:58 INFO: ConfigFile -> /home/xtingray/Projects/javertec/comeet/comeet/CoMeet-Server/comeet/conf/server.conf
+2008-10-24 19:25:58 INFO: Cargando archivo de configuracion...
+2008-10-24 19:25:58 INFO: Cargando base de datos... bullet
+2008-10-24 19:25:59 INFO: Cargando base de datos... comeet
+2008-10-24 19:25:59 ADVERTENCIA: Base de datos deshabilitada desde configuracion -> oracle
+2008-10-24 19:25:59 INFO: Cargando cache de enlace [bullet]
+2008-10-24 19:25:59 INFO: Iniciando demonio pop3
+2008-10-24 19:25:59 INFO: Servidor de correo {localhost}
+2008-10-24 19:25:59 INFO: Iniciando demonio de sincronizacion
+2008-10-24 19:25:59 INFO: Servidor CoMeet escuchando por el puerto 9119
+2008-10-24 19:26:10 INFO: Se ha establecido una nueva conexion TCP/IP Socket[addr=/127.0.0.1,port=52697,localport=9119]
+2008-10-24 19:26:10 INFO: Inicio de autenticacion para el usuario {pos01} con la clave {827ccb0eea8a706c4c34a16891f84e7b}
+2008-10-24 19:26:10 INFO: Control de acceso sobre direcciones ip no habilitado para este usuario
+2008-10-24 19:26:10 INFO: Colocador {pos01} autenticado desde OFICINA GERENCIA [127.0.0.1]
+2008-10-24 19:29:41 INFO: ConfigFile -> /home/xtingray/Projects/javertec/comeet/comeet/CoMeet-Server/comeet/conf/server.conf
+2008-10-24 19:29:41 INFO: Cargando archivo de configuracion...
+2008-10-24 19:29:41 INFO: Cargando base de datos... bullet
+2008-10-24 19:29:41 INFO: Cargando base de datos... comeet
+2008-10-24 19:29:41 ADVERTENCIA: Base de datos deshabilitada desde configuracion -> oracle
+2008-10-24 19:29:41 INFO: Cargando cache de enlace [bullet]
+2008-10-24 19:29:42 INFO: Iniciando demonio pop3
+2008-10-24 19:29:42 INFO: Servidor de correo {localhost}
+2008-10-24 19:29:42 INFO: Iniciando demonio de sincronizacion
+2008-10-24 19:29:42 INFO: Servidor CoMeet escuchando por el puerto 9119
+2008-10-24 19:29:51 INFO: Se ha establecido una nueva conexion TCP/IP Socket[addr=/127.0.0.1,port=33219,localport=9119]
+2008-10-24 19:29:51 INFO: Inicio de autenticacion para el usuario {pos01} con la clave {827ccb0eea8a706c4c34a16891f84e7b}
+2008-10-24 19:29:51 INFO: Control de acceso sobre direcciones ip no habilitado para este usuario
+2008-10-24 19:29:51 INFO: Colocador {pos01} autenticado desde OFICINA GERENCIA [127.0.0.1]
+2008-10-24 19:32:12 INFO: ConfigFile -> /home/xtingray/Projects/javertec/comeet/comeet/CoMeet-Server/comeet/conf/server.conf
+2008-10-24 19:32:12 INFO: Cargando archivo de configuracion...
+2008-10-24 19:32:12 INFO: Cargando base de datos... bullet
+2008-10-24 19:32:13 INFO: Cargando base de datos... comeet
+2008-10-24 19:32:13 ADVERTENCIA: Base de datos deshabilitada desde configuracion -> oracle
+2008-10-24 19:32:13 INFO: Cargando cache de enlace [bullet]
+2008-10-24 19:32:13 INFO: Iniciando demonio pop3
+2008-10-24 19:32:13 INFO: Servidor de correo {localhost}
+2008-10-24 19:32:13 INFO: Iniciando demonio de sincronizacion
+2008-10-24 19:32:13 INFO: Servidor CoMeet escuchando por el puerto 9119
+2008-10-24 19:32:23 INFO: Se ha establecido una nueva conexion TCP/IP Socket[addr=/127.0.0.1,port=58191,localport=9119]
+2008-10-24 19:32:23 INFO: Inicio de autenticacion para el usuario {pos01} con la clave {827ccb0eea8a706c4c34a16891f84e7b}
+2008-10-24 19:32:23 INFO: Control de acceso sobre direcciones ip no habilitado para este usuario
+2008-10-24 19:32:23 INFO: Colocador {pos01} autenticado desde OFICINA GERENCIA [127.0.0.1]
+2008-10-24 19:37:03 INFO: ConfigFile -> /home/xtingray/Projects/javertec/comeet/comeet/CoMeet-Server/comeet/conf/server.conf
+2008-10-24 19:37:04 INFO: Cargando archivo de configuracion...
+2008-10-24 19:37:04 INFO: Cargando base de datos... bullet
+2008-10-24 19:37:04 INFO: Cargando base de datos... comeet
+2008-10-24 19:37:04 ADVERTENCIA: Base de datos deshabilitada desde configuracion -> oracle
+2008-10-24 19:37:04 INFO: Cargando cache de enlace [bullet]
+2008-10-24 19:37:04 INFO: Iniciando demonio pop3
+2008-10-24 19:37:04 INFO: Servidor de correo {localhost}
+2008-10-24 19:37:04 INFO: Iniciando demonio de sincronizacion
+2008-10-24 19:37:05 INFO: Servidor CoMeet escuchando por el puerto 9119
+2008-10-24 19:37:14 INFO: Se ha establecido una nueva conexion TCP/IP Socket[addr=/127.0.0.1,port=58244,localport=9119]
+2008-10-24 19:37:14 INFO: Inicio de autenticacion para el usuario {pos01} con la clave {827ccb0eea8a706c4c34a16891f84e7b}
+2008-10-24 19:37:14 INFO: Control de acceso sobre direcciones ip no habilitado para este usuario
+2008-10-24 19:37:14 INFO: Colocador {pos01} autenticado desde OFICINA GERENCIA [127.0.0.1]
+2008-10-24 19:38:42 INFO: ConfigFile -> /home/xtingray/Projects/javertec/comeet/comeet/CoMeet-Server/comeet/conf/server.conf
+2008-10-24 19:38:43 INFO: Cargando archivo de configuracion...
+2008-10-24 19:38:43 INFO: Cargando base de datos... bullet
+2008-10-24 19:38:43 INFO: Cargando base de datos... comeet
+2008-10-24 19:38:43 ADVERTENCIA: Base de datos deshabilitada desde configuracion -> oracle
+2008-10-24 19:38:43 INFO: Cargando cache de enlace [bullet]
+2008-10-24 19:38:44 INFO: Iniciando demonio pop3
+2008-10-24 19:38:44 INFO: Servidor de correo {localhost}
+2008-10-24 19:38:44 INFO: Iniciando demonio de sincronizacion
+2008-10-24 19:38:44 INFO: Servidor CoMeet escuchando por el puerto 9119
+2008-10-24 19:38:53 INFO: Se ha establecido una nueva conexion TCP/IP Socket[addr=/127.0.0.1,port=55742,localport=9119]
+2008-10-24 19:38:53 INFO: Inicio de autenticacion para el usuario {pos01} con la clave {827ccb0eea8a706c4c34a16891f84e7b}
+2008-10-24 19:38:53 INFO: Control de acceso sobre direcciones ip no habilitado para este usuario
+2008-10-24 19:38:53 INFO: Colocador {pos01} autenticado desde OFICINA GERENCIA [127.0.0.1]
+2008-10-24 19:42:18 INFO: ConfigFile -> /home/xtingray/Projects/javertec/comeet/comeet/CoMeet-Server/comeet/conf/server.conf
+2008-10-24 19:42:18 INFO: Cargando archivo de configuracion...
+2008-10-24 19:42:18 INFO: Cargando base de datos... bullet
+2008-10-24 19:42:18 INFO: Cargando base de datos... comeet
+2008-10-24 19:42:18 ADVERTENCIA: Base de datos deshabilitada desde configuracion -> oracle
+2008-10-24 19:42:18 INFO: Cargando cache de enlace [bullet]
+2008-10-24 19:42:19 INFO: Iniciando demonio pop3
+2008-10-24 19:42:19 INFO: Servidor de correo {localhost}
+2008-10-24 19:42:19 INFO: Iniciando demonio de sincronizacion
+2008-10-24 19:42:19 INFO: Servidor CoMeet escuchando por el puerto 9119
+2008-10-24 19:42:28 INFO: Se ha establecido una nueva conexion TCP/IP Socket[addr=/127.0.0.1,port=42348,localport=9119]
+2008-10-24 19:42:28 INFO: Inicio de autenticacion para el usuario {pos01} con la clave {827ccb0eea8a706c4c34a16891f84e7b}
+2008-10-24 19:42:28 INFO: Control de acceso sobre direcciones ip no habilitado para este usuario
+2008-10-24 19:42:28 INFO: Colocador {pos01} autenticado desde OFICINA GERENCIA [127.0.0.1]
+2008-10-24 19:43:18 INFO: ConfigFile -> /home/xtingray/Projects/javertec/comeet/comeet/CoMeet-Server/comeet/conf/server.conf
+2008-10-24 19:43:18 INFO: Cargando archivo de configuracion...
+2008-10-24 19:43:18 INFO: Cargando base de datos... bullet
+2008-10-24 19:43:18 INFO: Cargando base de datos... comeet
+2008-10-24 19:43:18 ADVERTENCIA: Base de datos deshabilitada desde configuracion -> oracle
+2008-10-24 19:43:18 INFO: Cargando cache de enlace [bullet]
+2008-10-24 19:43:19 INFO: Iniciando demonio pop3
+2008-10-24 19:43:19 INFO: Servidor de correo {localhost}
+2008-10-24 19:43:19 INFO: Iniciando demonio de sincronizacion
+2008-10-24 19:43:19 INFO: Servidor CoMeet escuchando por el puerto 9119
+2008-10-24 19:43:28 INFO: Se ha establecido una nueva conexion TCP/IP Socket[addr=/127.0.0.1,port=42361,localport=9119]
+2008-10-24 19:43:28 INFO: Inicio de autenticacion para el usuario {pos01} con la clave {827ccb0eea8a706c4c34a16891f84e7b}
+2008-10-24 19:43:28 INFO: Control de acceso sobre direcciones ip no habilitado para este usuario
+2008-10-24 19:43:28 INFO: Colocador {pos01} autenticado desde OFICINA GERENCIA [127.0.0.1]
+2008-10-24 19:44:35 INFO: ConfigFile -> /home/xtingray/Projects/javertec/comeet/comeet/CoMeet-Server/comeet/conf/server.conf
+2008-10-24 19:44:35 INFO: Cargando archivo de configuracion...
+2008-10-24 19:44:35 INFO: Cargando base de datos... bullet
+2008-10-24 19:44:36 INFO: Cargando base de datos... comeet
+2008-10-24 19:44:36 ADVERTENCIA: Base de datos deshabilitada desde configuracion -> oracle
+2008-10-24 19:44:36 INFO: Cargando cache de enlace [bullet]
+2008-10-24 19:44:36 INFO: Iniciando demonio pop3
+2008-10-24 19:44:36 INFO: Servidor de correo {localhost}
+2008-10-24 19:44:36 INFO: Iniciando demonio de sincronizacion
+2008-10-24 19:44:36 INFO: Servidor CoMeet escuchando por el puerto 9119
+2008-10-24 19:44:44 INFO: Se ha establecido una nueva conexion TCP/IP Socket[addr=/127.0.0.1,port=42381,localport=9119]
+2008-10-24 19:44:45 INFO: Inicio de autenticacion para el usuario {pos01} con la clave {827ccb0eea8a706c4c34a16891f84e7b}
+2008-10-24 19:44:45 INFO: Control de acceso sobre direcciones ip no habilitado para este usuario
+2008-10-24 19:44:45 INFO: Colocador {pos01} autenticado desde OFICINA GERENCIA [127.0.0.1]
+2008-10-24 19:45:47 INFO: Leyendo correo del buzon de mensajes
+2008-10-24 19:45:47 INFO: Formato de mensaje -> text/*
+2008-10-24 19:45:47 INFO: Nuevo mensaje desde {xtingray@localhost} con asunto [ pos01, tu dime ]
+2008-10-24 19:45:47 INFO: Enviando mensaje a 1 usuario
+2008-10-24 19:45:47 INFO: [Envio a Punto de Venta] Remitente {admin} - Destino: pos01 - Asunto: tu dime
+2008-10-24 19:45:47 INFO: Almacenando registro de mensaje en la base de datos [pos01]
+2008-10-24 19:45:47 SENTENCIA SQL :: INSERT INTO 
+			mensajes (uid_destino,fecha_envio,hora_envio,asunto,texto,confirmado,tiempo_vida,uid_origen,control,minutos)
+			VALUES (4,to_date('2008-10-24','yyyy-mm-dd'),'07:45 PM','tu dime','porque yo no se',0,3,1,0,0)
+2008-10-24 19:45:55 SENTENCIA SQL :: UPDATE mensajes SET confirmado=1, fecha_confirmacion=to_date('2008-10-24','yyyy-mm-dd')
+			WHERE fecha_envio=to_date('2008-10-24','yyyy-mm-dd') AND hora_envio='07:45 PM' AND confirmado=0 AND
+			uid_destino=(SELECT codigo FROM usuarios WHERE login='pos01')
+2008-10-24 19:45:55 INFO: Confirmada lectura del mensaje con destino {pos01} / Asunto: [tu dime] / Remitido por: {GERENCIA}
+2008-10-24 19:46:57 INFO: Leyendo correo del buzon de mensajes
+2008-10-24 19:46:57 INFO: Formato de mensaje -> text/*
+2008-10-24 19:46:57 INFO: Nuevo mensaje desde {xtingray@localhost} con asunto [ pos01, ni idea ]
+2008-10-24 19:46:57 INFO: Enviando mensaje a 1 usuario
+2008-10-24 19:46:57 INFO: [Envio a Punto de Venta] Remitente {admin} - Destino: pos01 - Asunto: ni idea
+2008-10-24 19:46:57 INFO: Almacenando registro de mensaje en la base de datos [pos01]
+2008-10-24 19:46:57 SENTENCIA SQL :: INSERT INTO 
+			mensajes (uid_destino,fecha_envio,hora_envio,asunto,texto,confirmado,tiempo_vida,uid_origen,control,minutos)
+			VALUES (4,to_date('2008-10-24','yyyy-mm-dd'),'07:46 PM','ni idea','de lo que me esta ocurriendo hoy',0,3,1,0,0)
+2008-10-24 19:47:01 SENTENCIA SQL :: UPDATE mensajes SET confirmado=1, fecha_confirmacion=to_date('2008-10-24','yyyy-mm-dd')
+			WHERE fecha_envio=to_date('2008-10-24','yyyy-mm-dd') AND hora_envio='07:46 PM' AND confirmado=0 AND
+			uid_destino=(SELECT codigo FROM usuarios WHERE login='pos01')
+2008-10-24 19:47:01 INFO: Confirmada lectura del mensaje con destino {pos01} / Asunto: [ni idea] / Remitido por: {GERENCIA}
+2008-10-24 19:54:47 INFO: ConfigFile -> /home/xtingray/Projects/javertec/comeet/comeet/CoMeet-Server/comeet/conf/server.conf
+2008-10-24 19:54:48 INFO: Cargando archivo de configuracion...
+2008-10-24 19:54:48 INFO: Cargando base de datos... bullet
+2008-10-24 19:54:48 INFO: Cargando base de datos... comeet
+2008-10-24 19:54:48 ADVERTENCIA: Base de datos deshabilitada desde configuracion -> oracle
+2008-10-24 19:54:48 INFO: Cargando cache de enlace [bullet]
+2008-10-24 19:54:48 INFO: Iniciando demonio pop3
+2008-10-24 19:54:48 INFO: Servidor de correo {localhost}
+2008-10-24 19:54:48 INFO: Iniciando demonio de sincronizacion
+2008-10-24 19:54:48 INFO: Servidor CoMeet escuchando por el puerto 9119
+2008-10-24 19:54:58 INFO: Se ha establecido una nueva conexion TCP/IP Socket[addr=/127.0.0.1,port=56085,localport=9119]
+2008-10-24 19:54:58 INFO: Inicio de autenticacion para el usuario {pos01} con la clave {827ccb0eea8a706c4c34a16891f84e7b}
+2008-10-24 19:54:58 INFO: Control de acceso sobre direcciones ip no habilitado para este usuario
+2008-10-24 19:54:58 INFO: Colocador {pos01} autenticado desde OFICINA GERENCIA [127.0.0.1]
+2008-10-24 19:56:24 INFO: ConfigFile -> /home/xtingray/Projects/javertec/comeet/comeet/CoMeet-Server/comeet/conf/server.conf
+2008-10-24 19:56:24 INFO: Cargando archivo de configuracion...
+2008-10-24 19:56:24 INFO: Cargando base de datos... bullet
+2008-10-24 19:56:24 INFO: Cargando base de datos... comeet
+2008-10-24 19:56:24 ADVERTENCIA: Base de datos deshabilitada desde configuracion -> oracle
+2008-10-24 19:56:24 INFO: Cargando cache de enlace [bullet]
+2008-10-24 19:56:25 INFO: Iniciando demonio pop3
+2008-10-24 19:56:25 INFO: Servidor de correo {localhost}
+2008-10-24 19:56:25 INFO: Iniciando demonio de sincronizacion
+2008-10-24 19:56:25 INFO: Servidor CoMeet escuchando por el puerto 9119
+2008-10-24 19:56:47 INFO: Se ha establecido una nueva conexion TCP/IP Socket[addr=/127.0.0.1,port=56121,localport=9119]
+2008-10-24 19:56:48 INFO: Inicio de autenticacion para el usuario {pos01} con la clave {827ccb0eea8a706c4c34a16891f84e7b}
+2008-10-24 19:56:48 INFO: Control de acceso sobre direcciones ip no habilitado para este usuario
+2008-10-24 19:56:48 INFO: Colocador {pos01} autenticado desde OFICINA GERENCIA [127.0.0.1]
+2008-10-24 20:00:40 INFO: Se ha establecido una nueva conexion TCP/IP Socket[addr=/127.0.0.1,port=43276,localport=9119]
+2008-10-24 20:00:40 INFO: Inicio de autenticacion para el usuario {suba} con la clave {827ccb0eea8a706c4c34a16891f84e7b}
+2008-10-24 20:00:40 INFO: Control de acceso sobre direcciones ip no habilitado para este usuario
+2008-10-24 20:00:40 INFO: Lote {suba} autenticado desde OFICINA GERENCIA [127.0.0.1]
+2008-10-24 20:00:40 INFO: 1 conexion activa en el pool de lotes
+2008-10-24 20:00:40 SENTENCIA SQL :: UPDATE mensajes_pda SET entregado=1 
+			WHERE login_destino='FRANCIA'
+2008-10-24 20:01:16 INFO: Leyendo correo del buzon de mensajes
+2008-10-24 20:01:16 INFO: Formato de mensaje -> text/*
+2008-10-24 20:01:16 INFO: Nuevo mensaje desde {xtingray@localhost} con asunto [ francia, hola mundo! ]
+2008-10-24 20:01:16 INFO: Consultando si usuario {francia} existe en LOTES
+2008-10-24 20:01:16 INFO: El usuario {francia} fue validado por el lote {suba}
+2008-10-24 20:05:28 INFO: ConfigFile -> /home/xtingray/Projects/javertec/comeet/comeet/CoMeet-Server/comeet/conf/server.conf
+2008-10-24 20:05:28 INFO: Cargando archivo de configuracion...
+2008-10-24 20:05:28 INFO: Cargando base de datos... bullet
+2008-10-24 20:05:29 INFO: Cargando base de datos... comeet
+2008-10-24 20:05:29 ADVERTENCIA: Base de datos deshabilitada desde configuracion -> oracle
+2008-10-24 20:05:29 INFO: Cargando cache de enlace [bullet]
+2008-10-24 20:05:29 INFO: Iniciando demonio pop3
+2008-10-24 20:05:29 INFO: Servidor de correo {localhost}
+2008-10-24 20:05:29 INFO: Iniciando demonio de sincronizacion
+2008-10-24 20:05:29 INFO: Servidor CoMeet escuchando por el puerto 9119
+2008-10-24 20:05:39 INFO: Se ha establecido una nueva conexion TCP/IP Socket[addr=/127.0.0.1,port=37317,localport=9119]
+2008-10-24 20:05:39 INFO: Inicio de autenticacion para el usuario {suba} con la clave {827ccb0eea8a706c4c34a16891f84e7b}
+2008-10-24 20:05:39 INFO: Control de acceso sobre direcciones ip no habilitado para este usuario
+2008-10-24 20:05:39 INFO: Lote {suba} autenticado desde OFICINA GERENCIA [127.0.0.1]
+2008-10-24 20:05:39 INFO: 1 conexion activa en el pool de lotes
+2008-10-24 20:05:39 SENTENCIA SQL :: UPDATE mensajes_pda SET entregado=1 
+			WHERE login_destino='FRANCIA'
+2008-10-24 20:06:01 INFO: Leyendo correo del buzon de mensajes
+2008-10-24 20:06:01 INFO: Formato de mensaje -> text/*
+2008-10-24 20:06:01 INFO: Nuevo mensaje desde {xtingray@localhost} con asunto [ francia, hola mundo ]
+2008-10-24 20:06:01 INFO: Consultando si usuario {francia} existe en LOTES
+2008-10-24 20:06:01 INFO: El usuario {francia} fue validado por el lote {suba}
+2008-10-24 20:06:01 INFO: Almacenando mensaje para usuario {francia/pda} en la base de datos
+2008-10-24 20:06:01 SENTENCIA SQL :: INSERT INTO 
+			mensajes_pda (login,gid_origen,fecha_envio,hora_envio,asunto,texto,confirmado) 
+			VALUES ('francia','3','2008-10-24','08:06 PM','hola mundo','hello world!
+
+
+','false')
+2008-10-24 20:06:01 ERROR: No se pudo almacenar mensaje en la base de datos. Excepcion SQL
+2008-10-24 20:15:34 INFO: ConfigFile -> /home/xtingray/Projects/javertec/comeet/comeet/CoMeet-Server/comeet/conf/server.conf
+2008-10-24 20:15:34 INFO: Cargando archivo de configuracion...
+2008-10-24 20:15:34 INFO: Cargando base de datos... bullet
+2008-10-24 20:15:35 INFO: Cargando base de datos... comeet
+2008-10-24 20:15:35 ADVERTENCIA: Base de datos deshabilitada desde configuracion -> oracle
+2008-10-24 20:15:35 INFO: Cargando cache de enlace [bullet]
+2008-10-24 20:15:35 INFO: Iniciando demonio pop3
+2008-10-24 20:15:35 INFO: Servidor de correo {localhost}
+2008-10-24 20:15:35 INFO: Iniciando demonio de sincronizacion
+2008-10-24 20:15:35 INFO: Servidor CoMeet escuchando por el puerto 9119
+2008-10-24 20:15:53 INFO: Se ha establecido una nueva conexion TCP/IP Socket[addr=/127.0.0.1,port=52139,localport=9119]
+2008-10-24 20:15:53 INFO: Inicio de autenticacion para el usuario {suba} con la clave {827ccb0eea8a706c4c34a16891f84e7b}
+2008-10-24 20:15:53 INFO: Control de acceso sobre direcciones ip no habilitado para este usuario
+2008-10-24 20:15:53 INFO: Lote {suba} autenticado desde OFICINA GERENCIA [127.0.0.1]
+2008-10-24 20:15:53 INFO: 1 conexion activa en el pool de lotes
+2008-10-24 20:15:53 SENTENCIA SQL :: UPDATE mensajes_pda SET entregado=1 
+			WHERE login_destino='FRANCIA'
+2008-10-24 20:16:26 INFO: Leyendo correo del buzon de mensajes
+2008-10-24 20:16:26 INFO: Formato de mensaje -> text/*
+2008-10-24 20:16:26 INFO: Nuevo mensaje desde {xtingray@localhost} con asunto [ francia, hola mundo! ]
+2008-10-24 20:16:26 INFO: Consultando si usuario {francia} existe en LOTES
+2008-10-24 20:16:26 INFO: El usuario {francia} fue validado por el lote {suba}
+2008-10-24 20:16:26 INFO: Almacenando mensaje para usuario {francia/pda} en la base de datos
+2008-10-24 20:16:26 SENTENCIA SQL :: INSERT INTO 
+			mensajes_pda (login_destino,gid_origen,fecha_envio,hora_envio,asunto,texto) 
+			VALUES ('francia',3,'2008-10-24','08:16 PM','hola mundo!','hello world!
+
+
+')
+2008-10-24 20:16:26 ERROR: No se pudo almacenar mensaje en la base de datos. Excepcion SQL
+2008-10-24 20:18:07 INFO: ConfigFile -> /home/xtingray/Projects/javertec/comeet/comeet/CoMeet-Server/comeet/conf/server.conf
+2008-10-24 20:18:07 INFO: Cargando archivo de configuracion...
+2008-10-24 20:18:07 INFO: Cargando base de datos... bullet
+2008-10-24 20:18:08 INFO: Cargando base de datos... comeet
+2008-10-24 20:18:08 ADVERTENCIA: Base de datos deshabilitada desde configuracion -> oracle
+2008-10-24 20:18:08 INFO: Cargando cache de enlace [bullet]
+2008-10-24 20:18:08 INFO: Iniciando demonio pop3
+2008-10-24 20:18:08 INFO: Servidor de correo {localhost}
+2008-10-24 20:18:08 INFO: Iniciando demonio de sincronizacion
+2008-10-24 20:18:08 INFO: Servidor CoMeet escuchando por el puerto 9119
+2008-10-24 20:18:18 INFO: Se ha establecido una nueva conexion TCP/IP Socket[addr=/127.0.0.1,port=35483,localport=9119]
+2008-10-24 20:18:18 INFO: Inicio de autenticacion para el usuario {suba} con la clave {827ccb0eea8a706c4c34a16891f84e7b}
+2008-10-24 20:18:18 INFO: Control de acceso sobre direcciones ip no habilitado para este usuario
+2008-10-24 20:18:18 INFO: Lote {suba} autenticado desde OFICINA GERENCIA [127.0.0.1]
+2008-10-24 20:18:18 INFO: 1 conexion activa en el pool de lotes
+2008-10-24 20:18:18 SENTENCIA SQL :: UPDATE mensajes_pda SET entregado=1 
+			WHERE login_destino='FRANCIA'
+2008-10-24 20:18:59 INFO: Leyendo correo del buzon de mensajes
+2008-10-24 20:18:59 INFO: Formato de mensaje -> text/*
+2008-10-24 20:18:59 INFO: Nuevo mensaje desde {xtingray@localhost} con asunto [ francia, hola mundo! ]
+2008-10-24 20:18:59 INFO: Consultando si usuario {francia} existe en LOTES
+2008-10-24 20:18:59 INFO: El usuario {francia} fue validado por el lote {suba}
+2008-10-24 20:18:59 INFO: Almacenando mensaje para usuario {francia/pda} en la base de datos
+2008-10-24 20:18:59 SENTENCIA SQL :: INSERT INTO 
+			mensajes_pda (login_destino,gid_origen,fecha_envio,hora_envio,asunto,texto) 
+			VALUES ('francia',3,to_date('2008-10-24','yyyy-mm-dd'),'08:18 PM','hola mundo!','hello world!
+
+
+')
+2008-10-24 20:19:29 INFO: Leyendo correo del buzon de mensajes
+2008-10-24 20:19:29 INFO: Formato de mensaje -> text/*
+2008-10-24 20:19:29 INFO: Nuevo mensaje desde {xtingray@localhost} con asunto [ power, tell me ]
+2008-10-24 20:19:29 INFO: Consultando si usuario {power} existe en LOTES
+2008-10-24 20:19:29 INFO: El usuario {power} fue validado por el lote {suba}
+2008-10-24 20:19:29 INFO: Almacenando mensaje para usuario {power/pda} en la base de datos
+2008-10-24 20:19:29 SENTENCIA SQL :: INSERT INTO 
+			mensajes_pda (login_destino,gid_origen,fecha_envio,hora_envio,asunto,texto) 
+			VALUES ('power',3,to_date('2008-10-24','yyyy-mm-dd'),'08:19 PM','tell me','where you are?
+
+
+')
+2008-10-24 20:20:33 INFO: ConfigFile -> /home/xtingray/Projects/javertec/comeet/comeet/CoMeet-Server/comeet/conf/server.conf
+2008-10-24 20:20:33 INFO: Cargando archivo de configuracion...
+2008-10-24 20:20:33 INFO: Cargando base de datos... bullet
+2008-10-24 20:20:34 INFO: Cargando base de datos... comeet
+2008-10-24 20:20:34 ADVERTENCIA: Base de datos deshabilitada desde configuracion -> oracle
+2008-10-24 20:20:34 INFO: Cargando cache de enlace [bullet]
+2008-10-24 20:20:34 INFO: Iniciando demonio pop3
+2008-10-24 20:20:34 INFO: Servidor de correo {localhost}
+2008-10-24 20:20:34 INFO: Iniciando demonio de sincronizacion
+2008-10-24 20:20:34 INFO: Servidor CoMeet escuchando por el puerto 9119
+2008-10-24 20:20:43 INFO: Se ha establecido una nueva conexion TCP/IP Socket[addr=/127.0.0.1,port=35516,localport=9119]
+2008-10-24 20:20:43 INFO: Inicio de autenticacion para el usuario {suba} con la clave {827ccb0eea8a706c4c34a16891f84e7b}
+2008-10-24 20:20:43 INFO: Control de acceso sobre direcciones ip no habilitado para este usuario
+2008-10-24 20:20:43 INFO: Lote {suba} autenticado desde OFICINA GERENCIA [127.0.0.1]
+2008-10-24 20:20:43 INFO: 1 conexion activa en el pool de lotes
+2008-10-24 20:20:44 SENTENCIA SQL :: UPDATE mensajes_pda SET entregado=1 
+			WHERE login_destino='FRANCIA'
+2008-10-24 20:32:36 INFO: Leyendo correo del buzon de mensajes
+2008-10-24 20:32:36 INFO: Formato de mensaje -> text/*
+2008-10-24 20:32:36 INFO: Nuevo mensaje desde {xtingray@localhost} con asunto [ FRANCIA, never mind ]
+2008-10-24 20:32:36 INFO: Consultando si usuario {FRANCIA} existe en LOTES
+2008-10-24 20:32:36 INFO: El usuario {FRANCIA} fue validado por el lote {suba}
+2008-10-24 20:32:36 INFO: Almacenando mensaje para usuario {FRANCIA/pda} en la base de datos
+2008-10-24 20:32:36 SENTENCIA SQL :: INSERT INTO 
+			mensajes_pda (login_destino,gid_origen,fecha_envio,hora_envio,asunto,texto) 
+			VALUES ('FRANCIA',3,to_date('2008-10-24','yyyy-mm-dd'),'08:32 PM','never mind','ni lo pienses
+
+
+')
+2008-10-24 20:33:04 INFO: Se ha establecido una nueva conexion TCP/IP Socket[addr=/127.0.0.1,port=56888,localport=9119]
+2008-10-24 20:33:04 INFO: Inicio de autenticacion para el usuario {suba} con la clave {827ccb0eea8a706c4c34a16891f84e7b}
+2008-10-24 20:33:04 INFO: Control de acceso sobre direcciones ip no habilitado para este usuario
+2008-10-24 20:33:04 INFO: Lote {suba} autenticado desde OFICINA GERENCIA [127.0.0.1]
+2008-10-24 20:33:04 INFO: 2 conexiones activas en el pool de lotes
+2008-10-24 20:33:04 SENTENCIA SQL :: UPDATE mensajes_pda SET entregado=1 
+			WHERE login_destino='FRANCIA'
+2008-10-24 20:36:00 INFO: Iniciando sincronizacion programada [24 Oct 2008 20:20:34.666]
+2008-10-24 20:36:00 INFO: Procesando usuarios...
+2008-10-24 20:36:00 INFO: Cargando registros actualizados de la base de datos Oracle [oracle]
+2008-10-24 20:37:00 INFO: Iniciando sincronizacion programada [24 Oct 2008 20:20:34.667]
+2008-10-24 20:37:00 INFO: Procesando usuarios...
+2008-10-24 20:37:00 INFO: Cargando registros actualizados de la base de datos Oracle [oracle]
+2008-10-24 20:57:11 INFO: ConfigFile -> /home/xtingray/Projects/javertec/comeet/comeet/CoMeet-Server/comeet/conf/server.conf
+2008-10-24 20:57:11 INFO: Cargando archivo de configuracion...
+2008-10-24 20:57:11 INFO: Cargando base de datos... bullet
+2008-10-24 20:57:11 INFO: Cargando base de datos... comeet
+2008-10-24 20:57:11 ADVERTENCIA: Base de datos deshabilitada desde configuracion -> oracle
+2008-10-24 20:57:11 INFO: Cargando cache de enlace [bullet]
+2008-10-24 20:57:12 INFO: Iniciando demonio pop3
+2008-10-24 20:57:12 INFO: Servidor de correo {localhost}
+2008-10-24 20:57:12 INFO: Iniciando demonio de sincronizacion
+2008-10-24 20:57:12 INFO: Servidor CoMeet escuchando por el puerto 9119
+2008-10-24 20:57:28 INFO: Se ha establecido una nueva conexion TCP/IP Socket[addr=/127.0.0.1,port=47648,localport=9119]
+2008-10-24 20:57:28 INFO: Inicio de autenticacion para el usuario {suba} con la clave {827ccb0eea8a706c4c34a16891f84e7b}
+2008-10-24 20:57:28 INFO: Control de acceso sobre direcciones ip no habilitado para este usuario
+2008-10-24 20:57:28 INFO: Lote {suba} autenticado desde OFICINA GERENCIA [127.0.0.1]
+2008-10-24 20:57:28 INFO: 1 conexion activa en el pool de lotes
+2008-10-24 20:57:28 SENTENCIA SQL :: UPDATE mensajes_pda SET entregado=1 
+			WHERE login_destino='FRANCIA'
+2008-10-24 20:58:02 INFO: Leyendo correo del buzon de mensajes
+2008-10-24 20:58:02 INFO: Formato de mensaje -> text/*
+2008-10-24 20:58:02 INFO: Nuevo mensaje desde {xtingray@localhost} con asunto [ FRANCIA, hola mundo ]
+2008-10-24 20:58:02 INFO: Consultando si usuario {FRANCIA} existe en LOTES
+2008-10-24 20:58:02 INFO: El usuario {FRANCIA} fue validado por el lote {suba}
+2008-10-24 20:58:02 INFO: Almacenando mensaje para usuario {FRANCIA/pda} en la base de datos
+2008-10-24 20:58:02 SENTENCIA SQL :: INSERT INTO 
+			mensajes_pda (login_destino,gid_origen,fecha_envio,hora_envio,asunto,texto) 
+			VALUES ('FRANCIA',3,to_date('2008-10-24','yyyy-mm-dd'),'08:58 PM','hola mundo','hola mundo!
+
+
+')
+2008-10-24 20:58:23 INFO: Se ha establecido una nueva conexion TCP/IP Socket[addr=/127.0.0.1,port=47660,localport=9119]
+2008-10-24 20:58:23 INFO: Inicio de autenticacion para el usuario {pos01} con la clave {827ccb0eea8a706c4c34a16891f84e7b}
+2008-10-24 20:58:23 INFO: Control de acceso sobre direcciones ip no habilitado para este usuario
+2008-10-24 20:58:23 INFO: Colocador {pos01} autenticado desde OFICINA GERENCIA [127.0.0.1]
+2008-10-24 20:59:03 INFO: Leyendo correo del buzon de mensajes
+2008-10-24 20:59:03 INFO: Formato de mensaje -> text/*
+2008-10-24 20:59:03 INFO: Nuevo mensaje desde {xtingray@localhost} con asunto [ pos01, here we go ]
+2008-10-24 20:59:03 INFO: Enviando mensaje a 1 usuario
+2008-10-24 20:59:03 INFO: [Envio a Punto de Venta] Remitente {admin} - Destino: pos01 - Asunto: here we go
+2008-10-24 20:59:03 INFO: Almacenando registro de mensaje en la base de datos [pos01]
+2008-10-24 20:59:03 SENTENCIA SQL :: INSERT INTO 
+			mensajes (uid_destino,fecha_envio,hora_envio,asunto,texto,confirmado,tiempo_vida,uid_origen,control,minutos)
+			VALUES (4,to_date('2008-10-24','yyyy-mm-dd'),'8:59:3 PM','here we go','we? we?',0,3,1,0,0)
+2008-10-24 20:59:03 ERROR: No se pudo almacenar mensaje en la base de datos. Excepcion SQL
+2008-10-24 21:01:04 INFO: ConfigFile -> /home/xtingray/Projects/javertec/comeet/comeet/CoMeet-Server/comeet/conf/server.conf
+2008-10-24 21:01:04 INFO: Cargando archivo de configuracion...
+2008-10-24 21:01:04 INFO: Cargando base de datos... bullet
+2008-10-24 21:01:05 INFO: Cargando base de datos... comeet
+2008-10-24 21:01:05 ADVERTENCIA: Base de datos deshabilitada desde configuracion -> oracle
+2008-10-24 21:01:05 INFO: Cargando cache de enlace [bullet]
+2008-10-24 21:01:05 INFO: Iniciando demonio pop3
+2008-10-24 21:01:05 INFO: Servidor de correo {localhost}
+2008-10-24 21:01:05 INFO: Iniciando demonio de sincronizacion
+2008-10-24 21:01:05 INFO: Servidor CoMeet escuchando por el puerto 9119
+2008-10-24 21:01:40 INFO: Se ha establecido una nueva conexion TCP/IP Socket[addr=/127.0.0.1,port=47702,localport=9119]
+2008-10-24 21:01:40 INFO: Inicio de autenticacion para el usuario {pos01} con la clave {827ccb0eea8a706c4c34a16891f84e7b}
+2008-10-24 21:01:40 INFO: Control de acceso sobre direcciones ip no habilitado para este usuario
+2008-10-24 21:01:40 INFO: Colocador {pos01} autenticado desde OFICINA GERENCIA [127.0.0.1]
+2008-10-24 21:02:06 INFO: Leyendo correo del buzon de mensajes
+2008-10-24 21:02:06 INFO: Formato de mensaje -> text/*
+2008-10-24 21:02:06 INFO: Nuevo mensaje desde {xtingray@localhost} con asunto [ pos01. adivina que? ]
+2008-10-24 21:02:06 ERROR: Inconsistencia en el asunto del mensaje escrito por {xtingray@localhost}
+2008-10-24 21:02:06 ERROR: Asunto escrito [pos01. adivina que?]
+2008-10-24 21:02:06 Contenido del mensaje:
+2008-10-24 21:02:06 sorpresa!
+
+
+
+2008-10-24 21:04:43 INFO: ConfigFile -> /home/xtingray/Projects/javertec/comeet/comeet/CoMeet-Server/comeet/conf/server.conf
+2008-10-24 21:04:43 INFO: Cargando archivo de configuracion...
+2008-10-24 21:04:43 INFO: Cargando base de datos... bullet
+2008-10-24 21:04:44 INFO: Cargando base de datos... comeet
+2008-10-24 21:04:44 ADVERTENCIA: Base de datos deshabilitada desde configuracion -> oracle
+2008-10-24 21:04:44 INFO: Cargando cache de enlace [bullet]
+2008-10-24 21:04:44 INFO: Iniciando demonio pop3
+2008-10-24 21:04:44 INFO: Servidor de correo {localhost}
+2008-10-24 21:04:44 INFO: Iniciando demonio de sincronizacion
+2008-10-24 21:04:44 INFO: Servidor CoMeet escuchando por el puerto 9119
+2008-10-24 21:04:53 INFO: Se ha establecido una nueva conexion TCP/IP Socket[addr=/127.0.0.1,port=59753,localport=9119]
+2008-10-24 21:04:53 INFO: Inicio de autenticacion para el usuario {pos01} con la clave {827ccb0eea8a706c4c34a16891f84e7b}
+2008-10-24 21:04:53 INFO: Control de acceso sobre direcciones ip no habilitado para este usuario
+2008-10-24 21:04:53 INFO: Colocador {pos01} autenticado desde OFICINA GERENCIA [127.0.0.1]
+2008-10-24 21:05:15 INFO: Leyendo correo del buzon de mensajes
+2008-10-24 21:05:15 INFO: Formato de mensaje -> text/*
+2008-10-24 21:05:15 INFO: Nuevo mensaje desde {xtingray@localhost} con asunto [ pos01, adivina que? ]
+2008-10-24 21:05:15 INFO: Enviando mensaje a 1 usuario
+2008-10-24 21:05:15 INFO: [Envio a Punto de Venta] Remitente {admin} - Destino: pos01 - Asunto: adivina que?
+2008-10-24 21:05:15 INFO: Almacenando registro de mensaje en la base de datos [pos01]
+2008-10-24 21:05:15 SENTENCIA SQL :: INSERT INTO 
+			mensajes (uid_destino,fecha_envio,hora_envio,asunto,texto,confirmado,tiempo_vida,uid_origen,control,minutos)
+			VALUES (4,to_date('2008-10-24','yyyy-mm-dd'),'09:05:15 PM','adivina que?','sorpresa!',0,3,1,0,0)
+2008-10-24 21:05:32 ERROR: Numero de tokens: 6 / Numero de args: 5
+2008-10-24 21:05:32 ERROR: Argumento[0]: 1
+2008-10-24 21:05:32 ERROR: Argumento[1]: 2008-10-24
+2008-10-24 21:05:32 ERROR: Argumento[2]: 2008-10-24
+2008-10-24 21:05:32 ERROR: Argumento[3]: 09:05:15 PM
+2008-10-24 21:05:32 ERROR: Argumento[4]: pos01
+2008-10-24 21:10:54 INFO: ConfigFile -> /home/xtingray/Projects/javertec/comeet/comeet/CoMeet-Server/comeet/conf/server.conf
+2008-10-24 21:10:54 INFO: Cargando archivo de configuracion...
+2008-10-24 21:10:54 INFO: Cargando base de datos... bullet
+2008-10-24 21:10:54 INFO: Cargando base de datos... comeet
+2008-10-24 21:10:55 ADVERTENCIA: Base de datos deshabilitada desde configuracion -> oracle
+2008-10-24 21:10:55 INFO: Cargando cache de enlace [bullet]
+2008-10-24 21:10:55 INFO: Iniciando demonio pop3
+2008-10-24 21:10:55 INFO: Servidor de correo {localhost}
+2008-10-24 21:10:55 INFO: Iniciando demonio de sincronizacion
+2008-10-24 21:10:55 INFO: Servidor CoMeet escuchando por el puerto 9119
+2008-10-24 21:11:08 INFO: Se ha establecido una nueva conexion TCP/IP Socket[addr=/127.0.0.1,port=39075,localport=9119]
+2008-10-24 21:11:08 INFO: Inicio de autenticacion para el usuario {pos01} con la clave {827ccb0eea8a706c4c34a16891f84e7b}
+2008-10-24 21:11:08 INFO: Control de acceso sobre direcciones ip no habilitado para este usuario
+2008-10-24 21:11:09 INFO: Colocador {pos01} autenticado desde OFICINA GERENCIA [127.0.0.1]
+2008-10-24 21:36:59 INFO: Leyendo correo del buzon de mensajes
+2008-10-24 21:36:59 INFO: Formato de mensaje -> text/*
+2008-10-24 21:36:59 INFO: Nuevo mensaje desde {xtingray@localhost} con asunto [ pos01, segunda vuelta ]
+2008-10-24 21:36:59 INFO: Enviando mensaje a 1 usuario
+2008-10-24 21:36:59 INFO: [Envio a Punto de Venta] Remitente {admin} - Destino: pos01 - Asunto: segunda vuelta
+2008-10-24 21:36:59 INFO: Almacenando registro de mensaje en la base de datos [pos01]
+2008-10-24 21:36:59 SENTENCIA SQL :: INSERT INTO 
+			mensajes (uid_destino,fecha_envio,hora_envio,asunto,texto,confirmado,tiempo_vida,uid_origen,control,minutos)
+			VALUES (4,to_date('2008-10-24','yyyy-mm-dd'),'09:36:59 PM','segunda vuelta','a que no?',0,3,1,0,0)
+2008-10-24 22:01:45 SENTENCIA SQL :: UPDATE mensajes SET confirmado=1, fecha_confirmacion=to_date('2008-10-24','yyyy-mm-dd'), hora_confirmacion=('10:01:45 PM')
+			WHERE fecha_envio=to_date('2008-10-24','yyyy-mm-dd') AND hora_envio='09:05:15 PM' AND confirmado=0 AND
+			uid_destino=(SELECT codigo FROM usuarios WHERE login='pos01')
+2008-10-24 22:01:45 INFO: Confirmada lectura del mensaje con destino {pos01} / Asunto: [adivina que?] / Remitido por: {GERENCIA}
+2008-10-24 22:01:48 SENTENCIA SQL :: UPDATE mensajes SET confirmado=1, fecha_confirmacion=to_date('2008-10-24','yyyy-mm-dd'), hora_confirmacion=('10:01:48 PM')
+			WHERE fecha_envio=to_date('2008-10-24','yyyy-mm-dd') AND hora_envio='09:36:59 PM' AND confirmado=0 AND
+			uid_destino=(SELECT codigo FROM usuarios WHERE login='pos01')
+2008-10-24 22:01:48 INFO: Confirmada lectura del mensaje con destino {pos01} / Asunto: [segunda vuelta] / Remitido por: {GERENCIA}
+2008-10-24 22:02:06 INFO: Nuevo mensaje enviado por Colocador desde 127.0.0.1
+2008-10-24 22:02:06 INFO: Enviando mensaje a 1 usuario
+2008-10-24 22:02:06 INFO: [Envio a Cuenta de Correo] Remitente {pos01} - Destino: admin - Asunto: hola
+2008-10-24 22:02:06 INFO: Almacenando registro de mensaje en la base de datos [admin]
+2008-10-24 22:02:06 SENTENCIA SQL :: INSERT INTO 
+			mensajes (uid_destino,fecha_envio,hora_envio,asunto,texto,confirmado,tiempo_vida,uid_origen,control,minutos)
+			VALUES (1,to_date('2008-10-24','yyyy-mm-dd'),'10:02:06 PM','hola','saludos desde pos01',0,3,4,0,0)
+2008-10-24 23:39:57 INFO: Nuevo mensaje enviado por Colocador desde 127.0.0.1
+2008-10-24 23:39:57 INFO: Enviando mensaje a 1 usuario
+2008-10-24 23:39:57 INFO: [Envio a Cuenta de Correo] Remitente {pos01} - Destino: admin - Asunto: Decrezco tras mis cien edades...
+2008-10-24 23:39:57 INFO: Almacenando registro de mensaje en la base de datos [admin]
+2008-10-24 23:39:57 SENTENCIA SQL :: INSERT INTO 
+			mensajes (uid_destino,fecha_envio,hora_envio,asunto,texto,confirmado,tiempo_vida,uid_origen,control,minutos)
+			VALUES (1,to_date('2008-10-24','yyyy-mm-dd'),'11:39:57 PM','Decrezco tras mis cien edades...','vi...',0,3,4,0,0)
+2008-10-24 23:48:28 INFO: Se ha establecido una nueva conexion TCP/IP Socket[addr=/127.0.0.1,port=39448,localport=9119]
+2008-10-24 23:48:28 INFO: Inicio de autenticacion para el usuario {suba} con la clave {827ccb0eea8a706c4c34a16891f84e7b}
+2008-10-24 23:48:28 INFO: Control de acceso sobre direcciones ip no habilitado para este usuario
+2008-10-24 23:48:28 INFO: Lote {suba} autenticado desde OFICINA GERENCIA [127.0.0.1]
+2008-10-24 23:48:28 INFO: 1 conexion activa en el pool de lotes
+2008-10-24 23:48:28 SENTENCIA SQL :: UPDATE mensajes_pda SET entregado=1 
+			WHERE login_destino='FRANCIA'
+2008-10-24 23:48:43 INFO: Se ha establecido una nueva conexion TCP/IP Socket[addr=/127.0.0.1,port=39453,localport=9119]
+2008-10-24 23:48:43 INFO: Inicio de autenticacion para el usuario {suba} con la clave {827ccb0eea8a706c4c34a16891f84e7b}
+2008-10-24 23:48:43 INFO: Control de acceso sobre direcciones ip no habilitado para este usuario
+2008-10-24 23:48:43 INFO: Lote {suba} autenticado desde OFICINA GERENCIA [127.0.0.1]
+2008-10-24 23:48:43 INFO: 2 conexiones activas en el pool de lotes
+2008-10-24 23:48:43 SENTENCIA SQL :: UPDATE mensajes_pda SET entregado=1 
+			WHERE login_destino='FRANCIA'
+2008-10-25 00:09:22 INFO: ConfigFile -> /home/xtingray/Projects/javertec/comeet/comeet/CoMeet-Server/comeet/conf/server.conf
+2008-10-25 00:09:22 INFO: Cargando archivo de configuracion...
+2008-10-25 00:09:22 INFO: Cargando base de datos... bullet
+2008-10-25 00:09:22 INFO: Cargando base de datos... comeet
+2008-10-25 00:09:22 ADVERTENCIA: Base de datos deshabilitada desde configuracion -> oracle
+2008-10-25 00:09:22 INFO: Cargando cache de enlace [bullet]
+2008-10-25 00:09:23 INFO: Iniciando demonio pop3
+2008-10-25 00:09:23 INFO: Servidor de correo {localhost}
+2008-10-25 00:09:23 INFO: Iniciando demonio de sincronizacion
+2008-10-25 00:09:23 INFO: Servidor CoMeet escuchando por el puerto 9119
+2008-10-25 00:09:35 INFO: Se ha establecido una nueva conexion TCP/IP Socket[addr=/127.0.0.1,port=48985,localport=9119]
+2008-10-25 00:09:35 ERROR: Llamado a getInfoSocket con parametro nulo (login).
+2008-10-25 00:10:58 INFO: ConfigFile -> /home/xtingray/Projects/javertec/comeet/comeet/CoMeet-Server/comeet/conf/server.conf
+2008-10-25 00:10:58 INFO: Cargando archivo de configuracion...
+2008-10-25 00:10:58 INFO: Cargando base de datos... bullet
+2008-10-25 00:10:58 INFO: Cargando base de datos... comeet
+2008-10-25 00:10:58 ADVERTENCIA: Base de datos deshabilitada desde configuracion -> oracle
+2008-10-25 00:10:58 INFO: Cargando cache de enlace [bullet]
+2008-10-25 00:10:59 INFO: Iniciando demonio pop3
+2008-10-25 00:10:59 INFO: Servidor de correo {localhost}
+2008-10-25 00:10:59 INFO: Iniciando demonio de sincronizacion
+2008-10-25 00:10:59 INFO: Servidor CoMeet escuchando por el puerto 9119
+2008-10-25 00:11:12 INFO: Se ha establecido una nueva conexion TCP/IP Socket[addr=/127.0.0.1,port=49007,localport=9119]
+2008-10-25 00:11:12 ERROR: Llamado a getInfoSocket con parametro nulo (login).
+2008-10-25 00:14:31 INFO: ConfigFile -> /home/xtingray/Projects/javertec/comeet/comeet/CoMeet-Server/comeet/conf/server.conf
+2008-10-25 00:14:31 INFO: Cargando archivo de configuracion...
+2008-10-25 00:14:31 INFO: Cargando base de datos... bullet
+2008-10-25 00:14:32 INFO: Cargando base de datos... comeet
+2008-10-25 00:14:32 ADVERTENCIA: Base de datos deshabilitada desde configuracion -> oracle
+2008-10-25 00:14:32 INFO: Cargando cache de enlace [bullet]
+2008-10-25 00:14:32 INFO: Iniciando demonio pop3
+2008-10-25 00:14:32 INFO: Servidor de correo {localhost}
+2008-10-25 00:14:32 INFO: Iniciando demonio de sincronizacion
+2008-10-25 00:14:32 INFO: Servidor CoMeet escuchando por el puerto 9119
+2008-10-25 00:17:30 INFO: Se ha establecido una nueva conexion TCP/IP Socket[addr=/127.0.0.1,port=59444,localport=9119]
+2008-10-25 00:18:59 INFO: Se ha establecido una nueva conexion TCP/IP Socket[addr=/127.0.0.1,port=59466,localport=9119]
+2008-10-25 00:20:05 INFO: ConfigFile -> /home/xtingray/Projects/javertec/comeet/comeet/CoMeet-Server/comeet/conf/server.conf
+2008-10-25 00:20:06 INFO: Cargando archivo de configuracion...
+2008-10-25 00:20:06 INFO: Cargando base de datos... bullet
+2008-10-25 00:20:06 INFO: Cargando base de datos... comeet
+2008-10-25 00:20:06 ADVERTENCIA: Base de datos deshabilitada desde configuracion -> oracle
+2008-10-25 00:20:06 INFO: Cargando cache de enlace [bullet]
+2008-10-25 00:20:07 INFO: Iniciando demonio pop3
+2008-10-25 00:20:07 INFO: Servidor de correo {localhost}
+2008-10-25 00:20:07 INFO: Iniciando demonio de sincronizacion
+2008-10-25 00:20:07 INFO: Servidor CoMeet escuchando por el puerto 9119
+2008-10-25 00:20:16 INFO: Se ha establecido una nueva conexion TCP/IP Socket[addr=/127.0.0.1,port=59496,localport=9119]
+2008-10-25 00:20:17 INFO: Inicio de autenticacion para el usuario {suba} con la clave {827ccb0eea8a706c4c34a16891f84e7b}
+2008-10-25 00:20:17 INFO: Control de acceso sobre direcciones ip no habilitado para este usuario
+2008-10-25 00:20:17 INFO: Lote {suba} autenticado desde OFICINA GERENCIA [127.0.0.1]
+2008-10-25 00:20:17 INFO: 1 conexion activa en el pool de lotes
+2008-10-25 00:20:17 SENTENCIA SQL :: UPDATE mensajes_pda SET entregado=1 
+			WHERE login_destino='FRANCIA'
+2008-10-25 00:20:46 INFO: Se ha establecido una nueva conexion TCP/IP Socket[addr=/127.0.0.1,port=59500,localport=9119]
+2008-10-25 00:20:46 ERROR: Usuario suba ya se encuentra en linea.
+2008-10-25 00:20:46        Intento de segunda conexion desde: 127.0.0.1
+2008-10-25 00:22:27 INFO: ConfigFile -> /home/xtingray/Projects/javertec/comeet/comeet/CoMeet-Server/comeet/conf/server.conf
+2008-10-25 00:22:27 INFO: Cargando archivo de configuracion...
+2008-10-25 00:22:27 INFO: Cargando base de datos... bullet
+2008-10-25 00:22:28 INFO: Cargando base de datos... comeet
+2008-10-25 00:22:28 ADVERTENCIA: Base de datos deshabilitada desde configuracion -> oracle
+2008-10-25 00:22:28 INFO: Cargando cache de enlace [bullet]
+2008-10-25 00:22:28 INFO: Iniciando demonio pop3
+2008-10-25 00:22:28 INFO: Servidor de correo {localhost}
+2008-10-25 00:22:28 INFO: Iniciando demonio de sincronizacion
+2008-10-25 00:22:28 INFO: Servidor CoMeet escuchando por el puerto 9119
+2008-10-25 00:22:37 INFO: Se ha establecido una nueva conexion TCP/IP Socket[addr=/127.0.0.1,port=60527,localport=9119]
+2008-10-25 00:22:38 INFO: Inicio de autenticacion para el usuario {suba} con la clave {827ccb0eea8a706c4c34a16891f84e7b}
+2008-10-25 00:22:38 INFO: Control de acceso sobre direcciones ip no habilitado para este usuario
+2008-10-25 00:22:38 INFO: Lote {suba} autenticado desde OFICINA GERENCIA [127.0.0.1]
+2008-10-25 00:22:38 INFO: 1 conexion activa en el pool de lotes
+2008-10-25 00:22:38 SENTENCIA SQL :: UPDATE mensajes_pda SET entregado=1 
+			WHERE login_destino='FRANCIA'
+2008-10-25 00:22:52 INFO: Se ha establecido una nueva conexion TCP/IP Socket[addr=/127.0.0.1,port=60536,localport=9119]
+2008-10-25 00:22:52 ERROR: Usuario suba ya se encuentra en linea.
+2008-10-25 00:22:52        Intento de segunda conexion desde: 127.0.0.1
+2008-10-25 00:24:14 INFO: ConfigFile -> /home/xtingray/Projects/javertec/comeet/comeet/CoMeet-Server/comeet/conf/server.conf
+2008-10-25 00:24:14 INFO: Cargando archivo de configuracion...
+2008-10-25 00:24:14 INFO: Cargando base de datos... bullet
+2008-10-25 00:24:14 INFO: Cargando base de datos... comeet
+2008-10-25 00:24:14 ADVERTENCIA: Base de datos deshabilitada desde configuracion -> oracle
+2008-10-25 00:24:14 INFO: Cargando cache de enlace [bullet]
+2008-10-25 00:24:15 INFO: Iniciando demonio pop3
+2008-10-25 00:24:15 INFO: Servidor de correo {localhost}
+2008-10-25 00:24:15 INFO: Iniciando demonio de sincronizacion
+2008-10-25 00:24:15 INFO: Servidor CoMeet escuchando por el puerto 9119
+2008-10-25 00:24:23 INFO: Se ha establecido una nueva conexion TCP/IP Socket[addr=/127.0.0.1,port=60566,localport=9119]
+2008-10-25 00:24:23 INFO: Inicio de autenticacion para el usuario {suba} con la clave {827ccb0eea8a706c4c34a16891f84e7b}
+2008-10-25 00:24:23 INFO: Control de acceso sobre direcciones ip no habilitado para este usuario
+2008-10-25 00:24:23 INFO: Lote {suba} autenticado desde OFICINA GERENCIA [127.0.0.1]
+2008-10-25 00:24:23 INFO: 1 conexion activa en el pool de lotes
+2008-10-25 00:24:24 SENTENCIA SQL :: UPDATE mensajes_pda SET entregado=1 
+			WHERE login_destino='FRANCIA'
+2008-10-25 00:24:38 INFO: Se ha establecido una nueva conexion TCP/IP Socket[addr=/127.0.0.1,port=60569,localport=9119]
+2008-10-25 00:24:38 ERROR: Usuario suba ya se encuentra en linea.
+2008-10-25 00:24:38        Intento de segunda conexion desde: 127.0.0.1
+2008-10-25 00:26:28 INFO: Se ha establecido una nueva conexion TCP/IP Socket[addr=/127.0.0.1,port=60592,localport=9119]
+2008-10-25 00:26:28 ERROR: Usuario suba ya se encuentra en linea.
+2008-10-25 00:26:28        Intento de segunda conexion desde: 127.0.0.1
+2008-10-25 00:29:27 INFO: ConfigFile -> /home/xtingray/Projects/javertec/comeet/comeet/CoMeet-Server/comeet/conf/server.conf
+2008-10-25 00:29:27 INFO: Cargando archivo de configuracion...
+2008-10-25 00:29:27 INFO: Cargando base de datos... bullet
+2008-10-25 00:29:28 INFO: Cargando base de datos... comeet
+2008-10-25 00:29:28 ADVERTENCIA: Base de datos deshabilitada desde configuracion -> oracle
+2008-10-25 00:29:28 INFO: Cargando cache de enlace [bullet]
+2008-10-25 00:29:28 INFO: Iniciando demonio pop3
+2008-10-25 00:29:28 INFO: Servidor de correo {localhost}
+2008-10-25 00:29:28 INFO: Iniciando demonio de sincronizacion
+2008-10-25 00:29:28 INFO: Servidor CoMeet escuchando por el puerto 9119
+2008-10-25 00:29:37 INFO: Se ha establecido una nueva conexion TCP/IP Socket[addr=/127.0.0.1,port=40185,localport=9119]
+2008-10-25 00:29:37 INFO: Inicio de autenticacion para el usuario {suba} con la clave {827ccb0eea8a706c4c34a16891f84e7b}
+2008-10-25 00:29:37 INFO: Control de acceso sobre direcciones ip no habilitado para este usuario
+2008-10-25 00:29:37 INFO: Lote {suba} autenticado desde OFICINA GERENCIA [127.0.0.1]
+2008-10-25 00:29:37 INFO: 1 conexion activa en el pool de lotes
+2008-10-25 00:29:37 SENTENCIA SQL :: UPDATE mensajes_pda SET entregado=1 
+			WHERE login_destino='FRANCIA'
+2008-10-25 00:29:46 INFO: Se ha establecido una nueva conexion TCP/IP Socket[addr=/127.0.0.1,port=40187,localport=9119]
+2008-10-25 00:29:46 ERROR: Usuario suba ya se encuentra en linea.
+2008-10-25 00:29:46        Intento de segunda conexion desde: 127.0.0.1
+2008-10-25 00:33:10 INFO: ConfigFile -> /home/xtingray/Projects/javertec/comeet/comeet/CoMeet-Server/comeet/conf/server.conf
+2008-10-25 00:33:10 INFO: Cargando archivo de configuracion...
+2008-10-25 00:33:10 INFO: Cargando base de datos... bullet
+2008-10-25 00:33:11 INFO: Cargando base de datos... comeet
+2008-10-25 00:33:11 ADVERTENCIA: Base de datos deshabilitada desde configuracion -> oracle
+2008-10-25 00:33:11 INFO: Cargando cache de enlace [bullet]
+2008-10-25 00:33:11 INFO: Iniciando demonio pop3
+2008-10-25 00:33:11 INFO: Servidor de correo {localhost}
+2008-10-25 00:33:11 INFO: Iniciando demonio de sincronizacion
+2008-10-25 00:33:11 INFO: Servidor CoMeet escuchando por el puerto 9119
+2008-10-25 00:33:24 INFO: Se ha establecido una nueva conexion TCP/IP Socket[addr=/127.0.0.1,port=40419,localport=9119]
+2008-10-25 00:33:24 INFO: Inicio de autenticacion para el usuario {suba} con la clave {827ccb0eea8a706c4c34a16891f84e7b}
+2008-10-25 00:33:24 INFO: Control de acceso sobre direcciones ip no habilitado para este usuario
+2008-10-25 00:33:24 INFO: Lote {suba} autenticado desde OFICINA GERENCIA [127.0.0.1]
+2008-10-25 00:33:24 INFO: 1 conexion activa en el pool de lotes
+2008-10-25 00:33:24 SENTENCIA SQL :: UPDATE mensajes_pda SET entregado=1 
+			WHERE login_destino='FRANCIA'
+2008-10-25 00:33:36 INFO: Se ha establecido una nueva conexion TCP/IP Socket[addr=/127.0.0.1,port=40421,localport=9119]
+2008-10-25 00:33:36 ERROR: Usuario suba ya se encuentra en linea.
+2008-10-25 00:33:36        Intento de segunda conexion desde: 127.0.0.1
+2008-10-25 00:34:04 INFO: Se ha establecido una nueva conexion TCP/IP Socket[addr=/127.0.0.1,port=40428,localport=9119]
+2008-10-25 00:34:04 ERROR: Usuario suba ya se encuentra en linea.
+2008-10-25 00:34:04        Intento de segunda conexion desde: 127.0.0.1
+2008-10-25 00:36:53 INFO: Se ha establecido una nueva conexion TCP/IP Socket[addr=/127.0.0.1,port=40475,localport=9119]
+2008-10-25 00:36:53 INFO: Inicio de autenticacion para el usuario {suba} con la clave {827ccb0eea8a706c4c34a16891f84e7b}
+2008-10-25 00:36:53 INFO: Control de acceso sobre direcciones ip no habilitado para este usuario
+2008-10-25 00:36:53 INFO: Lote {suba} autenticado desde OFICINA GERENCIA [127.0.0.1]
+2008-10-25 00:36:53 INFO: 2 conexiones activas en el pool de lotes
+2008-10-25 00:36:53 SENTENCIA SQL :: UPDATE mensajes_pda SET entregado=1 
+			WHERE login_destino='FRANCIA'
+2008-10-25 00:37:09 INFO: Se ha establecido una nueva conexion TCP/IP Socket[addr=/127.0.0.1,port=40477,localport=9119]
+2008-10-25 00:37:09 ERROR: Usuario suba ya se encuentra en linea.
+2008-10-25 00:37:09        Intento de segunda conexion desde: 127.0.0.1
+2008-10-25 00:44:34 INFO: ConfigFile -> /home/xtingray/Projects/javertec/comeet/comeet/CoMeet-Server/comeet/conf/server.conf
+2008-10-25 00:44:34 INFO: Cargando archivo de configuracion...
+2008-10-25 00:44:34 INFO: Cargando base de datos... bullet
+2008-10-25 00:44:34 INFO: Cargando base de datos... comeet
+2008-10-25 00:44:34 ADVERTENCIA: Base de datos deshabilitada desde configuracion -> oracle
+2008-10-25 00:44:34 INFO: Cargando cache de enlace [bullet]
+2008-10-25 00:44:35 INFO: Iniciando demonio pop3
+2008-10-25 00:44:35 INFO: Servidor de correo {localhost}
+2008-10-25 00:44:35 INFO: Iniciando demonio de sincronizacion
+2008-10-25 00:44:35 INFO: Servidor CoMeet escuchando por el puerto 9119
+2008-10-25 00:44:44 INFO: Se ha establecido una nueva conexion TCP/IP Socket[addr=/127.0.0.1,port=52617,localport=9119]
+2008-10-25 00:44:44 INFO: Inicio de autenticacion para el usuario {suba} con la clave {827ccb0eea8a706c4c34a16891f84e7b}
+2008-10-25 00:44:44 INFO: Control de acceso sobre direcciones ip no habilitado para este usuario
+2008-10-25 00:44:44 INFO: Lote {suba} autenticado desde OFICINA GERENCIA [127.0.0.1]
+2008-10-25 00:44:44 INFO: 1 conexion activa en el pool de lotes
+2008-10-25 00:44:44 SENTENCIA SQL :: UPDATE mensajes_pda SET entregado=1 
+			WHERE login_destino='FRANCIA'
+2008-10-25 00:44:54 INFO: Se ha establecido una nueva conexion TCP/IP Socket[addr=/127.0.0.1,port=52621,localport=9119]
+2008-10-25 00:44:54 ERROR: Usuario suba ya se encuentra en linea.
+2008-10-25 00:44:54        Intento de segunda conexion desde: 127.0.0.1
+2008-10-25 00:44:57 INFO: Cerrando conexion {null}
+2008-10-25 00:46:27 INFO: ConfigFile -> /home/xtingray/Projects/javertec/comeet/comeet/CoMeet-Server/comeet/conf/server.conf
+2008-10-25 00:46:28 INFO: Cargando archivo de configuracion...
+2008-10-25 00:46:28 INFO: Cargando base de datos... bullet
+2008-10-25 00:46:28 INFO: Cargando base de datos... comeet
+2008-10-25 00:46:28 ADVERTENCIA: Base de datos deshabilitada desde configuracion -> oracle
+2008-10-25 00:46:28 INFO: Cargando cache de enlace [bullet]
+2008-10-25 00:46:29 INFO: Iniciando demonio pop3
+2008-10-25 00:46:29 INFO: Servidor de correo {localhost}
+2008-10-25 00:46:29 INFO: Iniciando demonio de sincronizacion
+2008-10-25 00:46:29 INFO: Servidor CoMeet escuchando por el puerto 9119
+2008-10-25 00:46:38 INFO: Se ha establecido una nueva conexion TCP/IP Socket[addr=/127.0.0.1,port=52640,localport=9119]
+2008-10-25 00:46:38 INFO: Inicio de autenticacion para el usuario {suba} con la clave {827ccb0eea8a706c4c34a16891f84e7b}
+2008-10-25 00:46:38 INFO: Control de acceso sobre direcciones ip no habilitado para este usuario
+2008-10-25 00:46:38 INFO: Lote {suba} autenticado desde OFICINA GERENCIA [127.0.0.1]
+2008-10-25 00:46:38 INFO: 1 conexion activa en el pool de lotes
+2008-10-25 00:46:38 SENTENCIA SQL :: UPDATE mensajes_pda SET entregado=1 
+			WHERE login_destino='FRANCIA'
+2008-10-25 00:46:53 INFO: Cerrando una conexion [OK]
+2008-10-25 00:49:04 INFO: ConfigFile -> /home/xtingray/Projects/javertec/comeet/comeet/CoMeet-Server/comeet/conf/server.conf
+2008-10-25 00:49:04 INFO: Cargando archivo de configuracion...
+2008-10-25 00:49:04 INFO: Cargando base de datos... bullet
+2008-10-25 00:49:04 INFO: Cargando base de datos... comeet
+2008-10-25 00:49:04 ADVERTENCIA: Base de datos deshabilitada desde configuracion -> oracle
+2008-10-25 00:49:04 INFO: Cargando cache de enlace [bullet]
+2008-10-25 00:49:05 INFO: Iniciando demonio pop3
+2008-10-25 00:49:05 INFO: Servidor de correo {localhost}
+2008-10-25 00:49:05 INFO: Iniciando demonio de sincronizacion
+2008-10-25 00:49:05 INFO: Servidor CoMeet escuchando por el puerto 9119
+2008-10-25 00:49:18 INFO: Se ha establecido una nueva conexion TCP/IP Socket[addr=/127.0.0.1,port=39013,localport=9119]
+2008-10-25 00:49:18 INFO: Inicio de autenticacion para el usuario {suba} con la clave {827ccb0eea8a706c4c34a16891f84e7b}
+2008-10-25 00:49:18 INFO: Control de acceso sobre direcciones ip no habilitado para este usuario
+2008-10-25 00:49:18 INFO: Lote {suba} autenticado desde OFICINA GERENCIA [127.0.0.1]
+2008-10-25 00:49:18 INFO: 1 conexion activa en el pool de lotes
+2008-10-25 00:49:18 SENTENCIA SQL :: UPDATE mensajes_pda SET entregado=1 
+			WHERE login_destino='FRANCIA'
+2008-10-25 00:49:28 INFO: Se ha establecido una nueva conexion TCP/IP Socket[addr=/127.0.0.1,port=39015,localport=9119]
+2008-10-25 00:49:28 ERROR: Usuario suba ya se encuentra en linea.
+2008-10-25 00:49:28        Intento de segunda conexion desde: 127.0.0.1
+2008-10-25 00:49:31 INFO: Cerrando conexion con un cliente [OK]
+2008-10-25 00:49:38 INFO: Cerrando conexion con un cliente [OK]
+2008-10-25 00:50:17 INFO: Se ha establecido una nueva conexion TCP/IP Socket[addr=/127.0.0.1,port=39025,localport=9119]
+2008-10-25 00:50:17 ERROR: Usuario suba ya se encuentra en linea.
+2008-10-25 00:50:17        Intento de segunda conexion desde: 127.0.0.1
+2008-10-25 00:50:19 INFO: Cerrando conexion con un cliente [OK]
+2008-10-25 00:50:27 INFO: Cerrando conexion con un cliente [OK]
+2008-10-25 00:51:38 INFO: ConfigFile -> /home/xtingray/Projects/javertec/comeet/comeet/CoMeet-Server/comeet/conf/server.conf
+2008-10-25 00:51:38 INFO: Cargando archivo de configuracion...
+2008-10-25 00:51:38 INFO: Cargando base de datos... bullet
+2008-10-25 00:51:38 INFO: Cargando base de datos... comeet
+2008-10-25 00:51:38 ADVERTENCIA: Base de datos deshabilitada desde configuracion -> oracle
+2008-10-25 00:51:38 INFO: Cargando cache de enlace [bullet]
+2008-10-25 00:51:39 INFO: Iniciando demonio pop3
+2008-10-25 00:51:39 INFO: Servidor de correo {localhost}
+2008-10-25 00:51:39 INFO: Iniciando demonio de sincronizacion
+2008-10-25 00:51:39 INFO: Servidor CoMeet escuchando por el puerto 9119
+2008-10-25 00:51:48 INFO: Se ha establecido una nueva conexion TCP/IP Socket[addr=/127.0.0.1,port=39042,localport=9119]
+2008-10-25 00:51:49 INFO: Inicio de autenticacion para el usuario {suba} con la clave {827ccb0eea8a706c4c34a16891f84e7b}
+2008-10-25 00:51:49 INFO: Control de acceso sobre direcciones ip no habilitado para este usuario
+2008-10-25 00:51:49 INFO: Lote {suba} autenticado desde OFICINA GERENCIA [127.0.0.1]
+2008-10-25 00:51:49 INFO: 1 conexion activa en el pool de lotes
+2008-10-25 00:51:49 SENTENCIA SQL :: UPDATE mensajes_pda SET entregado=1 
+			WHERE login_destino='FRANCIA'
+2008-10-25 00:52:01 INFO: Se ha establecido una nueva conexion TCP/IP Socket[addr=/127.0.0.1,port=39046,localport=9119]
+2008-10-25 00:52:01 ERROR: Usuario suba ya se encuentra en linea.
+2008-10-25 00:52:01        Intento de segunda conexion desde: 127.0.0.1
+2008-10-25 00:52:11 INFO: Cerrando conexion con un cliente [OK]
+2008-10-25 01:00:17 INFO: ConfigFile -> /home/xtingray/Projects/javertec/comeet/comeet/CoMeet-Server/comeet/conf/server.conf
+2008-10-25 01:00:18 INFO: Cargando archivo de configuracion...
+2008-10-25 01:00:18 INFO: Cargando base de datos... bullet
+2008-10-25 01:00:18 INFO: Cargando base de datos... comeet
+2008-10-25 01:00:18 ADVERTENCIA: Base de datos deshabilitada desde configuracion -> oracle
+2008-10-25 01:00:18 INFO: Cargando cache de enlace [bullet]
+2008-10-25 01:00:19 INFO: Iniciando demonio pop3
+2008-10-25 01:00:19 INFO: Servidor de correo {localhost}
+2008-10-25 01:00:19 INFO: Iniciando demonio de sincronizacion
+2008-10-25 01:00:19 INFO: Servidor CoMeet escuchando por el puerto 9119
+2008-10-25 01:00:34 INFO: Se ha establecido una nueva conexion TCP/IP Socket[addr=/127.0.0.1,port=56726,localport=9119]
+2008-10-25 01:00:35 INFO: Inicio de autenticacion para el usuario {suba} con la clave {827ccb0eea8a706c4c34a16891f84e7b}
+2008-10-25 01:00:35 INFO: Control de acceso sobre direcciones ip no habilitado para este usuario
+2008-10-25 01:00:35 INFO: Lote {suba} autenticado desde OFICINA GERENCIA [127.0.0.1]
+2008-10-25 01:00:35 INFO: 1 conexion activa en el pool de lotes
+2008-10-25 01:00:35 SENTENCIA SQL :: UPDATE mensajes_pda SET entregado=1 
+			WHERE login_destino='FRANCIA'
+2008-10-25 01:00:44 INFO: Se ha establecido una nueva conexion TCP/IP Socket[addr=/127.0.0.1,port=56729,localport=9119]
+2008-10-25 01:00:44 ERROR: Usuario suba ya se encuentra en linea.
+2008-10-25 01:00:44        Intento de segunda conexion desde: 127.0.0.1
+2008-10-25 01:00:54 INFO: Cerrando conexion con un cliente [OK]
+2008-10-25 01:01:23 INFO: Se ha establecido una nueva conexion TCP/IP Socket[addr=/127.0.0.1,port=56737,localport=9119]
+2008-10-25 01:01:23 ERROR: Usuario suba ya se encuentra en linea.
+2008-10-25 01:01:23        Intento de segunda conexion desde: 127.0.0.1
+2008-10-25 01:01:33 INFO: Cerrando conexion con un cliente [OK]

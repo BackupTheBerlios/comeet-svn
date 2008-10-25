@@ -19,6 +19,7 @@ public class MessageConfirmer {
 
 	private Iterator iterator;
 	private static SimpleDateFormat formatDate = new SimpleDateFormat("yyyy-MM-dd");
+	private static SimpleDateFormat formatHour = new SimpleDateFormat("hh:mm:ss a");
 	
 	public MessageConfirmer(SocketChannel sock, Element args, Element packet, String id) {
 		this.iterator = packet.getChildren("package").iterator();
@@ -31,15 +32,16 @@ public class MessageConfirmer {
 			
 			Element nextElement = (Element)iterator.next();
 			List list = nextElement.getChildren();
-			String[] sqlArgs = new String[5];
+			String[] sqlArgs = new String[6];
 			Iterator listIterator = list.iterator();
 
 			sqlArgs[0] = ((Element) listIterator.next()).getValue();
 			Date date  = Calendar.getInstance().getTime();
 			sqlArgs[1] = formatDate.format(date); 
-			sqlArgs[2] = ((Element) listIterator.next()).getValue();
+			sqlArgs[2] = formatHour.format(date);
 			sqlArgs[3] = ((Element) listIterator.next()).getValue();
 			sqlArgs[4] = ((Element) listIterator.next()).getValue();
+			sqlArgs[5] = ((Element) listIterator.next()).getValue();
 			
 			try {
 				queryRunner = new QueryRunner(sqlCode,sqlArgs);

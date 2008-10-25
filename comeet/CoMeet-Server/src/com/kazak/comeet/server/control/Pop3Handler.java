@@ -128,7 +128,7 @@ public class Pop3Handler extends Thread {
 							EmailSender mail = new EmailSender();
 							mail.setFrom(user+"@"+host);
 							mail.setDestination(address.getAddress());
-							mail.setSubject("Error");
+							mail.setSubject("Error enviando mensaje");
 							mail.setDate(new Date());
 							mail.setMessage (
 									"El correo no tiene el formato apropiado.\n" +
@@ -222,7 +222,7 @@ public class Pop3Handler extends Thread {
 											SimpleDateFormat formatHour = new SimpleDateFormat("hh:mm aaa");
 											String dateString     = formatDate.format(date);
 											String hourString     = formatHour.format(date);
-											String[] argsArray = {to,group,dateString,hourString,subject.trim(),content,"false"};
+											String[] argsArray = {to,group,dateString,hourString,subject.trim(),content};
 											savePDAMessage(to,argsArray);
 											inside = true;
 											break;

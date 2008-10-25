@@ -252,4 +252,9 @@
         <es_CO>El siguiente metodo no fue encontrado: </es_CO>
         <en_US>Can not found the method called </en_US>
     </sentence>
+        <sentence>
+        <key errorCode="135">ALREADY_LOGGED</key>
+        <es_CO>Acceso denegado. Esta cuenta ya se encuentra en uso</es_CO>
+        <en_US>Acces Denied. This account is already in use</en_US>
+    </sentence>
 </language>

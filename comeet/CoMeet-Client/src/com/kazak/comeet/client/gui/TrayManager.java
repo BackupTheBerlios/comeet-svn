@@ -36,6 +36,7 @@ import java.net.URL;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JToolTip;
 import javax.swing.ToolTipManager;
@@ -51,6 +52,7 @@ public class TrayManager implements ActionListener {
 	private static JButton sendButton;
 	private static JButton viewButton;
 	private static JButton changePasswdButton;
+	private static JButton exit;
 	
 	public TrayManager() {
 		window = new JFrame("Mensajería Interna");
@@ -137,8 +139,20 @@ public class TrayManager implements ActionListener {
 		JToolTip toolTip = new JToolTip();
 		toolTip.setFont(new Font("Sans",Font.BOLD,20));
 		toolTip.setComponent(sendButton);
+
+		url = getClass().getResource(ClientConstants.iconsPath + "close.png");
+		icon = new ImageIcon(url);
+		exit = new JButton(icon);
+		exit.setToolTipText("<html><h3>Salir<h3></html>");
+		exit.addActionListener(this);
+		exit.setActionCommand("exit");
+		exit.setEnabled(false);
+		exit.setBorder(new LineBorder(new Color(150,150,150),1));
+		if (!ClientConstants.LOTTERY_MODE) {
+			menu.add(exit);
+		}
 		
-		window.add(menu);
+		window.add(menu);	
 		window.setVisible(true);
 	}
 	
@@ -160,6 +174,15 @@ public class TrayManager implements ActionListener {
 			changePasswdButton.setEnabled(false);
 			PasswordExchanger.show();
 			changePasswdButton.setEnabled(true);
+		} else if ("exit".equals(command)) {
+			int option = JOptionPane.showConfirmDialog(
+					new JFrame(),
+					"Desea cerrar la aplicacion?",
+					"CoMeet",
+					JOptionPane.YES_NO_OPTION);
+			if (option == JOptionPane.YES_OPTION) {
+				System.exit(0);
+			}
 		}
 	}
 
@@ -172,5 +195,6 @@ public class TrayManager implements ActionListener {
 		sendButton.setEnabled(logged);
 		viewButton.setEnabled(logged);
 		changePasswdButton.setEnabled(logged);
+		exit.setEnabled(logged);
 	}
 }

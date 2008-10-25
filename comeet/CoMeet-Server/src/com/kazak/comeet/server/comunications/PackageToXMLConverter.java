@@ -115,7 +115,7 @@ public class PackageToXMLConverter extends Thread {
                 if (bytesNumber == -1) {
                     outputStream.close();
                     channel.close();
-                    SocketServer.removeSock(channel);
+                    //SocketServer.removeSock(channel);
                     return;
                 }
             }

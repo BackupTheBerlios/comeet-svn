@@ -18,6 +18,7 @@ import com.kazak.comeet.server.comunications.AcpFailure;
 import com.kazak.comeet.server.comunications.ResultSetToXMLConverter;
 import com.kazak.comeet.server.comunications.SocketServer;
 import com.kazak.comeet.server.comunications.SocketWriter;
+import com.kazak.comeet.server.comunications.SocketServer.SocketInfo;
 import com.kazak.comeet.server.database.sql.QueryRunner;
 import com.kazak.comeet.server.database.sql.SQLBadArgumentsException;
 import com.kazak.comeet.server.database.sql.SQLNotFoundException;
@@ -167,7 +168,6 @@ public class HeadersValidator {
                         		} catch (SQLBadArgumentsException e) {
                         			e.printStackTrace();
                         		} catch (SQLException e) {
-                        			// TODO Auto-generated catch block
                         			e.printStackTrace();
                         		}
                         	}
@@ -240,8 +240,19 @@ public class HeadersValidator {
         /* Validacion de una solicitud de un paquete conexión */
         else if (rootName.equals("CNX")) {
             UserLogin user = new UserLogin(root);
+            String login = user.getLogin();
+    		SocketInfo socket = SocketServer.getSocketInfo(login);
+    		if (socket != null) {
+    			try {
+    				LogWriter.write("ERROR: Usuario " + login + " ya se encuentra en linea.");
+    				LogWriter.write("       Intento de segunda conexion desde: " + user.getIp());
+    				SocketWriter.write(sock, new AcpFailure(Language.getWord("ALREADY_LOGGED")));
+    			} catch (IOException e) {
+    				e.printStackTrace();
+    			}
+    			return;
+    		}
         	if (user.isValid()) {
-        		String login = user.getLogin();
         		SocketServer.setLogin(sock, ConfigFileHandler.getMainDataBase(), login);
         		SocketServer.getSocketInfo(sock).setEmail(user.getEmail());
         		SocketServer.getSocketInfo(sock).setUid(user.getUid());

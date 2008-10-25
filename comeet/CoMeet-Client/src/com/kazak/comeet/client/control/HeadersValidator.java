@@ -41,9 +41,6 @@ import com.kazak.comeet.client.network.SocketHandler;
 import com.kazak.comeet.lib.network.ArrivedPackageEvent;
 import com.kazak.comeet.lib.network.PackageComingListener;
 
-// Solo para pruebas con pda's
-// import com.kazak.comeet.client.network.SocketWriter;
-
 public class HeadersValidator implements PackageComingListener {
 
     private static Element root;
@@ -55,6 +52,7 @@ public class HeadersValidator implements PackageComingListener {
         String name = root.getName();
         
         // Temporal code for degugging
+        /*
     	XMLOutputter out2 = new XMLOutputter();
     	out2.setFormat(Format.getPrettyFormat());
     	try {
@@ -62,7 +60,8 @@ public class HeadersValidator implements PackageComingListener {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-		
+		*/
+				
     	if(name.equals("ACPBegin")) {
     		LoginWindow.quit();
     		LoginWindow.setLogged(true);
@@ -73,7 +72,7 @@ public class HeadersValidator implements PackageComingListener {
             TrayManager.setLogged(true);
         }
     	else if(name.equals("Message")) {
-    		Cache.addMessages(root);
+    		Cache.addNewMessage(root);
     		root.addContent(new Element("type").setText("message"));
             MessageEvent msgEvent = new MessageEvent(root,root);
             notifyMessage(msgEvent);
@@ -103,25 +102,8 @@ public class HeadersValidator implements PackageComingListener {
         else if(name.equals("ERROR")) {
 			displayError();
         }
-    	/*
-    	// Codigo experimental para probar con PDA's
-        else if(name.equals("VERIFY")) {
-        	String id = root.getChildText("id");
-    		Element root = new Element("VERIFY");
-    		Document xml = new Document();
-            xml.setRootElement(root);
-            root.addContent(new Element("id").setText(id));
-            root.addContent(new Element("answer").setText(String.valueOf("true")));
-            try {
-    			SocketWriter.writing(SocketHandler.getSock(),xml);
-    		} catch (IOException e) {
-    			e.printStackTrace();
-    		}
-        } */
         else {
-        	System.out.println();
-        	System.out.println("***************************************************************");
-        	System.out.println("Error en el formato del protocolo");
+        	System.out.println("ERROR: Inconsistencia en el formato del protocolo");
         	XMLOutputter out = new XMLOutputter();
         	out.setFormat(Format.getPrettyFormat());;
         	try {
@@ -129,8 +111,6 @@ public class HeadersValidator implements PackageComingListener {
     		} catch (IOException e) {
     			e.printStackTrace();
     		}
-        	System.out.println("***************************************************************");
-        	System.out.println();
         }
     }
     

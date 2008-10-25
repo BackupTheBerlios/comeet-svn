@@ -73,13 +73,14 @@ public class Cache {
 		return groupsCacheHash.get(key);
 	}
 	
-	public static void addMessages (Element messages) {
-		Iterator iterator = messages.getChildren().iterator();
+	public static void addNewMessage (Element msg) {
+		Iterator iterator = msg.getChildren().iterator();
 		while (iterator.hasNext()) {
 			Element columns = (Element)iterator.next();
 			int index = msgCacheList.size() + 1;
 			MessageList message = new MessageList(index,columns);
-			msgCacheList.add(0,message);
+			//msgCacheList.add(0,message);
+			msgCacheList.add(msgCacheList.size(),message);
 		}
 	}
 	

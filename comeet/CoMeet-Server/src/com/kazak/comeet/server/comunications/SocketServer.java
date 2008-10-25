@@ -292,9 +292,11 @@ public class SocketServer {
      * @throws IOException
      */
     public static void removeSock(SocketChannel sock) throws IOException {
+    	LogWriter.write("INFO: Cerrando conexion con un cliente [OK]");
         setDecrementSocketsCount();
         sock.close();
         generalSocketsHash.remove(sock);
+        pdaHash.removeSocket(sock);
     }
     
     public static ByteArrayOutputStream getTemporalBuffer(SocketChannel sock) {
@@ -375,11 +377,15 @@ public class SocketServer {
     public static SocketInfo getSocketInfo(String login) {	
     	if (login == null) {
     		LogWriter.write("ERROR: Llamado a getInfoSocket con parametro nulo (login).");
+    		return null;
     	}
     	
     	for (SocketInfo socketInfo : generalSocketsHash.values()) {
-    		if (socketInfo.getLogin().equals(login)) {
-    			return socketInfo;
+    		String username = socketInfo.getLogin();
+    		if (username != null) {
+    			if (username.equals(login)) {
+    				return socketInfo;
+    			}
     		}
     	}
     	return null;
