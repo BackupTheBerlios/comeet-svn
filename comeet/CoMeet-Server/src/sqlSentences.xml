@@ -627,7 +627,7 @@
 	<!--Descripcion: Confirma que un mensaje a PC fue leido por su destinatario -->
     	<code>UPD0003</code>
 		<sql>
-			UPDATE mensajes SET confirmado=?, fecha_confirmacion=to_date('?','yyyy-mm-dd'), hora_confirmacion=('?')
+			UPDATE mensajes SET confirmado=1, fecha_confirmacion=to_date('?','yyyy-mm-dd'), hora_confirmacion=('?')
 			WHERE fecha_envio=to_date('?','yyyy-mm-dd') AND hora_envio='?' AND confirmado=0 AND
 			uid_destino=(SELECT codigo FROM usuarios WHERE login='?')
 		</sql>
@@ -636,7 +636,7 @@
 	<!--Descripcion: Confirma que un mensaje a PC fue leido por su destinatario -->
     	<code>UPD0003A</code>
 		<sql>
-			UPDATE mensajes_pda SET confirmado=?, fecha_confirmacion=to_date('?','yyyy-mm-dd'), hora_confirmacion=('?')
+			UPDATE mensajes_pda SET confirmado=1, fecha_confirmacion=to_date('?','yyyy-mm-dd'), hora_confirmacion=('?')
 			WHERE fecha_envio=to_date('?','yyyy-mm-dd') AND hora_envio='?' AND confirmado=0 AND login_destino='?'
 		</sql>
 	</sentence>

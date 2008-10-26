@@ -164,7 +164,7 @@ public class Pop3Handler extends Thread {
 							to = fullSubject.substring(0,index2).trim();
 						}
 
-						subject = fullSubject.substring(index2+1,fullSubject.length()).trim();
+						subject = fullSubject.substring(index2+1,fullSubject.length()).trim();			
 
 						QueryRunner qRunner = null;
 						ResultSet resultSet = null;
@@ -222,7 +222,9 @@ public class Pop3Handler extends Thread {
 											SimpleDateFormat formatHour = new SimpleDateFormat("hh:mm aaa");
 											String dateString     = formatDate.format(date);
 											String hourString     = formatHour.format(date);
-											String[] argsArray = {to,group,dateString,hourString,subject.trim(),content};
+											subject.replaceAll("\'","[ToKeN]");
+											content.replaceAll("\'","[ToKeN]");
+											String[] argsArray = {to,group,dateString,hourString,subject,content};
 											savePDAMessage(to,argsArray);
 											inside = true;
 											break;

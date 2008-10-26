@@ -52,7 +52,6 @@ public class HeadersValidator implements PackageComingListener {
         String name = root.getName();
         
         // Temporal code for degugging
-        /*
     	XMLOutputter out2 = new XMLOutputter();
     	out2.setFormat(Format.getPrettyFormat());
     	try {
@@ -60,7 +59,6 @@ public class HeadersValidator implements PackageComingListener {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-		*/
 				
     	if(name.equals("ACPBegin")) {
     		LoginWindow.quit();

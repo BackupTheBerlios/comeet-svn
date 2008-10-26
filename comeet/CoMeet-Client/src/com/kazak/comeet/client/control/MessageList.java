@@ -35,7 +35,8 @@ public class MessageList {
 		messageList.add(id); 
 		Iterator it = xml.getChildren().iterator();
 		messageList.add(((Element)it.next()).getValue());
-		messageList.add(((Element)it.next()).getValue());
+		String date = formatDate(((Element)it.next()).getValue().toString());		
+		messageList.add(date);
 		messageList.add(((Element)it.next()).getValue());
 		messageList.add(((Element)it.next()).getValue());
 		messageList.add(((Element)it.next()).getValue());
@@ -51,4 +52,18 @@ public class MessageList {
 	public void setAt(int index,Object element) {
 		messageList.set(index, element);
 	}
+	
+    private String formatDate(String date) {
+		int hour = Integer.parseInt(date.substring(0,date.indexOf(":")));
+		if (hour > 12) {
+			hour = hour - 12;
+			String tail = date.substring(date.indexOf(":"),date.length());
+			if (hour < 10) {
+				date = "0" + hour + tail;
+			} else {
+			    date = hour + tail;
+			}
+		}
+        return date;
+    }
 }

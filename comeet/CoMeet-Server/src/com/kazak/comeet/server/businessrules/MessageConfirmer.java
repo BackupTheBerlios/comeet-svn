@@ -19,7 +19,7 @@ public class MessageConfirmer {
 
 	private Iterator iterator;
 	private static SimpleDateFormat formatDate = new SimpleDateFormat("yyyy-MM-dd");
-	private static SimpleDateFormat formatHour = new SimpleDateFormat("hh:mm:ss a");
+	private static SimpleDateFormat formatHour = new SimpleDateFormat("HH:mm:ss a");
 	
 	public MessageConfirmer(SocketChannel sock, Element args, Element packet, String id) {
 		this.iterator = packet.getChildren("package").iterator();
@@ -32,27 +32,22 @@ public class MessageConfirmer {
 			
 			Element nextElement = (Element)iterator.next();
 			List list = nextElement.getChildren();
-			String[] sqlArgs = new String[6];
+			String[] sqlArgs = new String[5];
 			Iterator listIterator = list.iterator();
 
-			sqlArgs[0] = ((Element) listIterator.next()).getValue();
 			Date date  = Calendar.getInstance().getTime();
-			sqlArgs[1] = formatDate.format(date); 
-			sqlArgs[2] = formatHour.format(date);
+			sqlArgs[0] = formatDate.format(date); 
+			sqlArgs[1] = formatHour.format(date);
+			sqlArgs[2] = ((Element) listIterator.next()).getValue();
 			sqlArgs[3] = ((Element) listIterator.next()).getValue();
 			sqlArgs[4] = ((Element) listIterator.next()).getValue();
-			sqlArgs[5] = ((Element) listIterator.next()).getValue();
 			
 			try {
 				queryRunner = new QueryRunner(sqlCode,sqlArgs);
 				queryRunner.setAutoCommit(false);
 				queryRunner.executeSQL();
 				queryRunner.commit();
-				LogWriter.write(
-						"INFO: Confirmada lectura del mensaje con destino {" + 
-						((Element)list.get(3)).getValue() + "} / Asunto: [" + 
-						((Element)list.get(4)).getValue() + "] / Remitido por: {" + 
-						((Element)list.get(5)).getValue() + "}");
+				LogWriter.write("INFO: [" + sqlArgs[0] + " " + sqlArgs[1] + "] Confirmada lectura de mensaje con destino {" + sqlArgs[4] + "}"); 
 			} catch (SQLException e) {
 				queryRunner.rollback();
 				LogWriter.write("ERROR: " + e.getErrorCode());

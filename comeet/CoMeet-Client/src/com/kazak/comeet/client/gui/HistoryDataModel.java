@@ -37,7 +37,7 @@ public class HistoryDataModel extends AbstractTableModel {
 			Integer.class,String.class,String.class,
 			String.class,String.class,String.class,Boolean.class};
 	
-	private int[] width = {30,100,80,100,230,0,30};
+	private int[] width = {30,90,90,100,230,0,34};
 	
 	public String getColumnName(int index) {
 		return titles[index];

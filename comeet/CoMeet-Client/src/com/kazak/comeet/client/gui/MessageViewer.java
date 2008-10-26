@@ -43,16 +43,6 @@ public class MessageViewer implements ActionListener {
 	private NavigationButtonsPanel buttons;
 	private static boolean isDisplayed = false;
 	
-	public static void show() {
-		if (!isDisplayed) {
-			MessageViewer.isDisplayed = true;
-			new MessageViewer();
-		}
-		else {
-			frame.setState(JFrame.NORMAL);
-		}
-	}
-	
 	public MessageViewer() {
 		frame = new JFrame("Mensajes Recibidos");
 		frame.setSize(620,500);
@@ -83,7 +73,18 @@ public class MessageViewer implements ActionListener {
 		Dimension dimension = historyDataPanel.getSize();
 		dimension.setSize(dimension.getWidth(),180);
 		historyDataPanel.setPreferredSize(dimension);
+		historyDataPanel.setScroll();
 		frame.setVisible(true);
+	}
+	
+	public static void show() {
+		if (!isDisplayed) {
+			MessageViewer.isDisplayed = true;
+			new MessageViewer();
+		}
+		else {
+			frame.setState(JFrame.NORMAL);
+		}
 	}
 	
 	public void actionPerformed(ActionEvent e) {

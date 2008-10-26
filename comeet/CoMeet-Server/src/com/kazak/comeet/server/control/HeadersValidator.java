@@ -110,10 +110,8 @@ public class HeadersValidator {
                 t.start();
             }
         	else if (rootName.equals("RequestLogContent")) {
-        		LogWriter.write("INFO: Solicitud de envio del registro del servidor.");
-        		
+        		LogWriter.write("INFO: Solicitud de envio del registro del servidor.");        		
 				Thread t = new Thread() {
-				
 					public void run() {
 						try {
 							LogWriter.getFullLogFile(sock);

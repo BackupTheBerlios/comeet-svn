@@ -292,11 +292,11 @@ public class SocketServer {
      * @throws IOException
      */
     public static void removeSock(SocketChannel sock) throws IOException {
-    	LogWriter.write("INFO: Cerrando conexion con un cliente [OK]");
+    	LogWriter.write("INFO: Cerrando conexion con cliente [OK]");
         setDecrementSocketsCount();
-        sock.close();
         generalSocketsHash.remove(sock);
         pdaHash.removeSocket(sock);
+        sock.close();
     }
     
     public static ByteArrayOutputStream getTemporalBuffer(SocketChannel sock) {

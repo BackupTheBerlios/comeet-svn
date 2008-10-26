@@ -34,7 +34,7 @@ public class MessageDistributor {
 	private static final boolean LOTTERY_MODE = false;
 	private static final boolean CONTROL_MODE = false;
 	private static SimpleDateFormat formatDate = new SimpleDateFormat("yyyy-MM-dd");
-	private static SimpleDateFormat formatHour = new SimpleDateFormat("hh:mm:ss a");
+	private static SimpleDateFormat formatHour = new SimpleDateFormat("HH:mm:ss a");
 	private Date   date;
 	private String groupIDString;
 	private int    groupID;
@@ -59,13 +59,6 @@ public class MessageDistributor {
 		// Getting the destination list for this message 
 		Vector<SocketInfo> usersVector = getDestinationList(element,senderIsMailUser);
 		int groupSize = usersVector.size();
-		
-		/*
-		if((groupSize == 0) && ConfigFileHandler.getMovilSupport()) {
-			LogWriter.write("INFO: El destino seleccionado no aparece registrado en el sistema local");
-			LogWriter.write("INFO: Consultando usuario destino en LOTES...");
-		}
-		*/
 		
 		String many = "";
 		if (groupSize > 1 || groupSize==0) {
@@ -128,6 +121,8 @@ public class MessageDistributor {
 
 			// if destination user is offline
 			if (!control || (control && (sock!=null))) {			
+				subject.replaceAll("\'","[ToKeN]");
+				body.replaceAll("\'","[ToKeN]");
 				String[] argsArray = {String.valueOf(destination.getUid()),
 						dateString,hourString,subject.trim(),body.trim(),
 						"0",String.valueOf(ConfigFileHandler.getMessageLifeTimeForClients()),

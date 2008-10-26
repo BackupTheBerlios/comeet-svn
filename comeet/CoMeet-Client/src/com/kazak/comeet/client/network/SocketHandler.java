@@ -115,7 +115,7 @@ public class SocketHandler extends Thread  {
         return socket;
     }
     
-    public static boolean isConcected(){
+    public static boolean isConnected(){
         return socket.isConnected();
     }
 }

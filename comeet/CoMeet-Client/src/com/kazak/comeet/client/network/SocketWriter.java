@@ -57,9 +57,8 @@ public class SocketWriter {
         ByteArrayInputStream bufferInputStream = new ByteArrayInputStream(data.toByteArray());
         sendBuffer(sock,bufferInputStream);
     }
-    
+       
     private static void sendBuffer(SocketChannel sock,ByteArrayInputStream buffer) {
-        
         try {
             ByteBuffer byteBuffer = ByteBuffer.allocate(8192);
             byte[] bytes = new byte[8192];

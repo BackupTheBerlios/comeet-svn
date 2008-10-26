@@ -35,18 +35,12 @@ import com.kazak.comeet.client.network.SocketWriter;
 
 public class MessageConfirmer extends Thread {
 
-	private String confirm;
 	private String date;
 	private String time;
-	private String subject;
-	private String from;
 	
-	public MessageConfirmer(int confirm,String date, String time,String subject,String from) {
-		this.confirm = "" + confirm;
+	public MessageConfirmer(String date, String time) {
 		this.date = date;
 		this.time = time;
-		this.subject = subject;
-		this.from = from;
 		run();
 	}
 	
@@ -62,13 +56,12 @@ public class MessageConfirmer extends Thread {
         driver.setText("TR011");
         transaction.addContent(driver);
         
-		Element pack = new Element("package");
-		pack.addContent(new Element("field").setText(confirm));
+		time = formatDate(time);
+        
+		Element pack = new Element("package");	
 		pack.addContent(new Element("field").setText(date));
 		pack.addContent(new Element("field").setText(time));
 		pack.addContent(new Element("field").setText(Run.user));
-		pack.addContent(new Element("field").setText(subject));
-		pack.addContent(new Element("field").setText(from));
 		
 		transaction.addContent(pack);
 		SocketChannel sock = SocketHandler.getSock();
@@ -80,4 +73,15 @@ public class MessageConfirmer extends Thread {
 			ex.printStackTrace();
 		}
 	}
+	
+    private String formatDate(String basic) {
+		int hour = Integer.parseInt(basic.substring(0,basic.indexOf(":")));
+		String meridian = basic.substring(basic.indexOf(" "),basic.length());
+		if (meridian.trim().equals("PM")) {
+				hour = hour + 12;
+				String tail = basic.substring(basic.indexOf(":"),basic.length());
+				basic = hour + tail;
+		}
+        return basic;
+    }
 }

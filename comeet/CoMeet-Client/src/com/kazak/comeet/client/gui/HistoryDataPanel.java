@@ -25,6 +25,7 @@ package com.kazak.comeet.client.gui;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Component;
+import java.awt.Point;
 
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
@@ -45,6 +46,7 @@ public class HistoryDataPanel extends JPanel implements MessageListener {
 	private JTable table;
 	private HistoryDataModel historyDataModel;
 	private HistoryMessagePanel messagePanel;
+	private JScrollPane jscroll;
 	
 	public HistoryDataPanel(HistoryMessagePanel messagePanel) {
 		setLayout(new BorderLayout());
@@ -64,7 +66,7 @@ public class HistoryDataPanel extends JPanel implements MessageListener {
 			table.getColumnModel().getColumn(i).setPreferredWidth(width);	
 		}
 		
-		JScrollPane jscroll = new JScrollPane(table);
+		jscroll = new JScrollPane(table);
 		jscroll.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
 		this.add(new JPanel(),BorderLayout.NORTH);
 		this.add(new JPanel(),BorderLayout.WEST);
@@ -109,11 +111,8 @@ public class HistoryDataPanel extends JPanel implements MessageListener {
 							if (((Boolean)table.getValueAt(rowIndex, 6))==false) {
 								table.setValueAt(true,rowIndex,6);
 								new MessageConfirmer(
-										1,
 										(String )table.getValueAt(rowIndex,1),
-										(String )table.getValueAt(rowIndex,2),
-										(String )table.getValueAt(rowIndex,4),
-										(String )table.getValueAt(rowIndex,3));
+										(String )table.getValueAt(rowIndex,2));
 							}
 						}
 					}
@@ -131,6 +130,11 @@ public class HistoryDataPanel extends JPanel implements MessageListener {
 
 	public JTable getTable() {
 		return table;
+	}
+	
+	
+	public void setScroll() {
+	 jscroll.getViewport().setViewPosition(new Point(0, jscroll.getViewport().getViewPosition().y + (table.getRowCount()*10)));
 	}
 
 	public void getANewMessage(MessageEvent event) {
