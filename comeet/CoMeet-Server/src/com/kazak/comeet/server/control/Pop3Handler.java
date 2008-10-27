@@ -172,6 +172,7 @@ public class Pop3Handler extends Thread {
 						boolean toAllUsers = false;
 
 						if ("TODOS".equals(to)) { 
+							LogWriter.write("INFO: Procesando mensaje para [TODOS] los puntos de venta");
 							toAllUsers=true; 
 						}
 
@@ -183,56 +184,58 @@ public class Pop3Handler extends Thread {
 								groupID =  resultSet.getString(1);
 								if (groupID!=null) {
 									inside = true;
+									System.out.println("Generando solicitud para grupo " + groupID);
 									Element xml = new Element("Message");
 									xml.addContent(createXMLElement("idgroup",groupID));
 									xml.addContent(createXMLElement("toName",toAllUsers ? resultSet.getString(2): to ));
 									xml.addContent(createXMLElement("from",from));
 									xml.addContent(createXMLElement("subject",subject));
 									xml.addContent(createXMLElement("message",content));
-									xml.addContent(createXMLElement("timeAlife",lifeTime));
+									xml.addContent(createXMLElement("lifeTime",lifeTime));
 									new MessageDistributor(xml,true);
-								}
-								else {
-									LogWriter.write("ERROR: El usuario {" + to + "} no existe en el sistema.");
-									LogWriter.write("ERROR: Verificar posible inconsistencia en base de datos.");
 								}
 							}
 						
-							if (!inside && ConfigFileHandler.getMovilSupport()) {
-								LogWriter.write("INFO: Consultando si usuario {" + to + "} existe en LOTES");
-								Enumeration keys = SocketServer.getPDdaHash().getKeys();
-								if (SocketServer.getPDdaHashSize() > 0) {
-									while (keys.hasMoreElements()) {
-										SocketChannel socket = (SocketChannel)keys.nextElement();
-										String code = "Q" + QuerySender.getId();
-										if (QuerySender.verifyPDAUser(socket,code,to)) {
-											SocketInfo userData = (SocketInfo) SocketServer.getDataSocket(socket);
-											String slot = userData.getLogin();
-											LogWriter.write("INFO: El usuario {" + to + "} fue validado por el lote {" + slot + "}");
-											qRunner = new QueryRunner("SEL0038",new String[]{address.getAddress()});
-											resultSet = qRunner.select();
-											String group = "-1";
-											while (resultSet.next()) {
-												Integer gid =  resultSet.getInt(1);
-												group = gid.toString();
+							if (ConfigFileHandler.getMovilSupport()) {
+								Date date = Calendar.getInstance().getTime();
+								SimpleDateFormat formatDate = new SimpleDateFormat("yyyy-MM-dd");
+								SimpleDateFormat formatHour = new SimpleDateFormat("hh:mm aaa");
+								String dateString     = formatDate.format(date);
+								String hourString     = formatHour.format(date);
+								subject = subject.replaceAll("'","&39;");
+								content = content.replaceAll("'","&39;");
+								String sender = getGroupFromEmail(address.getAddress());
+
+								if (!toAllUsers && !inside) {
+									LogWriter.write("INFO: Consultando si usuario {" + to + "} existe en LOTES");
+									Enumeration keys = SocketServer.getPDdaHash().getKeys();
+									if (SocketServer.getPDdaHashSize() > 0) {
+										while (keys.hasMoreElements()) {
+											SocketChannel socket = (SocketChannel)keys.nextElement();
+											String code = "Q" + QuerySender.getId();
+											if (QuerySender.verifyPDAUser(socket,code,to)) {
+												SocketInfo userData = (SocketInfo) SocketServer.getDataSocket(socket);
+												String slot = userData.getLogin();
+												LogWriter.write("INFO: El usuario {" + to + "} fue validado por el lote {" + slot + "}");
+												String[] argsArray = {to,sender,dateString,hourString,subject,content};
+												savePDAMessage(to,argsArray);
+												inside = true;
+												break;
 											}
-											// Guardando mensaje en base de datos
-											Date date = Calendar.getInstance().getTime();
-											SimpleDateFormat formatDate = new SimpleDateFormat("yyyy-MM-dd");
-											SimpleDateFormat formatHour = new SimpleDateFormat("hh:mm aaa");
-											String dateString     = formatDate.format(date);
-											String hourString     = formatHour.format(date);
-											subject.replaceAll("\'","[ToKeN]");
-											content.replaceAll("\'","[ToKeN]");
-											String[] argsArray = {to,group,dateString,hourString,subject,content};
-											savePDAMessage(to,argsArray);
-											inside = true;
-											break;
 										}
 									}
+								} else if (toAllUsers) {
+									inside = true;
+									qRunner = new QueryRunner("SEL0028A");
+									resultSet = qRunner.select();
+									while (resultSet.next()) {	
+										String destination = resultSet.getString(1);
+										String[] argsArray = {destination,sender,dateString,hourString,subject,content};
+										savePDAMessage(to,argsArray);
+									}
 								}
-							}					    								    	
-
+							}
+							
 							if (!inside) {
 								LogWriter.write("ERROR: El usuario {" + to + "} no existe en el sistema.");
 								LogWriter.write("ERROR: Notificando al remitente -> {" + from + "}");
@@ -273,6 +276,27 @@ public class Pop3Handler extends Thread {
 			}
 		}
 	}	
+	
+	private String getGroupFromEmail(String email) {	
+		QueryRunner qRunner = null;
+		ResultSet resultSet = null;
+		String group = "-1";
+		try {
+			qRunner = new QueryRunner("SEL0038",new String[]{email});
+			resultSet = qRunner.select();
+			while (resultSet.next()) {
+				Integer gid =  resultSet.getInt(1);
+				group = gid.toString();
+			}
+		} catch (SQLNotFoundException e) {
+			e.printStackTrace();
+		} catch (SQLBadArgumentsException e) {
+			e.printStackTrace();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return group;
+	}
 	
 	private void savePDAMessage(String login, String[] argsArray) {
 		QueryRunner qRunner = null;

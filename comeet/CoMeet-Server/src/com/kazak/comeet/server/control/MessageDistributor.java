@@ -121,8 +121,8 @@ public class MessageDistributor {
 
 			// if destination user is offline
 			if (!control || (control && (sock!=null))) {			
-				subject.replaceAll("\'","[ToKeN]");
-				body.replaceAll("\'","[ToKeN]");
+				subject = subject.replaceAll("'","&39;");
+				body = body.replaceAll("'","&39;");
 				String[] argsArray = {String.valueOf(destination.getUid()),
 						dateString,hourString,subject.trim(),body.trim(),
 						"0",String.valueOf(ConfigFileHandler.getMessageLifeTimeForClients()),
@@ -164,7 +164,7 @@ public class MessageDistributor {
 		hourString     = formatHour.format(date);                 
 		subject        = element.getChildText("subject");
 		body           = element.getChildText("message");
-		Element mailLifeTime = element.getChild("timeAlife");
+		Element mailLifeTime = element.getChild("lifeTime");
 		lifeTime = mailLifeTime != null ? Integer.parseInt(mailLifeTime.getValue()) : 0;
 
 		if (CONTROL_MODE) {

@@ -1,6 +1,6 @@
 <root>
 	<sentence>
-		<!--Descripcion: ... -->
+		<!--Descripcion: Esta consulta muestra la lista de transacciones definidas para el sistema -->
 		<code>SRV0001</code>
 		<sql>
 			SELECT codigo,driver,args 
@@ -10,7 +10,7 @@
 	</sentence>
 	<!--========================== Selects =================================-->
 	<sentence>
-		<!--Descripcion: ... -->
+		<!--Descripcion: Esta consulta muestra el codigo y el nombre de los grupos disponibles para clientes -->
 		<code>SEL0001</code>
 		<sql>
 			SELECT grupo_id,nombre 
@@ -35,7 +35,7 @@
         <sql>
 			SELECT nombre 
 			FROM ubicaciones
-			WHERE ip='?'
+			WHERE ip='?' AND rownum=1
        </sql>
     </sentence>
 	<sentence>
@@ -44,68 +44,66 @@
 		<sql>
 			SELECT * 
 			FROM grupos 
-			ORDER BY nombre_grupo,tipo_grupo desc
+			ORDER BY nombre,tipo_grupo desc
 		</sql>
 	</sentence>
 	<sentence>
-	<!--Descripcion: ... -->
+	<!--Descripcion: Esta consulta retorna los datos de cada ubicacion y su respectivo grupo -->
 		<code>SEL0005</code>
 		<sql>
-			SELECT pv.*,g.nombre_grupo 
-			FROM ubicaciones pv, grupos g 
-			WHERE g.grupo_id=pv.gid 
-			ORDER BY nombre
+			SELECT u.codigo,u.nombre,u.ip,u.gid,g.nombre 
+			FROM ubicaciones u, grupos g 
+			WHERE g.grupo_id=u.gid 
+			ORDER BY u.nombre
 		</sql>
 	</sentence>
 	<sentence>
-	<!--Descripcion: Consulta la lista de usuarios administrativos-->
+	<!--Descripcion: Esta consulta retorna la lista de usuarios administrativos-->
 		<code>SEL0006</code>
 		<sql>
 			SELECT 
-			u.codigo,u.login,u.clave,u.nombres,u.correo,u.admin,u.audit,u.gid,g.nombre_grupo 
+			u.codigo,u.login,u.clave,u.nombres,u.correo,u.gid,g.nombre 
 			FROM 
 			usuarios u, grupos g 
-			WHERE g.grupo_id=u.gid AND g.tipo_grupo=false AND 
-			u.habilitado=true
+			WHERE g.grupo_id=u.gid AND (u.rol=1 OR u.rol=2) AND u.habilitado=1
 			ORDER BY u.login 
 		</sql>
 	</sentence>
 	<sentence>
-	<!--Descripcion: Consulta la lista de usuarios colocadores -->
+	<!--Descripcion: Esta consulta retorna la lista de usuarios POS -->
 		<code>SEL0007</code>
 		<sql>
 			SELECT DISTINCT
-			u.codigo,u.login,u.clave,u.nombres,u.correo,u.admin,u.audit,u.gid,pv.nombre,upv.valid_ip,g.nombre_grupo
+			u.codigo,u.login,u.clave,u.nombres,u.gid,ub.nombre,usb.validar_ip,g.nombre
 			FROM 
-			usuarios u, grupos g, ubicaciones pv, usuarios_ubicacion upv
+			usuarios u, grupos g, ubicaciones ub, usuarios_ubicacion usb
 			WHERE 
-			g.tipo_grupo=true AND 
-			upv.codigo_pventa=pv.codigo AND 
-			g.tipo_grupo=true AND 
-			u.codigo=upv.uid AND pv.gid=g.grupo_id
+			usb.codigo_ubicacion=ub.codigo AND 
+			u.codigo=usb.id_usuario AND ub.gid=g.grupo_id AND
+			g.tipo_grupo=1
 			ORDER BY u.login
 		</sql>
 	</sentence>
 	<sentence>
-	<!--Descripcion: ... -->
+	<!--Descripcion: Esta consulta retorna el grupo de un usuario, dado su login -->
 		<code>SEL0008</code>
 		<sql>
-			SELECT u.codigo,g.nombre_grupo 
+			SELECT u.codigo,g.nombre 
 			FROM usuarios u, grupos g 
 			WHERE login='?' AND g.grupo_id=u.gid
 		</sql>
 	</sentence>
 	<sentence>
-	<!--Descripcion: ... -->
+	<!--Descripcion: Esta consulta retorna el codigo de la ubicacion de un usuario, dado su login -->
 		<code>SEL0009</code>
 		<sql>
 			SELECT 
-			pv.codigo,Upv.valid_ip 
+			ub.codigo,usb.validar_ip 
 			FROM 
-			usuarios u, ubicaciones pv, usuarios_ubicacion upv 
+			usuarios u, ubicaciones ub, usuarios_ubicacion usb 
 			WHERE 
-			u.codigo=upv.uid AND pv.codigo=upv.codigo_pventa AND u.login='?' 
-			ORDER BY pv.codigo
+			u.codigo=usb.id_usuario AND ub.codigo=usb.codigo_ubicacion AND u.login='?' 
+			ORDER BY ub.codigo
 		</sql>
 	</sentence>
 	<sentence>
@@ -343,29 +341,37 @@
 	<!--Descripcion: Dado el nombre de un grupo, retorna los datos de los usuarios que pertenecen -->
 		<code>SEL0027</code>
 		<sql>
-			SELECT 
-				a.codigo,a.login,a.nombres,a.correo,
-				a.rol,a.gid,'Sin punto asignado','?'
+    		SELECT 
+				u.codigo,u.login,u.nombres,u.correo,
+				u.rol,u.gid,b.nombre,'?'
 			FROM 
-				usuarios a,
-		        (SELECT 
-					u.uid AS codigo
-			 	 FROM 
-					usuarios_ubicacion u, 
-					(SELECT codigo FROM ubicaciones WHERE gid=(SELECT grupo_id FROM grupos WHERE nombre='?')) as c
-				 WHERE u.codigo_ubicacion=c.codigo) AS p
-			WHERE   a.codigo = p.codigo
-			ORDER BY login			
+				usuarios u, ubicaciones b, usuarios_ubicacion c,
+		        (  SELECT ub.id_usuario AS codigo 
+		           FROM usuarios_ubicacion ub, (SELECT codigo FROM ubicaciones WHERE gid=(SELECT grupo_id FROM grupos WHERE nombre='?')) query
+ 				   WHERE ub.codigo_ubicacion=query.codigo
+                ) p
+			WHERE (u.codigo=p.codigo) AND (c.id_usuario=u.codigo) AND (c.codigo_ubicacion=b.codigo)
+			ORDER BY u.login		
 		</sql>
 	</sentence>
 	<sentence>
-	<!--Descripcion: ... -->
+	<!--Descripcion: Lista todos los grupos de usuarios de PC -->
 		<code>SEL0028</code>
 		<sql>
 			SELECT DISTINCT g.grupo_id,g.nombre 
 			FROM grupos g, usuarios u 
-			WHERE u.gid=g.grupo_id AND u.login ILIKE 'CV%'
+			WHERE u.gid=g.grupo_id AND u.rol=3
 			ORDER BY g.nombre
+		</sql>
+	</sentence>
+	<sentence>
+	<!--Descripcion: Lista todos los grupos de usuarios de PDA -->
+		<code>SEL0028A</code>
+		<sql>
+			SELECT login 
+			FROM usuarios
+			WHERE rol=4
+			ORDER BY login
 		</sql>
 	</sentence>
 	<sentence>
@@ -503,10 +509,10 @@
 	    <!--Descripcion: Dado un id de usuario, retorna todos los grupos a los que pertenece -->
 		<code>SEL0037</code>
 		 <sql>
-   	 	   SELECT 
+ 	 	   SELECT 
 		 		g.nombre 
-			FROM ubicaciones p,grupos g,
-				(SELECT codigo_pventa AS codigo FROM usuarios_ubicacion WHERE uid=?) result
+           FROM ubicaciones p,grupos g,
+			    (SELECT codigo_ubicacion AS codigo FROM usuarios_ubicacion WHERE id_usuario=?) result
 		   WHERE
 				p.codigo=result.codigo AND p.gid=g.grupo_id
 		 </sql>
@@ -633,7 +639,7 @@
 		</sql>
 	</sentence>
 		<sentence>
-	<!--Descripcion: Confirma que un mensaje a PC fue leido por su destinatario -->
+	<!--Descripcion: Confirma que un mensaje a PDA fue leido por su destinatario -->
     	<code>UPD0003A</code>
 		<sql>
 			UPDATE mensajes_pda SET confirmado=1, fecha_confirmacion=to_date('?','yyyy-mm-dd'), hora_confirmacion=('?')

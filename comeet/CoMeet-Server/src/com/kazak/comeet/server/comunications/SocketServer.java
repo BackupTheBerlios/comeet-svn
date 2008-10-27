@@ -707,10 +707,12 @@ public class SocketServer {
 		Vector<SocketInfo> groupVector = new Vector<SocketInfo>();
 		QueryRunner qRunner = null;
 	    ResultSet resultSet = null;
+	    System.out.println("Capturando lista de usuarios del grupo " + groupName);
 	    
         for (SocketInfo socketInfo : generalSocketsHash.values()) { 
         	Vector groups = getUserGroups(String.valueOf(socketInfo.getUid()));
             if (groups.contains(groupName)) {
+            	System.out.println("Adicionando usuario: " + socketInfo.getLogin());
                 groupVector.add(socketInfo);
             }
         }

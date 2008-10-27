@@ -130,7 +130,7 @@ public class ResultSetToXMLConverter extends Document {
 									    value = date.toString();
 									} else {							
 									    data = resultSet.getBytes(j);
-									    value = new String(data,"ISO-8859-1");
+									    value = new String(data,"UTF-8");
 									}
 								}
 

@@ -38,8 +38,12 @@ public class MessageList {
 		String date = formatDate(((Element)it.next()).getValue().toString());		
 		messageList.add(date);
 		messageList.add(((Element)it.next()).getValue());
-		messageList.add(((Element)it.next()).getValue());
-		messageList.add(((Element)it.next()).getValue());
+		String subject = ((Element)it.next()).getValue();
+		subject = subject.replaceAll("&39;","'");
+		messageList.add(subject);
+		String body = ((Element)it.next()).getValue();
+		body = body.replaceAll("&39;","'");
+		messageList.add(body);
 		String value = ((Element)it.next()).getValue();
 		Boolean flag = value.equals("1") ? true : false;
 		messageList.add(flag);

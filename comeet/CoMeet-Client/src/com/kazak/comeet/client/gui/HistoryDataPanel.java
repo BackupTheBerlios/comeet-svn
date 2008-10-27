@@ -59,6 +59,7 @@ public class HistoryDataPanel extends JPanel implements MessageListener {
 		table.setModel(historyDataModel);
 		table.setAutoResizeMode(JTable.AUTO_RESIZE_OFF);
 		table.setEnabled(true);
+		
 		int columns = historyDataModel.getColumnCount();
 		for (int i =0 ; i <  columns ; i++) {
 			int width = historyDataModel.getWidth(i);
@@ -134,7 +135,7 @@ public class HistoryDataPanel extends JPanel implements MessageListener {
 	
 	
 	public void setScroll() {
-	 jscroll.getViewport().setViewPosition(new Point(0, jscroll.getViewport().getViewPosition().y + (table.getRowCount()*10)));
+	   jscroll.getViewport().setViewPosition(new Point(0, 0 + (table.getRowCount()*10)));
 	}
 
 	public void getANewMessage(MessageEvent event) {
