@@ -206,7 +206,7 @@ public class MainTreeManager {
 	public static TreePath getSelectedPath() {
 		return tree.getSelectionPath();
 	}
-	
+		
 	public static int getSelectedPathCount() {
 		return tree.getSelectionPath().getPathCount();
 	}

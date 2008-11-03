@@ -35,10 +35,8 @@ public class UserDocument {
 	private String passwd;
 	private String name;
 	private String mail;
-	private String isAdmin;
-	private String isEnabled;
+	private String rol;
 	private String groupId;
-	private String isAuditor;
 	private String ipControl;	
 	Vector<String> posCodesVector = new Vector<String>();
 
@@ -57,16 +55,14 @@ public class UserDocument {
 	public void setData(String[] data) {
 		login     = data[0];
 		passwd    = data[1];
-		if(passwd.length() == 0) {
+		if (passwd.length() == 0) {
 			passwd = Cache.getUser(login).getPasswd();
 		}
 		name      = data[2];
 		mail      = data[3];
-		isAdmin   = data[4];
-		isEnabled = data[5];
-		groupId   = data[6];
-		isAuditor = data[7];
-		ipControl = data[8];
+		rol       = data[4];
+		groupId   = data[5];
+		ipControl = data[6];
 	}
 		
 	public Document getDocumentToAdd() {
@@ -84,10 +80,8 @@ public class UserDocument {
 		pack.addContent(createField(passwd));
 		pack.addContent(createField(name));
 		pack.addContent(createField(mail));
-		pack.addContent(createField(isAdmin));
-		pack.addContent(createField(isEnabled));
 		pack.addContent(createField(groupId));
-		pack.addContent(createField(isAuditor));		
+		pack.addContent(createField(rol));		
 		transaction.addContent(pack);
 		
 		// Saving pos data from table to package
@@ -116,15 +110,13 @@ public class UserDocument {
         transaction.addContent(driver);
         
         String uid = Cache.getUser(login).getId();
-        
 		Element pack = new Element("package");
 		pack.addContent(createField(login));
 		pack.addContent(createField(passwd));
 		pack.addContent(createField(name));
 		pack.addContent(createField(mail));
-		pack.addContent(createField(isAdmin));
+		pack.addContent(createField(rol));
 		pack.addContent(createField(groupId));
-		pack.addContent(createField(isAuditor));
 		pack.addContent(createField(uid));
 		transaction.addContent(pack);
 		

@@ -62,10 +62,11 @@
 		<code>SEL0006</code>
 		<sql>
 			SELECT 
-			u.codigo,u.login,u.clave,u.nombres,u.correo,u.gid,g.nombre 
+			u.codigo,u.login,u.clave,u.nombres,u.correo,u.gid,g.nombre,ub.nombre,u.rol
 			FROM 
-			usuarios u, grupos g 
+			usuarios u, grupos g,  ubicaciones ub, usuarios_ubicacion usb
 			WHERE g.grupo_id=u.gid AND (u.rol=1 OR u.rol=2) AND u.habilitado=1
+            AND usb.codigo_ubicacion=ub.codigo AND u.codigo=usb.id_usuario
 			ORDER BY u.login 
 		</sql>
 	</sentence>
@@ -74,7 +75,7 @@
 		<code>SEL0007</code>
 		<sql>
 			SELECT DISTINCT
-			u.codigo,u.login,u.clave,u.nombres,u.gid,ub.nombre,usb.validar_ip,g.nombre
+			u.codigo,u.login,u.clave,u.nombres,u.gid,ub.nombre,usb.validar_ip,g.nombre,u.rol
 			FROM 
 			usuarios u, grupos g, ubicaciones ub, usuarios_ubicacion usb
 			WHERE 
@@ -102,32 +103,32 @@
 			FROM 
 			usuarios u, ubicaciones ub, usuarios_ubicacion usb 
 			WHERE 
-			u.codigo=usb.id_usuario AND ub.codigo=usb.codigo_ubicacion AND u.login='?' 
+			u.codigo=usb.id_usuario AND ub.codigo=usb.codigo_ubicacion AND u.login='suba' 
 			ORDER BY ub.codigo
 		</sql>
 	</sentence>
 	<sentence>
-	<!--Descripcion: ... -->
+	<!--Descripcion: Esta consulta retorna si un grupo es visible y su tipo, dado el nombre-->
 		<code>SEL0010</code>
 		<sql>
 			SELECT visible,tipo_grupo 
-			FROM grupos WHERE nombre_grupo='?'
+			FROM grupos WHERE nombre='?'
 		</sql>
 	</sentence>
 	<sentence>
-	<!--Descripcion: Consulta la lista de mensajes de un usuario a partir de su login -->
+	<!--Descripcion: Esta consulta muestra la lista de mensajes de un usuario a partir de su login -->
 	<code>SEL0011</code>
 	<sql>
-			SELECT m.fecha,m.hora,u.login,m.asunto,m.confirmado,m.texto 
+			SELECT m.fecha_envio,m.hora_envio,u.login,m.asunto,m.confirmado,m.texto 
 			FROM mensajes m,usuarios u 
 			WHERE 
   			uid_destino=(SELECT codigo FROM usuarios WHERE login='?') 
   			AND u.login=(SELECT login FROM usuarios WHERE codigo=m.uid_origen)
-			ORDER BY m.fecha
+			ORDER BY m.fecha_envio,m.hora_envio
         </sql>
 	</sentence>
 	<sentence>
-	<!--Descripcion: ... -->
+	<!--Descripcion: Esta consulta entrega los mensajes vigentes de un usuario, dado el login -->
 		<code>SEL0012</code>
 		<sql>
 			SELECT
@@ -147,7 +148,7 @@
 		</sql> 
 	</sentence>
 	<sentence>
-	<!--Descripcion: Retorna los mensajes nuevos para un usuario pda -->
+	<!--Descripcion: Esta consulta retorna los mensajes nuevos para un usuario pda -->
 		<code>SEL0012A</code>
 		<sql>
 			SELECT
@@ -161,7 +162,7 @@
 		</sql>
 	</sentence>
 	<sentence>
-	<!--Descripcion: ... -->
+	<!--Descripcion: Esta consulta retorna el numero de usuarios de un grupo, dado el nombre del grupo -->
 		<code>SEL0013</code>
 		<sql>
 			SELECT count(*) AS count
@@ -172,21 +173,21 @@
 		</sql>
 	</sentence>
 	<sentence>
-	<!--Descripcion: ... -->
+	<!--Descripcion: Esta consulta retorna el numero de ubicaciones asociadas a un grupo, dado el nombre del grupo -->
 		<code>SEL0014</code>
 		<sql>
 			SELECT count(*) AS count
 			FROM ubicaciones  
-			WHERE gid=(SELECT grupo_id FROM grupos g WHERE g.nombre='?')
+			WHERE gid=(SELECT grupo_id FROM grupos g WHERE g.nombre='NORTE')
 		</sql>
 	</sentence>
 	<sentence>
-        <!--Descripcion: Lista los mensajes de control enviados en un rango de fechas -->
-                <code>SEL0015</code>
-                <sql>
-			SELECT DISTINCT m.fecha,m.hora,m.asunto,u.login,u.nombres,m.texto 
+        <!--Descripcion: Esta consulta retorna la lista los mensajes de control enviados en un rango de fechas -->
+        <code>SEL0015</code>
+        <sql>
+			SELECT DISTINCT m.fecha_envio,m.hora_envio,m.asunto,u.login,u.nombres,m.texto 
 			FROM mensajes m, usuarios u 
-			WHERE control=true 
+			WHERE control=1
 			AND m.uid_origen=u.codigo 
 			AND (CAST(m.fecha AS timestamp)+m.hora)&gt;='?' 
 			AND (CAST(m.fecha AS timestamp)+m.hora)&lt;='?' 
@@ -194,27 +195,28 @@
 		</sql>
 	</sentence>
 	<sentence>
-	<!--Descripcion: ... -->
+	<!--Descripcion: Esta consulta retorna los mensajes que ya fueron leidos y que corresponden a un parametro de busqueda  -->
 		<code>SEL0016</code>
 		<sql>
 			SELECT
-			m.mid,m.fecha,m.hora,u.login AS de,bar.name AS para,m.asunto,m.texto,CASE WHEN confirmado='t' THEN 'true' ELSE 'false' END
+			m.mid,m.fecha_envio,m.hora_envio,u.login AS de,bar.name AS para,m.asunto,
+			m.texto,CASE WHEN confirmado='1' THEN 'true' ELSE 'false' END
 			FROM
 			mensajes m,
-			(SELECT codigo AS id,login AS name FROM usuarios) AS bar,
+			(SELECT codigo AS id,login AS name FROM usuarios) miembros,
 			usuarios u
 			WHERE 
-			m.uid_destino=bar.id AND 
+			m.uid_destino=miembros.id AND 
 			uid_origen=u.codigo AND 
 			u.login ILIKE '%?%' AND 
-			bar.name ILIKE '%?%'AND 
-			fecha='?' AND 
+			miembros.name ILIKE '%?%'AND 
+			fecha_envio='?' AND 
 			asunto ILIKE '%?%'
 			ORDER BY m.mid
 		</sql>
 	</sentence>
 	<sentence>
-	<!--Descripcion: ... -->
+	<!--Descripcion: Esta consulta lista los mensajes por año, mes y dia -->
 		<code>SEL0017</code>
 		<sql>
 			SELECT DISTINCT 
@@ -226,85 +228,89 @@
 		</sql>
 	</sentence>
 	<sentence>
-	<!--Descripcion: ... -->
+	<!--Descripcion: Esta consulta retorna una lista de mensajes enviados en un rango de fechas -->
 		<code>SEL0018</code>
 		<sql>
 			SELECT
-			m.mid,m.fecha,m.hora,u.login AS de ,bar.name AS para,m.asunto,m.texto,CASE WHEN confirmado='t' THEN 'true' ELSE 'false' END
+			m.mid, m.fecha_envio, m.hora_envio, u.login AS de, miembros.name AS para,
+			m.asunto, m.texto, CASE WHEN confirmado='1' THEN 'true' ELSE 'false' END
 			FROM
 			mensajes m,
-			(SELECT codigo AS id,login AS name FROM usuarios) AS bar,
+			(SELECT codigo AS id,login AS name FROM usuarios) AS miembros,
 			usuarios u
 			WHERE 
-			m.uid_destino=bar.id AND 
+			m.uid_destino=miembros.id AND 
 			uid_origen=u.codigo AND 
-			fecha&gt;='?' AND fecha&lt;='?' ORDER BY m.fecha
+			fecha_envio&gt;='?' AND fecha_envio&lt;='?' ORDER BY m.fecha_envio
 		</sql>
 	</sentence>
 	<sentence>
-	<!--Descripcion: ... -->
+	<!--Descripcion: Esta consulta retorna una lista de mensajes enviados en un rango de fechas -->
 		<code>SEL0019</code>
 		<sql>
 			SELECT
-			m.mid,m.fecha,m.hora,u.login AS de ,bar.name AS para,m.asunto,m.texto,CASE WHEN confirmado='t' THEN 'true' ELSE 'false' END
+			m.mid, m.fecha_envio, m.hora_envio, u.login AS de , miembros.name AS para, m.asunto, m.texto,
+			CASE WHEN confirmado='1' THEN 'true' ELSE 'false' END
 			FROM
 			mensajes m,
-			(SELECT codigo AS id,login AS name FROM usuarios) AS bar,
+			(SELECT codigo AS id,login AS name FROM usuarios) miembros,
 			usuarios u
 			WHERE 
-			m.uid_destino=bar.id AND 
+			m.uid_destino=miembros.id AND 
 			uid_origen=u.codigo AND 
-			fecha&gt;=to_date('?', 'YYYY-MM-DD') AND fecha&lt;=(to_date('?', 'YYYY-MM-DD')-1) 
-			ORDER BY m.fecha
+			fecha_envio&gt;=to_date('?', 'YYYY-MM-DD') AND fecha_envio&lt;=(to_date('?', 'YYYY-MM-DD')-1) 
+			ORDER BY m.fecha_envio
 		</sql>
 	</sentence>
 	<sentence>
-	<!--Descripcion: ... -->
+	<!--Descripcion: Esta consulta retorna una lista de mensajes enviados en una fecha -->
 		<code>SEL0020</code>
 		<sql>
 			SELECT
-			m.mid,m.fecha,m.hora,u.login AS de ,bar.name AS para,m.asunto,m.texto,CASE WHEN confirmado='t' THEN 'true' ELSE 'false' END
+			m.mid, m.fecha_envio, m.hora_envio, u.login AS de, miembros.name AS para, m.asunto, m.texto, 
+			CASE WHEN confirmado='1' THEN 'true' ELSE 'false' END
 			FROM
 			mensajes m,
-			(SELECT codigo AS id,login AS name FROM usuarios) AS bar,
+			(SELECT codigo AS id,login AS name FROM usuarios) miembros,
 			usuarios u
 			WHERE 
-			m.uid_destino=bar.id AND 
+			m.uid_destino=miembros.id AND 
 			uid_origen=u.codigo AND 
-			fecha='?' ORDER BY m.fecha
+			fecha_envio='?' ORDER BY m.fecha_envio
 		</sql>
 	</sentence>
 	<sentence>
-	<!--Descripcion: ... -->
+	<!--Descripcion: Esta consulta retorna una lista de mensajes dado un login y un asunto -->
 		<code>SEL0021</code>
 		<sql>
 			SELECT
-			m.mid,m.fecha,m.hora,u.login AS de ,bar.name AS para,m.asunto,m.texto,CASE WHEN confirmado='t' THEN 'true' ELSE 'false' END
+			m.mid, m.fecha_envio, m.hora_envio, u.login AS de, miembros.name AS para, m.asunto, m.texto, 
+			CASE WHEN confirmado='1' THEN 'true' ELSE 'false' END
 			FROM
 			mensajes m,
-			(SELECT codigo AS id,login AS name FROM usuarios) AS bar,
+			(SELECT codigo AS id,login AS name FROM usuarios) AS miembros,
 			usuarios u
 			WHERE 
-			m.uid_destino=bar.id AND 
+			m.uid_destino=miembros.id AND 
 			uid_origen=u.codigo AND
 			u.login ILIKE '%?%' AND 
-			bar.name ILIKE '%?%'AND
+			miembros.name ILIKE '%?%'AND
 			asunto ILIKE '%?%'
 			ORDER BY m.mid
 		</sql>
 	</sentence>
         <sentence>
-        <!--Descripcion: ... -->
+        <!--Descripcion: Esta consulta retorna cuantos registros poseen el mismo login en la tabla de usuarios -->
                 <code>SEL0022</code>
                 <sql>SELECT COUNT(*) FROM usuarios WHERE login='?'</sql>
         </sentence>
 	<sentence>
-	<!--Descripcion: ... -->
+	<!--Descripcion: Esta consulta retorna cuantos registros poseen un login y una clave especificas -->
 		<code>SEL0023</code>
 		<sql>SELECT COUNT(*) FROM usuarios WHERE login='?' AND clave='?'</sql>
 	</sentence>
 	<sentence>
-	<!--Descripcion: ... -->
+	<!--Descripcion: Esta consulta retorna el codigo del grupo o usuario que coincida con el nombre ingresado -->
 		<code>SEL0024</code>
 		<sql>
 			SELECT codigo FROM usuarios u WHERE login='?' UNION 
@@ -312,7 +318,7 @@
 		</sql>
 	</sentence>
 	<sentence>	
-	<!--Descripcion: Consulta datos de usuario admin/auditor -->
+	<!--Descripcion: Esta consulta retorna los datos basicos de un usuario a partir de su login -->
 		<code>SEL0025</code>
 		<sql>
             SELECT u.codigo,login,nombres,correo,
@@ -324,7 +330,7 @@
 		</sql>
 	</sentence>
 	<sentence>
-	<!--Descripcion: Retorna los datos de un usuario a partir de su login -->
+	<!--Descripcion: Esta consulta retorna todos los datos de un usuario a partir de su login -->
 		<code>SEL0026</code>
 		<sql>
 			SELECT 
@@ -338,7 +344,7 @@
 		</sql>
 	</sentence>
 	<sentence>
-	<!--Descripcion: Dado el nombre de un grupo, retorna los datos de los usuarios que pertenecen -->
+	<!--Descripcion: Esta consulta, dado el nombre de un grupo, retorna los datos de los usuarios que pertenecen -->
 		<code>SEL0027</code>
 		<sql>
     		SELECT 
@@ -355,7 +361,7 @@
 		</sql>
 	</sentence>
 	<sentence>
-	<!--Descripcion: Lista todos los grupos de usuarios de PC -->
+	<!--Descripcion: Esta consulta lista todos los grupos de usuarios de PC -->
 		<code>SEL0028</code>
 		<sql>
 			SELECT DISTINCT g.grupo_id,g.nombre 
@@ -365,7 +371,7 @@
 		</sql>
 	</sentence>
 	<sentence>
-	<!--Descripcion: Lista todos los grupos de usuarios de PDA -->
+	<!--Descripcion: Esta consulta lista todos los grupos de usuarios de PDA -->
 		<code>SEL0028A</code>
 		<sql>
 			SELECT login 
@@ -375,14 +381,14 @@
 		</sql>
 	</sentence>
 	<sentence>
-	<!--Descripcion: ... -->
+	<!--Descripcion: Esta consulta retorna la clave de un usuario, dado su login -->
 		<code>SEL0029</code>
 		<sql>
 			SELECT clave FROM usuarios u WHERE u.login='?'
 		</sql>
 	</sentence>
         <sentence>
-        <!--Descripcion: Listado de usuarios que respondieron tarde el mensaje de control -->
+        <!--Descripcion: Listado de usuarios que respondieron tarde el mensaje de control [Pendiente por revision] -->
                 <code>SEL0030</code>
                 <sql>
                         SELECT u.login,u.nombres,pv.nombre AS punto_colocacion,foo.diferencia AS diferencia
@@ -405,7 +411,7 @@
                 </sql>
         </sentence>
         <sentence>
-        <!--Descripcion: Lista de usuarios que estaban conectados y nunca respondieron al mensaje de control-->
+        <!--Descripcion: Lista de usuarios que estaban conectados y nunca respondieron al mensaje de control [Pendiente por revision] -->
                 <code>SEL0031</code>
                 <sql>
                         SELECT u.login,u.nombres,pv.nombre AS punto_colocacion
@@ -428,7 +434,7 @@
                 </sql>
         </sentence>
         <sentence>
-        <!--Descripcion: Lista de usuarios que estaban conectados y respondieron a tiempo el mensaje de control -->
+        <!--Descripcion: Lista de usuarios que estaban conectados y respondieron a tiempo el mensaje de control [Pendiente por revision] -->
                 <code>SEL0032</code>
                 <sql>
  			SELECT u.login,u.nombres,pv.nombre AS punto_colocacion,diferencia
@@ -453,46 +459,45 @@
                 </sql>
         </sentence>
         <sentence>
-        <!--Descripcion: Lista de usuarios que no estaban conectados al momento del mensaje de control y que no son administrativos -->
+        <!--Descripcion: Lista de usuarios que no estaban conectados al momento del mensaje de control y que no son administrativos [Pendiente por revision] -->
                 <code>SEL0033</code>
                 <sql>
-                        SELECT u.login AS login, u.nombres, pv.nombre AS punto_colocacion 
-			FROM usuarios u, ubicaciones pv, usuarios_ubicacion upv
-                        WHERE login LIKE 'CV%' AND upv.uid=u.codigo AND pv.codigo=upv.codigo_pventa 
+                  SELECT u.login AS login, u.nombres, pv.nombre AS punto_colocacion 
+                  FROM usuarios u, ubicaciones pv, usuarios_ubicacion upv
+                  WHERE login LIKE 'CV%' AND upv.uid=u.codigo AND pv.codigo=upv.codigo_pventa 
 			      AND NOT EXISTS 
                         	(
                                  SELECT usuario.login FROM mensajes m, usuarios usuario
                                  WHERE m.control=true AND usuario.uid=m.uid_destino
                                  AND (CAST(m.fecha AS timestamp)+m.hora)=(CAST('?' AS timestamp)+'?')
-				 AND u.login=usuario.login
+			     AND u.login=usuario.login
                         	)
-			ORDER BY login
+                 ORDER BY login
                 </sql>
         </sentence>
         <sentence>
-        <!--Descripcion: Lista de usuarios que no estaban conectados al momento del mensaje de control y que no son administrativos -->
-                <code>SEL0034</code>
+        <!--Descripcion: Esta consulta retorna un codigo disponible de la lista de ubicaciones -->
+        <code>SEL0034</code>
                 <sql>
-			SELECT CAST(codigo AS integer)+1 
-			FROM ubicaciones 
-			ORDER BY codigo DESC LIMIT 1
+                  SELECT CAST(codigo AS integer)+1 
+                  FROM ubicaciones WHERE rownum=1
                 </sql>
         </sentence>
         <sentence>
-        <!--Descripcion:  Dado el id de un grupo, retorna todos los usuarios que pertenecen a dicho grupo-->
+        <!--Descripcion: Esta consulta, dado el id de un grupo, retorna todos los usuarios que pertenecen a dicho grupo-->
         <code>SEL0035</code>
                 <sql>
-			SELECT 
-				u.codigo,login,nombres,correo,u.gid,rol,b.nombre,g.nombre 
-			FROM 
-				usuarios u, grupos g, usuarios_ubicacion a, ubicaciones b
-			WHERE 
-				g.grupo_id=u.gid AND g.grupo_id='?' AND a.id_usuario=u.codigo AND a.codigo_ubicacion=b.codigo
-			ORDER BY login
+                 SELECT 
+                 u.codigo,login,nombres,correo,u.gid,rol,b.nombre,g.nombre 
+                 FROM 
+                 usuarios u, grupos g, usuarios_ubicacion a, ubicaciones b
+                 WHERE 
+                 g.grupo_id=u.gid AND g.grupo_id='?' AND a.id_usuario=u.codigo AND a.codigo_ubicacion=b.codigo
+                 ORDER BY login
                 </sql>
         </sentence>     
        	<sentence>
-	    <!--Descripcion: Retorna los datos de un usuario a partir de su email -->
+	    <!--Descripcion: Esta consulta retorna los datos de un usuario a partir de su email -->
 		<code>SEL0036</code>
 		 <sql>
 			SELECT 
@@ -506,22 +511,24 @@
 		 </sql>
   	    </sentence>
        	<sentence>
-	    <!--Descripcion: Dado un id de usuario, retorna todos los grupos a los que pertenece -->
+	    <!--Descripcion: Esta consulta, dado un id de usuario, retorna todos los grupos a los que pertenece -->
 		<code>SEL0037</code>
 		 <sql>
  	 	   SELECT 
 		 		g.nombre 
-           FROM ubicaciones p,grupos g,
+           FROM ubicaciones p, grupos g,
 			    (SELECT codigo_ubicacion AS codigo FROM usuarios_ubicacion WHERE id_usuario=?) result
 		   WHERE
 				p.codigo=result.codigo AND p.gid=g.grupo_id
 		 </sql>
   	    </sentence>
   	    <sentence>
-	    <!--Descripcion: Dado un email, retorna el id del grupo al que pertenece -->
+	    <!--Descripcion: Esta consulta, dado un email, retorna el id del grupo al que pertenece -->
 		<code>SEL0038</code>
 		 <sql>
-              SELECT grupo_id FROM grupos WHERE grupo_id=(SELECT gid FROM usuarios WHERE correo='?' AND rownum=1)
+              SELECT grupo_id 
+              FROM grupos 
+              WHERE grupo_id=(SELECT gid FROM usuarios WHERE correo='?' AND rownum=1)
 		 </sql>
   	    </sentence>	    
 	<!--============================= Inserts ===============================-->
@@ -530,8 +537,8 @@
 		<code>INS0001</code>
 		<sql>
 			INSERT INTO 
-			usuarios (login,clave,nombres,correo,admin,habilitado,gid,audit) 
-			VALUES ('?','?','?','?','?','?','?','?');
+			usuarios (login,clave,nombres,correo,gid,rol) 
+			VALUES ('?','?','?','?',?,?)
 		</sql>
 	</sentence>
 	<sentence>
@@ -539,9 +546,9 @@
 		<code>INS0002</code>
 		<sql>
 			INSERT INTO 
-			usuarios_ubicacion (uid,codigo_pventa,valid_ip) 
+			usuarios_ubicacion (id_usuario,codigo_ubicacion,validar_ip) 
 			VALUES 
-			((SELECT codigo FROM usuarios WHERE login='?'),'?','?')
+			((SELECT codigo FROM usuarios WHERE login='?'),?,?)
 		</sql>
 	</sentence>
 	<sentence>
@@ -588,7 +595,7 @@
 			DELETE FROM 
 			usuarios_ubicacion 
 			WHERE 
-			usuarios_ubicacion.uid='?'
+			id_usuario='?'
 		</sql>
 	</sentence>
 	<sentence>
@@ -639,7 +646,7 @@
 		</sql>
 	</sentence>
 		<sentence>
-	<!--Descripcion: Confirma que un mensaje a PDA fue leido por su destinatario -->
+	<!--Descripcion: Esta consulta confirma que un mensaje a PDA fue leido por su destinatario -->
     	<code>UPD0003A</code>
 		<sql>
 			UPDATE mensajes_pda SET confirmado=1, fecha_confirmacion=to_date('?','yyyy-mm-dd'), hora_confirmacion=('?')
@@ -647,11 +654,11 @@
 		</sql>
 	</sentence>
 	<sentence>
-	<!--Descripcion: ... -->
+	<!--Descripcion: Esta consulta actualiza los datos de un usuario de tipo administrador-->
 		<code>UPD0004</code>
 		<sql>
 			UPDATE usuarios SET 
-			login='?',clave='?',nombres='?',correo='?',admin='?',gid='?', audit='?' 
+			login='?',clave='?',nombres='?',correo='?',rol='?',gid='?'
 			WHERE codigo='?'
 		</sql>
 	</sentence>

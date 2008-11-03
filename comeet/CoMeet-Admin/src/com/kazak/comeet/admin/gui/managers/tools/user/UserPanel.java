@@ -57,9 +57,9 @@ public class UserPanel extends JPanel implements ActionListener, KeyListener {
 	public UserPanel(UserDialog userDialog, int action, String target, boolean isAdmin) {
 		this.setLayout(new BorderLayout());
 		this.userDialog = userDialog;
-		this.action = action;
-		this.target = target;
-		this.isAdmin = isAdmin;
+		this.action     = action;
+		this.target     = target;
+		this.isAdmin    = isAdmin;
 		if(isAdmin) {
 			secondName = "Administrativo";
 		}

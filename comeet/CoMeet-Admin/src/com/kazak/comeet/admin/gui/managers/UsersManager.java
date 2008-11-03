@@ -294,7 +294,7 @@ public class UsersManager extends JFrame implements ActionListener, ItemListener
 					}
 					String string = groupsCombo.getSelectedItem().toString();
 					Group group = Cache.getGroup(string);
-					if (group.isZone() && table.getRowCount() <= 0) {
+					if ((group.isZone()) && table.getRowCount() <= 0) {
 						JOptionPane.showMessageDialog(
 								this,
 								"<html><center>" +
@@ -337,7 +337,7 @@ public class UsersManager extends JFrame implements ActionListener, ItemListener
 				if (user==null) {
 					String string = groupsCombo.getSelectedItem().toString();
 					Group group = Cache.getGroup(string);
-					if (group.isZone() && table.getRowCount() <= 0) {
+					if ((group.isZone()) && table.getRowCount() <= 0) {
 						JOptionPane.showMessageDialog(
 								this,
 								"<html><center>" +
@@ -573,8 +573,8 @@ public class UsersManager extends JFrame implements ActionListener, ItemListener
 				oldLogin = loginField.getText();
 				nameField.setText(user.getName());
 				mailField.setText(user.getEmail());
-				adminCheck.setSelected(user.getAdmin());
-				auditCheck.setSelected(user.getAudit());
+				//adminCheck.setSelected(user.getAdmin());
+				//auditCheck.setSelected(user.getAudit());
 				groupsCombo.setSelectedItem(user.getGroupName());
 				if(user.isSeller()) {
 					ipControlCheck.setSelected(user.getValidIp());

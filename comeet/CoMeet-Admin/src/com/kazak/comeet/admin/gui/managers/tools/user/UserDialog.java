@@ -60,7 +60,7 @@ public class UserDialog extends JFrame {
 	
 		if(action == ToolsConstants.EDIT_PREFILLED || action == ToolsConstants.SEARCH_PREFILLED 
 				|| action == ToolsConstants.DELETE_PREFILLED) {
-			Dimension dimension = new Dimension(330,230);
+			Dimension dimension = new Dimension(330,250);
 			if(!isAdmin) {
 				dimension = new Dimension(330,280);
 			}
@@ -94,11 +94,13 @@ public class UserDialog extends JFrame {
 	}
 
 	private boolean isUserDataOk(){
+		
 		data[0] = userPanel.getLogin();
 		data[1] = dynamicPanel.getPasswd();
-		if(data[1].length()!=0 && data[1].length() < 5) {
-			JOptionPane.showMessageDialog(this,"Error: Clave inválida. Debe asignar una clave\n" +
-			"al usuario de al menos 5 caracteres.");
+				
+		if((action == ToolsConstants.ADD) && (data[1].length() == 0 || data[1].length() < 5)) {
+			JOptionPane.showMessageDialog(this,"Error: Clave inválida. Debe asignar una contraseña\n" +
+			"de al menos 5 caracteres.");
 			return false;
 		}
 		data[2] = dynamicPanel.getUserName();
@@ -107,6 +109,7 @@ public class UserDialog extends JFrame {
 			return false;
 		}
 		data[3] = dynamicPanel.getUserMail();
+		
 		if(isAdmin) {
 			if(data[3].length() == 0) {
 				JOptionPane.showMessageDialog(this,"Error: Debe asignar una dirección de correo al usuario");
@@ -117,13 +120,19 @@ public class UserDialog extends JFrame {
 					return false;									
 				}
 			}
+			data[4] = dynamicPanel.getUserRol();
+			data[6] = dynamicPanel.getUserLocation();
+			if (data[6].equals("SIN REGISTROS")) {
+				JOptionPane.showMessageDialog(this,"Error: Ubicación Inválida. Seleccione un grupo que contenga al menos una ubicación");
+				return false;
+			}
+		} else {
+			data[4] = "3";
+			data[6] = "NULL";			
 		}
-		data[4] = dynamicPanel.isAdmin();
-		data[5] = "t"; // is enabled?
-		data[6] = dynamicPanel.getUserGroup();
- 		data[7] = dynamicPanel.isAuditor();
-		data[8] = String.valueOf(dynamicPanel.doIPCheck()); // ip control enabled?
-		
+		data[5] = dynamicPanel.getUserGroup();
+		data[7] = dynamicPanel.doIPCheck(); // ip control enabled? 
+			
 		return true;
 	}
 	
@@ -145,7 +154,9 @@ public class UserDialog extends JFrame {
 				return;
 			}
 			if(isAdmin) {
-				doc = new UserDocument(data);
+				Vector<String> posCodes = new Vector<String>();
+				posCodes.add(dynamicPanel.getUserLocation());
+				doc = new UserDocument(data,posCodes);
 			}
 			else  {
 				Vector<String> posCodes = dynamicPanel.getPosCodes();

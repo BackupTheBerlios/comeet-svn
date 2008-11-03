@@ -32,7 +32,7 @@ public class SpecialPanel extends JDialog implements ActionListener  {
 	private static final long serialVersionUID = 1L;
 	private JButton myCloseButton = null;
 	private JButton myDetailsButton = null;
-	private JButton myHelpButton = null;
+	//private JButton myHelpButton = null;
 	private JPanel myDetailsPanel = null;
 	JTextArea myMessageArea = null;
 	JTextArea myDetailsArea = null;
@@ -159,7 +159,7 @@ public class SpecialPanel extends JDialog implements ActionListener  {
 		buttonBox.add (Box.createHorizontalStrut (4));
 		buttonBox.add (myDetailsButton = createButton (EXPAND_DETAILS, 'd'));
 		buttonBox.add (Box.createHorizontalStrut (4));
-		buttonBox.add (myHelpButton = createButton ("Help"));
+		//buttonBox.add (myHelpButton = createButton ("Help"));
 		buttonBox.add (Box.createHorizontalStrut (10));
 
 		//  Add the button panel to the bottom of the BorderLayout
@@ -229,11 +229,11 @@ public class SpecialPanel extends JDialog implements ActionListener  {
 		pack ();
 	}
 
-
+/*
 	private JButton createButton (String label)  {
 		return createButton (label, '\0');
 	}
-
+*/
 
 	private JButton createButton (String label, char mnemonic)  {
 		//  Create the new button object

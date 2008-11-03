@@ -25,6 +25,8 @@ package com.kazak.comeet.admin.gui.managers.tools.user;
 import java.awt.BorderLayout;
 import java.awt.Component;
 import java.awt.GridLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.util.Vector;
 
@@ -40,23 +42,26 @@ import javax.swing.border.Border;
 
 import com.kazak.comeet.admin.control.Cache;
 import com.kazak.comeet.admin.control.Cache.User;
+import com.kazak.comeet.admin.control.Cache.WorkStation;
+import com.kazak.comeet.admin.gui.main.MainTreeManager;
 import com.kazak.comeet.admin.gui.managers.tools.ButtonBar;
 import com.kazak.comeet.admin.gui.managers.tools.ToolsConstants;
 import com.kazak.comeet.admin.gui.table.UserPosTable;
 import com.kazak.comeet.lib.misc.MD5Tool;
 
-public class InternalPanel extends JPanel {
+public class InternalPanel extends JPanel implements ActionListener {
 	private static final long serialVersionUID = 1L;
 	private ArrayList<Component> componentsList = new ArrayList<Component>();
-	private String[] adminLabels = {"Clave: ","Nombres: ","E-Mail: ", "Administrador: ","Auditor: ","Grupo: "};
+	private String[] adminLabels = {"Clave: ","Nombres: ","E-Mail: ", "Tipo de Usuario: ","Grupo: ","Ubicación: "};
 	private String[] posLabels = {"Clave: ","Nombres: ","Control de Acceso por IP "};
+	private String[] userTypes = {"Administrador","Auditor","Usuario de Correo"};
 	private JPasswordField passwdField;
 	private JTextField nameField;
 	private JTextField mailField;
-	private JCheckBox sysAdminCheck;
-	private JCheckBox auditCheck;
 	private JCheckBox ipControlCheck;
+	private JComboBox typeCombo;
 	private JComboBox groupsCombo;
+	private JComboBox sitesCombo;
 	private UserPosTable table;
 	private JFrame dialog;
 	private int action;
@@ -78,10 +83,12 @@ public class InternalPanel extends JPanel {
 
 	private void initComponents() {
 		componentsList.add(passwdField = new JPasswordField());
+		passwdField.requestFocus();
 		componentsList.add(nameField   = new JTextField());
 
 		if(isAdmin) {
 			initAdminComponents();
+			groupsCombo.addActionListener(this);
 		} else {
 			initUserComponents();
 		}
@@ -89,9 +96,10 @@ public class InternalPanel extends JPanel {
 	
 	private void initAdminComponents() {
 		componentsList.add(mailField   = new JTextField());
-		componentsList.add(sysAdminCheck  = new JCheckBox());
-		componentsList.add(auditCheck  = new JCheckBox());
-		componentsList.add(groupsCombo = new JComboBox(Cache.getGroupsList()));
+		componentsList.add(typeCombo   = new JComboBox(userTypes));
+		componentsList.add(groupsCombo = new JComboBox(Cache.getAdminGroups()));
+		String[] items = {"SIN REGISTROS"};
+		componentsList.add(sitesCombo  = new JComboBox(items));
 		setAdminContext();		
 	}
 
@@ -123,13 +131,7 @@ public class InternalPanel extends JPanel {
 				labelsPanel.add(new JLabel(posLabels[i]));
 				fieldsPanel.add(componentsList.get(i));
 			}
-
-			JPanel southPanel = new JPanel(new BorderLayout());
-			southPanel.add(new JLabel("Puntos de Trabajo",JLabel.CENTER),BorderLayout.NORTH);
-			southPanel.add(new JPanel(),BorderLayout.WEST);
-			southPanel.add(table.getPanel(),BorderLayout.CENTER);
-			southPanel.add(new JPanel(),BorderLayout.EAST);
-			centerPanel.add(southPanel,BorderLayout.SOUTH);
+			centerPanel.add(addPOSTable(),BorderLayout.SOUTH);
 		}
 
 		centerPanel.add(labelsPanel,BorderLayout.WEST);
@@ -143,20 +145,42 @@ public class InternalPanel extends JPanel {
 		this.add(finalPanel,BorderLayout.CENTER);
 
 	}
+	
+	private JPanel addPOSTable() {
+		JPanel southPanel = new JPanel(new BorderLayout());
+		southPanel.add(new JLabel("Puntos de Trabajo",JLabel.CENTER),BorderLayout.NORTH);
+		southPanel.add(new JPanel(),BorderLayout.WEST);
+		southPanel.add(table.getPanel(),BorderLayout.CENTER);
+		southPanel.add(new JPanel(),BorderLayout.EAST);
+		
+		return southPanel;
+	}
 
 	private void activeAdminPanel(boolean flag) {
-		sysAdminCheck.setEnabled(flag);
-		auditCheck.setEnabled(flag);
 		nameField.setEditable(flag);
+		typeCombo.setEnabled(flag);
 		groupsCombo.setEnabled(flag);
+		sitesCombo.setEnabled(flag);
 		mailField.setEditable(flag);
 		passwdField.setEnabled(flag);
 	}
 	
 	private void setAdminDataPanel() {
-		sysAdminCheck.setSelected(user.getAdmin());
-		auditCheck.setSelected(user.getAudit());
+        switch(user.getType()) {
+        case 1:
+        	typeCombo.setSelectedItem("Administrador");
+        	break;
+        case 2:
+        	typeCombo.setSelectedItem("Auditor");
+        	break;
+        case 5:
+        	typeCombo.setSelectedItem("Usuario de Correo");
+        	break;
+        }
 		groupsCombo.setSelectedItem(user.getGroupName());
+		updateSitesCombo(Cache.getWorkStationsListByGroup(user.getGroupName()));
+		Object[] leaf = MainTreeManager.getSelectedPath().getPath();
+		sitesCombo.setSelectedItem(leaf[2].toString());
 		mailField.setText(user.getEmail());
 		nameField.setText(user.getName());		
 	}
@@ -227,7 +251,7 @@ public class InternalPanel extends JPanel {
 			MD5Tool md5 = new MD5Tool(passwd);
 			passwd = md5.getDigest();
 		} else {
-			passwd = "";
+				passwd = "";
 		}
 		return passwd;
 	}
@@ -253,39 +277,65 @@ public class InternalPanel extends JPanel {
 			return "1";
 		}
 	}
-
-	public boolean doIPCheck() {
-		if(isAdmin) {
-			return false;
+	
+	public String getUserLocation() {
+		String location = sitesCombo.getSelectedItem().toString();
+		if (location.equals("SIN REGISTROS")) {
+			return location;	
 		} else {
-			return ipControlCheck.isSelected();
+			WorkStation ws = Cache.getWorkStation(location);
+			return ws.getCode();
 		}
 	}
 	
-	public String isAdmin() {
-		if(isAdmin) {
-			return String.valueOf(sysAdminCheck.isSelected());
+	public String getUserRol() {
+		String rol = typeCombo.getSelectedItem().toString();
+		String type = "";
+
+		if (rol.equals("Administrador")) {
+			type = "1";
+		} else if (rol.equals("Auditor")) {
+			type = "2";
+		} else {
+			type = "5";
 		}
-		else {
-			return "f";
-		}
+		
+		return type;
 	}
 
-	public String isAuditor() {
+	public String doIPCheck() {
 		if(isAdmin) {
-			if(auditCheck.isSelected()) {
-				return "t";
-			}
-			else {
-				return "f";
-			} 
+			return "0";
 		} else {
-			return "f";
+			if (ipControlCheck.isSelected()) {
+				return "1";
+			} else {
+				return "0";
+			}
 		}
 	}
 	
 	public Vector<String> getPosCodes() {
 		return table.getPosCodeVector();
 	}
+
+	public void actionPerformed(ActionEvent e) {
+	    JComboBox cb = (JComboBox)e.getSource();
+	    String group = (String)cb.getSelectedItem();
+	    sitesCombo.removeAllItems();
+	    String[] places = Cache.getWorkStationsListByGroup(group);
+	    updateSitesCombo(places);
+	}
+	
+	private void updateSitesCombo(String[] items) {
+	    if(items.length == 0) {
+	    	sitesCombo.addItem("SIN REGISTROS");
+	    } else {
+	    	for (int i=0;i< items.length;i++) {
+	    		sitesCombo.addItem(items[i]);
+	    	}	    
+	    }
+	}
+	
 
 }

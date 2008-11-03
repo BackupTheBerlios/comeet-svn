@@ -66,7 +66,7 @@ public class UsersModel extends AbstractTableModel {
 		case 3:
 			return user.getEmail();
 		case 4:
-			return user.getAdmin();
+			return false;
 		}
 		
 		return null;

@@ -67,7 +67,7 @@ public class GroupsModel extends AbstractTableModel {
 		case 2:
 			return g.isVisible();
 		case 3:
-			return  g.isZone();
+			return  g.getType();
 		}
 		return null;
 	}
