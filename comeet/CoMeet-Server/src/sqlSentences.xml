@@ -44,6 +44,7 @@
 		<sql>
 			SELECT * 
 			FROM grupos 
+			WHERE habilitado=1
 			ORDER BY nombre,tipo_grupo desc
 		</sql>
 	</sentence>
@@ -53,7 +54,7 @@
 		<sql>
 			SELECT u.codigo,u.nombre,u.ip,u.gid,g.nombre 
 			FROM ubicaciones u, grupos g 
-			WHERE g.grupo_id=u.gid 
+			WHERE g.grupo_id=u.gid AND u.habilitado=1
 			ORDER BY u.nombre
 		</sql>
 	</sentence>
@@ -62,10 +63,10 @@
 		<code>SEL0006</code>
 		<sql>
 			SELECT 
-			u.codigo,u.login,u.clave,u.nombres,u.correo,u.gid,g.nombre,ub.nombre,u.rol
+			u.codigo,u.login,u.clave,u.nombres,u.correo,g.grupo_id,g.nombre,ub.nombre,u.rol
 			FROM 
 			usuarios u, grupos g,  ubicaciones ub, usuarios_ubicacion usb
-			WHERE g.grupo_id=u.gid AND (u.rol=1 OR u.rol=2) AND u.habilitado=1
+			WHERE g.grupo_id=u.gid AND (u.rol=1 OR u.rol=2 OR u.rol=5) AND u.habilitado=1
             AND usb.codigo_ubicacion=ub.codigo AND u.codigo=usb.id_usuario
 			ORDER BY u.login 
 		</sql>
@@ -75,13 +76,12 @@
 		<code>SEL0007</code>
 		<sql>
 			SELECT DISTINCT
-			u.codigo,u.login,u.clave,u.nombres,u.gid,ub.nombre,usb.validar_ip,g.nombre,u.rol
+			u.codigo,u.login,u.clave,u.nombres,g.grupo_id,ub.nombre,usb.validar_ip,g.nombre,u.rol
 			FROM 
 			usuarios u, grupos g, ubicaciones ub, usuarios_ubicacion usb
 			WHERE 
-			usb.codigo_ubicacion=ub.codigo AND 
-			u.codigo=usb.id_usuario AND ub.gid=g.grupo_id AND
-			g.tipo_grupo=1
+			usb.codigo_ubicacion=ub.codigo AND u.habilitado=1 AND
+			u.codigo=usb.id_usuario AND ub.gid=g.grupo_id AND u.rol=3
 			ORDER BY u.login
 		</sql>
 	</sentence>
@@ -589,7 +589,7 @@
 	</sentence>
 	<!--====================== Delete======================================= -->
 	<sentence>
-	<!--Descripcion: ... -->
+	<!--Descripcion: Esta instruccion elimina todas las relaciones de un usuario con ubicaciones -->
 		<code>DEL0001</code>
 		<sql>
 			DELETE FROM 
@@ -599,24 +599,30 @@
 		</sql>
 	</sentence>
 	<sentence>
-	<!--Descripcion: ... -->
+	<!--Descripcion: Esta instruccion inhabilita a un usuario del sistema -->
 		<code>DEL0002</code>
 		<sql>
-			DELETE FROM usuarios WHERE codigo='?'
+			UPDATE usuarios 
+			SET habilitado=0
+			WHERE codigo='?'
 		</sql>
 	</sentence>
 	<sentence>
 	<!--Descripcion: ... -->
 		<code>DEL0003</code>
 		<sql>
-			DELETE FROM grupos WHERE nombre='?'
+			UPDATE grupos 
+			SET habilitado=0
+			WHERE nombre='?'
 		</sql>
 	</sentence>
 	<sentence>
 	<!--Descripcion: ... -->
 		<code>DEL0004</code>
 		<sql>
-			DELETE FROM ubicaciones WHERE codigo='?'
+			UPDATE ubicaciones 
+			SET habilitado=0
+			WHERE codigo='?'
 		</sql>
 	</sentence>
 	<!-- ======================== Upate =====================================-->

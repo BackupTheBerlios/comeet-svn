@@ -172,6 +172,7 @@ public class UserManager {
 		qRunner.setAutoCommit(false);
 		qRunner.executeSQL();
 		
+		/*
 		element = (Element)iterator.next();
 		args = getPackArgs(element);
 		sqlCode = ((Element)argsIterator.next()).getText();
@@ -179,6 +180,7 @@ public class UserManager {
 		queries.add(qRunner);
 		qRunner.setAutoCommit(false);
 		qRunner.executeSQL();
+		*/
 		
 		return true;
 	}

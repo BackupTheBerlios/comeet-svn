@@ -303,6 +303,9 @@ public class MainTreeManager {
 						
 		public void actionPerformed(ActionEvent event) {
 			String command = event.getActionCommand();
+			
+			System.out.println("COMANDO: " + command);
+			
 			int count = MainTreeManager.currentTreePath.getPathCount();
 			name = MainTreeManager.currentTreePath.getPathComponent(count -1).toString();
 

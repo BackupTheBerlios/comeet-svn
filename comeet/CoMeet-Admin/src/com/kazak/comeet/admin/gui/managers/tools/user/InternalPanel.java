@@ -322,12 +322,12 @@ public class InternalPanel extends JPanel implements ActionListener {
 	public void actionPerformed(ActionEvent e) {
 	    JComboBox cb = (JComboBox)e.getSource();
 	    String group = (String)cb.getSelectedItem();
-	    sitesCombo.removeAllItems();
 	    String[] places = Cache.getWorkStationsListByGroup(group);
 	    updateSitesCombo(places);
 	}
 	
 	private void updateSitesCombo(String[] items) {
+		sitesCombo.removeAllItems();
 	    if(items.length == 0) {
 	    	sitesCombo.addItem("SIN REGISTROS");
 	    } else {

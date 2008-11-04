@@ -121,17 +121,11 @@ public class UserDialog extends JFrame {
 				}
 			}
 			data[4] = dynamicPanel.getUserRol();
-			data[6] = dynamicPanel.getUserLocation();
-			if (data[6].equals("SIN REGISTROS")) {
-				JOptionPane.showMessageDialog(this,"Error: Ubicación Inválida. Seleccione un grupo que contenga al menos una ubicación");
-				return false;
-			}
 		} else {
-			data[4] = "3";
-			data[6] = "NULL";			
+			data[4] = "3";			
 		}
 		data[5] = dynamicPanel.getUserGroup();
-		data[7] = dynamicPanel.doIPCheck(); // ip control enabled? 
+		data[6] = dynamicPanel.doIPCheck(); // ip control enabled? 
 			
 		return true;
 	}
@@ -155,6 +149,11 @@ public class UserDialog extends JFrame {
 			}
 			if(isAdmin) {
 				Vector<String> posCodes = new Vector<String>();
+				String site = dynamicPanel.getUserLocation();
+				if (site.equals("SIN REGISTROS")) {
+					JOptionPane.showMessageDialog(this,"Error: Ubicación Inválida. Seleccione un grupo que contenga al menos una ubicación");
+					return;
+				}
 				posCodes.add(dynamicPanel.getUserLocation());
 				doc = new UserDocument(data,posCodes);
 			}

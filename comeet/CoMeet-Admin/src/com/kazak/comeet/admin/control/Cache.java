@@ -198,7 +198,7 @@ public class Cache {
 		user.setType(Integer.parseInt(((Element)columns.next()).getValue()));
 		user.setSeller(false);
 		groupsList.get(user.groupName).add(user);
-		
+			
 		result[0] = wsName;
 		result[1] = user.login;
 		
@@ -381,12 +381,9 @@ public class Cache {
 	}
 		
 	public static ArrayList<POS> getWorkStationsListByUser(String userCode) {
-		System.out.println("USERCODE: " + userCode);
 		ArrayList<POS> list = new ArrayList<POS>();
 		for (Cache.Group group : Cache.getList()) {
 			for (Cache.WorkStation ws : group.getWorkStations()) {
-				System.out.println("WS: " + ws.getName());
-				System.out.println("SIZE: " + ws.userHash.size());
 				if (ws.containsUser(userCode)) {
 					POS upos = new POS();
 					upos.posCode = ws.getCode();

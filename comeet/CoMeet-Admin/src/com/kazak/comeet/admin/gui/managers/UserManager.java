@@ -24,6 +24,8 @@ package com.kazak.comeet.admin.gui.managers;
 
 import com.kazak.comeet.admin.gui.managers.tools.user.UserDialog;
 import com.kazak.comeet.admin.gui.managers.tools.ToolsConstants;
+import com.kazak.comeet.admin.control.Cache;
+import com.kazak.comeet.admin.control.Cache.User;
 
 public class UserManager {
 	UserDialog form;
@@ -44,7 +46,17 @@ public class UserManager {
 		form = new UserDialog(ToolsConstants.DELETE,"",false);
 	}
 	public void deleteUser(String target) {
-		form = new UserDialog(ToolsConstants.DELETE_PREFILLED,target,false);
+		User user = Cache.getUser(target);
+		Boolean isAdmin = false;
+		int type = user.getType();
+		switch(type) {
+		case 1:
+		case 2:
+		case 5:
+			isAdmin = true;
+			break;
+		}
+		form = new UserDialog(ToolsConstants.DELETE_PREFILLED,target,isAdmin);
 	}
 	public void searchUser() {
 		form = new UserDialog(ToolsConstants.SEARCH,"",false);
