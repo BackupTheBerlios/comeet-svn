@@ -43,11 +43,12 @@ import com.kazak.comeet.admin.transactions.QuerySenderException;
 public class Cache {
 	
 	private static Hashtable<String, Group> groupsList;
+	private static Hashtable<Integer, String> roles;
 	private static JFrame frame;
 	private static int VISUAL = 1;
 	private static Vector<String> adminUsers = new Vector<String>();
 	private static Vector<String> operativeUsers = new Vector<String>();
-	private static Iterator rows1,rows2,rows3,rows4;
+	private static Iterator rows1,rows2,rows3,rows4,rows5,rows6;
 	
 	// This method updates the main jtree 
 	
@@ -81,10 +82,10 @@ public class Cache {
 				}
 				//Loading jtree with users (admin)
 				while (rows3.hasNext()) {						
-					String[] data = addAdminUserItem(rows3); // Group name and user name
+					String[] data = addAdminUserItem(rows3); // Workstation name and user name
 					if(mode == VISUAL) {
 						Group group = getGroupByWorkStation(data[0].toString());
-						MainTreeManager.addChild(group.name,data[0],data[1]);
+						MainTreeManager.addChild(group.getName(),data[0],data[1]);
 					}
 				}
 				//Loading jtree with users (pos)
@@ -92,9 +93,27 @@ public class Cache {
 					Object[] data = addPOSUserItem(rows4); // Workstation name and User object 		
 					if(mode == VISUAL) {
 						Group group = getGroupByWorkStation(data[0].toString());
-						MainTreeManager.addChild(group.name,data[0].toString(),((User)data[1]).login);
+						String login = ((User)data[1]).getLogin();
+						MainTreeManager.addChild(group.getName(),data[0].toString(),login);
 					}
 				}
+				
+				//Loading jtree with users (slots)
+				while (rows5.hasNext()) {
+					Object[] data = addPOSUserItem(rows5); // Workstation name and User object 		
+					if(mode == VISUAL) {
+						Group group = getGroupByWorkStation(data[0].toString());
+						String login = ((User)data[1]).getLogin();
+						MainTreeManager.addChild(group.getName(),data[0].toString(),login);
+					}
+				}
+				
+				//Loading roles
+				roles = new Hashtable<Integer, String>();
+				while (rows6.hasNext()) {
+					addRol(rows6); // Workstation name and User object 		
+				}
+				
 				if(mode == VISUAL) {
 					MainTreeManager.updateUI();
 					System.gc();
@@ -108,9 +127,15 @@ public class Cache {
 	
 	public static void getDataBaseData() {
 		try {
-			// Groups
-			Document doc = QuerySender.getResultSetFromST("SEL0004",null);
+			
+			// Roles
+			Document doc = QuerySender.getResultSetFromST("SEL0039",null);
 			Element root = doc.getRootElement();
+			rows6 = root.getChildren("row").iterator();
+
+			// Groups
+			doc = QuerySender.getResultSetFromST("SEL0004",null);
+			root = doc.getRootElement();
 			rows1 = root.getChildren("row").iterator();
 
 			//POS
@@ -128,9 +153,29 @@ public class Cache {
 			root = doc.getRootElement();
 			rows4 = root.getChildren("row").iterator();
 			
+			//Users - SLOT
+			doc = QuerySender.getResultSetFromST("SEL0006A",null);
+			root = doc.getRootElement();
+			rows5 = root.getChildren("row").iterator();
+			
 		} catch (QuerySenderException e) {
 			e.printStackTrace();
 		}
+	}
+
+	public static void addRol(Iterator rolesIterator) {
+		Element row = (Element) rolesIterator.next();
+		Iterator columns = row.getChildren().iterator();
+
+		String rolId = ((Element)columns.next()).getValue();
+		String name = ((Element)columns.next()).getValue();
+	
+		roles.put(new Integer(rolId),name);
+	}
+	
+	public static String getRol(int i) {
+		String rol = roles.get(new Integer(i));
+		return rol;
 	}
 	
 	public static String addGroupItem(Iterator groupIterator) {

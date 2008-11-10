@@ -26,12 +26,13 @@ import java.util.Vector;
 
 import javax.swing.table.AbstractTableModel;
 
+import com.kazak.comeet.admin.control.Cache;
 import com.kazak.comeet.admin.control.Cache.User;
 
 public class UsersModel extends AbstractTableModel {
 	private static final long serialVersionUID = 1L;
-	private String[] titles = {"UID","LOGIN","NOMBRES","CORREO","ADMINISTRADOR"};
-	private Class[] types   = {String.class,String.class,String.class,String.class,Boolean.class};
+	private String[] titles = {"UID","LOGIN","NOMBRES","CORREO","ROL"};
+	private Class[] types   = {String.class,String.class,String.class,String.class,String.class};
 	private Vector<User> usersVector;
 	
 	public UsersModel(Vector<User> vector) {
@@ -66,7 +67,7 @@ public class UsersModel extends AbstractTableModel {
 		case 3:
 			return user.getEmail();
 		case 4:
-			return false;
+			return Cache.getRol(user.getType());
 		}
 		
 		return null;

@@ -72,6 +72,20 @@
 		</sql>
 	</sentence>
 	<sentence>
+	<!--Descripcion: Esta consulta retorna la lista de usuarios de tipo lote -->
+		<code>SEL0006A</code>
+		<sql>
+			SELECT DISTINCT
+			u.codigo,u.login,u.clave,u.nombres,g.grupo_id,ub.nombre,usb.validar_ip,g.nombre,u.rol
+			FROM 
+			usuarios u, grupos g, ubicaciones ub, usuarios_ubicacion usb
+			WHERE 
+			usb.codigo_ubicacion=ub.codigo AND u.habilitado=1 AND
+			u.codigo=usb.id_usuario AND ub.gid=g.grupo_id AND u.rol=4
+			ORDER BY u.login
+		</sql>
+	</sentence>
+	<sentence>
 	<!--Descripcion: Esta consulta retorna la lista de usuarios POS -->
 		<code>SEL0007</code>
 		<sql>
@@ -103,7 +117,7 @@
 			FROM 
 			usuarios u, ubicaciones ub, usuarios_ubicacion usb 
 			WHERE 
-			u.codigo=usb.id_usuario AND ub.codigo=usb.codigo_ubicacion AND u.login='suba' 
+			u.codigo=usb.id_usuario AND ub.codigo=usb.codigo_ubicacion AND u.login='?' 
 			ORDER BY ub.codigo
 		</sql>
 	</sentence>
@@ -531,6 +545,14 @@
               WHERE grupo_id=(SELECT gid FROM usuarios WHERE correo='?' AND rownum=1)
 		 </sql>
   	    </sentence>	    
+        <sentence>
+	    <!--Descripcion: Esta consulta, retorna la lista de roles soportados por el sistema -->
+		<code>SEL0039</code>
+		 <sql>
+              SELECT *
+              FROM roles 
+		 </sql>
+  	    </sentence>	      	    
 	<!--============================= Inserts ===============================-->
 	<sentence>
 	<!--Descripcion: Esta instruccion ingresa un registro de usuario al sistema -->

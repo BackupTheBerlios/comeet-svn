@@ -184,7 +184,6 @@ public class Pop3Handler extends Thread {
 								groupID =  resultSet.getString(1);
 								if (groupID!=null) {
 									inside = true;
-									System.out.println("Generando solicitud para grupo " + groupID);
 									Element xml = new Element("Message");
 									xml.addContent(createXMLElement("idgroup",groupID));
 									xml.addContent(createXMLElement("toName",toAllUsers ? resultSet.getString(2): to ));
