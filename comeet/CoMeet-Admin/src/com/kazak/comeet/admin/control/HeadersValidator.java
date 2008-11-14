@@ -26,6 +26,7 @@ import java.awt.Cursor;
 import java.io.IOException;
 
 import javax.swing.JOptionPane;
+import javax.swing.tree.TreePath;
 //import javax.swing.tree.TreePath;
 
 import org.jdom.Document;
@@ -93,7 +94,10 @@ public class HeadersValidator implements PackageComingListener {
         }
         else if(name.equals("RELOADTREE")) {
         	Cache.loadInfoTree(1);
-        	MainWindow.updateGrid(MainTreeManager.getSelectedPath());
+        	TreePath path = MainTreeManager.getSelectedPath();
+        	if (path != null) {
+        		MainWindow.updateGrid(MainTreeManager.getSelectedPath());
+        	} 
         }
         else if(name.equals("SUCCESS")) {
             String id = root.getChildText("id");

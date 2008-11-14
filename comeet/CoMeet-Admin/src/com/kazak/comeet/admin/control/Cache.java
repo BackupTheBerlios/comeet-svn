@@ -26,6 +26,7 @@ import java.awt.Cursor;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
+import java.util.Enumeration;
 import java.util.HashMap;
 import java.util.Hashtable;
 import java.util.Iterator;
@@ -44,11 +45,13 @@ public class Cache {
 	
 	private static Hashtable<String, Group> groupsList;
 	private static Hashtable<Integer, String> roles;
+	private static Hashtable<String, Integer> groupTypes;
+	private static Vector<String> groupTypesVector;
 	private static JFrame frame;
 	private static int VISUAL = 1;
 	private static Vector<String> adminUsers = new Vector<String>();
 	private static Vector<String> operativeUsers = new Vector<String>();
-	private static Iterator rows1,rows2,rows3,rows4,rows5,rows6;
+	private static Iterator rows1,rows2,rows3,rows4,rows5,rows6,rows7;
 	
 	// This method updates the main jtree 
 	
@@ -111,7 +114,14 @@ public class Cache {
 				//Loading roles
 				roles = new Hashtable<Integer, String>();
 				while (rows6.hasNext()) {
-					addRol(rows6); // Workstation name and User object 		
+					addRol(rows6);  		
+				}
+				
+				//Loading group types
+				groupTypes = new Hashtable<String, Integer>();
+				groupTypesVector = new Vector<String>();
+				while (rows7.hasNext()) {
+					addGroupType(rows7);   		
 				}
 				
 				if(mode == VISUAL) {
@@ -127,13 +137,17 @@ public class Cache {
 	
 	public static void getDataBaseData() {
 		try {
-			
-			// Roles
-			Document doc = QuerySender.getResultSetFromST("SEL0039",null);
+			//Group Types
+			Document doc = QuerySender.getResultSetFromST("SEL0040",null);
 			Element root = doc.getRootElement();
+			rows7 = root.getChildren("row").iterator();
+			
+			//Roles
+			doc = QuerySender.getResultSetFromST("SEL0039",null);
+			root = doc.getRootElement();
 			rows6 = root.getChildren("row").iterator();
 
-			// Groups
+			//Groups
 			doc = QuerySender.getResultSetFromST("SEL0004",null);
 			root = doc.getRootElement();
 			rows1 = root.getChildren("row").iterator();
@@ -173,9 +187,44 @@ public class Cache {
 		roles.put(new Integer(rolId),name);
 	}
 	
+	public static void addGroupType(Iterator groupTypeIterator) {
+		Element row = (Element) groupTypeIterator.next();
+		Iterator columns = row.getChildren().iterator();
+
+		String typeId = ((Element)columns.next()).getValue();
+		String name = ((Element)columns.next()).getValue();
+	
+		groupTypes.put(name, new Integer(typeId));
+		groupTypesVector.add(name);
+	}
+	
 	public static String getRol(int i) {
 		String rol = roles.get(new Integer(i));
 		return rol;
+	}
+
+	public static Integer getGroupTypeID(String type) {
+		Integer id = groupTypes.get(type);
+		return id;
+	}
+
+	public static String getGroupTypeName(int id) {
+		String result = "";
+		Enumeration<String> e = groupTypes.keys();
+		while(e.hasMoreElements())
+		{ 
+			String key = (String)(e.nextElement());
+			Integer value = (Integer)groupTypes.get(key);
+			if (value.intValue() == id) {
+				result =  key;
+				break;
+			}
+		}
+		return result;
+	}
+	
+	public static Vector<String> getGroupTypesVector() {
+		return groupTypesVector;
 	}
 	
 	public static String addGroupItem(Iterator groupIterator) {
@@ -785,13 +834,14 @@ public class Cache {
 		public Collection<User> getUsers() {
 			return usersHash.values();
 		}
-		
+		/*
 		public Boolean isZone() {
 			if (type == 1) {
 				return true;
 			}
 			return false;
 		}
+		*/
 		
 	}
 

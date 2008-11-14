@@ -56,7 +56,6 @@ public class PosDocument {
 		Element pack = new Element("package");
 		 
 		Cache.Group g = Cache.getGroup(group);
-		pack.addContent(createField(code));
 		pack.addContent(createField(name));
 		pack.addContent(createField(ip));
 		pack.addContent(createField(g.getId()));

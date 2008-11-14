@@ -127,7 +127,7 @@
 		</JMenuItem>
 	</JMenu>
 	<JMenu>
-		<Text>Puntos de Trabajo</Text>
+		<Text>Ubicaciones</Text>
 		<Mnemonic>P</Mnemonic>
 		<JMenuItem>
 			<Mnemonic>B</Mnemonic>

@@ -69,12 +69,10 @@ public class GroupManager {
 		}
 		else {
 			for (QueryRunner qRunner :queries) {
-				qRunner.rollback();
+				 qRunner.rollback();
 			}
 			if ("remove".equals(type)) {
-				message =
-					"El grupo debe estar vacio\n" +
-					"para poder ser eliminado\n";
+				message = "El grupo debe estar vacio para poder ser eliminado.\n";
 			}
 			TransactionRunner.
 			notifyErrorMessage
@@ -107,6 +105,7 @@ public class GroupManager {
 		String[] args = packArgs(element);
 		String sqlCode = ((Element)argsIterator.next()).getText();
 		QueryRunner queryRunner = new QueryRunner(sqlCode,args);
+		System.out.println("SQL POP: " + sqlCode);
 		queries.add(queryRunner);
 		ResultSet resultSet = queryRunner.select();
 		resultSet.next();
@@ -119,6 +118,7 @@ public class GroupManager {
 		}
 		sqlCode = ((Element)argsIterator.next()).getText();
 		queryRunner = new QueryRunner(sqlCode,args);
+		System.out.println("SQL POP: " + sqlCode);
 		queries.add(queryRunner);
 		resultSet = queryRunner.select();
 		resultSet.next();

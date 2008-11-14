@@ -28,7 +28,7 @@ import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 
-import com.kazak.comeet.admin.control.Cache;
+//import com.kazak.comeet.admin.control.Cache;
 import com.kazak.comeet.admin.gui.managers.tools.ToolsConstants;
 
 public class PosData {
@@ -63,10 +63,6 @@ public class PosData {
 			return false;
 		}
 
-		if(!groupIsZone(data[3])) {
-			return false;
-		}
-
 		return true;
 	}
 	
@@ -93,6 +89,7 @@ public class PosData {
 		return false;
 	}
 	
+	/*
 	private boolean groupIsZone(String group) {
 		Cache.Group g = Cache.getGroup(group);
 
@@ -108,6 +105,7 @@ public class PosData {
 		
 		return true;
 	}
+	*/
 	
 	private boolean isAValidIP(String input) {
 		if (!"".equals(input)) {

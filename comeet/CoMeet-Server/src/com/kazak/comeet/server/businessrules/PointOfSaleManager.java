@@ -70,8 +70,7 @@ public class PointOfSaleManager {
 			}
 			if ("remove".equals(type)) {
 				message =
-					"El grupo debe estar vacio\n" +
-					"para poder ser eliminado\n";
+					"El grupo debe estar vacio para poder ser eliminado\n";
 			}
 			TransactionRunner.notifyErrorMessage(sock,id,
 							"ERROR: No se pudo procesar la transaccion.\nCausa:\n" + message + " ");

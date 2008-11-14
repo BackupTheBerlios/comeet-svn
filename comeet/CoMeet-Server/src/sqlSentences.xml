@@ -192,7 +192,7 @@
 		<sql>
 			SELECT count(*) AS count
 			FROM ubicaciones  
-			WHERE gid=(SELECT grupo_id FROM grupos g WHERE g.nombre='NORTE')
+			WHERE gid=(SELECT grupo_id FROM grupos g WHERE g.nombre='?')
 		</sql>
 	</sentence>
 	<sentence>
@@ -551,8 +551,18 @@
 		 <sql>
               SELECT *
               FROM roles 
+              ORDER BY nombre
 		 </sql>
   	    </sentence>	      	    
+        <sentence>
+	    <!--Descripcion: Esta consulta, retorna la lista de tipo de grupos -->
+		<code>SEL0040</code>
+		 <sql>
+              SELECT *
+              FROM tipo_grupo
+              ORDER BY descripcion
+		 </sql>
+  	    </sentence>	      	    	    
 	<!--============================= Inserts ===============================-->
 	<sentence>
 	<!--Descripcion: Esta instruccion ingresa un registro de usuario al sistema -->
@@ -597,7 +607,7 @@
 		<sql>
 			INSERT INTO 
 			grupos (nombre,visible,tipo_grupo) 
-			VALUES ('?','?','?')
+			VALUES ('?','?',?)
 		</sql>
 	</sentence>
 	<sentence>
@@ -605,8 +615,8 @@
 		<code>INS0007</code>
 		<sql>
 			INSERT INTO 
-			ubicaciones (codigo,nombre,ip,gid) 
-			VALUES ('?','?','?','?')
+			ubicaciones (nombre,ip,gid) 
+			VALUES ('?','?',?)
 		</sql>
 	</sentence>
 	<!--====================== Delete======================================= -->

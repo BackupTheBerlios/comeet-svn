@@ -304,7 +304,7 @@ public class GroupsManager extends JFrame implements ActionListener, ItemListene
 			oldGroupName = nameField.getText().toUpperCase();
 			visibleCheck.setSelected(group.isVisible());
 
-			zoneCheck.setSelected(group.isZone());
+			//zoneCheck.setSelected(group.isZone());
 
 			if (ACTION == ACTIONS.SEARCH) {
 				visibleCheck.setEnabled(false);

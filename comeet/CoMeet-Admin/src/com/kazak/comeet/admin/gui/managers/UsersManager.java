@@ -53,7 +53,7 @@ import org.jdom.Document;
 import org.jdom.Element;
 
 import com.kazak.comeet.admin.control.Cache;
-import com.kazak.comeet.admin.control.Cache.Group;
+//import com.kazak.comeet.admin.control.Cache.Group;
 import com.kazak.comeet.admin.control.Cache.User;
 import com.kazak.comeet.admin.gui.main.MainWindow;
 import com.kazak.comeet.admin.gui.main.MainTreeManager;
@@ -292,8 +292,9 @@ public class UsersManager extends JFrame implements ActionListener, ItemListener
 						nameField.requestFocus();
 						return;						
 					}
-					String string = groupsCombo.getSelectedItem().toString();
-					Group group = Cache.getGroup(string);
+					//String string = groupsCombo.getSelectedItem().toString();
+					//Group group = Cache.getGroup(string);
+					/*
 					if ((group.isZone()) && table.getRowCount() <= 0) {
 						JOptionPane.showMessageDialog(
 								this,
@@ -303,6 +304,7 @@ public class UsersManager extends JFrame implements ActionListener, ItemListener
 								"</center></html>");
 						return;
 					}
+					*/
 					document = getDocumentToAdd();
 					this.dispose();
 				}
@@ -335,8 +337,9 @@ public class UsersManager extends JFrame implements ActionListener, ItemListener
 					user = null;
 				}
 				if (user==null) {
-					String string = groupsCombo.getSelectedItem().toString();
-					Group group = Cache.getGroup(string);
+					//String string = groupsCombo.getSelectedItem().toString();
+					//Group group = Cache.getGroup(string);
+					/*
 					if ((group.isZone()) && table.getRowCount() <= 0) {
 						JOptionPane.showMessageDialog(
 								this,
@@ -346,6 +349,7 @@ public class UsersManager extends JFrame implements ActionListener, ItemListener
 								"</center></html>");
 						return;
 					}
+					*/
 					document = getDocumentToEdit();
 					this.dispose();
 				}

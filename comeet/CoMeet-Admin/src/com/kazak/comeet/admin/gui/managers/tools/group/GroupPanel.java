@@ -35,6 +35,7 @@ import java.util.ArrayList;
 import javax.swing.BoxLayout;
 import javax.swing.JButton;
 import javax.swing.JCheckBox;
+import javax.swing.JComboBox;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
@@ -59,8 +60,8 @@ public class GroupPanel extends JPanel implements ActionListener, KeyListener {
 	private ArrayList<Component> componentsList = new ArrayList<Component>();
 	private AutoCompleteComboBox nameField;
 	private JCheckBox visibleCheck;
-	private JCheckBox zoneCheck;
-	private String[] labels = {"Nombre: ","Visible para clientes","Es Zona"};
+	private JComboBox groupType;
+	private String[] labels = {"Nombre: ","Tipo de Grupo: ","Visible para clientes"};
 
 	public GroupPanel(MainForm mainFrame, int action, String target) {
 		this.mainFrame = mainFrame;
@@ -74,11 +75,11 @@ public class GroupPanel extends JPanel implements ActionListener, KeyListener {
 		GUIFactory gui = new GUIFactory();
 		searchButton = gui.createButton("search.png");
 		searchButton.setActionCommand("search");
-		searchButton.addActionListener(this);
+		searchButton.addActionListener(this);		
 
-		componentsList.add(nameField = new AutoCompleteComboBox(Cache.getGroupsList(),false,50,searchButton));
-		componentsList.add(visibleCheck= new JCheckBox());
-		componentsList.add(zoneCheck   = new JCheckBox());
+		componentsList.add(nameField    = new AutoCompleteComboBox(Cache.getGroupsList(),false,50,searchButton));
+		componentsList.add(groupType    = new JComboBox(Cache.getGroupTypesVector()));
+		componentsList.add(visibleCheck = new JCheckBox());
 		
 		setInitMode();
 		this.setVisible(true);
@@ -89,11 +90,14 @@ public class GroupPanel extends JPanel implements ActionListener, KeyListener {
 			// To Add
 		case ToolsConstants.ADD:
 			mainFrame.setTitle("Nuevo Grupo");
+			enableFields(false);
 			ButtonBar.setEnabledAcceptButton(false);
 			break;
 			// To Edit
 		case ToolsConstants.EDIT:
 			mainFrame.setTitle("Editar Grupo");
+			enableFields(false);
+			ButtonBar.setEnabledAcceptButton(false);
 			break;
 			// Edit pre-filled
 		case ToolsConstants.EDIT_PREFILLED:
@@ -105,6 +109,7 @@ public class GroupPanel extends JPanel implements ActionListener, KeyListener {
 		case ToolsConstants.DELETE:
 			mainFrame.setTitle("Borrar Grupo");
 			ButtonBar.setEnabledAcceptButton(false);
+			enableFields(false);
 			break;
 			// Delete pre-filled
 		case ToolsConstants.DELETE_PREFILLED:
@@ -115,13 +120,13 @@ public class GroupPanel extends JPanel implements ActionListener, KeyListener {
 			// To Search
 		case ToolsConstants.SEARCH:
 			mainFrame.setTitle("Buscar Grupo");
-			disableFields();
+			enableFields(false);
 			break;
 			// Search pre-filled
 		case ToolsConstants.SEARCH_PREFILLED:
 			mainFrame.setTitle("Buscar Grupo");			
 			doFilledSearch();
-			disableFields();
+			enableFields(false);
 			break;
 		}	
 	}
@@ -129,6 +134,7 @@ public class GroupPanel extends JPanel implements ActionListener, KeyListener {
 	private void fillForm() {
 		if (Cache.containsGroup(target)) {
 			Group group = Cache.getGroup(target);
+			String type;
 			
 			switch(action) {
 			case ToolsConstants.ADD:
@@ -141,17 +147,21 @@ public class GroupPanel extends JPanel implements ActionListener, KeyListener {
 			case ToolsConstants.EDIT:
 			case ToolsConstants.EDIT_PREFILLED:
 				visibleCheck.setSelected(group.isVisible());
-				zoneCheck.setSelected(group.isZone());				
+				type = Cache.getGroupTypeName(group.getType());
+				groupType.setSelectedItem(type);
+				enableFields(true);
+				ButtonBar.setEnabledAcceptButton(true);			
 				break;
 			case ToolsConstants.DELETE:
 			case ToolsConstants.DELETE_PREFILLED:
-				disableFields();
+				enableFields(false);
 				ButtonBar.setEnabledAcceptButton(true);
 			case ToolsConstants.SEARCH:
 			case ToolsConstants.SEARCH_PREFILLED:
 				nameField.requestFocus();
 				visibleCheck.setSelected(group.isVisible());
-				zoneCheck.setSelected(group.isZone());
+				type = Cache.getGroupTypeName(group.getType());
+				groupType.setSelectedItem(type);
 				break;
 			}
 		} else {
@@ -159,6 +169,7 @@ public class GroupPanel extends JPanel implements ActionListener, KeyListener {
 				JOptionPane.showMessageDialog(mainFrame,"El grupo " + target + " no existe. ");
 				resetPanel();
 			} else {
+				enableFields(true);
 				ButtonBar.setEnabledAcceptButton(true);
 			}
 		}			
@@ -167,8 +178,9 @@ public class GroupPanel extends JPanel implements ActionListener, KeyListener {
 	public String[] getFormData(){
 		String[] data = new String[4];	
 		data[0] = target;
-		data[1] = Boolean.toString(visibleCheck.isSelected());
-		data[2] = Boolean.toString(zoneCheck.isSelected());
+		data[1] = visibleCheck.isSelected() ? "1" : "0";
+		String type = groupType.getSelectedItem().toString();
+		data[2] = Cache.getGroupTypeID(type).toString();
 		data[3] = nameField.getText();
 		
 		return data;
@@ -230,6 +242,7 @@ public class GroupPanel extends JPanel implements ActionListener, KeyListener {
 			// To Add, To Edit, To Delete, To Search
 		case ToolsConstants.ADD:
 		case ToolsConstants.EDIT:
+		case ToolsConstants.EDIT_PREFILLED:
 		case ToolsConstants.DELETE:
 		case ToolsConstants.SEARCH:
 		case ToolsConstants.SEARCH_PREFILLED:
@@ -242,7 +255,8 @@ public class GroupPanel extends JPanel implements ActionListener, KeyListener {
 		nameField.setEditable(true);
 		nameField.blankTextField();
 		visibleCheck.setSelected(false);
-		zoneCheck.setSelected(false);
+		groupType.setEnabled(false);
+		ButtonBar.setEnabledAcceptButton(false);
 	}
 	
 	private void resetPanel() {
@@ -250,9 +264,9 @@ public class GroupPanel extends JPanel implements ActionListener, KeyListener {
 		ButtonBar.setEnabledAcceptButton(false);
 	}
 	
-	private void disableFields() {
-		visibleCheck.setEnabled(false);
-		zoneCheck.setEnabled(false);
+	private void enableFields(boolean flag) {
+		visibleCheck.setEnabled(flag);
+		groupType.setEnabled(flag);
 	}
 
 	private void doFilledSearch() {
