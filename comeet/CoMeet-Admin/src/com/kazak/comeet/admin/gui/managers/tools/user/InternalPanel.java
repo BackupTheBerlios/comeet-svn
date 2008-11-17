@@ -39,6 +39,7 @@ import javax.swing.JPanel;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 import javax.swing.border.Border;
+import javax.swing.tree.TreePath;
 
 import com.kazak.comeet.admin.control.Cache;
 import com.kazak.comeet.admin.control.Cache.User;
@@ -52,9 +53,10 @@ import com.kazak.comeet.lib.misc.MD5Tool;
 public class InternalPanel extends JPanel implements ActionListener {
 	private static final long serialVersionUID = 1L;
 	private ArrayList<Component> componentsList = new ArrayList<Component>();
-	private String[] adminLabels = {"Clave: ","Nombres: ","E-Mail: ", "Tipo de Usuario: ","Grupo: ","Ubicación: "};
-	private String[] posLabels = {"Clave: ","Nombres: ","Control de Acceso por IP "};
+	private String[] adminLabels = {"Habilitado ","Clave: ","Nombres: ","E-Mail: ", "Tipo de Usuario: ","Grupo: ","Ubicación: "};
+	private String[] posLabels = {"Habilitado ","Clave: ","Nombres: ","Control de Acceso por IP "};
 	private String[] userTypes = {"Administrador","Auditor","Usuario de Correo"};
+	private JCheckBox enabledCheck;
 	private JPasswordField passwdField;
 	private JTextField nameField;
 	private JTextField mailField;
@@ -82,6 +84,14 @@ public class InternalPanel extends JPanel implements ActionListener {
 	}
 
 	private void initComponents() {
+		componentsList.add(enabledCheck = new JCheckBox());
+		User user = Cache.getUser(username);
+		if (user != null) {
+			enabledCheck.setSelected(user.isEnabled());
+		} else {
+			enabledCheck.setSelected(true);
+		}
+		
 		componentsList.add(passwdField = new JPasswordField());
 		passwdField.requestFocus();
 		componentsList.add(nameField   = new JTextField());
@@ -116,16 +126,16 @@ public class InternalPanel extends JPanel implements ActionListener {
 		Border border = BorderFactory.createEtchedBorder();
 
 		if(isAdmin) {		
-			labelsPanel = new JPanel(new GridLayout(6,0));
-			fieldsPanel = new JPanel(new GridLayout(6,0));
+			labelsPanel = new JPanel(new GridLayout(7,0));
+			fieldsPanel = new JPanel(new GridLayout(7,0));
 
 			for (int i=0 ; i< adminLabels.length ; i++) {
 				labelsPanel.add(new JLabel(adminLabels[i]));
 				fieldsPanel.add(componentsList.get(i));
 			}
 		} else {
-			labelsPanel = new JPanel(new GridLayout(3,0));
-			fieldsPanel = new JPanel(new GridLayout(3,0));
+			labelsPanel = new JPanel(new GridLayout(4,0));
+			fieldsPanel = new JPanel(new GridLayout(4,0));
 
 			for (int i=0 ; i< posLabels.length ; i++) {
 				labelsPanel.add(new JLabel(posLabels[i]));
@@ -157,6 +167,7 @@ public class InternalPanel extends JPanel implements ActionListener {
 	}
 
 	private void activeAdminPanel(boolean flag) {
+		enabledCheck.setEnabled(flag);
 		nameField.setEditable(flag);
 		typeCombo.setEnabled(flag);
 		groupsCombo.setEnabled(flag);
@@ -179,8 +190,11 @@ public class InternalPanel extends JPanel implements ActionListener {
         }
 		groupsCombo.setSelectedItem(user.getGroupName());
 		updateSitesCombo(Cache.getWorkStationsListByGroup(user.getGroupName()));
-		Object[] leaf = MainTreeManager.getSelectedPath().getPath();
-		sitesCombo.setSelectedItem(leaf[2].toString());
+		TreePath path = MainTreeManager.getSelectedPath();
+		if (path != null && user.isEnabled()) {
+			Object[] leaf = MainTreeManager.getSelectedPath().getPath();
+			sitesCombo.setSelectedItem(leaf[2].toString());
+		}
 		mailField.setText(user.getEmail());
 		nameField.setText(user.getName());		
 	}
@@ -276,6 +290,10 @@ public class InternalPanel extends JPanel implements ActionListener {
 		} else {
 			return "1";
 		}
+	}
+	
+	public Boolean isUserEnabled() {
+		return enabledCheck.isSelected();
 	}
 	
 	public String getUserLocation() {

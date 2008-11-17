@@ -10,6 +10,7 @@ import java.util.List;
 
 import org.jdom.Element;
 
+import com.kazak.comeet.server.comunications.SocketServer;
 import com.kazak.comeet.server.database.sql.QueryRunner;
 import com.kazak.comeet.server.database.sql.SQLBadArgumentsException;
 import com.kazak.comeet.server.database.sql.SQLNotFoundException;
@@ -22,6 +23,7 @@ public class MessageConfirmer {
 	private static SimpleDateFormat formatHour = new SimpleDateFormat("HH:mm:ss a");
 	
 	public MessageConfirmer(SocketChannel sock, Element args, Element packet, String id) {
+			
 		this.iterator = packet.getChildren("package").iterator();
 		Iterator argsIterator = args.getChildren("args").iterator();
 		QueryRunner queryRunner = null;
@@ -39,7 +41,7 @@ public class MessageConfirmer {
 			sqlArgs[0] = formatDate.format(date); 
 			sqlArgs[1] = formatHour.format(date);
 			sqlArgs[2] = ((Element) listIterator.next()).getValue();
-			sqlArgs[3] = ((Element) listIterator.next()).getValue();
+			sqlArgs[3] = formatDate(((Element) listIterator.next()).getValue()); // date
 			sqlArgs[4] = ((Element) listIterator.next()).getValue();
 			
 			try {
@@ -47,7 +49,8 @@ public class MessageConfirmer {
 				queryRunner.setAutoCommit(false);
 				queryRunner.executeSQL();
 				queryRunner.commit();
-				LogWriter.write("INFO: [" + sqlArgs[0] + " " + sqlArgs[1] + "] Confirmada lectura de mensaje con destino {" + sqlArgs[4] + "}"); 
+				LogWriter.write("INFO: [" + sqlArgs[0] + " " + sqlArgs[1] + "] Confirmada lectura de mensaje con destino {" + sqlArgs[4] + "}");
+				SocketServer.getSocketInfo(sqlArgs[4]);
 			} catch (SQLException e) {
 				queryRunner.rollback();
 				LogWriter.write("ERROR: " + e.getErrorCode());
@@ -76,4 +79,15 @@ public class MessageConfirmer {
 			}
 		}
 	}
+	
+    private String formatDate(String basic) {
+    	int hour = Integer.parseInt(basic.substring(0,basic.indexOf(":")));
+		String meridian = basic.substring(basic.indexOf(" "),basic.length());
+		if (meridian.trim().equals("PM")) {
+				hour = hour + 12;
+				String tail = basic.substring(basic.indexOf(":"),basic.length());
+				basic = hour + tail;
+		}
+	       return basic;
+    }
 }

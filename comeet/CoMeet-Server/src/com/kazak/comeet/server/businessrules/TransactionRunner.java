@@ -109,7 +109,7 @@ public class TransactionRunner {
         }
 
         /*
-         * Se define las excepciones del caso y rogemos a dios que ninguna de
+         * Se define las excepciones del caso y roguemos a dios que ninguna de
          * estas ocurra a menos de que el documento este mal construido. El
          * codigo es bueno, no tienen porque..... ;-)
          */

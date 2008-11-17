@@ -84,15 +84,9 @@ public class HeadersValidator {
         
         if (SocketServer.isLogged(sock)) {
         	if (rootName.equals("Message")) { 
-                LogWriter.write("INFO: Nuevo mensaje enviado por Colocador desde " + sock.socket().getInetAddress().getHostAddress());
+                LogWriter.write("INFO: Nuevo mensaje enviado por Punto de Venta/PDA desde " + sock.socket().getInetAddress().getHostAddress());
                 new MessageDistributor(root,false);
             }
-        	/*
-        	else if ((rootName.equals("PDAMessage")) && ConfigFileHandler.getMovilSupport()) { 
-                LogWriter.write("INFO: Nuevo mensaje enviado por usuario PDA desde " + sock.socket().getInetAddress().getHostAddress());
-                new MessageDistributor(root,false);
-            }
-            */
         	else if (rootName.equals("Transaction")) {
                 new TransactionRunner(sock,doc);
             }

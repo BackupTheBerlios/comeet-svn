@@ -46,13 +46,6 @@
                         <Method>editAdmin</Method>
                         <UserLevel>1</UserLevel>
                 </JMenuItem>
-                <JMenuItem>
-                        <Mnemonic>l</Mnemonic>
-                        <Text>Eliminar</Text>
-                        <Class>com.kazak.comeet.admin.gui.managers.UserManager</Class>
-                        <Method>deleteAdmin</Method>
-                        <UserLevel>1</UserLevel>
-                </JMenuItem>
                </JMenu>
                <JMenu>
                 <Text>Operativos</Text>
@@ -77,13 +70,6 @@
 			<Text>Editar</Text>
 			<Class>com.kazak.comeet.admin.gui.managers.UserManager</Class>
 			<Method>editUser</Method>
-			<UserLevel>1</UserLevel>
-		</JMenuItem>
-		<JMenuItem>
-			<Mnemonic>l</Mnemonic>
-			<Text>Eliminar</Text>
-			<Class>com.kazak.comeet.admin.gui.managers.UserManager</Class>
-			<Method>deleteUser</Method>
 			<UserLevel>1</UserLevel>
 		</JMenuItem>
              </JMenu>
@@ -118,13 +104,6 @@
 			<Method>editGroup</Method>
 			<UserLevel>1</UserLevel>
 		</JMenuItem>
-		<JMenuItem>
-			<Mnemonic>l</Mnemonic>
-			<Text>Eliminar</Text>
-			<Class>com.kazak.comeet.admin.gui.managers.GroupManager</Class>
-			<Method>deleteGroup</Method>
-			<UserLevel>1</UserLevel>
-		</JMenuItem>
 	</JMenu>
 	<JMenu>
 		<Text>Ubicaciones</Text>
@@ -148,13 +127,6 @@
 			<Text>Editar</Text>
 			<Class>com.kazak.comeet.admin.gui.managers.PosManager</Class>
 			<Method>editPos</Method>
-			<UserLevel>1</UserLevel>
-		</JMenuItem>
-		<JMenuItem>
-			<Mnemonic>l</Mnemonic>
-			<Text>Eliminar</Text>
-			<Class>com.kazak.comeet.admin.gui.managers.PosManager</Class>
-			<Method>deletePos</Method>
 			<UserLevel>1</UserLevel>
 		</JMenuItem>
 	</JMenu>

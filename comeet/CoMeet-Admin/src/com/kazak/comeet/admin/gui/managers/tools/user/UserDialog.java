@@ -126,6 +126,7 @@ public class UserDialog extends JFrame {
 		}
 		data[5] = dynamicPanel.getUserGroup();
 		data[6] = dynamicPanel.doIPCheck(); // ip control enabled? 
+		data[7] = dynamicPanel.isUserEnabled() ? "1" : "0";
 			
 		return true;
 	}

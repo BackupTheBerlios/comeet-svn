@@ -44,7 +44,6 @@
 		<sql>
 			SELECT * 
 			FROM grupos 
-			WHERE habilitado=1
 			ORDER BY nombre,tipo_grupo desc
 		</sql>
 	</sentence>
@@ -54,7 +53,7 @@
 		<sql>
 			SELECT u.codigo,u.nombre,u.ip,u.gid,g.nombre 
 			FROM ubicaciones u, grupos g 
-			WHERE g.grupo_id=u.gid AND u.habilitado=1
+			WHERE g.grupo_id=u.gid
 			ORDER BY u.nombre
 		</sql>
 	</sentence>
@@ -63,10 +62,10 @@
 		<code>SEL0006</code>
 		<sql>
 			SELECT 
-			u.codigo,u.login,u.clave,u.nombres,u.correo,g.grupo_id,g.nombre,ub.nombre,u.rol
+			u.codigo,u.login,u.clave,u.nombres,u.correo,g.grupo_id,g.nombre,ub.nombre,u.rol,u.habilitado
 			FROM 
-			usuarios u, grupos g,  ubicaciones ub, usuarios_ubicacion usb
-			WHERE g.grupo_id=u.gid AND (u.rol=1 OR u.rol=2 OR u.rol=5) AND u.habilitado=1
+			usuarios u, grupos g, ubicaciones ub, usuarios_ubicacion usb
+			WHERE g.grupo_id=u.gid AND (u.rol=1 OR u.rol=2 OR u.rol=5)
             AND usb.codigo_ubicacion=ub.codigo AND u.codigo=usb.id_usuario
 			ORDER BY u.login 
 		</sql>
@@ -76,12 +75,12 @@
 		<code>SEL0006A</code>
 		<sql>
 			SELECT DISTINCT
-			u.codigo,u.login,u.clave,u.nombres,g.grupo_id,ub.nombre,usb.validar_ip,g.nombre,u.rol
+			u.codigo,u.login,u.clave,u.nombres,g.grupo_id,ub.nombre,usb.validar_ip,g.nombre,u.rol,u.habilitado
 			FROM 
 			usuarios u, grupos g, ubicaciones ub, usuarios_ubicacion usb
 			WHERE 
-			usb.codigo_ubicacion=ub.codigo AND u.habilitado=1 AND
-			u.codigo=usb.id_usuario AND ub.gid=g.grupo_id AND u.rol=4
+			usb.codigo_ubicacion=ub.codigo AND u.codigo=usb.id_usuario 
+			AND ub.gid=g.grupo_id AND u.rol=4
 			ORDER BY u.login
 		</sql>
 	</sentence>
@@ -90,12 +89,12 @@
 		<code>SEL0007</code>
 		<sql>
 			SELECT DISTINCT
-			u.codigo,u.login,u.clave,u.nombres,g.grupo_id,ub.nombre,usb.validar_ip,g.nombre,u.rol
+			u.codigo,u.login,u.clave,u.nombres,g.grupo_id,ub.nombre,usb.validar_ip,g.nombre,u.rol,u.habilitado
 			FROM 
 			usuarios u, grupos g, ubicaciones ub, usuarios_ubicacion usb
 			WHERE 
-			usb.codigo_ubicacion=ub.codigo AND u.habilitado=1 AND
-			u.codigo=usb.id_usuario AND ub.gid=g.grupo_id AND u.rol=3
+			usb.codigo_ubicacion=ub.codigo AND u.codigo=usb.id_usuario 
+			AND ub.gid=g.grupo_id AND u.rol=3
 			ORDER BY u.login
 		</sql>
 	</sentence>
@@ -569,8 +568,8 @@
 		<code>INS0001</code>
 		<sql>
 			INSERT INTO 
-			usuarios (login,clave,nombres,correo,gid,rol) 
-			VALUES ('?','?','?','?',?,?)
+			usuarios (login,clave,nombres,correo,gid,rol,habilitado) 
+			VALUES ('?','?','?','?',?,?,?)
 		</sql>
 	</sentence>
 	<sentence>
@@ -696,7 +695,7 @@
 		<code>UPD0004</code>
 		<sql>
 			UPDATE usuarios SET 
-			login='?',clave='?',nombres='?',correo='?',rol='?',gid='?'
+			login='?',clave='?',nombres='?',correo='?',rol='?',gid='?',habilitado='?'
 			WHERE codigo='?'
 		</sql>
 	</sentence>

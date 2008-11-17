@@ -9690,3 +9690,1013 @@ Causa: A connection error has occurred: FATAL:  la autentificación «password» fa
 			SET habilitado=0
 			WHERE codigo='17'
 2008-11-13 22:22:16 INFO: Operacion realizada exitosamente [Transaccion sobre POS]
+2008-11-14 01:28:55 INFO: Cerrando conexion con cliente [OK]
+2008-11-14 09:30:49 INFO: ConfigFile -> /home/xtingray/Projects/comeet/comeet/comeet/CoMeet-Server/comeet/conf/server.conf
+2008-11-14 09:30:50 INFO: Cargando archivo de configuracion...
+2008-11-14 09:30:50 INFO: Cargando base de datos... bullet
+2008-11-14 09:30:51 ADVERTENCIA: Base de datos deshabilitada desde configuracion -> comeet
+2008-11-14 09:30:51 ADVERTENCIA: Base de datos deshabilitada desde configuracion -> oracle
+2008-11-14 09:30:51 INFO: Cargando cache de enlace [bullet]
+2008-11-14 09:30:52 INFO: Iniciando demonio pop3
+2008-11-14 09:30:52 INFO: Servidor de correo {localhost}
+2008-11-14 09:30:52 INFO: Iniciando demonio de sincronizacion
+2008-11-14 09:30:52 INFO: Servidor CoMeet escuchando por el puerto 9119
+2008-11-14 09:32:04 INFO: Se ha establecido una nueva conexion TCP/IP Socket[addr=/127.0.0.1,port=32875,localport=9119]
+2008-11-14 09:32:05 INFO: Inicio de autenticacion para el usuario {admin} con la clave {21232f297a57a5a743894a0e4a801fc3}
+2008-11-14 09:32:05 INFO: Control de acceso sobre direcciones ip no habilitado para este usuario
+2008-11-14 09:32:05 INFO: Usuario Administrador {admin} autenticado desde Ubicación No Registrada [127.0.0.1]
+2008-11-14 14:02:02 SENTENCIA SQL :: INSERT INTO 
+			ubicaciones (nombre,ip,gid) 
+			VALUES ('NONO','192.168.0.202',2)
+2008-11-14 14:02:02 INFO: Operacion realizada exitosamente [Transaccion sobre POS]
+2008-11-14 14:02:21 SENTENCIA SQL :: UPDATE ubicaciones 
+			SET habilitado=0
+			WHERE codigo='18'
+2008-11-14 14:02:21 INFO: Operacion realizada exitosamente [Transaccion sobre POS]
+2008-11-14 17:01:17 INFO: Adicionando usuario al sistema...
+2008-11-14 17:01:17 SENTENCIA SQL :: INSERT INTO 
+			usuarios (login,clave,nombres,correo,gid,rol) 
+			VALUES ('batman','827ccb0eea8a706c4c34a16891f84e7b','Dark Knight','me@batman.org',3,1)
+2008-11-14 17:01:17 SENTENCIA SQL :: INSERT INTO 
+			usuarios_ubicacion (id_usuario,codigo_ubicacion,validar_ip) 
+			VALUES 
+			((SELECT codigo FROM usuarios WHERE login='batman'),12,0)
+2008-11-14 17:01:17 INFO: Operacion realizada exitosamente [Transaccion sobre Usuarios]
+2008-11-14 17:01:37 INFO: Eliminando usuario del sistema...
+2008-11-14 17:01:37 SENTENCIA SQL :: UPDATE usuarios 
+			SET habilitado=0
+			WHERE codigo='18'
+2008-11-14 17:01:37 INFO: Operacion realizada exitosamente [Transaccion sobre Usuarios]
+2008-11-14 18:06:22 INFO: Editando usuario del sistema...
+2008-11-14 18:06:22 SENTENCIA SQL :: UPDATE usuarios SET 
+			login='prueba01',clave='827ccb0eea8a706c4c34a16891f84e7b',nombres='Usuario Prueba 01',correo='prueba@localhost',rol='1',gid='3'
+			WHERE codigo='10'
+2008-11-14 18:06:22 SENTENCIA SQL :: DELETE FROM 
+			usuarios_ubicacion 
+			WHERE 
+			id_usuario='10'
+2008-11-14 18:06:22 SENTENCIA SQL :: INSERT INTO 
+			usuarios_ubicacion (id_usuario,codigo_ubicacion,validar_ip) 
+			VALUES 
+			((SELECT codigo FROM usuarios WHERE login='prueba01'),12,0)
+2008-11-14 18:06:22 INFO: Operacion realizada exitosamente [Transaccion sobre Usuarios]
+2008-11-14 23:18:07 INFO: Cerrando conexion con cliente [OK]
+2008-11-14 23:18:17 INFO: Se ha establecido una nueva conexion TCP/IP Socket[addr=/127.0.0.1,port=37598,localport=9119]
+2008-11-14 23:18:17 INFO: Inicio de autenticacion para el usuario {admin} con la clave {21232f297a57a5a743894a0e4a801fc3}
+2008-11-14 23:18:17 INFO: Control de acceso sobre direcciones ip no habilitado para este usuario
+2008-11-14 23:18:17 INFO: Usuario Administrador {admin} autenticado desde Ubicación No Registrada [127.0.0.1]
+2008-11-15 01:09:22 INFO: Cerrando conexion con cliente [OK]
+2008-11-15 16:35:22 INFO: ConfigFile -> /home/xtingray/Projects/comeet/comeet/comeet/CoMeet-Server/comeet/conf/server.conf
+2008-11-15 16:35:22 INFO: Cargando archivo de configuracion...
+2008-11-15 16:35:22 INFO: Cargando base de datos... bullet
+2008-11-15 16:35:23 ADVERTENCIA: Base de datos deshabilitada desde configuracion -> comeet
+2008-11-15 16:35:23 ADVERTENCIA: Base de datos deshabilitada desde configuracion -> oracle
+2008-11-15 16:35:23 INFO: Cargando cache de enlace [bullet]
+2008-11-15 16:35:24 INFO: Iniciando demonio pop3
+2008-11-15 16:35:24 INFO: Servidor de correo {localhost}
+2008-11-15 16:35:24 INFO: Iniciando demonio de sincronizacion
+2008-11-15 16:35:24 INFO: Servidor CoMeet escuchando por el puerto 9119
+2008-11-15 17:07:11 INFO: Se ha establecido una nueva conexion TCP/IP Socket[addr=/127.0.0.1,port=34682,localport=9119]
+2008-11-15 17:07:11 INFO: Inicio de autenticacion para el usuario {admin} con la clave {21232f297a57a5a743894a0e4a801fc3}
+2008-11-15 17:07:11 INFO: Control de acceso sobre direcciones ip no habilitado para este usuario
+2008-11-15 17:07:11 INFO: Usuario Administrador {admin} autenticado desde Ubicación No Registrada [127.0.0.1]
+2008-11-15 17:47:36 INFO: Cerrando conexion con cliente [OK]
+2008-11-15 17:47:45 INFO: ConfigFile -> /home/xtingray/Projects/comeet/comeet/comeet/CoMeet-Server/comeet/conf/server.conf
+2008-11-15 17:47:45 INFO: Cargando archivo de configuracion...
+2008-11-15 17:47:45 INFO: Cargando base de datos... bullet
+2008-11-15 17:47:45 ADVERTENCIA: Base de datos deshabilitada desde configuracion -> comeet
+2008-11-15 17:47:45 ADVERTENCIA: Base de datos deshabilitada desde configuracion -> oracle
+2008-11-15 17:47:45 INFO: Cargando cache de enlace [bullet]
+2008-11-15 17:47:46 INFO: Iniciando demonio pop3
+2008-11-15 17:47:46 INFO: Servidor de correo {localhost}
+2008-11-15 17:47:46 INFO: Iniciando demonio de sincronizacion
+2008-11-15 17:47:46 INFO: Servidor CoMeet escuchando por el puerto 9119
+2008-11-15 17:47:55 INFO: Se ha establecido una nueva conexion TCP/IP Socket[addr=/127.0.0.1,port=54499,localport=9119]
+2008-11-15 17:47:55 INFO: Inicio de autenticacion para el usuario {admin} con la clave {21232f297a57a5a743894a0e4a801fc3}
+2008-11-15 17:47:55 INFO: Control de acceso sobre direcciones ip no habilitado para este usuario
+2008-11-15 17:47:55 INFO: Usuario Administrador {admin} autenticado desde Ubicación No Registrada [127.0.0.1]
+2008-11-15 17:50:01 INFO: Cerrando conexion con cliente [OK]
+2008-11-15 17:50:08 INFO: ConfigFile -> /home/xtingray/Projects/comeet/comeet/comeet/CoMeet-Server/comeet/conf/server.conf
+2008-11-15 17:50:08 INFO: Cargando archivo de configuracion...
+2008-11-15 17:50:08 INFO: Cargando base de datos... bullet
+2008-11-15 17:50:09 ADVERTENCIA: Base de datos deshabilitada desde configuracion -> comeet
+2008-11-15 17:50:09 ADVERTENCIA: Base de datos deshabilitada desde configuracion -> oracle
+2008-11-15 17:50:09 INFO: Cargando cache de enlace [bullet]
+2008-11-15 17:50:09 INFO: Iniciando demonio pop3
+2008-11-15 17:50:09 INFO: Servidor de correo {localhost}
+2008-11-15 17:50:09 INFO: Iniciando demonio de sincronizacion
+2008-11-15 17:50:09 INFO: Servidor CoMeet escuchando por el puerto 9119
+2008-11-15 17:50:17 INFO: Se ha establecido una nueva conexion TCP/IP Socket[addr=/127.0.0.1,port=49994,localport=9119]
+2008-11-15 17:50:17 INFO: Inicio de autenticacion para el usuario {admin} con la clave {21232f297a57a5a743894a0e4a801fc3}
+2008-11-15 17:50:17 INFO: Control de acceso sobre direcciones ip no habilitado para este usuario
+2008-11-15 17:50:17 INFO: Usuario Administrador {admin} autenticado desde Ubicación No Registrada [127.0.0.1]
+2008-11-15 17:53:20 INFO: Se ha establecido una nueva conexion TCP/IP Socket[addr=/192.168.1.128,port=49896,localport=9119]
+2008-11-15 17:53:23 INFO: Inicio de autenticacion para el usuario {suba} con la clave {827ccb0eea8a706c4c34a16891f84e7b}
+2008-11-15 17:53:23 INFO: Control de acceso sobre direcciones ip no habilitado para este usuario
+2008-11-15 17:53:23 INFO: Lote {suba} autenticado desde Ubicación No Registrada [192.168.1.128]
+2008-11-15 17:53:23 INFO: 1 conexion activa en el pool de lotes
+2008-11-15 17:53:36 INFO: Cerrando conexion con cliente [OK]
+2008-11-15 18:00:28 INFO: Se ha establecido una nueva conexion TCP/IP Socket[addr=/192.168.1.128,port=49919,localport=9119]
+2008-11-15 18:00:30 INFO: Inicio de autenticacion para el usuario {suba} con la clave {827ccb0eea8a706c4c34a16891f84e7b}
+2008-11-15 18:00:30 INFO: Control de acceso sobre direcciones ip no habilitado para este usuario
+2008-11-15 18:00:30 INFO: Lote {suba} autenticado desde Ubicación No Registrada [192.168.1.128]
+2008-11-15 18:00:30 INFO: 1 conexion activa en el pool de lotes
+2008-11-15 18:00:35 INFO: Cerrando conexion con cliente [OK]
+2008-11-15 18:01:10 INFO: Se ha establecido una nueva conexion TCP/IP Socket[addr=/192.168.1.128,port=49930,localport=9119]
+2008-11-15 18:01:12 INFO: Inicio de autenticacion para el usuario {suba} con la clave {827ccb0eea8a706c4c34a16891f84e7b}
+2008-11-15 18:01:12 INFO: Control de acceso sobre direcciones ip no habilitado para este usuario
+2008-11-15 18:01:13 INFO: Lote {suba} autenticado desde Ubicación No Registrada [192.168.1.128]
+2008-11-15 18:01:13 INFO: 1 conexion activa en el pool de lotes
+2008-11-15 18:01:39 INFO: Cerrando conexion con cliente [OK]
+2008-11-15 18:02:25 INFO: Se ha establecido una nueva conexion TCP/IP Socket[addr=/192.168.1.128,port=49945,localport=9119]
+2008-11-15 18:02:28 INFO: Inicio de autenticacion para el usuario {suba} con la clave {827ccb0eea8a706c4c34a16891f84e7b}
+2008-11-15 18:02:28 INFO: Control de acceso sobre direcciones ip no habilitado para este usuario
+2008-11-15 18:02:28 INFO: Lote {suba} autenticado desde Ubicación No Registrada [192.168.1.128]
+2008-11-15 18:02:28 INFO: 1 conexion activa en el pool de lotes
+2008-11-15 18:03:05 INFO: Cerrando conexion con cliente [OK]
+2008-11-15 18:11:54 INFO: Cerrando conexion con cliente [OK]
+2008-11-15 18:12:04 INFO: ConfigFile -> /home/xtingray/Projects/comeet/comeet/comeet/CoMeet-Server/comeet/conf/server.conf
+2008-11-15 18:12:05 INFO: Cargando archivo de configuracion...
+2008-11-15 18:12:05 INFO: Cargando base de datos... bullet
+2008-11-15 18:12:05 ADVERTENCIA: Base de datos deshabilitada desde configuracion -> comeet
+2008-11-15 18:12:05 ADVERTENCIA: Base de datos deshabilitada desde configuracion -> oracle
+2008-11-15 18:12:05 INFO: Cargando cache de enlace [bullet]
+2008-11-15 18:12:05 INFO: Iniciando demonio pop3
+2008-11-15 18:12:05 INFO: Servidor de correo {localhost}
+2008-11-15 18:12:05 INFO: Iniciando demonio de sincronizacion
+2008-11-15 18:12:05 INFO: Servidor CoMeet escuchando por el puerto 9119
+2008-11-15 18:12:14 INFO: Se ha establecido una nueva conexion TCP/IP Socket[addr=/127.0.0.1,port=50859,localport=9119]
+2008-11-15 18:12:15 INFO: Inicio de autenticacion para el usuario {admin} con la clave {21232f297a57a5a743894a0e4a801fc3}
+2008-11-15 18:12:15 INFO: Control de acceso sobre direcciones ip no habilitado para este usuario
+2008-11-15 18:12:15 INFO: Usuario Administrador {admin} autenticado desde Ubicación No Registrada [127.0.0.1]
+2008-11-15 18:17:57 INFO: Se ha establecido una nueva conexion TCP/IP Socket[addr=/192.168.1.1,port=50028,localport=9119]
+2008-11-15 18:17:59 INFO: Inicio de autenticacion para el usuario {suba} con la clave {827ccb0eea8a706c4c34a16891f84e7b}
+2008-11-15 18:17:59 INFO: Control de acceso sobre direcciones ip no habilitado para este usuario
+2008-11-15 18:17:59 INFO: Lote {suba} autenticado desde Ubicación No Registrada [192.168.1.128]
+2008-11-15 18:17:59 INFO: 1 conexion activa en el pool de lotes
+2008-11-15 18:20:14 INFO: Cerrando conexion con cliente [OK]
+2008-11-15 18:20:27 INFO: Se ha establecido una nueva conexion TCP/IP Socket[addr=/192.168.1.1,port=50042,localport=9119]
+2008-11-15 18:20:30 INFO: Inicio de autenticacion para el usuario {suba} con la clave {827ccb0eea8a706c4c34a16891f84e7b}
+2008-11-15 18:20:30 INFO: Control de acceso sobre direcciones ip no habilitado para este usuario
+2008-11-15 18:20:30 INFO: Lote {suba} autenticado desde Ubicación No Registrada [192.168.1.128]
+2008-11-15 18:20:30 INFO: 1 conexion activa en el pool de lotes
+2008-11-15 18:21:21 INFO: Cerrando conexion con cliente [OK]
+2008-11-15 18:21:55 INFO: Se ha establecido una nueva conexion TCP/IP Socket[addr=/192.168.1.1,port=50064,localport=9119]
+2008-11-15 18:21:58 INFO: Inicio de autenticacion para el usuario {suba} con la clave {827ccb0eea8a706c4c34a16891f84e7b}
+2008-11-15 18:21:58 INFO: Control de acceso sobre direcciones ip no habilitado para este usuario
+2008-11-15 18:21:58 INFO: Lote {suba} autenticado desde Ubicación No Registrada [192.168.1.128]
+2008-11-15 18:21:58 INFO: 1 conexion activa en el pool de lotes
+2008-11-15 18:26:05 INFO: Cerrando conexion con cliente [OK]
+2008-11-15 18:26:20 INFO: Se ha establecido una nueva conexion TCP/IP Socket[addr=/192.168.1.1,port=50086,localport=9119]
+2008-11-15 18:26:22 INFO: Inicio de autenticacion para el usuario {suba} con la clave {827ccb0eea8a706c4c34a16891f84e7b}
+2008-11-15 18:26:22 INFO: Control de acceso sobre direcciones ip no habilitado para este usuario
+2008-11-15 18:26:22 INFO: Lote {suba} autenticado desde Ubicación No Registrada [192.168.1.128]
+2008-11-15 18:26:22 INFO: 1 conexion activa en el pool de lotes
+2008-11-15 18:27:08 INFO: Cerrando conexion con cliente [OK]
+2008-11-15 18:27:16 INFO: Se ha establecido una nueva conexion TCP/IP Socket[addr=/127.0.0.1,port=53942,localport=9119]
+2008-11-15 18:27:16 INFO: Inicio de autenticacion para el usuario {admin} con la clave {21232f297a57a5a743894a0e4a801fc3}
+2008-11-15 18:27:16 INFO: Control de acceso sobre direcciones ip no habilitado para este usuario
+2008-11-15 18:27:16 INFO: Usuario Administrador {admin} autenticado desde Ubicación No Registrada [127.0.0.1]
+2008-11-15 18:27:31 INFO: Cerrando conexion con cliente [OK]
+2008-11-15 18:27:38 INFO: ConfigFile -> /home/xtingray/Projects/comeet/comeet/comeet/CoMeet-Server/comeet/conf/server.conf
+2008-11-15 18:27:38 INFO: Cargando archivo de configuracion...
+2008-11-15 18:27:38 INFO: Cargando base de datos... bullet
+2008-11-15 18:27:38 ADVERTENCIA: Base de datos deshabilitada desde configuracion -> comeet
+2008-11-15 18:27:38 ADVERTENCIA: Base de datos deshabilitada desde configuracion -> oracle
+2008-11-15 18:27:38 INFO: Cargando cache de enlace [bullet]
+2008-11-15 18:27:39 INFO: Iniciando demonio pop3
+2008-11-15 18:27:39 INFO: Servidor de correo {localhost}
+2008-11-15 18:27:39 INFO: Iniciando demonio de sincronizacion
+2008-11-15 18:27:39 INFO: Servidor CoMeet escuchando por el puerto 9119
+2008-11-15 18:28:21 INFO: Se ha establecido una nueva conexion TCP/IP Socket[addr=/127.0.0.1,port=53959,localport=9119]
+2008-11-15 18:28:22 INFO: Inicio de autenticacion para el usuario {admin} con la clave {21232f297a57a5a743894a0e4a801fc3}
+2008-11-15 18:28:22 INFO: Control de acceso sobre direcciones ip no habilitado para este usuario
+2008-11-15 18:28:22 INFO: Usuario Administrador {admin} autenticado desde Ubicación No Registrada [127.0.0.1]
+2008-11-15 18:28:51 INFO: Cerrando conexion con cliente [OK]
+2008-11-15 18:30:32 INFO: Se ha establecido una nueva conexion TCP/IP Socket[addr=/127.0.0.1,port=49074,localport=9119]
+2008-11-15 18:30:32 INFO: Inicio de autenticacion para el usuario {admin} con la clave {21232f297a57a5a743894a0e4a801fc3}
+2008-11-15 18:30:32 INFO: Control de acceso sobre direcciones ip no habilitado para este usuario
+2008-11-15 18:30:32 INFO: Usuario Administrador {admin} autenticado desde Ubicación No Registrada [127.0.0.1]
+2008-11-15 18:38:11 INFO: Cerrando conexion con cliente [OK]
+2008-11-15 18:38:23 INFO: Se ha establecido una nueva conexion TCP/IP Socket[addr=/127.0.0.1,port=33398,localport=9119]
+2008-11-15 18:38:23 INFO: Inicio de autenticacion para el usuario {admin} con la clave {21232f297a57a5a743894a0e4a801fc3}
+2008-11-15 18:38:23 INFO: Control de acceso sobre direcciones ip no habilitado para este usuario
+2008-11-15 18:38:23 INFO: Usuario Administrador {admin} autenticado desde Ubicación No Registrada [127.0.0.1]
+2008-11-15 18:39:13 INFO: Cerrando conexion con cliente [OK]
+2008-11-15 18:39:24 INFO: Se ha establecido una nueva conexion TCP/IP Socket[addr=/127.0.0.1,port=40974,localport=9119]
+2008-11-15 18:39:24 INFO: Inicio de autenticacion para el usuario {admin} con la clave {21232f297a57a5a743894a0e4a801fc3}
+2008-11-15 18:39:24 INFO: Control de acceso sobre direcciones ip no habilitado para este usuario
+2008-11-15 18:39:24 INFO: Usuario Administrador {admin} autenticado desde Ubicación No Registrada [127.0.0.1]
+2008-11-15 18:40:14 INFO: Cerrando conexion con cliente [OK]
+2008-11-15 18:41:13 INFO: Se ha establecido una nueva conexion TCP/IP Socket[addr=/127.0.0.1,port=40995,localport=9119]
+2008-11-15 18:41:13 INFO: Inicio de autenticacion para el usuario {admin} con la clave {21232f297a57a5a743894a0e4a801fc3}
+2008-11-15 18:41:13 INFO: Control de acceso sobre direcciones ip no habilitado para este usuario
+2008-11-15 18:41:13 INFO: Usuario Administrador {admin} autenticado desde Ubicación No Registrada [127.0.0.1]
+2008-11-15 18:47:33 INFO: Se ha establecido una nueva conexion TCP/IP Socket[addr=/192.168.1.1,port=50132,localport=9119]
+2008-11-15 18:47:33 INFO: Cerrando conexion con cliente [OK]
+2008-11-15 18:47:43 INFO: Cerrando conexion con cliente [OK]
+2008-11-15 19:56:17 INFO: ConfigFile -> /home/xtingray/Projects/comeet/comeet/comeet/CoMeet-Server/comeet/conf/server.conf
+2008-11-15 19:56:17 INFO: Cargando archivo de configuracion...
+2008-11-15 19:56:17 INFO: Cargando base de datos... bullet
+2008-11-15 19:56:17 ADVERTENCIA: Base de datos deshabilitada desde configuracion -> comeet
+2008-11-15 19:56:17 ADVERTENCIA: Base de datos deshabilitada desde configuracion -> oracle
+2008-11-15 19:56:17 INFO: Cargando cache de enlace [bullet]
+2008-11-15 19:56:18 INFO: Iniciando demonio pop3
+2008-11-15 19:56:18 INFO: Servidor de correo {localhost}
+2008-11-15 19:56:18 INFO: Iniciando demonio de sincronizacion
+2008-11-15 19:56:18 INFO: Servidor CoMeet escuchando por el puerto 9119
+2008-11-15 19:56:27 INFO: Se ha establecido una nueva conexion TCP/IP Socket[addr=/127.0.0.1,port=50220,localport=9119]
+2008-11-15 19:56:27 INFO: Inicio de autenticacion para el usuario {admin} con la clave {21232f297a57a5a743894a0e4a801fc3}
+2008-11-15 19:56:27 INFO: Control de acceso sobre direcciones ip no habilitado para este usuario
+2008-11-15 19:56:27 INFO: Usuario Administrador {admin} autenticado desde Ubicación No Registrada [127.0.0.1]
+2008-11-15 19:56:42 INFO: Editando usuario del sistema...
+2008-11-15 19:56:43 SENTENCIA SQL :: UPDATE usuarios SET 
+			login='batman',clave='827ccb0eea8a706c4c34a16891f84e7b',nombres='Dark Knight',correo='me@batman.org',rol='1',gid='3',habilitado=''
+			WHERE codigo='18'
+2008-11-15 19:56:43 ERROR[SQLException]: Ocurrio una falla mientras se procesaba operacion de Usuario [Tipo:edit]
+2008-11-15 19:56:43 Causa: ORA-01407: no se puede actualizar ("COMEETADMIN"."USUARIOS"."HABILITADO") a un valor NULL
+
+2008-11-15 19:57:41 INFO: Cerrando conexion con cliente [OK]
+2008-11-15 19:57:52 INFO: Se ha establecido una nueva conexion TCP/IP Socket[addr=/127.0.0.1,port=50239,localport=9119]
+2008-11-15 19:57:52 INFO: Inicio de autenticacion para el usuario {admin} con la clave {21232f297a57a5a743894a0e4a801fc3}
+2008-11-15 19:57:52 INFO: Control de acceso sobre direcciones ip no habilitado para este usuario
+2008-11-15 19:57:52 INFO: Usuario Administrador {admin} autenticado desde Ubicación No Registrada [127.0.0.1]
+2008-11-15 20:02:37 INFO: Cerrando conexion con cliente [OK]
+2008-11-15 20:06:37 INFO: Se ha establecido una nueva conexion TCP/IP Socket[addr=/127.0.0.1,port=50729,localport=9119]
+2008-11-15 20:06:37 INFO: Inicio de autenticacion para el usuario {admin} con la clave {21232f297a57a5a743894a0e4a801fc3}
+2008-11-15 20:06:37 INFO: Control de acceso sobre direcciones ip no habilitado para este usuario
+2008-11-15 20:06:37 INFO: Usuario Administrador {admin} autenticado desde Ubicación No Registrada [127.0.0.1]
+2008-11-15 20:06:58 INFO: Editando usuario del sistema...
+2008-11-15 20:06:58 SENTENCIA SQL :: UPDATE usuarios SET 
+			login='batman',clave='827ccb0eea8a706c4c34a16891f84e7b',nombres='Dark Knight',correo='me@batman.org',rol='1',gid='3',habilitado='1'
+			WHERE codigo='18'
+2008-11-15 20:06:59 SENTENCIA SQL :: DELETE FROM 
+			usuarios_ubicacion 
+			WHERE 
+			id_usuario='18'
+2008-11-15 20:06:59 SENTENCIA SQL :: INSERT INTO 
+			usuarios_ubicacion (id_usuario,codigo_ubicacion,validar_ip) 
+			VALUES 
+			((SELECT codigo FROM usuarios WHERE login='batman'),12,0)
+2008-11-15 20:06:59 INFO: Operacion realizada exitosamente [Transaccion sobre Usuarios]
+2008-11-15 20:07:30 INFO: Editando usuario del sistema...
+2008-11-15 20:07:30 SENTENCIA SQL :: UPDATE usuarios SET 
+			login='batman',clave='827ccb0eea8a706c4c34a16891f84e7b',nombres='Dark Knight',correo='me@batman.org',rol='1',gid='3',habilitado='0'
+			WHERE codigo='18'
+2008-11-15 20:07:30 SENTENCIA SQL :: DELETE FROM 
+			usuarios_ubicacion 
+			WHERE 
+			id_usuario='18'
+2008-11-15 20:07:30 SENTENCIA SQL :: INSERT INTO 
+			usuarios_ubicacion (id_usuario,codigo_ubicacion,validar_ip) 
+			VALUES 
+			((SELECT codigo FROM usuarios WHERE login='batman'),12,0)
+2008-11-15 20:07:30 INFO: Operacion realizada exitosamente [Transaccion sobre Usuarios]
+2008-11-15 20:07:47 INFO: Editando usuario del sistema...
+2008-11-15 20:07:47 SENTENCIA SQL :: UPDATE usuarios SET 
+			login='batman',clave='827ccb0eea8a706c4c34a16891f84e7b',nombres='Dark Knight',correo='me@batman.org',rol='1',gid='3',habilitado='1'
+			WHERE codigo='18'
+2008-11-15 20:07:47 SENTENCIA SQL :: DELETE FROM 
+			usuarios_ubicacion 
+			WHERE 
+			id_usuario='18'
+2008-11-15 20:07:47 SENTENCIA SQL :: INSERT INTO 
+			usuarios_ubicacion (id_usuario,codigo_ubicacion,validar_ip) 
+			VALUES 
+			((SELECT codigo FROM usuarios WHERE login='batman'),12,0)
+2008-11-15 20:07:47 INFO: Operacion realizada exitosamente [Transaccion sobre Usuarios]
+2008-11-15 20:14:38 INFO: Editando usuario del sistema...
+2008-11-15 20:14:38 SENTENCIA SQL :: UPDATE usuarios SET 
+			login='batman',clave='827ccb0eea8a706c4c34a16891f84e7b',nombres='Dark Knight',correo='me@batman.org',rol='1',gid='3',habilitado='0'
+			WHERE codigo='18'
+2008-11-15 20:14:38 SENTENCIA SQL :: DELETE FROM 
+			usuarios_ubicacion 
+			WHERE 
+			id_usuario='18'
+2008-11-15 20:14:38 SENTENCIA SQL :: INSERT INTO 
+			usuarios_ubicacion (id_usuario,codigo_ubicacion,validar_ip) 
+			VALUES 
+			((SELECT codigo FROM usuarios WHERE login='batman'),12,0)
+2008-11-15 20:14:38 INFO: Operacion realizada exitosamente [Transaccion sobre Usuarios]
+2008-11-15 20:15:33 INFO: Eliminando usuario del sistema...
+2008-11-15 20:15:33 SENTENCIA SQL :: UPDATE usuarios 
+			SET habilitado=0
+			WHERE codigo='18'
+2008-11-15 20:15:33 INFO: Operacion realizada exitosamente [Transaccion sobre Usuarios]
+2008-11-15 20:15:50 INFO: Editando usuario del sistema...
+2008-11-15 20:15:50 SENTENCIA SQL :: UPDATE usuarios SET 
+			login='batman',clave='827ccb0eea8a706c4c34a16891f84e7b',nombres='Dark Knight',correo='me@batman.org',rol='1',gid='3',habilitado='1'
+			WHERE codigo='18'
+2008-11-15 20:15:50 SENTENCIA SQL :: DELETE FROM 
+			usuarios_ubicacion 
+			WHERE 
+			id_usuario='18'
+2008-11-15 20:15:50 SENTENCIA SQL :: INSERT INTO 
+			usuarios_ubicacion (id_usuario,codigo_ubicacion,validar_ip) 
+			VALUES 
+			((SELECT codigo FROM usuarios WHERE login='batman'),12,0)
+2008-11-15 20:15:50 INFO: Operacion realizada exitosamente [Transaccion sobre Usuarios]
+2008-11-15 20:24:03 INFO: Cerrando conexion con cliente [OK]
+2008-11-15 20:24:11 INFO: Se ha establecido una nueva conexion TCP/IP Socket[addr=/127.0.0.1,port=52475,localport=9119]
+2008-11-15 20:24:11 INFO: Inicio de autenticacion para el usuario {admin} con la clave {21232f297a57a5a743894a0e4a801fc3}
+2008-11-15 20:24:11 INFO: Control de acceso sobre direcciones ip no habilitado para este usuario
+2008-11-15 20:24:11 INFO: Usuario Administrador {admin} autenticado desde Ubicación No Registrada [127.0.0.1]
+2008-11-15 20:24:28 INFO: Editando usuario del sistema...
+2008-11-15 20:24:28 SENTENCIA SQL :: UPDATE usuarios SET 
+			login='batman',clave='827ccb0eea8a706c4c34a16891f84e7b',nombres='Dark Knight',correo='me@batman.org',rol='1',gid='3',habilitado='0'
+			WHERE codigo='18'
+2008-11-15 20:24:28 SENTENCIA SQL :: DELETE FROM 
+			usuarios_ubicacion 
+			WHERE 
+			id_usuario='18'
+2008-11-15 20:24:28 SENTENCIA SQL :: INSERT INTO 
+			usuarios_ubicacion (id_usuario,codigo_ubicacion,validar_ip) 
+			VALUES 
+			((SELECT codigo FROM usuarios WHERE login='batman'),12,0)
+2008-11-15 20:24:28 INFO: Operacion realizada exitosamente [Transaccion sobre Usuarios]
+2008-11-15 20:24:47 INFO: Editando usuario del sistema...
+2008-11-15 20:24:47 SENTENCIA SQL :: UPDATE usuarios SET 
+			login='batman',clave='827ccb0eea8a706c4c34a16891f84e7b',nombres='Dark Knight',correo='me@batman.org',rol='1',gid='3',habilitado='1'
+			WHERE codigo='18'
+2008-11-15 20:24:47 SENTENCIA SQL :: DELETE FROM 
+			usuarios_ubicacion 
+			WHERE 
+			id_usuario='18'
+2008-11-15 20:24:47 SENTENCIA SQL :: INSERT INTO 
+			usuarios_ubicacion (id_usuario,codigo_ubicacion,validar_ip) 
+			VALUES 
+			((SELECT codigo FROM usuarios WHERE login='batman'),12,0)
+2008-11-15 20:24:47 INFO: Operacion realizada exitosamente [Transaccion sobre Usuarios]
+2008-11-15 21:46:08 INFO: Cerrando conexion con cliente [OK]
+2008-11-15 21:46:20 INFO: ConfigFile -> /home/xtingray/Projects/comeet/comeet/comeet/CoMeet-Server/comeet/conf/server.conf
+2008-11-15 21:46:20 INFO: Cargando archivo de configuracion...
+2008-11-15 21:46:20 INFO: Cargando base de datos... bullet
+2008-11-15 21:46:21 ADVERTENCIA: Base de datos deshabilitada desde configuracion -> comeet
+2008-11-15 21:46:21 ADVERTENCIA: Base de datos deshabilitada desde configuracion -> oracle
+2008-11-15 21:46:21 INFO: Cargando cache de enlace [bullet]
+2008-11-15 21:46:21 INFO: Iniciando demonio pop3
+2008-11-15 21:46:21 INFO: Servidor de correo {localhost}
+2008-11-15 21:46:21 INFO: Iniciando demonio de sincronizacion
+2008-11-15 21:46:21 INFO: Servidor CoMeet escuchando por el puerto 9119
+2008-11-15 21:46:22 INFO: Se ha establecido una nueva conexion TCP/IP Socket[addr=/127.0.0.1,port=33825,localport=9119]
+2008-11-15 21:46:22 INFO: Inicio de autenticacion para el usuario {admin} con la clave {21232f297a57a5a743894a0e4a801fc3}
+2008-11-15 21:46:22 INFO: Control de acceso sobre direcciones ip no habilitado para este usuario
+2008-11-15 21:46:22 INFO: Usuario Administrador {admin} autenticado desde Ubicación No Registrada [127.0.0.1]
+2008-11-15 21:47:47 INFO: Cerrando conexion con cliente [OK]
+2008-11-15 21:47:56 INFO: Se ha establecido una nueva conexion TCP/IP Socket[addr=/127.0.0.1,port=33845,localport=9119]
+2008-11-15 21:47:56 INFO: Inicio de autenticacion para el usuario {admin} con la clave {21232f297a57a5a743894a0e4a801fc3}
+2008-11-15 21:47:56 INFO: Control de acceso sobre direcciones ip no habilitado para este usuario
+2008-11-15 21:47:56 INFO: Usuario Administrador {admin} autenticado desde Ubicación No Registrada [127.0.0.1]
+2008-11-15 21:48:34 INFO: Cerrando conexion con cliente [OK]
+2008-11-16 10:37:02 INFO: ConfigFile -> /home/xtingray/Projects/comeet/comeet/comeet/CoMeet-Server/comeet/conf/server.conf
+2008-11-16 10:37:02 INFO: Cargando archivo de configuracion...
+2008-11-16 10:37:02 INFO: Cargando base de datos... bullet
+2008-11-16 10:37:03 ADVERTENCIA: Base de datos deshabilitada desde configuracion -> comeet
+2008-11-16 10:37:03 ADVERTENCIA: Base de datos deshabilitada desde configuracion -> oracle
+2008-11-16 10:37:03 INFO: Cargando cache de enlace [bullet]
+2008-11-16 10:37:04 INFO: Iniciando demonio pop3
+2008-11-16 10:37:04 INFO: Servidor de correo {localhost}
+2008-11-16 10:37:04 INFO: Iniciando demonio de sincronizacion
+2008-11-16 10:37:04 INFO: Servidor CoMeet escuchando por el puerto 9119
+2008-11-16 16:06:46 INFO: ConfigFile -> /home/xtingray/Projects/comeet/comeet/comeet/CoMeet-Server/comeet/conf/server.conf
+2008-11-16 16:06:46 INFO: Cargando archivo de configuracion...
+2008-11-16 16:06:46 INFO: Cargando base de datos... bullet
+2008-11-16 16:06:46 ADVERTENCIA: Base de datos deshabilitada desde configuracion -> comeet
+2008-11-16 16:06:46 ADVERTENCIA: Base de datos deshabilitada desde configuracion -> oracle
+2008-11-16 16:06:46 INFO: Cargando cache de enlace [bullet]
+2008-11-16 16:06:47 INFO: Iniciando demonio pop3
+2008-11-16 16:06:47 INFO: Servidor de correo {localhost}
+2008-11-16 16:06:47 INFO: Iniciando demonio de sincronizacion
+2008-11-16 16:06:47 INFO: Servidor CoMeet escuchando por el puerto 9119
+2008-11-16 18:04:03 INFO: Se ha establecido una nueva conexion TCP/IP Socket[addr=/192.168.1.1,port=50215,localport=9119]
+2008-11-16 18:04:05 INFO: Inicio de autenticacion para el usuario {suba} con la clave {827ccb0eea8a706c4c34a16891f84e7b}
+2008-11-16 18:04:06 INFO: Control de acceso sobre direcciones ip no habilitado para este usuario
+2008-11-16 18:04:06 INFO: Lote {suba} autenticado desde Ubicación No Registrada [192.168.1.128]
+2008-11-16 18:04:06 INFO: 1 conexion activa en el pool de lotes
+2008-11-16 18:04:58 INFO: Cerrando conexion con cliente [OK]
+2008-11-16 18:06:27 INFO: Se ha establecido una nueva conexion TCP/IP Socket[addr=/192.168.1.1,port=50227,localport=9119]
+2008-11-16 18:06:29 INFO: Inicio de autenticacion para el usuario {suba} con la clave {827ccb0eea8a706c4c34a16891f84e7b}
+2008-11-16 18:06:29 INFO: Control de acceso sobre direcciones ip no habilitado para este usuario
+2008-11-16 18:06:29 INFO: Lote {suba} autenticado desde Ubicación No Registrada [192.168.1.128]
+2008-11-16 18:06:29 INFO: 1 conexion activa en el pool de lotes
+2008-11-16 18:07:57 SENTENCIA SQL :: UPDATE mensajes_pda SET entregado=1 
+			WHERE login_destino='000007'
+2008-11-16 18:10:00 INFO: Cerrando conexion con cliente [OK]
+2008-11-16 18:10:13 INFO: Se ha establecido una nueva conexion TCP/IP Socket[addr=/192.168.1.1,port=50243,localport=9119]
+2008-11-16 18:10:16 INFO: Inicio de autenticacion para el usuario {suba} con la clave {827ccb0eea8a706c4c34a16891f84e7b}
+2008-11-16 18:10:16 INFO: Control de acceso sobre direcciones ip no habilitado para este usuario
+2008-11-16 18:10:16 INFO: Lote {suba} autenticado desde Ubicación No Registrada [192.168.1.128]
+2008-11-16 18:10:16 INFO: 1 conexion activa en el pool de lotes
+2008-11-16 18:11:02 SENTENCIA SQL :: UPDATE mensajes_pda SET entregado=1 
+			WHERE login_destino='000007'
+2008-11-16 18:21:08 INFO: Cerrando conexion con cliente [OK]
+2008-11-16 18:21:22 INFO: Se ha establecido una nueva conexion TCP/IP Socket[addr=/192.168.1.1,port=50318,localport=9119]
+2008-11-16 18:21:24 INFO: Inicio de autenticacion para el usuario {suba} con la clave {827ccb0eea8a706c4c34a16891f84e7b}
+2008-11-16 18:21:24 INFO: Control de acceso sobre direcciones ip no habilitado para este usuario
+2008-11-16 18:21:24 INFO: Lote {suba} autenticado desde Ubicación No Registrada [192.168.1.128]
+2008-11-16 18:21:24 INFO: 1 conexion activa en el pool de lotes
+2008-11-16 19:13:21 INFO: Leyendo correo del buzon de mensajes
+2008-11-16 19:13:21 INFO: Formato de mensaje -> multipart/*
+2008-11-16 19:13:21 INFO: Nuevo mensaje desde {raul@katana.com} con asunto [ 000007,hola ]
+2008-11-16 19:13:21 INFO: Consultando si usuario {000007} existe en LOTES
+2008-11-16 19:13:21 INFO: El usuario {000007} fue validado por el lote {suba}
+2008-11-16 19:13:21 INFO: Almacenando mensaje para usuario {000007/pda} en la base de datos
+2008-11-16 19:13:21 SENTENCIA SQL :: INSERT INTO 
+			mensajes_pda (login_destino,gid_origen,fecha_envio,hora_envio,asunto,texto) 
+			VALUES ('000007',-1,to_date('2008-11-16','yyyy-mm-dd'),'07:13 PM','hola','mundo')
+2008-11-16 19:13:21 ERROR: No se pudo almacenar mensaje en la base de datos. Excepcion SQL
+2008-11-16 19:18:23 INFO: Leyendo correo del buzon de mensajes
+2008-11-16 19:18:23 INFO: Formato de mensaje -> multipart/*
+2008-11-16 19:18:23 INFO: Nuevo mensaje desde {raul@katana.com} con asunto [ 000007,hola ]
+2008-11-16 19:18:23 INFO: Consultando si usuario {000007} existe en LOTES
+2008-11-16 19:18:23 INFO: El usuario {000007} fue validado por el lote {suba}
+2008-11-16 19:18:23 INFO: Almacenando mensaje para usuario {000007/pda} en la base de datos
+2008-11-16 19:18:23 SENTENCIA SQL :: INSERT INTO 
+			mensajes_pda (login_destino,gid_origen,fecha_envio,hora_envio,asunto,texto) 
+			VALUES ('000007',-1,to_date('2008-11-16','yyyy-mm-dd'),'07:18 PM','hola','
+mundo')
+2008-11-16 19:18:23 ERROR: No se pudo almacenar mensaje en la base de datos. Excepcion SQL
+2008-11-16 19:21:07 INFO: ConfigFile -> /home/xtingray/Projects/comeet/comeet/comeet/CoMeet-Server/comeet/conf/server.conf
+2008-11-16 19:21:07 INFO: Cargando archivo de configuracion...
+2008-11-16 19:21:07 INFO: Cargando base de datos... bullet
+2008-11-16 19:21:07 ADVERTENCIA: Base de datos deshabilitada desde configuracion -> comeet
+2008-11-16 19:21:07 ADVERTENCIA: Base de datos deshabilitada desde configuracion -> oracle
+2008-11-16 19:21:07 INFO: Cargando cache de enlace [bullet]
+2008-11-16 19:21:08 INFO: Iniciando demonio pop3
+2008-11-16 19:21:08 INFO: Servidor de correo {localhost}
+2008-11-16 19:21:08 INFO: Iniciando demonio de sincronizacion
+2008-11-16 19:21:08 INFO: Servidor CoMeet escuchando por el puerto 9119
+2008-11-16 19:21:44 INFO: Leyendo correo del buzon de mensajes
+2008-11-16 19:21:44 INFO: Formato de mensaje -> multipart/*
+2008-11-16 19:21:44 INFO: Nuevo mensaje desde {raul@katana.com} con asunto [ 000007,hola ]
+2008-11-16 19:21:44 INFO: Consultando si usuario {000007} existe en LOTES
+2008-11-16 19:21:44 ERROR: El usuario {000007} no existe en el sistema.
+2008-11-16 19:21:44 ERROR: Notificando al remitente -> {raul}
+2008-11-16 19:22:09 INFO: Se ha establecido una nueva conexion TCP/IP Socket[addr=/192.168.1.1,port=50637,localport=9119]
+2008-11-16 19:22:11 INFO: Inicio de autenticacion para el usuario {suba} con la clave {827ccb0eea8a706c4c34a16891f84e7b}
+2008-11-16 19:22:11 INFO: Control de acceso sobre direcciones ip no habilitado para este usuario
+2008-11-16 19:22:11 INFO: Lote {suba} autenticado desde Ubicación No Registrada [192.168.1.128]
+2008-11-16 19:22:11 INFO: 1 conexion activa en el pool de lotes
+2008-11-16 19:22:34 INFO: Leyendo correo del buzon de mensajes
+2008-11-16 19:22:34 INFO: Formato de mensaje -> multipart/*
+2008-11-16 19:22:34 INFO: Nuevo mensaje desde {raul@katana.com} con asunto [ 000007,hola ]
+2008-11-16 19:22:34 INFO: Consultando si usuario {000007} existe en LOTES
+2008-11-16 19:22:42 INFO: El usuario {000007} fue validado por el lote {suba}
+2008-11-16 19:22:42 INFO: Almacenando mensaje para usuario {000007/pda} en la base de datos
+2008-11-16 19:22:42 SENTENCIA SQL :: INSERT INTO 
+			mensajes_pda (login_destino,gid_origen,fecha_envio,hora_envio,asunto,texto) 
+			VALUES ('000007',3,to_date('2008-11-16','yyyy-mm-dd'),'07:22 PM','hola','mundo3')
+2008-11-16 19:23:49 INFO: Cerrando conexion con cliente [OK]
+2008-11-16 19:25:12 INFO: Se ha establecido una nueva conexion TCP/IP Socket[addr=/192.168.1.1,port=50645,localport=9119]
+2008-11-16 19:25:14 INFO: Inicio de autenticacion para el usuario {suba} con la clave {827ccb0eea8a706c4c34a16891f84e7b}
+2008-11-16 19:25:14 INFO: Control de acceso sobre direcciones ip no habilitado para este usuario
+2008-11-16 19:25:14 INFO: Lote {suba} autenticado desde Ubicación No Registrada [192.168.1.128]
+2008-11-16 19:25:14 INFO: 1 conexion activa en el pool de lotes
+2008-11-16 19:26:24 SENTENCIA SQL :: UPDATE mensajes_pda SET entregado=1 
+			WHERE login_destino='000007'
+2008-11-16 19:31:09 INFO: Cerrando conexion con cliente [OK]
+2008-11-16 19:31:20 INFO: Se ha establecido una nueva conexion TCP/IP Socket[addr=/192.168.1.1,port=50663,localport=9119]
+2008-11-16 19:31:23 INFO: Inicio de autenticacion para el usuario {suba} con la clave {827ccb0eea8a706c4c34a16891f84e7b}
+2008-11-16 19:31:23 INFO: Control de acceso sobre direcciones ip no habilitado para este usuario
+2008-11-16 19:31:23 INFO: Lote {suba} autenticado desde Ubicación No Registrada [192.168.1.128]
+2008-11-16 19:31:23 INFO: 1 conexion activa en el pool de lotes
+2008-11-16 19:32:05 SENTENCIA SQL :: UPDATE mensajes_pda SET entregado=1 
+			WHERE login_destino='000007'
+2008-11-16 19:32:36 INFO: Leyendo correo del buzon de mensajes
+2008-11-16 19:32:36 INFO: Formato de mensaje -> multipart/*
+2008-11-16 19:32:36 INFO: Nuevo mensaje desde {raul@katana.com} con asunto [ 000007,hola ]
+2008-11-16 19:32:36 INFO: Consultando si usuario {000007} existe en LOTES
+2008-11-16 19:32:36 INFO: El usuario {000007} fue validado por el lote {suba}
+2008-11-16 19:32:36 INFO: Almacenando mensaje para usuario {000007/pda} en la base de datos
+2008-11-16 19:32:36 SENTENCIA SQL :: INSERT INTO 
+			mensajes_pda (login_destino,gid_origen,fecha_envio,hora_envio,asunto,texto) 
+			VALUES ('000007',3,to_date('2008-11-16','yyyy-mm-dd'),'07:32 PM','hola','mundo4')
+2008-11-16 19:32:44 SENTENCIA SQL :: UPDATE mensajes_pda SET entregado=1 
+			WHERE login_destino='000007'
+2008-11-16 19:33:26 INFO: Leyendo correo del buzon de mensajes
+2008-11-16 19:33:26 INFO: Formato de mensaje -> multipart/*
+2008-11-16 19:33:26 INFO: Nuevo mensaje desde {raul@katana.com} con asunto [ 000007,hola ]
+2008-11-16 19:33:26 INFO: Consultando si usuario {000007} existe en LOTES
+2008-11-16 19:33:26 INFO: El usuario {000007} fue validado por el lote {suba}
+2008-11-16 19:33:26 INFO: Almacenando mensaje para usuario {000007/pda} en la base de datos
+2008-11-16 19:33:26 SENTENCIA SQL :: INSERT INTO 
+			mensajes_pda (login_destino,gid_origen,fecha_envio,hora_envio,asunto,texto) 
+			VALUES ('000007',3,to_date('2008-11-16','yyyy-mm-dd'),'07:33 PM','hola','mundo5')
+2008-11-16 19:33:38 INFO: Cerrando conexion con cliente [OK]
+2008-11-16 19:34:02 INFO: Se ha establecido una nueva conexion TCP/IP Socket[addr=/192.168.1.1,port=50671,localport=9119]
+2008-11-16 19:34:05 INFO: Inicio de autenticacion para el usuario {suba} con la clave {827ccb0eea8a706c4c34a16891f84e7b}
+2008-11-16 19:34:05 INFO: Control de acceso sobre direcciones ip no habilitado para este usuario
+2008-11-16 19:34:05 INFO: Lote {suba} autenticado desde Ubicación No Registrada [192.168.1.128]
+2008-11-16 19:34:05 INFO: 1 conexion activa en el pool de lotes
+2008-11-16 19:36:45 SENTENCIA SQL :: UPDATE mensajes_pda SET entregado=1 
+			WHERE login_destino='000007'
+2008-11-16 19:36:48 INFO: Leyendo correo del buzon de mensajes
+2008-11-16 19:36:48 INFO: Formato de mensaje -> multipart/*
+2008-11-16 19:36:48 INFO: Nuevo mensaje desde {raul@katana.com} con asunto [ 000007,hola ]
+2008-11-16 19:36:48 INFO: Consultando si usuario {000007} existe en LOTES
+2008-11-16 19:36:48 INFO: El usuario {000007} fue validado por el lote {suba}
+2008-11-16 19:36:48 INFO: Almacenando mensaje para usuario {000007/pda} en la base de datos
+2008-11-16 19:36:48 SENTENCIA SQL :: INSERT INTO 
+			mensajes_pda (login_destino,gid_origen,fecha_envio,hora_envio,asunto,texto) 
+			VALUES ('000007',3,to_date('2008-11-16','yyyy-mm-dd'),'07:36 PM','hola','
+mundo6')
+2008-11-16 19:38:19 INFO: Leyendo correo del buzon de mensajes
+2008-11-16 19:38:19 INFO: Formato de mensaje -> multipart/*
+2008-11-16 19:38:19 INFO: Nuevo mensaje desde {raul@katana.com} con asunto [ 000007,hola ]
+2008-11-16 19:38:19 INFO: Consultando si usuario {000007} existe en LOTES
+2008-11-16 19:38:19 INFO: El usuario {000007} fue validado por el lote {suba}
+2008-11-16 19:38:19 INFO: Almacenando mensaje para usuario {000007/pda} en la base de datos
+2008-11-16 19:38:19 SENTENCIA SQL :: INSERT INTO 
+			mensajes_pda (login_destino,gid_origen,fecha_envio,hora_envio,asunto,texto) 
+			VALUES ('000007',3,to_date('2008-11-16','yyyy-mm-dd'),'07:38 PM','hola','mundo')
+2008-11-16 19:38:29 INFO: Leyendo correo del buzon de mensajes
+2008-11-16 19:38:29 INFO: Formato de mensaje -> multipart/*
+2008-11-16 19:38:29 INFO: Nuevo mensaje desde {raul@katana.com} con asunto [ 000007,hola ]
+2008-11-16 19:38:29 INFO: Consultando si usuario {000007} existe en LOTES
+2008-11-16 19:38:29 INFO: El usuario {000007} fue validado por el lote {suba}
+2008-11-16 19:38:29 INFO: Almacenando mensaje para usuario {000007/pda} en la base de datos
+2008-11-16 19:38:29 SENTENCIA SQL :: INSERT INTO 
+			mensajes_pda (login_destino,gid_origen,fecha_envio,hora_envio,asunto,texto) 
+			VALUES ('000007',3,to_date('2008-11-16','yyyy-mm-dd'),'07:38 PM','hola','mundo7')
+2008-11-16 19:38:39 INFO: Leyendo correo del buzon de mensajes
+2008-11-16 19:38:39 INFO: Formato de mensaje -> multipart/*
+2008-11-16 19:38:39 INFO: Nuevo mensaje desde {raul@katana.com} con asunto [ 000007,hola ]
+2008-11-16 19:38:39 INFO: Consultando si usuario {000007} existe en LOTES
+2008-11-16 19:38:39 INFO: El usuario {000007} fue validado por el lote {suba}
+2008-11-16 19:38:39 INFO: Almacenando mensaje para usuario {000007/pda} en la base de datos
+2008-11-16 19:38:39 SENTENCIA SQL :: INSERT INTO 
+			mensajes_pda (login_destino,gid_origen,fecha_envio,hora_envio,asunto,texto) 
+			VALUES ('000007',3,to_date('2008-11-16','yyyy-mm-dd'),'07:38 PM','hola','mundo8')
+2008-11-16 19:38:54 SENTENCIA SQL :: UPDATE mensajes_pda SET entregado=1 
+			WHERE login_destino='000007'
+2008-11-16 19:47:00 INFO: Cerrando conexion con cliente [OK]
+2008-11-16 19:52:57 INFO: Se ha establecido una nueva conexion TCP/IP Socket[addr=/192.168.1.1,port=50780,localport=9119]
+2008-11-16 19:53:00 INFO: Inicio de autenticacion para el usuario {suba} con la clave {827ccb0eea8a706c4c34a16891f84e7b}
+2008-11-16 19:53:00 INFO: Control de acceso sobre direcciones ip no habilitado para este usuario
+2008-11-16 19:53:00 INFO: Lote {suba} autenticado desde Ubicación No Registrada [192.168.1.128]
+2008-11-16 19:53:00 INFO: 1 conexion activa en el pool de lotes
+2008-11-16 19:53:15 INFO: Leyendo correo del buzon de mensajes
+2008-11-16 19:53:15 INFO: Formato de mensaje -> multipart/*
+2008-11-16 19:53:15 INFO: Nuevo mensaje desde {raul@katana.com} con asunto [ 000007,hola ]
+2008-11-16 19:53:15 INFO: Consultando si usuario {000007} existe en LOTES
+2008-11-16 19:53:30 INFO: El usuario {000007} fue validado por el lote {suba}
+2008-11-16 19:53:30 INFO: Almacenando mensaje para usuario {000007/pda} en la base de datos
+2008-11-16 19:53:30 SENTENCIA SQL :: INSERT INTO 
+			mensajes_pda (login_destino,gid_origen,fecha_envio,hora_envio,asunto,texto) 
+			VALUES ('000007',3,to_date('2008-11-16','yyyy-mm-dd'),'07:53 PM','hola','
+mundo0')
+2008-11-16 19:53:40 INFO: Leyendo correo del buzon de mensajes
+2008-11-16 19:53:40 INFO: Formato de mensaje -> multipart/*
+2008-11-16 19:53:40 INFO: Nuevo mensaje desde {raul@katana.com} con asunto [ 000007,hola ]
+2008-11-16 19:53:41 INFO: Consultando si usuario {000007} existe en LOTES
+2008-11-16 19:53:41 INFO: El usuario {000007} fue validado por el lote {suba}
+2008-11-16 19:53:41 INFO: Almacenando mensaje para usuario {000007/pda} en la base de datos
+2008-11-16 19:53:41 SENTENCIA SQL :: INSERT INTO 
+			mensajes_pda (login_destino,gid_origen,fecha_envio,hora_envio,asunto,texto) 
+			VALUES ('000007',3,to_date('2008-11-16','yyyy-mm-dd'),'07:53 PM','hola','mundo1')
+2008-11-16 19:54:41 SENTENCIA SQL :: UPDATE mensajes_pda SET entregado=1 
+			WHERE login_destino='000007'
+2008-11-16 19:55:19 INFO: Cerrando conexion con cliente [OK]
+2008-11-16 20:00:45 INFO: Se ha establecido una nueva conexion TCP/IP Socket[addr=/192.168.1.1,port=50795,localport=9119]
+2008-11-16 20:00:47 INFO: Inicio de autenticacion para el usuario {suba} con la clave {827ccb0eea8a706c4c34a16891f84e7b}
+2008-11-16 20:00:47 INFO: Control de acceso sobre direcciones ip no habilitado para este usuario
+2008-11-16 20:00:47 INFO: Lote {suba} autenticado desde Ubicación No Registrada [192.168.1.128]
+2008-11-16 20:00:47 INFO: 1 conexion activa en el pool de lotes
+2008-11-16 20:01:36 SENTENCIA SQL :: UPDATE mensajes_pda SET entregado=1 
+			WHERE login_destino='000007'
+2008-11-16 20:02:04 INFO: Leyendo correo del buzon de mensajes
+2008-11-16 20:02:04 INFO: Formato de mensaje -> multipart/*
+2008-11-16 20:02:04 INFO: Nuevo mensaje desde {raul@katana.com} con asunto [ 000007,hola ]
+2008-11-16 20:02:04 INFO: Consultando si usuario {000007} existe en LOTES
+2008-11-16 20:02:04 INFO: El usuario {000007} fue validado por el lote {suba}
+2008-11-16 20:02:04 INFO: Almacenando mensaje para usuario {000007/pda} en la base de datos
+2008-11-16 20:02:04 SENTENCIA SQL :: INSERT INTO 
+			mensajes_pda (login_destino,gid_origen,fecha_envio,hora_envio,asunto,texto) 
+			VALUES ('000007',3,to_date('2008-11-16','yyyy-mm-dd'),'08:02 PM','hola','mundo1')
+2008-11-16 20:02:10 SENTENCIA SQL :: UPDATE mensajes_pda SET entregado=1 
+			WHERE login_destino='000007'
+2008-11-16 20:02:43 INFO: Cerrando conexion con cliente [OK]
+2008-11-16 20:05:31 INFO: Se ha establecido una nueva conexion TCP/IP Socket[addr=/192.168.1.1,port=50812,localport=9119]
+2008-11-16 20:05:33 INFO: Inicio de autenticacion para el usuario {suba} con la clave {827ccb0eea8a706c4c34a16891f84e7b}
+2008-11-16 20:05:33 INFO: Control de acceso sobre direcciones ip no habilitado para este usuario
+2008-11-16 20:05:33 INFO: Lote {suba} autenticado desde Ubicación No Registrada [192.168.1.128]
+2008-11-16 20:05:33 INFO: 1 conexion activa en el pool de lotes
+2008-11-16 20:05:46 INFO: Leyendo correo del buzon de mensajes
+2008-11-16 20:05:46 INFO: Formato de mensaje -> multipart/*
+2008-11-16 20:05:46 INFO: Nuevo mensaje desde {raul@katana.com} con asunto [ 000007,hola ]
+2008-11-16 20:05:46 INFO: Consultando si usuario {000007} existe en LOTES
+2008-11-16 20:06:04 INFO: El usuario {000007} fue validado por el lote {suba}
+2008-11-16 20:06:04 INFO: Almacenando mensaje para usuario {000007/pda} en la base de datos
+2008-11-16 20:06:04 SENTENCIA SQL :: INSERT INTO 
+			mensajes_pda (login_destino,gid_origen,fecha_envio,hora_envio,asunto,texto) 
+			VALUES ('000007',3,to_date('2008-11-16','yyyy-mm-dd'),'08:05 PM','hola','mundo1')
+2008-11-16 20:06:19 SENTENCIA SQL :: UPDATE mensajes_pda SET entregado=1 
+			WHERE login_destino='000007'
+2008-11-16 20:07:05 Formato de paquete invalido: Socket[addr=/192.168.1.1,port=50812,localport=9119]
+2008-11-16 20:13:41 INFO: ConfigFile -> /home/xtingray/Projects/comeet/comeet/comeet/CoMeet-Server/comeet/conf/server.conf
+2008-11-16 20:13:41 INFO: Cargando archivo de configuracion...
+2008-11-16 20:13:41 INFO: Cargando base de datos... bullet
+2008-11-16 20:13:42 ADVERTENCIA: Base de datos deshabilitada desde configuracion -> comeet
+2008-11-16 20:13:42 ADVERTENCIA: Base de datos deshabilitada desde configuracion -> oracle
+2008-11-16 20:13:42 INFO: Cargando cache de enlace [bullet]
+2008-11-16 20:13:42 INFO: Iniciando demonio pop3
+2008-11-16 20:13:42 INFO: Servidor de correo {localhost}
+2008-11-16 20:13:42 INFO: Iniciando demonio de sincronizacion
+2008-11-16 20:13:42 INFO: Servidor CoMeet escuchando por el puerto 9119
+2008-11-16 20:14:31 INFO: Se ha establecido una nueva conexion TCP/IP Socket[addr=/192.168.1.1,port=50849,localport=9119]
+2008-11-16 20:14:33 INFO: Inicio de autenticacion para el usuario {suba} con la clave {827ccb0eea8a706c4c34a16891f84e7b}
+2008-11-16 20:14:33 INFO: Control de acceso sobre direcciones ip no habilitado para este usuario
+2008-11-16 20:14:33 INFO: Lote {suba} autenticado desde Ubicación No Registrada [192.168.1.128]
+2008-11-16 20:14:33 INFO: 1 conexion activa en el pool de lotes
+2008-11-16 20:14:53 INFO: Leyendo correo del buzon de mensajes
+2008-11-16 20:14:53 INFO: Formato de mensaje -> multipart/*
+2008-11-16 20:14:53 INFO: Nuevo mensaje desde {raul@katana.com} con asunto [ 000007,hola ]
+2008-11-16 20:14:53 INFO: Consultando si usuario {000007} existe en LOTES
+2008-11-16 20:15:04 INFO: El usuario {000007} fue validado por el lote {suba}
+2008-11-16 20:15:04 INFO: Almacenando mensaje para usuario {000007/pda} en la base de datos
+2008-11-16 20:15:04 SENTENCIA SQL :: INSERT INTO 
+			mensajes_pda (login_destino,gid_origen,fecha_envio,hora_envio,asunto,texto) 
+			VALUES ('000007',3,to_date('2008-11-16','yyyy-mm-dd'),'20:14:53 PM','hola','undo1')
+2008-11-16 20:15:04 ERROR: No se pudo almacenar mensaje en la base de datos. Excepcion SQL
+2008-11-16 20:15:14 INFO: Leyendo correo del buzon de mensajes
+2008-11-16 20:15:14 INFO: Formato de mensaje -> multipart/*
+2008-11-16 20:15:14 INFO: Nuevo mensaje desde {raul@katana.com} con asunto [ 000007,hola ]
+2008-11-16 20:15:14 INFO: Consultando si usuario {000007} existe en LOTES
+2008-11-16 20:15:15 INFO: El usuario {000007} fue validado por el lote {suba}
+2008-11-16 20:15:15 INFO: Almacenando mensaje para usuario {000007/pda} en la base de datos
+2008-11-16 20:15:15 SENTENCIA SQL :: INSERT INTO 
+			mensajes_pda (login_destino,gid_origen,fecha_envio,hora_envio,asunto,texto) 
+			VALUES ('000007',3,to_date('2008-11-16','yyyy-mm-dd'),'20:15:14 PM','hola','undo2')
+2008-11-16 20:15:15 ERROR: No se pudo almacenar mensaje en la base de datos. Excepcion SQL
+2008-11-16 20:15:34 SENTENCIA SQL :: UPDATE mensajes_pda SET entregado=1 
+			WHERE login_destino='000007'
+2008-11-16 20:16:05 INFO: Leyendo correo del buzon de mensajes
+2008-11-16 20:16:05 INFO: Formato de mensaje -> multipart/*
+2008-11-16 20:16:05 INFO: Nuevo mensaje desde {raul@katana.com} con asunto [ 000007,hola ]
+2008-11-16 20:16:05 INFO: Consultando si usuario {000007} existe en LOTES
+2008-11-16 20:16:05 INFO: El usuario {000007} fue validado por el lote {suba}
+2008-11-16 20:16:05 INFO: Almacenando mensaje para usuario {000007/pda} en la base de datos
+2008-11-16 20:16:05 SENTENCIA SQL :: INSERT INTO 
+			mensajes_pda (login_destino,gid_origen,fecha_envio,hora_envio,asunto,texto) 
+			VALUES ('000007',3,to_date('2008-11-16','yyyy-mm-dd'),'20:16:05 PM','hola','ndo3')
+2008-11-16 20:16:05 ERROR: No se pudo almacenar mensaje en la base de datos. Excepcion SQL
+2008-11-16 20:16:09 SENTENCIA SQL :: UPDATE mensajes_pda SET entregado=1 
+			WHERE login_destino='000007'
+2008-11-16 20:16:46 INFO: Leyendo correo del buzon de mensajes
+2008-11-16 20:16:46 INFO: Formato de mensaje -> multipart/*
+2008-11-16 20:16:46 INFO: Nuevo mensaje desde {raul@katana.com} con asunto [ 000007,hola ]
+2008-11-16 20:16:46 INFO: Consultando si usuario {000007} existe en LOTES
+2008-11-16 20:16:46 INFO: El usuario {000007} fue validado por el lote {suba}
+2008-11-16 20:16:46 INFO: Almacenando mensaje para usuario {000007/pda} en la base de datos
+2008-11-16 20:16:46 SENTENCIA SQL :: INSERT INTO 
+			mensajes_pda (login_destino,gid_origen,fecha_envio,hora_envio,asunto,texto) 
+			VALUES ('000007',3,to_date('2008-11-16','yyyy-mm-dd'),'20:16:46 PM','hola','ndo4')
+2008-11-16 20:16:46 ERROR: No se pudo almacenar mensaje en la base de datos. Excepcion SQL
+2008-11-16 20:17:06 INFO: Leyendo correo del buzon de mensajes
+2008-11-16 20:17:06 INFO: Formato de mensaje -> multipart/*
+2008-11-16 20:17:06 INFO: Nuevo mensaje desde {raul@katana.com} con asunto [ 000007,hola ]
+2008-11-16 20:17:06 INFO: Consultando si usuario {000007} existe en LOTES
+2008-11-16 20:17:06 INFO: El usuario {000007} fue validado por el lote {suba}
+2008-11-16 20:17:06 INFO: Almacenando mensaje para usuario {000007/pda} en la base de datos
+2008-11-16 20:17:06 SENTENCIA SQL :: INSERT INTO 
+			mensajes_pda (login_destino,gid_origen,fecha_envio,hora_envio,asunto,texto) 
+			VALUES ('000007',3,to_date('2008-11-16','yyyy-mm-dd'),'20:17:06 PM','hola','ndo5')
+2008-11-16 20:17:06 ERROR: No se pudo almacenar mensaje en la base de datos. Excepcion SQL
+2008-11-16 20:19:59 INFO: ConfigFile -> /home/xtingray/Projects/comeet/comeet/comeet/CoMeet-Server/comeet/conf/server.conf
+2008-11-16 20:19:59 INFO: Cargando archivo de configuracion...
+2008-11-16 20:19:59 INFO: Cargando base de datos... bullet
+2008-11-16 20:19:59 ADVERTENCIA: Base de datos deshabilitada desde configuracion -> comeet
+2008-11-16 20:19:59 ADVERTENCIA: Base de datos deshabilitada desde configuracion -> oracle
+2008-11-16 20:19:59 INFO: Cargando cache de enlace [bullet]
+2008-11-16 20:20:00 INFO: Iniciando demonio pop3
+2008-11-16 20:20:00 INFO: Servidor de correo {localhost}
+2008-11-16 20:20:00 INFO: Iniciando demonio de sincronizacion
+2008-11-16 20:20:00 INFO: Servidor CoMeet escuchando por el puerto 9119
+2008-11-16 20:20:14 INFO: Se ha establecido una nueva conexion TCP/IP Socket[addr=/192.168.1.1,port=50903,localport=9119]
+2008-11-16 20:20:16 INFO: Inicio de autenticacion para el usuario {suba} con la clave {827ccb0eea8a706c4c34a16891f84e7b}
+2008-11-16 20:20:16 INFO: Control de acceso sobre direcciones ip no habilitado para este usuario
+2008-11-16 20:20:16 INFO: Lote {suba} autenticado desde Ubicación No Registrada [192.168.1.128]
+2008-11-16 20:20:16 INFO: 1 conexion activa en el pool de lotes
+2008-11-16 20:20:31 INFO: Leyendo correo del buzon de mensajes
+2008-11-16 20:20:31 INFO: Formato de mensaje -> multipart/*
+2008-11-16 20:20:31 INFO: Nuevo mensaje desde {raul@katana.com} con asunto [ 000007,hola ]
+2008-11-16 20:20:31 INFO: Consultando si usuario {000007} existe en LOTES
+2008-11-16 20:20:47 INFO: El usuario {000007} fue validado por el lote {suba}
+2008-11-16 20:20:47 INFO: Almacenando mensaje para usuario {000007/pda} en la base de datos
+2008-11-16 20:20:47 SENTENCIA SQL :: INSERT INTO 
+			mensajes_pda (login_destino,gid_origen,fecha_envio,hora_envio,asunto,texto) 
+			VALUES ('000007',3,to_date('2008-11-16','yyyy-mm-dd'),'20:20:31 PM','hola','mundial0')
+2008-11-16 20:20:58 INFO: Leyendo correo del buzon de mensajes
+2008-11-16 20:20:58 INFO: Formato de mensaje -> multipart/*
+2008-11-16 20:20:58 INFO: Nuevo mensaje desde {raul@katana.com} con asunto [ 000007,hola ]
+2008-11-16 20:20:58 INFO: Consultando si usuario {000007} existe en LOTES
+2008-11-16 20:20:58 INFO: El usuario {000007} fue validado por el lote {suba}
+2008-11-16 20:20:58 INFO: Almacenando mensaje para usuario {000007/pda} en la base de datos
+2008-11-16 20:20:58 SENTENCIA SQL :: INSERT INTO 
+			mensajes_pda (login_destino,gid_origen,fecha_envio,hora_envio,asunto,texto) 
+			VALUES ('000007',3,to_date('2008-11-16','yyyy-mm-dd'),'20:20:58 PM','hola','mundial1')
+2008-11-16 20:21:30 SENTENCIA SQL :: UPDATE mensajes_pda SET entregado=1 
+			WHERE login_destino='000007'
+2008-11-16 20:21:46 Formato de paquete invalido: Socket[addr=/192.168.1.1,port=50903,localport=9119]
+2008-11-16 20:22:47 INFO: Cerrando conexion con cliente [OK]
+2008-11-16 20:37:41 INFO: Se ha establecido una nueva conexion TCP/IP Socket[addr=/192.168.1.1,port=51077,localport=9119]
+2008-11-16 20:37:43 INFO: Inicio de autenticacion para el usuario {suba} con la clave {827ccb0eea8a706c4c34a16891f84e7b}
+2008-11-16 20:37:43 INFO: Control de acceso sobre direcciones ip no habilitado para este usuario
+2008-11-16 20:37:43 INFO: Lote {suba} autenticado desde Ubicación No Registrada [192.168.1.128]
+2008-11-16 20:37:43 INFO: 1 conexion activa en el pool de lotes
+2008-11-16 20:38:15 INFO: Leyendo correo del buzon de mensajes
+2008-11-16 20:38:15 INFO: Formato de mensaje -> multipart/*
+2008-11-16 20:38:15 INFO: Nuevo mensaje desde {raul@katana.com} con asunto [ 000007,hola ]
+2008-11-16 20:38:15 INFO: Consultando si usuario {000007} existe en LOTES
+2008-11-16 20:38:15 INFO: El usuario {000007} fue validado por el lote {suba}
+2008-11-16 20:38:15 INFO: Almacenando mensaje para usuario {000007/pda} en la base de datos
+2008-11-16 20:38:15 SENTENCIA SQL :: INSERT INTO 
+			mensajes_pda (login_destino,gid_origen,fecha_envio,hora_envio,asunto,texto) 
+			VALUES ('000007',3,to_date('2008-11-16','yyyy-mm-dd'),'20:38:15 PM','hola','mundial1')
+2008-11-16 20:38:36 INFO: Leyendo correo del buzon de mensajes
+2008-11-16 20:38:36 INFO: Formato de mensaje -> multipart/*
+2008-11-16 20:38:36 INFO: Nuevo mensaje desde {raul@katana.com} con asunto [ 000007,hola ]
+2008-11-16 20:38:36 INFO: Consultando si usuario {000007} existe en LOTES
+2008-11-16 20:38:36 INFO: El usuario {000007} fue validado por el lote {suba}
+2008-11-16 20:38:36 INFO: Almacenando mensaje para usuario {000007/pda} en la base de datos
+2008-11-16 20:38:36 SENTENCIA SQL :: INSERT INTO 
+			mensajes_pda (login_destino,gid_origen,fecha_envio,hora_envio,asunto,texto) 
+			VALUES ('000007',3,to_date('2008-11-16','yyyy-mm-dd'),'20:38:36 PM','hola','mundial2')
+2008-11-16 20:38:57 SENTENCIA SQL :: UPDATE mensajes_pda SET entregado=1 
+			WHERE login_destino='000007'
+2008-11-16 20:39:10 Formato de paquete invalido: Socket[addr=/192.168.1.1,port=51077,localport=9119]
+2008-11-16 20:40:47 INFO: Cerrando conexion con cliente [OK]
+2008-11-16 20:51:16 INFO: ConfigFile -> /home/xtingray/Projects/comeet/comeet/comeet/CoMeet-Server/comeet/conf/server.conf
+2008-11-16 20:51:17 INFO: Cargando archivo de configuracion...
+2008-11-16 20:51:17 INFO: Cargando base de datos... bullet
+2008-11-16 20:51:17 ADVERTENCIA: Base de datos deshabilitada desde configuracion -> comeet
+2008-11-16 20:51:17 ADVERTENCIA: Base de datos deshabilitada desde configuracion -> oracle
+2008-11-16 20:51:17 INFO: Cargando cache de enlace [bullet]
+2008-11-16 20:51:17 INFO: Iniciando demonio pop3
+2008-11-16 20:51:17 INFO: Servidor de correo {localhost}
+2008-11-16 20:51:17 INFO: Iniciando demonio de sincronizacion
+2008-11-16 20:51:17 INFO: Servidor CoMeet escuchando por el puerto 9119
+2008-11-16 20:51:33 INFO: Se ha establecido una nueva conexion TCP/IP Socket[addr=/192.168.1.1,port=51158,localport=9119]
+2008-11-16 20:51:35 INFO: Inicio de autenticacion para el usuario {suba} con la clave {827ccb0eea8a706c4c34a16891f84e7b}
+2008-11-16 20:51:35 INFO: Control de acceso sobre direcciones ip no habilitado para este usuario
+2008-11-16 20:51:35 INFO: Lote {suba} autenticado desde Ubicación No Registrada [192.168.1.128]
+2008-11-16 20:51:35 INFO: 1 conexion activa en el pool de lotes
+2008-11-16 20:51:48 INFO: Leyendo correo del buzon de mensajes
+2008-11-16 20:51:48 INFO: Formato de mensaje -> multipart/*
+2008-11-16 20:51:48 INFO: Nuevo mensaje desde {raul@katana.com} con asunto [ 000007,hola ]
+2008-11-16 20:51:48 INFO: Consultando si usuario {000007} existe en LOTES
+2008-11-16 20:52:04 INFO: Cerrando conexion con cliente [OK]
+2008-11-16 20:52:39 INFO: Se ha establecido una nueva conexion TCP/IP Socket[addr=/192.168.1.1,port=51168,localport=9119]
+2008-11-16 20:52:41 INFO: Inicio de autenticacion para el usuario {suba} con la clave {827ccb0eea8a706c4c34a16891f84e7b}
+2008-11-16 20:52:41 INFO: Control de acceso sobre direcciones ip no habilitado para este usuario
+2008-11-16 20:52:41 INFO: Lote {suba} autenticado desde Ubicación No Registrada [192.168.1.128]
+2008-11-16 20:52:41 INFO: 1 conexion activa en el pool de lotes
+2008-11-16 20:54:16 SENTENCIA SQL :: UPDATE mensajes_pda SET entregado=1 
+			WHERE login_destino='000007'
+2008-11-16 20:54:49 SENTENCIA SQL :: UPDATE mensajes_pda SET entregado=1 
+			WHERE login_destino='000007'
+2008-11-16 20:58:53 INFO: Cerrando conexion con cliente [OK]
+2008-11-16 21:00:11 INFO: Se ha establecido una nueva conexion TCP/IP Socket[addr=/192.168.1.1,port=51196,localport=9119]
+2008-11-16 21:00:13 INFO: Inicio de autenticacion para el usuario {suba} con la clave {827ccb0eea8a706c4c34a16891f84e7b}
+2008-11-16 21:00:13 INFO: Control de acceso sobre direcciones ip no habilitado para este usuario
+2008-11-16 21:00:13 INFO: Lote {suba} autenticado desde Ubicación No Registrada [192.168.1.128]
+2008-11-16 21:00:13 INFO: 1 conexion activa en el pool de lotes
+2008-11-16 21:03:14 INFO: ConfigFile -> /home/xtingray/Projects/comeet/comeet/comeet/CoMeet-Server/comeet/conf/server.conf
+2008-11-16 21:03:14 INFO: Cargando archivo de configuracion...
+2008-11-16 21:03:14 INFO: Cargando base de datos... bullet
+2008-11-16 21:03:14 ADVERTENCIA: Base de datos deshabilitada desde configuracion -> comeet
+2008-11-16 21:03:14 ADVERTENCIA: Base de datos deshabilitada desde configuracion -> oracle
+2008-11-16 21:03:14 INFO: Cargando cache de enlace [bullet]
+2008-11-16 21:03:15 INFO: Iniciando demonio pop3
+2008-11-16 21:03:15 INFO: Servidor de correo {localhost}
+2008-11-16 21:03:15 INFO: Iniciando demonio de sincronizacion
+2008-11-16 21:03:15 INFO: Servidor CoMeet escuchando por el puerto 9119
+2008-11-16 21:03:15 INFO: Leyendo correo del buzon de mensajes
+2008-11-16 21:03:15 INFO: Formato de mensaje -> multipart/*
+2008-11-16 21:03:15 INFO: Nuevo mensaje desde {raul@katana.com} con asunto [ 000007,hola ]
+2008-11-16 21:03:15 INFO: Consultando si usuario {000007} existe en LOTES
+2008-11-16 21:03:15 ERROR: El usuario {000007} no existe en el sistema.
+2008-11-16 21:03:15 ERROR: Notificando al remitente -> {raul}
+2008-11-16 21:03:15 INFO: Leyendo correo del buzon de mensajes
+2008-11-16 21:03:15 INFO: Formato de mensaje -> multipart/*
+2008-11-16 21:03:15 INFO: Nuevo mensaje desde {raul@katana.com} con asunto [ 000007,hola ]
+2008-11-16 21:03:15 INFO: Consultando si usuario {000007} existe en LOTES
+2008-11-16 21:03:15 ERROR: El usuario {000007} no existe en el sistema.
+2008-11-16 21:03:15 ERROR: Notificando al remitente -> {raul}
+2008-11-16 21:03:16 INFO: Leyendo correo del buzon de mensajes
+2008-11-16 21:03:16 INFO: Formato de mensaje -> multipart/*
+2008-11-16 21:03:16 INFO: Nuevo mensaje desde {raul@katana.com} con asunto [ 000007,hola ]
+2008-11-16 21:03:16 INFO: Consultando si usuario {000007} existe en LOTES
+2008-11-16 21:03:16 ERROR: El usuario {000007} no existe en el sistema.
+2008-11-16 21:03:16 ERROR: Notificando al remitente -> {raul}
+2008-11-16 21:03:16 INFO: Leyendo correo del buzon de mensajes
+2008-11-16 21:03:16 INFO: Formato de mensaje -> multipart/*
+2008-11-16 21:03:16 INFO: Nuevo mensaje desde {raul@katana.com} con asunto [ 000007,hola ]
+2008-11-16 21:03:16 INFO: Consultando si usuario {000007} existe en LOTES
+2008-11-16 21:03:16 ERROR: El usuario {000007} no existe en el sistema.
+2008-11-16 21:03:16 ERROR: Notificando al remitente -> {raul}
+2008-11-16 21:03:16 INFO: Leyendo correo del buzon de mensajes
+2008-11-16 21:03:16 INFO: Formato de mensaje -> multipart/*
+2008-11-16 21:03:16 INFO: Nuevo mensaje desde {raul@katana.com} con asunto [ 000007,hola ]
+2008-11-16 21:03:16 INFO: Consultando si usuario {000007} existe en LOTES
+2008-11-16 21:03:16 ERROR: El usuario {000007} no existe en el sistema.
+2008-11-16 21:03:16 ERROR: Notificando al remitente -> {raul}
+2008-11-16 21:03:16 INFO: Leyendo correo del buzon de mensajes
+2008-11-16 21:03:16 INFO: Formato de mensaje -> multipart/*
+2008-11-16 21:03:16 INFO: Nuevo mensaje desde {raul@katana.com} con asunto [ 000007,pruebas333 ]
+2008-11-16 21:03:16 INFO: Consultando si usuario {000007} existe en LOTES
+2008-11-16 21:03:16 ERROR: El usuario {000007} no existe en el sistema.
+2008-11-16 21:03:16 ERROR: Notificando al remitente -> {raul}
+2008-11-16 21:03:40 INFO: ConfigFile -> /home/xtingray/Projects/comeet/comeet/comeet/CoMeet-Server/comeet/conf/server.conf
+2008-11-16 21:03:40 INFO: Cargando archivo de configuracion...
+2008-11-16 21:03:40 INFO: Cargando base de datos... bullet
+2008-11-16 21:03:41 ADVERTENCIA: Base de datos deshabilitada desde configuracion -> comeet
+2008-11-16 21:03:41 ADVERTENCIA: Base de datos deshabilitada desde configuracion -> oracle
+2008-11-16 21:03:41 INFO: Cargando cache de enlace [bullet]
+2008-11-16 21:03:41 INFO: Iniciando demonio pop3
+2008-11-16 21:03:41 INFO: Servidor de correo {localhost}
+2008-11-16 21:03:41 INFO: Iniciando demonio de sincronizacion
+2008-11-16 21:03:41 INFO: Servidor CoMeet escuchando por el puerto 9119
+2008-11-16 21:03:49 INFO: Se ha establecido una nueva conexion TCP/IP Socket[addr=/192.168.1.1,port=51254,localport=9119]
+2008-11-16 21:03:51 INFO: Inicio de autenticacion para el usuario {suba} con la clave {827ccb0eea8a706c4c34a16891f84e7b}
+2008-11-16 21:03:51 INFO: Control de acceso sobre direcciones ip no habilitado para este usuario
+2008-11-16 21:03:51 INFO: Lote {suba} autenticado desde Ubicación No Registrada [192.168.1.128]
+2008-11-16 21:03:51 INFO: 1 conexion activa en el pool de lotes
+2008-11-16 21:04:22 INFO: Leyendo correo del buzon de mensajes
+2008-11-16 21:04:22 INFO: Formato de mensaje -> multipart/*
+2008-11-16 21:04:22 INFO: Nuevo mensaje desde {raul@katana.com} con asunto [ 000007,pruebas333 ]
+2008-11-16 21:04:22 INFO: Consultando si usuario {000007} existe en LOTES
+2008-11-16 21:04:22 INFO: El usuario {000007} fue validado por el lote {suba}
+2008-11-16 21:04:22 INFO: Almacenando mensaje para usuario {000007/pda} en la base de datos
+2008-11-16 21:04:22 SENTENCIA SQL :: INSERT INTO 
+			mensajes_pda (login_destino,gid_origen,fecha_envio,hora_envio,asunto,texto) 
+			VALUES ('000007',3,to_date('2008-11-16','yyyy-mm-dd'),'21:04:22 PM','pruebas333','inicio2')
+2008-11-16 21:05:33 SENTENCIA SQL :: UPDATE mensajes_pda SET entregado=1 
+			WHERE login_destino='000007'
+2008-11-16 21:05:45 SENTENCIA SQL :: UPDATE mensajes_pda SET confirmado=1, fecha_confirmacion=to_date('2008-11-16','yyyy-mm-dd'), hora_confirmacion=('21:05:45 PM')
+			WHERE fecha_envio=to_date('2008-11-16','yyyy-mm-dd') AND hora_envio='09:04:22 PM' AND confirmado=0 AND login_destino='000007'
+2008-11-16 21:05:45 INFO: [2008-11-16 21:05:45 PM] Confirmada lectura de mensaje con destino {000007}
+2008-11-16 21:06:42 INFO: Nuevo mensaje enviado por Colocador desde 192.168.1.1
+2008-11-16 21:08:44 INFO: Cerrando conexion con cliente [OK]
+2008-11-16 21:10:06 INFO: Se ha establecido una nueva conexion TCP/IP Socket[addr=/192.168.1.1,port=51622,localport=9119]
+2008-11-16 21:10:09 INFO: Inicio de autenticacion para el usuario {suba} con la clave {827ccb0eea8a706c4c34a16891f84e7b}
+2008-11-16 21:10:09 INFO: Control de acceso sobre direcciones ip no habilitado para este usuario
+2008-11-16 21:10:09 INFO: Lote {suba} autenticado desde Ubicación No Registrada [192.168.1.128]
+2008-11-16 21:10:09 INFO: 1 conexion activa en el pool de lotes
+2008-11-16 21:11:29 INFO: Nuevo mensaje enviado por Colocador desde 192.168.1.1
+2008-11-16 21:12:07 INFO: Nuevo mensaje enviado por Colocador desde 192.168.1.1
+2008-11-16 21:12:53 INFO: Cerrando conexion con cliente [OK]
+2008-11-16 21:12:59 INFO: Se ha establecido una nueva conexion TCP/IP Socket[addr=/192.168.1.1,port=51789,localport=9119]
+2008-11-16 21:13:01 INFO: Inicio de autenticacion para el usuario {suba} con la clave {827ccb0eea8a706c4c34a16891f84e7b}
+2008-11-16 21:13:01 INFO: Control de acceso sobre direcciones ip no habilitado para este usuario
+2008-11-16 21:13:01 INFO: Lote {suba} autenticado desde Ubicación No Registrada [192.168.1.128]
+2008-11-16 21:13:01 INFO: 1 conexion activa en el pool de lotes
+2008-11-16 21:13:59 INFO: Nuevo mensaje enviado por Colocador desde 192.168.1.1
+2008-11-16 21:15:14 INFO: Cerrando conexion con cliente [OK]
+2008-11-16 21:20:34 INFO: ConfigFile -> /home/xtingray/Projects/comeet/comeet/comeet/CoMeet-Server/comeet/conf/server.conf
+2008-11-16 21:20:34 INFO: Cargando archivo de configuracion...
+2008-11-16 21:20:34 INFO: Cargando base de datos... bullet
+2008-11-16 21:20:34 ADVERTENCIA: Base de datos deshabilitada desde configuracion -> comeet
+2008-11-16 21:20:34 ADVERTENCIA: Base de datos deshabilitada desde configuracion -> oracle
+2008-11-16 21:20:34 INFO: Cargando cache de enlace [bullet]
+2008-11-16 21:20:35 INFO: Iniciando demonio pop3
+2008-11-16 21:20:35 INFO: Servidor de correo {localhost}
+2008-11-16 21:20:35 INFO: Iniciando demonio de sincronizacion
+2008-11-16 21:20:35 INFO: Servidor CoMeet escuchando por el puerto 9119
+2008-11-16 21:20:45 INFO: Se ha establecido una nueva conexion TCP/IP Socket[addr=/127.0.0.1,port=33680,localport=9119]
+2008-11-16 21:20:45 INFO: Inicio de autenticacion para el usuario {pos01} con la clave {827ccb0eea8a706c4c34a16891f84e7b}
+2008-11-16 21:20:46 INFO: Control de acceso sobre direcciones ip no habilitado para este usuario
+2008-11-16 21:20:46 INFO: Colocador {pos01} autenticado desde Ubicación No Registrada [127.0.0.1]
+2008-11-16 21:22:06 INFO: Leyendo correo del buzon de mensajes
+2008-11-16 21:22:06 INFO: Formato de mensaje -> text/*
+2008-11-16 21:22:06 INFO: Nuevo mensaje desde {xtingray@localhost} con asunto [ pos01, hola mundo ]
+2008-11-16 21:22:06 INFO: Enviando mensaje a 1 usuario
+2008-11-16 21:22:07 INFO: [Envio a Punto de Venta] Remitente {auditor3} - Destino: pos01 - Asunto: hola mundo
+2008-11-16 21:22:07 INFO: Almacenando registro de mensaje en la base de datos [pos01]
+2008-11-16 21:22:07 SENTENCIA SQL :: INSERT INTO 
+			mensajes (uid_destino,fecha_envio,hora_envio,asunto,texto,confirmado,tiempo_vida,uid_origen,control,minutos)
+			VALUES (4,to_date('2008-11-16','yyyy-mm-dd'),'21:22:06 PM','hola mundo','hello world!',0,3,15,0,0)
+2008-11-16 21:22:09 SENTENCIA SQL :: UPDATE mensajes SET confirmado=1, fecha_confirmacion=to_date('2008-11-16','yyyy-mm-dd'), hora_confirmacion=('21:22:09 PM')
+			WHERE fecha_envio=to_date('2008-11-16','yyyy-mm-dd') AND hora_envio='21:22:06 PM' AND confirmado=0 AND
+			uid_destino=(SELECT codigo FROM usuarios WHERE login='pos01')
+2008-11-16 21:22:09 INFO: [2008-11-16 21:22:09 PM] Confirmada lectura de mensaje con destino {pos01}
+2008-11-16 21:28:03 INFO: ConfigFile -> /home/xtingray/Projects/comeet/comeet/comeet/CoMeet-Server/comeet/conf/server.conf
+2008-11-16 21:28:03 INFO: Cargando archivo de configuracion...
+2008-11-16 21:28:03 INFO: Cargando base de datos... bullet
+2008-11-16 21:28:03 ADVERTENCIA: Base de datos deshabilitada desde configuracion -> comeet
+2008-11-16 21:28:03 ADVERTENCIA: Base de datos deshabilitada desde configuracion -> oracle
+2008-11-16 21:28:03 INFO: Cargando cache de enlace [bullet]
+2008-11-16 21:28:04 INFO: Iniciando demonio pop3
+2008-11-16 21:28:04 INFO: Servidor de correo {localhost}
+2008-11-16 21:28:04 INFO: Iniciando demonio de sincronizacion
+2008-11-16 21:28:04 INFO: Servidor CoMeet escuchando por el puerto 9119
+2008-11-16 21:28:25 INFO: Se ha establecido una nueva conexion TCP/IP Socket[addr=/192.168.1.1,port=54443,localport=9119]
+2008-11-16 21:28:27 INFO: Inicio de autenticacion para el usuario {suba} con la clave {827ccb0eea8a706c4c34a16891f84e7b}
+2008-11-16 21:28:27 INFO: Control de acceso sobre direcciones ip no habilitado para este usuario
+2008-11-16 21:28:27 INFO: Lote {suba} autenticado desde Ubicación No Registrada [192.168.1.128]
+2008-11-16 21:28:27 INFO: 1 conexion activa en el pool de lotes
+2008-11-16 21:29:15 SENTENCIA SQL :: UPDATE mensajes_pda SET entregado=1 
+			WHERE login_destino='000007'
+2008-11-16 21:29:54 INFO: Nuevo mensaje enviado por Colocador desde 192.168.1.1
+2008-11-16 21:30:46 INFO: Leyendo correo del buzon de mensajes
+2008-11-16 21:30:46 INFO: Formato de mensaje -> multipart/*
+2008-11-16 21:30:46 INFO: Nuevo mensaje desde {raul@katana.com} con asunto [ 000007,pruebas333 ]
+2008-11-16 21:30:46 INFO: Consultando si usuario {000007} existe en LOTES
+2008-11-16 21:30:46 INFO: El usuario {000007} fue validado por el lote {suba}
+2008-11-16 21:30:46 INFO: Almacenando mensaje para usuario {000007/pda} en la base de datos
+2008-11-16 21:30:46 SENTENCIA SQL :: INSERT INTO 
+			mensajes_pda (login_destino,gid_origen,fecha_envio,hora_envio,asunto,texto) 
+			VALUES ('000007',3,to_date('2008-11-16','yyyy-mm-dd'),'21:30:46 PM','pruebas333','inicio3')
+2008-11-16 21:31:17 INFO: Cerrando conexion con cliente [OK]
+2008-11-16 21:31:43 INFO: Se ha establecido una nueva conexion TCP/IP Socket[addr=/192.168.1.1,port=54693,localport=9119]
+2008-11-16 21:31:45 INFO: Inicio de autenticacion para el usuario {suba} con la clave {827ccb0eea8a706c4c34a16891f84e7b}
+2008-11-16 21:31:45 INFO: Control de acceso sobre direcciones ip no habilitado para este usuario
+2008-11-16 21:31:45 INFO: Lote {suba} autenticado desde Ubicación No Registrada [192.168.1.128]
+2008-11-16 21:31:45 INFO: 1 conexion activa en el pool de lotes
+2008-11-16 21:33:02 INFO: Nuevo mensaje enviado por Colocador desde 192.168.1.1
+2008-11-16 21:33:02 INFO: Enviando mensaje a 8 usuarios
+2008-11-16 21:33:02 INFO: [Envio a Cuenta de Correo] Remitente {suba} - Destino: admin - Asunto: 000007
+2008-11-16 21:33:02 INFO: Almacenando registro de mensaje en la base de datos [admin]
+2008-11-16 21:33:02 SENTENCIA SQL :: INSERT INTO 
+			mensajes (uid_destino,fecha_envio,hora_envio,asunto,texto,confirmado,tiempo_vida,uid_origen,control,minutos)
+			VALUES (1,to_date('2008-11-16','yyyy-mm-dd'),'21:33:02 PM','000007','FTDFF',0,3,3,0,0)
+2008-11-16 21:33:02 INFO: [Envio a Cuenta de Correo] Remitente {suba} - Destino: batman - Asunto: 000007
+2008-11-16 21:33:02 INFO: Almacenando registro de mensaje en la base de datos [batman]
+2008-11-16 21:33:02 SENTENCIA SQL :: INSERT INTO 
+			mensajes (uid_destino,fecha_envio,hora_envio,asunto,texto,confirmado,tiempo_vida,uid_origen,control,minutos)
+			VALUES (18,to_date('2008-11-16','yyyy-mm-dd'),'21:33:02 PM','000007','FTDFF',0,3,3,0,0)
+2008-11-16 21:33:02 INFO: [Envio a Cuenta de Correo] Remitente {suba} - Destino: mensajero - Asunto: 000007
+2008-11-16 21:33:02 INFO: Almacenando registro de mensaje en la base de datos [mensajero]
+2008-11-16 21:33:02 SENTENCIA SQL :: INSERT INTO 
+			mensajes (uid_destino,fecha_envio,hora_envio,asunto,texto,confirmado,tiempo_vida,uid_origen,control,minutos)
+			VALUES (9,to_date('2008-11-16','yyyy-mm-dd'),'21:33:02 PM','000007','FTDFF',0,3,3,0,0)
+2008-11-16 21:33:02 INFO: [Envio a Cuenta de Correo] Remitente {suba} - Destino: prueba01 - Asunto: 000007
+2008-11-16 21:33:02 INFO: Almacenando registro de mensaje en la base de datos [prueba01]
+2008-11-16 21:33:02 SENTENCIA SQL :: INSERT INTO 
+			mensajes (uid_destino,fecha_envio,hora_envio,asunto,texto,confirmado,tiempo_vida,uid_origen,control,minutos)
+			VALUES (10,to_date('2008-11-16','yyyy-mm-dd'),'21:33:02 PM','000007','FTDFF',0,3,3,0,0)
+2008-11-16 21:33:02 INFO: [Envio a Cuenta de Correo] Remitente {suba} - Destino: prueba02 - Asunto: 000007
+2008-11-16 21:33:02 INFO: Almacenando registro de mensaje en la base de datos [prueba02]
+2008-11-16 21:33:02 SENTENCIA SQL :: INSERT INTO 
+			mensajes (uid_destino,fecha_envio,hora_envio,asunto,texto,confirmado,tiempo_vida,uid_origen,control,minutos)
+			VALUES (11,to_date('2008-11-16','yyyy-mm-dd'),'21:33:02 PM','000007','FTDFF',0,3,3,0,0)
+2008-11-16 21:33:02 INFO: [Envio a Cuenta de Correo] Remitente {suba} - Destino: prueba03 - Asunto: 000007
+2008-11-16 21:33:02 INFO: Almacenando registro de mensaje en la base de datos [prueba03]
+2008-11-16 21:33:02 SENTENCIA SQL :: INSERT INTO 
+			mensajes (uid_destino,fecha_envio,hora_envio,asunto,texto,confirmado,tiempo_vida,uid_origen,control,minutos)
+			VALUES (12,to_date('2008-11-16','yyyy-mm-dd'),'21:33:02 PM','000007','FTDFF',0,3,3,0,0)
+2008-11-16 21:33:02 INFO: [Envio a Cuenta de Correo] Remitente {suba} - Destino: raul - Asunto: 000007
+2008-11-16 21:33:02 INFO: Almacenando registro de mensaje en la base de datos [raul]
+2008-11-16 21:33:02 SENTENCIA SQL :: INSERT INTO 
+			mensajes (uid_destino,fecha_envio,hora_envio,asunto,texto,confirmado,tiempo_vida,uid_origen,control,minutos)
+			VALUES (17,to_date('2008-11-16','yyyy-mm-dd'),'21:33:02 PM','000007','FTDFF',0,3,3,0,0)
+2008-11-16 21:33:02 ERROR[SendFailedException]: Falla en el envio del mensaje desde comeet@localhost para prueba@localhost
+2008-11-16 21:33:02 ERROR: Invalid Addresses
+2008-11-16 21:33:03 INFO: [Envio a Cuenta de Correo] Remitente {suba} - Destino: secretaria - Asunto: 000007
+2008-11-16 21:33:03 INFO: Almacenando registro de mensaje en la base de datos [secretaria]
+2008-11-16 21:33:03 SENTENCIA SQL :: INSERT INTO 
+			mensajes (uid_destino,fecha_envio,hora_envio,asunto,texto,confirmado,tiempo_vida,uid_origen,control,minutos)
+			VALUES (13,to_date('2008-11-16','yyyy-mm-dd'),'21:33:02 PM','000007','FTDFF',0,3,3,0,0)
+2008-11-16 21:33:03 ERROR[SendFailedException]: Falla en el envio del mensaje desde comeet@localhost para mensajero@localhost
+2008-11-16 21:33:03 ERROR: Invalid Addresses
+2008-11-16 21:33:03 ERROR[SendFailedException]: Falla en el envio del mensaje desde comeet@localhost para prueba02@localhost
+2008-11-16 21:33:03 ERROR: Invalid Addresses
+2008-11-16 21:33:03 ERROR[SendFailedException]: Falla en el envio del mensaje desde comeet@localhost para prueba03@localhost
+2008-11-16 21:33:03 ERROR: Invalid Addresses
+2008-11-16 21:33:03 ERROR[SendFailedException]: Falla en el envio del mensaje desde comeet@localhost para secretaria@localhost
+2008-11-16 21:33:03 ERROR: Invalid Addresses
+2008-11-16 21:33:37 INFO: Leyendo correo del buzon de mensajes
+2008-11-16 21:33:37 INFO: Formato de mensaje -> multipart/*
+2008-11-16 21:33:37 INFO: Nuevo mensaje desde {raul@katana.com} con asunto [ 000007,pruebas333 ]
+2008-11-16 21:33:37 INFO: Consultando si usuario {000007} existe en LOTES
+2008-11-16 21:33:37 INFO: El usuario {000007} fue validado por el lote {suba}
+2008-11-16 21:33:37 INFO: Almacenando mensaje para usuario {000007/pda} en la base de datos
+2008-11-16 21:33:37 SENTENCIA SQL :: INSERT INTO 
+			mensajes_pda (login_destino,gid_origen,fecha_envio,hora_envio,asunto,texto) 
+			VALUES ('000007',3,to_date('2008-11-16','yyyy-mm-dd'),'21:33:37 PM','pruebas333','inicio4')
+2008-11-16 21:34:11 SENTENCIA SQL :: UPDATE mensajes_pda SET entregado=1 
+			WHERE login_destino='000007'
+2008-11-16 21:34:24 SENTENCIA SQL :: UPDATE mensajes_pda SET confirmado=1, fecha_confirmacion=to_date('2008-11-16','yyyy-mm-dd'), hora_confirmacion=('21:34:24 PM')
+			WHERE fecha_envio=to_date('2008-11-16','yyyy-mm-dd') AND hora_envio='21:30:46 PM' AND confirmado=0 AND login_destino='000007'
+2008-11-16 21:34:24 INFO: [2008-11-16 21:34:24 PM] Confirmada lectura de mensaje con destino {000007}
+2008-11-16 21:35:12 SENTENCIA SQL :: UPDATE mensajes_pda SET confirmado=1, fecha_confirmacion=to_date('2008-11-16','yyyy-mm-dd'), hora_confirmacion=('21:35:12 PM')
+			WHERE fecha_envio=to_date('2008-11-16','yyyy-mm-dd') AND hora_envio='21:33:37 PM' AND confirmado=0 AND login_destino='000007'
+2008-11-16 21:35:12 INFO: [2008-11-16 21:35:12 PM] Confirmada lectura de mensaje con destino {000007}
+2008-11-16 21:35:33 INFO: Se ha establecido una nueva conexion TCP/IP Socket[addr=/127.0.0.1,port=46677,localport=9119]
+2008-11-16 21:35:34 INFO: Inicio de autenticacion para el usuario {pos01} con la clave {827ccb0eea8a706c4c34a16891f84e7b}
+2008-11-16 21:35:34 INFO: Control de acceso sobre direcciones ip no habilitado para este usuario
+2008-11-16 21:35:34 INFO: Colocador {pos01} autenticado desde Ubicación No Registrada [127.0.0.1]
+2008-11-16 21:36:48 INFO: Leyendo correo del buzon de mensajes
+2008-11-16 21:36:48 INFO: Formato de mensaje -> text/*
+2008-11-16 21:36:48 INFO: Nuevo mensaje desde {xtingray@localhost} con asunto [ pos01, prueba X ]
+2008-11-16 21:36:48 INFO: Enviando mensaje a 1 usuario
+2008-11-16 21:36:49 INFO: [Envio a Punto de Venta] Remitente {auditor3} - Destino: pos01 - Asunto: prueba X
+2008-11-16 21:36:49 INFO: Almacenando registro de mensaje en la base de datos [pos01]
+2008-11-16 21:36:49 SENTENCIA SQL :: INSERT INTO 
+			mensajes (uid_destino,fecha_envio,hora_envio,asunto,texto,confirmado,tiempo_vida,uid_origen,control,minutos)
+			VALUES (4,to_date('2008-11-16','yyyy-mm-dd'),'21:36:48 PM','prueba X','you never know',0,3,15,0,0)
+2008-11-16 21:36:52 SENTENCIA SQL :: UPDATE mensajes SET confirmado=1, fecha_confirmacion=to_date('2008-11-16','yyyy-mm-dd'), hora_confirmacion=('21:36:52 PM')
+			WHERE fecha_envio=to_date('2008-11-16','yyyy-mm-dd') AND hora_envio='21:36:48 PM' AND confirmado=0 AND
+			uid_destino=(SELECT codigo FROM usuarios WHERE login='pos01')
+2008-11-16 21:36:53 INFO: [2008-11-16 21:36:52 PM] Confirmada lectura de mensaje con destino {pos01}
+2008-11-16 21:54:47 INFO: Cerrando conexion con cliente [OK]

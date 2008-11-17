@@ -86,7 +86,7 @@ public class Cache {
 				//Loading jtree with users (admin)
 				while (rows3.hasNext()) {						
 					String[] data = addAdminUserItem(rows3); // Workstation name and user name
-					if(mode == VISUAL) {
+					if(mode == VISUAL && (data[2].equals("true"))) {
 						Group group = getGroupByWorkStation(data[0].toString());
 						MainTreeManager.addChild(group.getName(),data[0],data[1]);
 					}
@@ -94,7 +94,7 @@ public class Cache {
 				//Loading jtree with users (pos)
 				while (rows4.hasNext()) {
 					Object[] data = addPOSUserItem(rows4); // Workstation name and User object 		
-					if(mode == VISUAL) {
+					if(mode == VISUAL && (data[2].equals("true"))) {
 						Group group = getGroupByWorkStation(data[0].toString());
 						String login = ((User)data[1]).getLogin();
 						MainTreeManager.addChild(group.getName(),data[0].toString(),login);
@@ -275,12 +275,13 @@ public class Cache {
 	//u.codigo,u.login,u.clave,u.nombres,u.correo,u.gid,g.nombre,u.rol
 
 	public static String[] addAdminUserItem(Iterator userIterator) {
-		String[] result = new String[2];
+		String[] result = new String[3];
 		Element row = (Element) userIterator.next();
 		Iterator columns = row.getChildren().iterator();
 		User user = new User();
 		user.setId(((Element)columns.next()).getValue());
 		String login = ((Element)columns.next()).getValue();
+		System.out.println("LOGIN: " + login);
 		adminUsers.add(login);
 		user.setLogin(login);
 		user.setPasswd(((Element)columns.next()).getValue());
@@ -290,11 +291,13 @@ public class Cache {
 		user.setGroupName(((Element)columns.next()).getValue());
 		String wsName = ((Element)columns.next()).getValue();
 		user.setType(Integer.parseInt(((Element)columns.next()).getValue()));
+		user.setEnabled(Integer.parseInt(((Element)columns.next()).getValue()));
 		user.setSeller(false);
 		groupsList.get(user.groupName).add(user);
 			
 		result[0] = wsName;
-		result[1] = user.login;
+		result[1] = user.getLogin();
+		result[2] = user.isEnabled() + "";
 		
 		return result;
 	}
@@ -302,7 +305,7 @@ public class Cache {
 	// u.codigo,u.login,u.clave,u.nombres,u.gid,ub.nombre,usb.validar_ip,g.nombre,u.rol
 	
 	public static Object[] addPOSUserItem(Iterator rows) {
-		Object[] result = new Object[2];
+		Object[] result = new Object[3];
 		Element row = (Element) rows.next();
 		Iterator columns = row.getChildren().iterator();
 		User user = new User();
@@ -317,12 +320,14 @@ public class Cache {
 		user.setValidIp(((Element)columns.next()).getValue().equals("1") ? true : false);
 		user.setGroupName(((Element)columns.next()).getValue());
 		user.setType(Integer.parseInt(((Element)columns.next()).getValue()));
+		user.setEnabled(Integer.parseInt(((Element)columns.next()).getValue()));
 		user.setSeller(true);
 		groupsList.get(user.groupName).add(user);
 		groupsList.get(user.groupName).getWs(wsName).add(user);
 		
 		result[0] = wsName;
 		result[1] = user;
+		result[2] = user.isEnabled() + "";
 		
 		return result;
 	}
@@ -594,6 +599,15 @@ public class Cache {
 		private String groupName;
 		private Boolean seller=false;
 		private int type;
+		private int enabled;
+		
+		public Boolean isEnabled() {
+			return (enabled == 1) ? true : false;
+		}
+		
+		public void setEnabled(int enabled) {
+			this.enabled = enabled;
+		}
 		
 		public Boolean isSeller() {
 			return seller;

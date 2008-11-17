@@ -83,6 +83,7 @@ public class Pop3Handler extends Thread {
 		} 
 		while(true) {
 			try {	
+								
 				store.connect(host,user,password);
 				Folder folder = store.getFolder("INBOX");
 				folder.open(Folder.READ_WRITE);
@@ -198,12 +199,18 @@ public class Pop3Handler extends Thread {
 							if (ConfigFileHandler.getMovilSupport()) {
 								Date date = Calendar.getInstance().getTime();
 								SimpleDateFormat formatDate = new SimpleDateFormat("yyyy-MM-dd");
-								SimpleDateFormat formatHour = new SimpleDateFormat("hh:mm aaa");
+								SimpleDateFormat formatHour = new SimpleDateFormat("HH:mm:ss a");
 								String dateString     = formatDate.format(date);
 								String hourString     = formatHour.format(date);
 								subject = subject.replaceAll("'","&39;");
 								content = content.replaceAll("'","&39;");
 								String sender = getGroupFromEmail(address.getAddress());
+								
+								if(sender.equals("-1")) {
+									LogWriter.write("ERROR: El correo electronico " + address.getAddress() + " no se encuentra ");
+									LogWriter.write("       asociado a ningun usuario");
+									return;
+								}
 
 								if (!toAllUsers && !inside) {
 									LogWriter.write("INFO: Consultando si usuario {" + to + "} existe en LOTES");

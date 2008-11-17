@@ -38,6 +38,7 @@ public class UserDocument {
 	private String rol;
 	private String groupId;
 	private String ipControl;	
+	private String enabled;
 	Vector<String> posCodesVector = new Vector<String>();
 
 	public UserDocument() {
@@ -63,6 +64,7 @@ public class UserDocument {
 		rol       = data[4];
 		groupId   = data[5];
 		ipControl = data[6];
+		enabled   = data[7];
 	}
 		
 	public Document getDocumentToAdd() {
@@ -82,6 +84,7 @@ public class UserDocument {
 		pack.addContent(createField(mail));
 		pack.addContent(createField(groupId));
 		pack.addContent(createField(rol));		
+		pack.addContent(createField(enabled));
 		transaction.addContent(pack);
 		
 		// Saving pos data from table to package
@@ -117,6 +120,7 @@ public class UserDocument {
 		pack.addContent(createField(mail));
 		pack.addContent(createField(rol));
 		pack.addContent(createField(groupId));
+		pack.addContent(createField(enabled));
 		pack.addContent(createField(uid));
 		transaction.addContent(pack);
 		

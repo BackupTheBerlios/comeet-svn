@@ -55,9 +55,7 @@ public class MessageConfirmer extends Thread {
         Element driver = new Element("driver");
         driver.setText("TR011");
         transaction.addContent(driver);
-        
-		time = formatDate(time);
-        
+               
 		Element pack = new Element("package");	
 		pack.addContent(new Element("field").setText(date));
 		pack.addContent(new Element("field").setText(time));
@@ -72,16 +70,5 @@ public class MessageConfirmer extends Thread {
 			System.out.println("mensaje: " + ex.getMessage());
 			ex.printStackTrace();
 		}
-	}
-	
-    private String formatDate(String basic) {
-		int hour = Integer.parseInt(basic.substring(0,basic.indexOf(":")));
-		String meridian = basic.substring(basic.indexOf(" "),basic.length());
-		if (meridian.trim().equals("PM")) {
-				hour = hour + 12;
-				String tail = basic.substring(basic.indexOf(":"),basic.length());
-				basic = hour + tail;
-		}
-        return basic;
-    }
+	}	
 }
