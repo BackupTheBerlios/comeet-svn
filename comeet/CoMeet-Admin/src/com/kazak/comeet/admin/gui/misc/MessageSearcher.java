@@ -229,18 +229,18 @@ public class MessageSearcher extends JFrame implements ActionListener, KeyListen
 			String sqlCode = "";
 			if (date==null) {
 				argsArray = new String[]{
-						fromField.getText(),
-						toField.getText(),
-						subjectField.getText()
+						fromField.getText().toUpperCase(),
+						toField.getText().toUpperCase(),
+						subjectField.getText().toUpperCase()
 						};
 				sqlCode ="SEL0021";
 			}
 			else {
 				argsArray = new String[]{
-						fromField.getText(),
-						toField.getText(),
+						fromField.getText().toUpperCase(),
+						toField.getText().toUpperCase(),
 						dateField.getDate().toString(),
-						subjectField.getText()		
+						subjectField.getText().toUpperCase()		
 						};
 				sqlCode = "SEL0016";
 			}

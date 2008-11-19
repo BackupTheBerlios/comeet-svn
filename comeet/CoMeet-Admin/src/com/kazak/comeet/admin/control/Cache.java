@@ -71,18 +71,20 @@ public class Cache {
 
 				//Loading jtree with groups
 				while (rows1.hasNext()) {
-					String group = addGroupItem(rows1);
-					if(mode == VISUAL) {
-						MainTreeManager.addGroup(group);
+					String[] data = addGroupItem(rows1);
+					if(mode == VISUAL && (data[1].equals("true"))) {
+						MainTreeManager.addGroup(data[0]);
 					}
 				}
+				
 				//Loading jtree with workstations
 				while (rows2.hasNext()) {
-					String[] data = addWsItem(rows2); // Group name and ws name
-					if(mode == VISUAL) {
+					String[] data = addWsItem(rows2); // Group name and ws name		
+					if(mode == VISUAL && groupsList.get(data[0]).isEnabled() && data[2].equals("1")) {
 						MainTreeManager.addChild(data[0],data[1]);
 					}
 				}
+				
 				//Loading jtree with users (admin)
 				while (rows3.hasNext()) {						
 					String[] data = addAdminUserItem(rows3); // Workstation name and user name
@@ -91,6 +93,7 @@ public class Cache {
 						MainTreeManager.addChild(group.getName(),data[0],data[1]);
 					}
 				}
+				
 				//Loading jtree with users (pos)
 				while (rows4.hasNext()) {
 					Object[] data = addPOSUserItem(rows4); // Workstation name and User object 		
@@ -227,7 +230,8 @@ public class Cache {
 		return groupTypesVector;
 	}
 	
-	public static String addGroupItem(Iterator groupIterator) {
+	public static String[] addGroupItem(Iterator groupIterator) {
+		String[] result = new String[2];
 		Element row = (Element) groupIterator.next();
 		Iterator columns = row.getChildren().iterator();
 
@@ -235,20 +239,25 @@ public class Cache {
 		String name = ((Element)columns.next()).getValue();
 		String visible = ((Element)columns.next()).getValue();
 		String type = ((Element)columns.next()).getValue();
+		String enabled = ((Element)columns.next()).getValue();
 
 		Group group = new Group();
 		group.setId(gid);
 		group.setName(name);
 		group.setVisible(visible.equals("1") ? true : false);
 		group.setType(Integer.parseInt(type));
-	
+		group.setEnabled(Integer.parseInt(enabled));
+
 		groupsList.put(name,group);
 		
-		return name;
+		result[0] = name;
+		result[1] = group.isEnabled() + "";
+		
+		return result;
 	}
 	
 	public static String[] addWsItem(Iterator wsIterator) {
-		String[] result = new String[2];
+		String[] result = new String[3];
 		Element row = (Element) wsIterator.next();
 		Iterator columns = row.getChildren().iterator();
 
@@ -257,17 +266,20 @@ public class Cache {
 		String ip = ((Element)columns.next()).getValue();
 		String gid = ((Element)columns.next()).getValue();
 		String groupName = ((Element)columns.next()).getValue();
+		String enabled = ((Element)columns.next()).getValue();
 		
 		WorkStation ws = new WorkStation();
 		ws.setGid(gid);
 		ws.setName(name);
 		ws.setIp(ip);
 		ws.setCode(code);
-		ws.setGroupName(groupName);		
+		ws.setGroupName(groupName);
+		ws.setEnabled(Integer.parseInt(enabled));
 		groupsList.get(groupName).add(ws);
 		
 		result[0] = groupName;
 		result[1] = name;
+		result[2] = enabled;
 		
 		return result;
 	}
@@ -281,8 +293,9 @@ public class Cache {
 		User user = new User();
 		user.setId(((Element)columns.next()).getValue());
 		String login = ((Element)columns.next()).getValue();
-		System.out.println("LOGIN: " + login);
-		adminUsers.add(login);
+		if (!adminUsers.contains(login)) {
+			adminUsers.add(login);
+		}
 		user.setLogin(login);
 		user.setPasswd(((Element)columns.next()).getValue());
 		user.setName(((Element)columns.next()).getValue());
@@ -312,7 +325,9 @@ public class Cache {
 		user.setId(((Element)columns.next()).getValue());
 		String login = ((Element)columns.next()).getValue();
 		user.setLogin(login);
-		operativeUsers.add(login);
+		if (!operativeUsers.contains(login)) {
+			operativeUsers.add(login);
+		}
 		user.setPasswd(((Element)columns.next()).getValue());
 		user.setName(((Element)columns.next()).getValue());
 		user.setGid(((Element)columns.next()).getValue());
@@ -334,6 +349,16 @@ public class Cache {
 	
 	public static boolean containsGroup(String groupName) {
 		return groupsList.containsKey(groupName);
+	}
+	
+	public static Group getGroupByName(String groupName) {
+		Collection<Group> list = groupsList.values();
+		for (Group group: list) {
+			if (group.getName().equals(groupName)) {
+				return group;
+			}
+		}
+		return null;
 	}
 	
 	private static Group getGroupByWorkStation(String wsCode) {
@@ -400,6 +425,24 @@ public class Cache {
 		return sortedGroupList;
 	}	
 
+	public static String[] getAvailableGroupsList() {
+		Object[] objectArray = Cache.getList().toArray();
+		Vector<String> names = new Vector<String>();
+		for (Object infoGroup:objectArray) {
+			Group group = (Group)infoGroup;
+			if (group.isEnabled()){
+				names.add(group.getName());
+			}
+		}
+        String[] groups = new String[names.size()];
+		for (int i=0;i<names.size();i++) {
+			groups[i] = names.elementAt(i);
+		}
+		Arrays.sort(groups);
+		
+		return groups;
+	}	
+	
 	public static HashMap<String,String> getGroupsHash() {
 		Object[] objectArray = Cache.getList().toArray();
 		HashMap <String,String>groupsHash = new HashMap<String,String>();
@@ -697,6 +740,7 @@ public class Cache {
 		private String gid;
 		private String groupName;
 		private String name;
+		private int isEnabled;
 		private Hashtable<String, User> userHash;
 		
 		public WorkStation() {
@@ -758,6 +802,14 @@ public class Cache {
 		public String getGroupName() {
 			return groupName;
 		}
+		
+		public void setEnabled(int i) {
+			isEnabled = i;
+		}
+		
+		public Boolean isEnabled(){
+			return isEnabled == 1 ? true : false;
+		}
 	}	
 
 	public static class Group {
@@ -766,6 +818,7 @@ public class Cache {
 		private String id;
 		private int type;
 		private Boolean isVisible;
+		private Boolean isEnabled;
 		private Hashtable<String, WorkStation> workStationsHash;
 		private Hashtable<String, User> usersHash;
 		
@@ -848,14 +901,18 @@ public class Cache {
 		public Collection<User> getUsers() {
 			return usersHash.values();
 		}
-		/*
-		public Boolean isZone() {
-			if (type == 1) {
-				return true;
+		
+		public void setEnabled(int i) {
+			if (i == 1) {
+				isEnabled = true;
+			} else {
+				isEnabled = false;
 			}
-			return false;
 		}
-		*/
+		
+		public Boolean isEnabled() {
+			return isEnabled;
+		}		
 		
 	}
 

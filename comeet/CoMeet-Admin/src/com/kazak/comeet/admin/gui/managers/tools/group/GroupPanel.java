@@ -59,9 +59,10 @@ public class GroupPanel extends JPanel implements ActionListener, KeyListener {
 	private JButton searchButton;
 	private ArrayList<Component> componentsList = new ArrayList<Component>();
 	private AutoCompleteComboBox nameField;
+	private JCheckBox enabledCheck;
 	private JCheckBox visibleCheck;
 	private JComboBox groupType;
-	private String[] labels = {"Nombre: ","Tipo de Grupo: ","Visible para clientes"};
+	private String[] labels = {"Nombre: ","Habilitado ","Tipo de Grupo: ","Visible para clientes"};
 
 	public GroupPanel(MainForm mainFrame, int action, String target) {
 		this.mainFrame = mainFrame;
@@ -78,6 +79,7 @@ public class GroupPanel extends JPanel implements ActionListener, KeyListener {
 		searchButton.addActionListener(this);		
 
 		componentsList.add(nameField    = new AutoCompleteComboBox(Cache.getGroupsList(),false,50,searchButton));
+		componentsList.add(enabledCheck = new JCheckBox());
 		componentsList.add(groupType    = new JComboBox(Cache.getGroupTypesVector()));
 		componentsList.add(visibleCheck = new JCheckBox());
 		
@@ -86,6 +88,7 @@ public class GroupPanel extends JPanel implements ActionListener, KeyListener {
 	}
 	
 	private void setInitMode(){
+		Group group;
 		switch(action) {
 			// To Add
 		case ToolsConstants.ADD:
@@ -103,6 +106,8 @@ public class GroupPanel extends JPanel implements ActionListener, KeyListener {
 		case ToolsConstants.EDIT_PREFILLED:
 			mainFrame.setTitle("Editar Grupo");
 			nameField.setSelectedItem(target);
+			group = Cache.getGroupByName(target);
+			enabledCheck.setSelected(group.isEnabled());		
 			fillForm();
 			break;
 			// To Delete
@@ -125,6 +130,8 @@ public class GroupPanel extends JPanel implements ActionListener, KeyListener {
 			// Search pre-filled
 		case ToolsConstants.SEARCH_PREFILLED:
 			mainFrame.setTitle("Buscar Grupo");			
+			group = Cache.getGroupByName(target);
+			enabledCheck.setSelected(group.isEnabled());		
 			doFilledSearch();
 			enableFields(false);
 			break;
@@ -146,6 +153,7 @@ public class GroupPanel extends JPanel implements ActionListener, KeyListener {
 				break;
 			case ToolsConstants.EDIT:
 			case ToolsConstants.EDIT_PREFILLED:
+				enabledCheck.setSelected(group.isEnabled());
 				visibleCheck.setSelected(group.isVisible());
 				type = Cache.getGroupTypeName(group.getType());
 				groupType.setSelectedItem(type);
@@ -159,6 +167,7 @@ public class GroupPanel extends JPanel implements ActionListener, KeyListener {
 			case ToolsConstants.SEARCH:
 			case ToolsConstants.SEARCH_PREFILLED:
 				nameField.requestFocus();
+				enabledCheck.setSelected(group.isEnabled());
 				visibleCheck.setSelected(group.isVisible());
 				type = Cache.getGroupTypeName(group.getType());
 				groupType.setSelectedItem(type);
@@ -169,6 +178,7 @@ public class GroupPanel extends JPanel implements ActionListener, KeyListener {
 				JOptionPane.showMessageDialog(mainFrame,"El grupo " + target + " no existe. ");
 				resetPanel();
 			} else {
+				enabledCheck.setSelected(true);
 				enableFields(true);
 				ButtonBar.setEnabledAcceptButton(true);
 			}
@@ -176,12 +186,13 @@ public class GroupPanel extends JPanel implements ActionListener, KeyListener {
 	}
 
 	public String[] getFormData(){
-		String[] data = new String[4];	
+		String[] data = new String[5];	
 		data[0] = target;
 		data[1] = visibleCheck.isSelected() ? "1" : "0";
 		String type = groupType.getSelectedItem().toString();
 		data[2] = Cache.getGroupTypeID(type).toString();
 		data[3] = nameField.getText();
+		data[4] = enabledCheck.isSelected() ? "1" : "0";
 		
 		return data;
 	}	
@@ -254,6 +265,7 @@ public class GroupPanel extends JPanel implements ActionListener, KeyListener {
 	private void reset() {
 		nameField.setEditable(true);
 		nameField.blankTextField();
+		enabledCheck.setSelected(false);
 		visibleCheck.setSelected(false);
 		groupType.setEnabled(false);
 		ButtonBar.setEnabledAcceptButton(false);
@@ -265,6 +277,7 @@ public class GroupPanel extends JPanel implements ActionListener, KeyListener {
 	}
 	
 	private void enableFields(boolean flag) {
+		enabledCheck.setEnabled(flag);
 		visibleCheck.setEnabled(flag);
 		groupType.setEnabled(flag);
 	}

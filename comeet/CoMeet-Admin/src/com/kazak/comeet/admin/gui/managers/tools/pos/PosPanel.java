@@ -34,6 +34,7 @@ import java.util.ArrayList;
 
 import javax.swing.BoxLayout;
 import javax.swing.JButton;
+import javax.swing.JCheckBox;
 import javax.swing.JComboBox;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -60,12 +61,11 @@ public class PosPanel extends JPanel implements ActionListener, KeyListener {
 	private String target;
 	private ArrayList<Component> componentsList = new ArrayList<Component>();
 	private AutoCompleteComboBox nameField;
+	private JCheckBox enabledCheck;
 	private JButton searchButton;
-	//private JTextField codeField;
 	private JTextField ipField;
 	private JComboBox groupsCombo;
-	private String[] labels = {"Nombre: ","IP: ","Grupo: "};
-	//private String newCode = "";
+	private String[] labels = {"Nombre: ","Habilitado ","IP: ","Grupo: "};
 	private UserPosTable table;
 
 	public PosPanel(MainForm mainFrame, int action, String target, UserPosTable table) {
@@ -83,12 +83,11 @@ public class PosPanel extends JPanel implements ActionListener, KeyListener {
 		searchButton.setActionCommand("search");
 		searchButton.addActionListener(this);
 		componentsList.add(nameField = new AutoCompleteComboBox(Cache.getWorkStationsList(),false,50,searchButton));
-		//componentsList.add(codeField = new JTextField());
-		//codeField.setEditable(false);
+		componentsList.add(enabledCheck = new JCheckBox());
 		componentsList.add(ipField   = new JTextField());
 		ipField.setEditable(false);
 		ipField.setName("IP");
-		groupsCombo = new JComboBox(Cache.getGroupsList());
+		groupsCombo = new JComboBox(Cache.getAvailableGroupsList());
 		groupsCombo.removeItem("COMEET");
 		componentsList.add(groupsCombo);
 		ipField.setDocument(new FixedSizePlainDocument(15));		
@@ -97,26 +96,32 @@ public class PosPanel extends JPanel implements ActionListener, KeyListener {
 	}
 	
 	private void setInitMode(){
+		WorkStation ws;
 		switch(action) {
 			// To Add
 		case ToolsConstants.ADD:
 			mainFrame.setTitle("Nueva Ubicación");
-			//newCode = target;
-			//codeField.setText(newCode);
+			enabledCheck.setSelected(true);
 			ipField.setEditable(true);
 			ButtonBar.setEnabledAcceptButton(false);
 			break;
 			// To Edit
 		case ToolsConstants.EDIT:
 			mainFrame.setTitle("Editar Ubicación");
-			ipField.setEditable(true);
+			reset();
+			/*
+			enabledCheck.setEnabled(false);
+			ipField.setEditable(false);
 			ipField.setFocusTraversalKeysEnabled(false);
-			groupsCombo.setEnabled(true);
+			groupsCombo.setEnabled(false);
+			*/
 			break;
 			// Edit pre-filled
 		case ToolsConstants.EDIT_PREFILLED:
 			mainFrame.setTitle("Editar Ubicación");
 			nameField.setSelectedItem(target);
+			ws = Cache.getWorkStation(target);
+			enabledCheck.setSelected(ws.isEnabled());
 			ipField.setEditable(true);
 			ipField.setFocusTraversalKeysEnabled(false);
 			groupsCombo.setEnabled(true);
@@ -138,23 +143,26 @@ public class PosPanel extends JPanel implements ActionListener, KeyListener {
 			// To Search
 		case ToolsConstants.SEARCH:
 			mainFrame.setTitle("Buscar Ubicación");
-			disableFields();
+			enableFields(false);
 			break;
 			// Search pre-filled
 		case ToolsConstants.SEARCH_PREFILLED:
 			mainFrame.setTitle("Buscar Ubicación");		
+			ws = Cache.getWorkStation(target);
+			enabledCheck.setSelected(ws.isEnabled());
 			doFilledSearch();
-			disableFields();
+			enableFields(false);
 			break;
 		case ToolsConstants.LINK:
 			mainFrame.setTitle("Asignar Ubicación a Usuario");
 			ButtonBar.setEnabledAcceptButton(false);
-			disableFields();
+			enableFields(false);
 			break;			
 		}	
 	}
 	
 	private void fillForm() {
+		
 		if (Cache.containsWs(target)) {
 			WorkStation ws = Cache.getWorkStation(target);
 			switch(action) {
@@ -167,13 +175,15 @@ public class PosPanel extends JPanel implements ActionListener, KeyListener {
 				break;
 			case ToolsConstants.EDIT:
 			case ToolsConstants.EDIT_PREFILLED:
+				enabledCheck.setEnabled(true);
+				enabledCheck.setSelected(ws.isEnabled());
 				ipField.setEditable(true);
 				groupsCombo.setEnabled(true);
-				//codeField.setText(ws.getCode());
 				ipField.setText(ws.getIp());
 				groupsCombo.setSelectedItem(ws.getGroupName());
 				ipField.addKeyListener(this);
 				ipField.requestFocus();
+				ButtonBar.setEnabledAcceptButton(true);
 				break;
 			case ToolsConstants.DELETE:
 			case ToolsConstants.DELETE_PREFILLED:
@@ -181,7 +191,7 @@ public class PosPanel extends JPanel implements ActionListener, KeyListener {
 			case ToolsConstants.SEARCH:
 			case ToolsConstants.SEARCH_PREFILLED:
 			case ToolsConstants.LINK:
-				//codeField.setText(ws.getCode());
+				enabledCheck.setSelected(ws.isEnabled());
 				ipField.setText(ws.getIp());
 				groupsCombo.setSelectedItem(ws.getGroupName());
 				nameField.requestFocus();
@@ -195,7 +205,7 @@ public class PosPanel extends JPanel implements ActionListener, KeyListener {
 				JOptionPane.showMessageDialog(mainFrame,"La ubicación no existe. ");
 				reset();
 			} else {
-				//codeField.setText(newCode);
+				enabledCheck.setSelected(true);
 				ipField.setEditable(true);
 				groupsCombo.setEnabled(true);
 				ipField.requestFocus();
@@ -206,7 +216,7 @@ public class PosPanel extends JPanel implements ActionListener, KeyListener {
 	}
 	
 	public String[] getFormData(){
-		String[] data = new String[5];	
+		String[] data = new String[6];	
 		WorkStation ws = Cache.getWorkStation(target);
 		data[0] = target;
 		if (ws != null) {
@@ -216,8 +226,9 @@ public class PosPanel extends JPanel implements ActionListener, KeyListener {
 		}
 		data[2] = ipField.getText();
 		data[3] = (String) groupsCombo.getSelectedItem();
-		data[4] = nameField.getText();
-		
+		data[4] = enabledCheck.isSelected() ? "1" : "0";
+		data[5] = nameField.getText();
+	
 		return data;
 	}
 		
@@ -290,6 +301,7 @@ public class PosPanel extends JPanel implements ActionListener, KeyListener {
 		switch(action) {
 			// To Add
 		case ToolsConstants.ADD:
+			enabledCheck.setSelected(false);
 			nameField.blankTextField();
 			ipField.setText("");
 			ipField.setEditable(true);
@@ -313,7 +325,7 @@ public class PosPanel extends JPanel implements ActionListener, KeyListener {
 	private void reset() {
 		nameField.setEditable(true);
 		nameField.blankTextField();
-		//codeField.setText("");
+		enabledCheck.setEnabled(false);
 		ipField.setText("");
 		ipField.setEditable(false);
 		groupsCombo.setSelectedIndex(0);
@@ -325,10 +337,10 @@ public class PosPanel extends JPanel implements ActionListener, KeyListener {
 		ButtonBar.setEnabledAcceptButton(false);
 	}
 	
-	private void disableFields() {
-		//codeField.setEditable(false);
-		ipField.setEditable(false);
-		groupsCombo.setEnabled(false);
+	private void enableFields(Boolean flag) {
+		enabledCheck.setEnabled(flag);
+		ipField.setEditable(flag);
+		groupsCombo.setEnabled(flag);
 	}
 	
 	private void doFilledSearch() {

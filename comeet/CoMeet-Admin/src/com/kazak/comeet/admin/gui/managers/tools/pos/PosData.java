@@ -68,7 +68,7 @@ public class PosData {
 	
 	private boolean differentName() {
 
-		if (!data[0].equals(data[4])) {
+		if (!data[0].equals(data[5])) {
 			
 			String flag = "no";
 			
@@ -80,7 +80,7 @@ public class PosData {
 			JOptionPane.showMessageDialog(
 					frame,
 					"<html><center>" +
-					"El nombre del punto de venta " + data[4] 
+					"El nombre del punto de venta " + data[5] 
 					 + " " + flag + " existe. " +
 			"</center></html>");
 			return true;		
@@ -88,25 +88,7 @@ public class PosData {
 
 		return false;
 	}
-	
-	/*
-	private boolean groupIsZone(String group) {
-		Cache.Group g = Cache.getGroup(group);
 
-		if (!g.isZone()) {
-			Toolkit.getDefaultToolkit().beep();
-			JOptionPane.showMessageDialog(
-					frame,
-					"<html><center>" +
-					"El grupo seleccionado no es zona.<br>Por favor, escoja otro grupo. " +
-			"</center></html>");
-			return false;		
-		}
-		
-		return true;
-	}
-	*/
-	
 	private boolean isAValidIP(String input) {
 		if (!"".equals(input)) {
 			String ipFields[] = input.split("\\.");

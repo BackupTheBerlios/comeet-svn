@@ -15,7 +15,7 @@
 		<sql>
 			SELECT grupo_id,nombre 
 			FROM grupos 
-			WHERE visible=1
+			WHERE visible=1 AND habilitado=1
 			ORDER BY nombre 
 		</sql>
 	</sentence>
@@ -51,7 +51,7 @@
 	<!--Descripcion: Esta consulta retorna los datos de cada ubicacion y su respectivo grupo -->
 		<code>SEL0005</code>
 		<sql>
-			SELECT u.codigo,u.nombre,u.ip,u.gid,g.nombre 
+			SELECT u.codigo,u.nombre,u.ip,u.gid,g.nombre,u.habilitado 
 			FROM ubicaciones u, grupos g 
 			WHERE g.grupo_id=u.gid
 			ORDER BY u.nombre
@@ -233,11 +233,11 @@
 		<code>SEL0017</code>
 		<sql>
 			SELECT DISTINCT 
-			date_part('year',fecha),
-			date_part('month', fecha),
-			date_part('day', fecha) 
+			TO_CHAR(fecha_envio,'YYYY'),
+			TO_CHAR(fecha_envio,'MM'),
+			TO_CHAR(fecha_envio,'DD')
 			FROM mensajes
-			ORDER BY date_part('month', fecha) 
+			ORDER BY TO_CHAR(fecha_envio,'MM')
 		</sql>
 	</sentence>
 	<sentence>
@@ -249,7 +249,7 @@
 			m.asunto, m.texto, CASE WHEN confirmado='1' THEN 'true' ELSE 'false' END
 			FROM
 			mensajes m,
-			(SELECT codigo AS id,login AS name FROM usuarios) AS miembros,
+			(SELECT codigo AS id,login AS name FROM usuarios) miembros,
 			usuarios u
 			WHERE 
 			m.uid_destino=miembros.id AND 
@@ -271,7 +271,7 @@
 			WHERE 
 			m.uid_destino=miembros.id AND 
 			uid_origen=u.codigo AND 
-			fecha_envio&gt;=to_date('?', 'YYYY-MM-DD') AND fecha_envio&lt;=(to_date('?', 'YYYY-MM-DD')-1) 
+			fecha_envio&gt;=to_date('?', 'DD-MM-YYYY') AND fecha_envio&lt;(to_date('?', 'DD-MM-YYYY')) 
 			ORDER BY m.fecha_envio
 		</sql>
 	</sentence>
@@ -301,15 +301,15 @@
 			CASE WHEN confirmado='1' THEN 'true' ELSE 'false' END
 			FROM
 			mensajes m,
-			(SELECT codigo AS id,login AS name FROM usuarios) AS miembros,
+			(SELECT codigo AS id,login AS name FROM usuarios) miembros,
 			usuarios u
 			WHERE 
 			m.uid_destino=miembros.id AND 
 			uid_origen=u.codigo AND
-			u.login ILIKE '%?%' AND 
-			miembros.name ILIKE '%?%'AND
-			asunto ILIKE '%?%'
-			ORDER BY m.mid
+			UPPER(u.login) LIKE ('%?%') AND
+			UPPER(miembros.name) LIKE ('%?%') AND
+			UPPER(asunto) LIKE ('%?%') 
+			ORDER BY m.mid		
 		</sql>
 	</sentence>
         <sentence>
@@ -605,8 +605,8 @@
 		<code>INS0006</code>
 		<sql>
 			INSERT INTO 
-			grupos (nombre,visible,tipo_grupo) 
-			VALUES ('?','?',?)
+			grupos (nombre,visible,tipo_grupo,habilitado) 
+			VALUES ('?','?',?,?)
 		</sql>
 	</sentence>
 	<sentence>
@@ -614,8 +614,8 @@
 		<code>INS0007</code>
 		<sql>
 			INSERT INTO 
-			ubicaciones (nombre,ip,gid) 
-			VALUES ('?','?',?)
+			ubicaciones (nombre,ip,gid,habilitado) 
+			VALUES ('?','?',?,?)
 		</sql>
 	</sentence>
 	<!--====================== Delete======================================= -->
@@ -662,7 +662,7 @@
 		<code>UPD0001</code>
 		<sql>
 			UPDATE 
-			grupos SET nombre='?',visible='?',tipo_grupo='?'  
+			grupos SET nombre='?',visible=?,tipo_grupo=?,habilitado=?  
 			WHERE nombre='?'
 		</sql>
 	</sentence>
@@ -703,7 +703,7 @@
 	<!--Descripcion: ... -->
 		<code>UPD0005</code>
 		<sql>
-			UPDATE ubicaciones SET ip='?',gid='?' WHERE nombre='?'
+			UPDATE ubicaciones SET ip='?',gid=?,habilitado=? WHERE nombre='?'
 		</sql>
 	</sentence>
 	<sentence>

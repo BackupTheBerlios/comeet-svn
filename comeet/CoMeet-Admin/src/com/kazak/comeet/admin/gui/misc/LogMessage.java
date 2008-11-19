@@ -165,24 +165,35 @@ public class LogMessage extends JFrame implements ActionListener, TreeSelectionL
 		switch (pathCount) {
 		case 2:
 			// Get a complete year messages set
-			date1 = path.getPathComponent(1)+"-01-01";
-			date2 = path.getPathComponent(1)+"-12-31";
+			date1 = "01/01/"+path.getPathComponent(1);
+			date2 = "31/12/"+path.getPathComponent(1);
 			argsArray = new String[] {date1,date2};
 			sqlCode = "SEL0018";
 			break;
 		case 3:
 			// Get a complete month messages set
 			int monthIndex = getIndexOfMonth(path.getPathComponent(2).toString());
-			date1 = path.getPathComponent(1)+ "-" + monthIndex;
-			date2 = path.getPathComponent(1)+ "-" + (monthIndex+1);
+			date1 = "01/" + monthIndex + "/" + path.getPathComponent(1);
+			int top = monthIndex + 1;
+			int year = Integer.parseInt(path.getPathComponent(1).toString());
+			if (top > 12) {
+				top = 1;
+				year++;
+			}
+			if (year < 10) {
+				date2 = "01/" + top + "/0" +  year;
+			} else {
+				date2 = "01/" + top + "/" +  year;
+			}
 			argsArray = new String[] {date1,date2};
 			sqlCode = "SEL0019";
 			break;
 		case 4:
 			// Get a complete day messages set
-			date1 = path.getPathComponent(1) + "-" + 
-			getIndexOfMonth(path.getPathComponent(2).toString()) + "-" +
-			path.getPathComponent(3);
+			date1 = path.getPathComponent(3) + "/" + 
+			getIndexOfMonth(path.getPathComponent(2).toString()) + "/" +
+			path.getPathComponent(1);
+
 			argsArray = new String[] {date1};
 			sqlCode = "SEL0020";
 			break;
@@ -300,20 +311,22 @@ public class LogMessage extends JFrame implements ActionListener, TreeSelectionL
 			TreePath path = tree.getPathForLocation(e.getX(),e.getY());
 			int pathCount = path.getPathCount();
 			if (pathCount == 4) {
+				System.out.println("ABRIENDO REPORTE...");
 				openADayReport(path);
 			}
 		}
 	}
 	
 	private void openADayReport(TreePath path) {
-			// Get a complete day messages set
-			String date1 = path.getPathComponent(1) + "-" + 
-			getIndexOfMonth(path.getPathComponent(2).toString()) + "-" +
-			path.getPathComponent(3);
-			argsArray = new String[] {date1};
-			sqlCode = "SEL0020";
-			Worker worker = new Worker(sqlCode,argsArray);
-			worker.start();
+		// Get a complete day messages set
+		String date1 = path.getPathComponent(1) + "/"
+			+ getIndexOfMonth(path.getPathComponent(2).toString()) + "/"
+			+ path.getPathComponent(3);
+		argsArray = new String[] { date1 };
+		sqlCode = "SEL0020";
+		System.out.println("FECHA: " + date1);
+		Worker worker = new Worker(sqlCode, argsArray);
+		worker.start();
 	}
 
 	public void mouseEntered(MouseEvent e) {

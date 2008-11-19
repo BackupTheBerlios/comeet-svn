@@ -32,12 +32,14 @@ public class GroupDocument {
 	private String isVisible;
 	private String isZone;
 	private String newName;
+	private String isEnabled;
 	
 	public GroupDocument(String[] data) {
 		name = data[0];
 		isVisible = data[1];
 		isZone = data[2];
 		newName = data[3];
+		isEnabled = data[4];
 	}
 	
 	public Document getDocumentToAdd() {
@@ -57,6 +59,7 @@ public class GroupDocument {
 		pack.addContent(createField(name));
 		pack.addContent(createField(isVisible));
 		pack.addContent(createField(isZone));
+		pack.addContent(createField(isEnabled));
 
 		transaction.addContent(pack);
 		
@@ -75,6 +78,7 @@ public class GroupDocument {
 		pack.addContent(createField(newName));
 		pack.addContent(createField(isVisible));
 		pack.addContent(createField(isZone));
+		pack.addContent(createField(isEnabled));
 		pack.addContent(createField(name));
 		
 		transaction.addContent(pack);

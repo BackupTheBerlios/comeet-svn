@@ -96,7 +96,7 @@ public class LoginWindow implements ActionListener {
 		}
 	}
 	
-	public void initComponents() {
+	private void initComponents() {
 		frame = new JFrame();
 		frame.setLayout(new BorderLayout());
 		frame.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);

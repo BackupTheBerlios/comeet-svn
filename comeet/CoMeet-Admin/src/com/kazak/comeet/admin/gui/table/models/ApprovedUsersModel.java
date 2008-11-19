@@ -42,7 +42,7 @@ public class ApprovedUsersModel extends AbstractTableModel {
 		
 	@SuppressWarnings("unchecked")
 	public void addRow() {
-		Vector vector = new Vector();
+		Vector<Object> vector = new Vector<Object>();
 		vector.add("");
 		vector.add("");
 		vector.add("");
@@ -53,7 +53,7 @@ public class ApprovedUsersModel extends AbstractTableModel {
 	
 	@SuppressWarnings("unchecked")
 	public void addRow(String login, String names, String pos, Integer time) {
-		Vector vector = new Vector();
+		Vector<Object> vector = new Vector<Object>();
 		vector.add(login);
 		vector.add(names);
 		vector.add(pos);

@@ -33,12 +33,14 @@ public class PosDocument {
 	private String code;
 	private String ip;
 	private String group;
+	private String enabled;
 	
 	public PosDocument(String[] data) {
 		name = data[0];
 		code = data[1];
 		ip = data[2];
 		group = data[3];
+		enabled = data[4];
 	}
 	
 	public Document getDocumentToAdd() {
@@ -59,6 +61,7 @@ public class PosDocument {
 		pack.addContent(createField(name));
 		pack.addContent(createField(ip));
 		pack.addContent(createField(g.getId()));
+		pack.addContent(createField(enabled));
 		
 		transaction.addContent(pack);
 		
@@ -82,6 +85,7 @@ public class PosDocument {
 		Cache.Group groupObject = Cache.getGroup(group);
 		pack.addContent(createField(ip));
 		pack.addContent(createField(groupObject.getId()));
+		pack.addContent(createField(enabled));
 		pack.addContent(createField(name));
 		transaction.addContent(pack);
 		

@@ -33,12 +33,17 @@ import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.net.ConnectException;
 import java.net.NoRouteToHostException;
 import java.net.SocketException;
 import java.nio.channels.SocketChannel;
 import java.nio.channels.UnresolvedAddressException;
+import java.util.Properties;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -72,6 +77,9 @@ public class LoginWindow implements ActionListener, KeyListener {
 	public LoginWindow() {
 		initComponents();
 		frame.setVisible(true);
+		if (hostTextField.getText().length() > 0 ) {
+			passwdField.requestFocus();
+		}	
 	}
 	
 	public void initComponents() {
@@ -90,18 +98,15 @@ public class LoginWindow implements ActionListener, KeyListener {
 		frame.setResizable(false);
 		
 		// Edit this section for debugging tasks
-		hostTextField = new JTextField("localhost",12);
+		hostTextField = new JTextField("",12);
 		hostTextField.setName("host");
 		hostTextField.addKeyListener(this);
-		portTextField = new JTextField("9119",12);
+		portTextField = new JTextField("",12);
 		portTextField.setName("port");
 		portTextField.addKeyListener(this);		
-		userTextField = new JTextField("admin",12);
+		userTextField = new JTextField("",12);
 		userTextField.setName("user");
 		userTextField.addKeyListener(this);
-		passwdField = new JPasswordField("admin",12);
-		passwdField.setName("passwd");
-		passwdField.addKeyListener(this);
 		
 		// Edit this section for debugging tasks
 		/*
@@ -109,6 +114,28 @@ public class LoginWindow implements ActionListener, KeyListener {
 		portTextField.setDocument(new NumericDataValidator(4));
 		*/
 		
+        FileInputStream historyFile = null;
+        Properties properties = new Properties();
+         try {
+        	String tempdir = System.getProperty("java.io.tmpdir");
+       	    tempdir = tempdir + System.getProperty("file.separator");
+         	File temp = new File(tempdir + "history");
+			historyFile = new FileInputStream(temp);
+			properties.load(historyFile);
+			hostTextField.setText(properties.getProperty("host"));
+			portTextField.setText(properties.getProperty("port"));
+			userTextField.setText(properties.getProperty("user"));
+			historyFile.close();
+			historyFile = null;
+			properties = null;
+			
+		} catch (FileNotFoundException e1) {}
+		catch (IOException e1) {}
+				
+		passwdField = new JPasswordField("",12);
+		passwdField.setName("passwd");
+		passwdField.addKeyListener(this);
+			
 		acceptButton = new JButton("Aceptar");
 		cancelButton = new JButton("Cancelar");
 		acceptButton.setMnemonic('A');
@@ -144,7 +171,7 @@ public class LoginWindow implements ActionListener, KeyListener {
 		
 		frame.add(new JPanel(),BorderLayout.NORTH);
 		frame.add(centerAux,BorderLayout.CENTER);
-		frame.add(southPanel,BorderLayout.SOUTH);
+		frame.add(southPanel,BorderLayout.SOUTH);		
 	}
 	
 	private JPanel addWithPanel(Component component) {
@@ -284,6 +311,24 @@ public class LoginWindow implements ActionListener, KeyListener {
 		typeCursor = Cursor.DEFAULT_CURSOR;
 		cursor = Cursor.getPredefinedCursor(typeCursor);
 		frame.setCursor(cursor);
+		
+		if(success) {
+			try {
+	        	String tempdir = System.getProperty("java.io.tmpdir");
+	       	    tempdir = tempdir + System.getProperty("file.separator");
+	         	File temp = new File(tempdir + "history");
+				FileOutputStream historyFile = new FileOutputStream(temp);
+				String database="host="+host+"\n";
+				String portNumber="port="+port+"\n";
+				String user="user="+getUser()+"\n";
+				historyFile.write(database.getBytes());
+				historyFile.write(portNumber.getBytes());
+				historyFile.write(user.getBytes());
+				historyFile.close();
+				historyFile=null;
+			} catch (FileNotFoundException e) {}
+			catch (IOException e) {}
+		}
 
 		return success;
 	}	

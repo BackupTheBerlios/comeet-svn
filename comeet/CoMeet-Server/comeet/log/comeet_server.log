@@ -10700,3 +10700,687 @@ mundo0')
 			uid_destino=(SELECT codigo FROM usuarios WHERE login='pos01')
 2008-11-16 21:36:53 INFO: [2008-11-16 21:36:52 PM] Confirmada lectura de mensaje con destino {pos01}
 2008-11-16 21:54:47 INFO: Cerrando conexion con cliente [OK]
+2008-11-17 09:31:18 INFO: ConfigFile -> /home/xtingray/Projects/comeet/comeet/comeet/CoMeet-Server/comeet/conf/server.conf
+2008-11-17 09:31:19 INFO: Cargando archivo de configuracion...
+2008-11-17 09:31:19 INFO: Cargando base de datos... bullet
+2008-11-17 09:31:20 ADVERTENCIA: Base de datos deshabilitada desde configuracion -> comeet
+2008-11-17 09:31:20 ADVERTENCIA: Base de datos deshabilitada desde configuracion -> oracle
+2008-11-17 09:31:20 INFO: Cargando cache de enlace [bullet]
+2008-11-17 09:31:21 INFO: Iniciando demonio pop3
+2008-11-17 09:31:21 INFO: Servidor de correo {localhost}
+2008-11-17 09:31:21 INFO: Iniciando demonio de sincronizacion
+2008-11-17 09:31:21 INFO: Servidor CoMeet escuchando por el puerto 9119
+2008-11-17 10:26:44 INFO: Se ha establecido una nueva conexion TCP/IP Socket[addr=/127.0.0.1,port=35468,localport=9119]
+2008-11-17 10:26:44 INFO: Inicio de autenticacion para el usuario {admin} con la clave {21232f297a57a5a743894a0e4a801fc3}
+2008-11-17 10:26:44 INFO: Control de acceso sobre direcciones ip no habilitado para este usuario
+2008-11-17 10:26:44 INFO: Usuario Administrador {admin} autenticado desde Ubicación No Registrada [127.0.0.1]
+2008-11-17 10:29:24 INFO: Cerrando conexion con cliente [OK]
+2008-11-17 10:29:34 INFO: Se ha establecido una nueva conexion TCP/IP Socket[addr=/127.0.0.1,port=33441,localport=9119]
+2008-11-17 10:29:34 INFO: Inicio de autenticacion para el usuario {admin} con la clave {21232f297a57a5a743894a0e4a801fc3}
+2008-11-17 10:29:34 INFO: Control de acceso sobre direcciones ip no habilitado para este usuario
+2008-11-17 10:29:34 INFO: Usuario Administrador {admin} autenticado desde Ubicación No Registrada [127.0.0.1]
+2008-11-17 10:30:07 INFO: Editando usuario del sistema...
+2008-11-17 10:30:07 SENTENCIA SQL :: UPDATE usuarios SET 
+			login='pos01',clave='827ccb0eea8a706c4c34a16891f84e7b',nombres='Vendedor Pos 01',correo='',rol='3',gid='1',habilitado='0'
+			WHERE codigo='4'
+2008-11-17 10:30:07 SENTENCIA SQL :: DELETE FROM 
+			usuarios_ubicacion 
+			WHERE 
+			id_usuario='4'
+2008-11-17 10:30:07 SENTENCIA SQL :: INSERT INTO 
+			usuarios_ubicacion (id_usuario,codigo_ubicacion,validar_ip) 
+			VALUES 
+			((SELECT codigo FROM usuarios WHERE login='pos01'),4,0)
+2008-11-17 10:30:07 SENTENCIA SQL :: INSERT INTO 
+			usuarios_ubicacion (id_usuario,codigo_ubicacion,validar_ip) 
+			VALUES 
+			((SELECT codigo FROM usuarios WHERE login='pos01'),5,0)
+2008-11-17 10:30:07 SENTENCIA SQL :: INSERT INTO 
+			usuarios_ubicacion (id_usuario,codigo_ubicacion,validar_ip) 
+			VALUES 
+			((SELECT codigo FROM usuarios WHERE login='pos01'),10,0)
+2008-11-17 10:30:07 INFO: Operacion realizada exitosamente [Transaccion sobre Usuarios]
+2008-11-17 10:30:29 INFO: Editando usuario del sistema...
+2008-11-17 10:30:29 SENTENCIA SQL :: UPDATE usuarios SET 
+			login='pos01',clave='827ccb0eea8a706c4c34a16891f84e7b',nombres='Vendedor Pos 01',correo='',rol='3',gid='1',habilitado='1'
+			WHERE codigo='4'
+2008-11-17 10:30:29 SENTENCIA SQL :: DELETE FROM 
+			usuarios_ubicacion 
+			WHERE 
+			id_usuario='4'
+2008-11-17 10:30:29 SENTENCIA SQL :: INSERT INTO 
+			usuarios_ubicacion (id_usuario,codigo_ubicacion,validar_ip) 
+			VALUES 
+			((SELECT codigo FROM usuarios WHERE login='pos01'),4,0)
+2008-11-17 10:30:29 SENTENCIA SQL :: INSERT INTO 
+			usuarios_ubicacion (id_usuario,codigo_ubicacion,validar_ip) 
+			VALUES 
+			((SELECT codigo FROM usuarios WHERE login='pos01'),5,0)
+2008-11-17 10:30:29 SENTENCIA SQL :: INSERT INTO 
+			usuarios_ubicacion (id_usuario,codigo_ubicacion,validar_ip) 
+			VALUES 
+			((SELECT codigo FROM usuarios WHERE login='pos01'),10,0)
+2008-11-17 10:30:29 INFO: Operacion realizada exitosamente [Transaccion sobre Usuarios]
+2008-11-17 10:34:49 INFO: Cerrando conexion con cliente [OK]
+2008-11-17 10:42:19 INFO: Se ha establecido una nueva conexion TCP/IP Socket[addr=/127.0.0.1,port=55255,localport=9119]
+2008-11-17 10:42:19 INFO: Inicio de autenticacion para el usuario {admin} con la clave {21232f297a57a5a743894a0e4a801fc3}
+2008-11-17 10:42:19 INFO: Control de acceso sobre direcciones ip no habilitado para este usuario
+2008-11-17 10:42:19 INFO: Usuario Administrador {admin} autenticado desde Ubicación No Registrada [127.0.0.1]
+2008-11-17 11:23:32 INFO: Se ha establecido una nueva conexion TCP/IP Socket[addr=/127.0.0.1,port=50738,localport=9119]
+2008-11-17 11:23:32 ERROR: Usuario admin ya se encuentra en linea.
+2008-11-17 11:23:32        Intento de segunda conexion desde: 127.0.0.1
+2008-11-17 11:23:33 INFO: Cerrando conexion con cliente [OK]
+2008-11-17 11:23:42 INFO: Cerrando conexion con cliente [OK]
+2008-11-17 11:23:46 INFO: Cerrando conexion con cliente [OK]
+2008-11-17 11:24:32 INFO: Se ha establecido una nueva conexion TCP/IP Socket[addr=/127.0.0.1,port=50753,localport=9119]
+2008-11-17 11:24:32 INFO: Inicio de autenticacion para el usuario {admin} con la clave {21232f297a57a5a743894a0e4a801fc3}
+2008-11-17 11:24:32 INFO: Control de acceso sobre direcciones ip no habilitado para este usuario
+2008-11-17 11:24:32 INFO: Usuario Administrador {admin} autenticado desde Ubicación No Registrada [127.0.0.1]
+2008-11-17 11:31:03 INFO: Cerrando conexion con cliente [OK]
+2008-11-17 11:31:13 INFO: Se ha establecido una nueva conexion TCP/IP Socket[addr=/127.0.0.1,port=54702,localport=9119]
+2008-11-17 11:31:13 INFO: Inicio de autenticacion para el usuario {admin} con la clave {21232f297a57a5a743894a0e4a801fc3}
+2008-11-17 11:31:13 INFO: Control de acceso sobre direcciones ip no habilitado para este usuario
+2008-11-17 11:31:13 INFO: Usuario Administrador {admin} autenticado desde Ubicación No Registrada [127.0.0.1]
+2008-11-17 11:36:12 INFO: Cerrando conexion con cliente [OK]
+2008-11-17 11:36:22 INFO: Se ha establecido una nueva conexion TCP/IP Socket[addr=/127.0.0.1,port=56092,localport=9119]
+2008-11-17 11:36:22 INFO: Inicio de autenticacion para el usuario {admin} con la clave {21232f297a57a5a743894a0e4a801fc3}
+2008-11-17 11:36:22 INFO: Control de acceso sobre direcciones ip no habilitado para este usuario
+2008-11-17 11:36:22 INFO: Usuario Administrador {admin} autenticado desde Ubicación No Registrada [127.0.0.1]
+2008-11-17 11:44:13 INFO: Cerrando conexion con cliente [OK]
+2008-11-17 11:44:24 INFO: Se ha establecido una nueva conexion TCP/IP Socket[addr=/127.0.0.1,port=57278,localport=9119]
+2008-11-17 11:44:24 INFO: Inicio de autenticacion para el usuario {admin} con la clave {21232f297a57a5a743894a0e4a801fc3}
+2008-11-17 11:44:24 INFO: Control de acceso sobre direcciones ip no habilitado para este usuario
+2008-11-17 11:44:24 INFO: Usuario Administrador {admin} autenticado desde Ubicación No Registrada [127.0.0.1]
+2008-11-17 11:55:10 INFO: Cerrando conexion con cliente [OK]
+2008-11-17 11:55:23 INFO: Se ha establecido una nueva conexion TCP/IP Socket[addr=/127.0.0.1,port=52314,localport=9119]
+2008-11-17 11:55:23 INFO: Inicio de autenticacion para el usuario {admin} con la clave {21232f297a57a5a743894a0e4a801fc3}
+2008-11-17 11:55:23 INFO: Control de acceso sobre direcciones ip no habilitado para este usuario
+2008-11-17 11:55:23 INFO: Usuario Administrador {admin} autenticado desde Ubicación No Registrada [127.0.0.1]
+2008-11-17 11:58:12 INFO: Cerrando conexion con cliente [OK]
+2008-11-17 11:58:24 INFO: Se ha establecido una nueva conexion TCP/IP Socket[addr=/127.0.0.1,port=53431,localport=9119]
+2008-11-17 11:58:24 INFO: Inicio de autenticacion para el usuario {admin} con la clave {21232f297a57a5a743894a0e4a801fc3}
+2008-11-17 11:58:24 INFO: Control de acceso sobre direcciones ip no habilitado para este usuario
+2008-11-17 11:58:24 INFO: Usuario Administrador {admin} autenticado desde Ubicación No Registrada [127.0.0.1]
+2008-11-17 12:43:49 INFO: Cerrando conexion con cliente [OK]
+2008-11-17 16:42:37 INFO: ConfigFile -> /home/xtingray/Projects/comeet/comeet/comeet/CoMeet-Server/comeet/conf/server.conf
+2008-11-17 16:42:37 INFO: Cargando archivo de configuracion...
+2008-11-17 16:42:37 INFO: Cargando base de datos... bullet
+2008-11-17 16:42:37 ADVERTENCIA: Base de datos deshabilitada desde configuracion -> comeet
+2008-11-17 16:42:37 ADVERTENCIA: Base de datos deshabilitada desde configuracion -> oracle
+2008-11-17 16:42:37 INFO: Cargando cache de enlace [bullet]
+2008-11-17 16:42:38 INFO: Iniciando demonio pop3
+2008-11-17 16:42:38 INFO: Servidor de correo {localhost}
+2008-11-17 16:42:38 INFO: Iniciando demonio de sincronizacion
+2008-11-17 16:42:38 INFO: Servidor CoMeet escuchando por el puerto 9119
+2008-11-17 16:42:52 INFO: Se ha establecido una nueva conexion TCP/IP Socket[addr=/127.0.0.1,port=53937,localport=9119]
+2008-11-17 16:42:52 INFO: Inicio de autenticacion para el usuario {admin} con la clave {21232f297a57a5a743894a0e4a801fc3}
+2008-11-17 16:42:52 INFO: Control de acceso sobre direcciones ip no habilitado para este usuario
+2008-11-17 16:42:52 INFO: Usuario Administrador {admin} autenticado desde Ubicación No Registrada [127.0.0.1]
+2008-11-17 16:43:33 SENTENCIA SQL :: INSERT INTO 
+			grupos (nombre,visible,tipo_grupo,habilitado) 
+			VALUES ('POPPER','0',3,1)
+2008-11-17 16:43:33 INFO: Operacion realizada exitosamente [Transaccion sobre Grupos]
+2008-11-17 16:43:49 SENTENCIA SQL :: UPDATE 
+			grupos SET nombre='POPPER',visible=0,tipo_grupo=3,habilitado=0  
+			WHERE nombre='POPPER'
+2008-11-17 16:43:49 INFO: Operacion realizada exitosamente [Transaccion sobre Grupos]
+2008-11-17 16:50:24 INFO: Cerrando conexion con cliente [OK]
+2008-11-17 16:50:42 INFO: Se ha establecido una nueva conexion TCP/IP Socket[addr=/127.0.0.1,port=55579,localport=9119]
+2008-11-17 16:50:42 INFO: Inicio de autenticacion para el usuario {admin} con la clave {21232f297a57a5a743894a0e4a801fc3}
+2008-11-17 16:50:42 INFO: Control de acceso sobre direcciones ip no habilitado para este usuario
+2008-11-17 16:50:42 INFO: Usuario Administrador {admin} autenticado desde Ubicación No Registrada [127.0.0.1]
+2008-11-17 16:50:59 INFO: Cerrando conexion con cliente [OK]
+2008-11-17 16:51:08 INFO: Se ha establecido una nueva conexion TCP/IP Socket[addr=/127.0.0.1,port=55584,localport=9119]
+2008-11-17 16:51:08 INFO: Inicio de autenticacion para el usuario {admin} con la clave {21232f297a57a5a743894a0e4a801fc3}
+2008-11-17 16:51:08 INFO: Control de acceso sobre direcciones ip no habilitado para este usuario
+2008-11-17 16:51:08 INFO: Usuario Administrador {admin} autenticado desde Ubicación No Registrada [127.0.0.1]
+2008-11-17 16:51:20 SENTENCIA SQL :: UPDATE 
+			grupos SET nombre='POPPER',visible=0,tipo_grupo=3,habilitado=1  
+			WHERE nombre='POPPER'
+2008-11-17 16:51:20 INFO: Operacion realizada exitosamente [Transaccion sobre Grupos]
+2008-11-17 16:51:32 SENTENCIA SQL :: UPDATE 
+			grupos SET nombre='POPPER',visible=0,tipo_grupo=3,habilitado=0  
+			WHERE nombre='POPPER'
+2008-11-17 16:51:32 INFO: Operacion realizada exitosamente [Transaccion sobre Grupos]
+2008-11-17 17:02:02 SENTENCIA SQL :: UPDATE 
+			grupos SET nombre='POPPER',visible=0,tipo_grupo=3,habilitado=1  
+			WHERE nombre='POPPER'
+2008-11-17 17:02:02 INFO: Operacion realizada exitosamente [Transaccion sobre Grupos]
+2008-11-17 17:02:15 SENTENCIA SQL :: UPDATE 
+			grupos SET nombre='POPPER',visible=0,tipo_grupo=3,habilitado=0  
+			WHERE nombre='POPPER'
+2008-11-17 17:02:15 INFO: Operacion realizada exitosamente [Transaccion sobre Grupos]
+2008-11-17 17:02:26 SENTENCIA SQL :: UPDATE 
+			grupos SET nombre='SUR',visible=1,tipo_grupo=1,habilitado=1  
+			WHERE nombre='SUR'
+2008-11-17 17:02:26 INFO: Operacion realizada exitosamente [Transaccion sobre Grupos]
+2008-11-17 17:02:39 SENTENCIA SQL :: UPDATE 
+			grupos SET nombre='SUR',visible=0,tipo_grupo=1,habilitado=1  
+			WHERE nombre='SUR'
+2008-11-17 17:02:39 INFO: Operacion realizada exitosamente [Transaccion sobre Grupos]
+2008-11-17 17:51:44 SENTENCIA SQL :: UPDATE 
+			grupos SET nombre='POPPER',visible=0,tipo_grupo=3,habilitado=1  
+			WHERE nombre='POPPER'
+2008-11-17 17:51:44 INFO: Operacion realizada exitosamente [Transaccion sobre Grupos]
+2008-11-17 18:30:42 INFO: Cerrando conexion con cliente [OK]
+2008-11-17 18:32:16 INFO: Se ha establecido una nueva conexion TCP/IP Socket[addr=/127.0.0.1,port=49701,localport=9119]
+2008-11-17 18:32:16 INFO: Inicio de autenticacion para el usuario {admin} con la clave {21232f297a57a5a743894a0e4a801fc3}
+2008-11-17 18:32:16 INFO: Control de acceso sobre direcciones ip no habilitado para este usuario
+2008-11-17 18:32:16 INFO: Usuario Administrador {admin} autenticado desde Ubicación No Registrada [127.0.0.1]
+2008-11-17 18:41:51 INFO: Cerrando conexion con cliente [OK]
+2008-11-17 18:42:27 INFO: Se ha establecido una nueva conexion TCP/IP Socket[addr=/127.0.0.1,port=40227,localport=9119]
+2008-11-17 18:42:27 INFO: Inicio de autenticacion para el usuario {admin} con la clave {21232f297a57a5a743894a0e4a801fc3}
+2008-11-17 18:42:27 INFO: Control de acceso sobre direcciones ip no habilitado para este usuario
+2008-11-17 18:42:27 INFO: Usuario Administrador {admin} autenticado desde Ubicación No Registrada [127.0.0.1]
+2008-11-17 18:42:50 SENTENCIA SQL :: UPDATE 
+			grupos SET nombre='POPPER',visible=0,tipo_grupo=3,habilitado=0  
+			WHERE nombre='POPPER'
+2008-11-17 18:42:50 INFO: Operacion realizada exitosamente [Transaccion sobre Grupos]
+2008-11-17 21:01:18 INFO: Cerrando conexion con cliente [OK]
+2008-11-17 21:01:35 INFO: ConfigFile -> /home/xtingray/Projects/comeet/comeet/comeet/CoMeet-Server/comeet/conf/server.conf
+2008-11-17 21:01:35 INFO: Cargando archivo de configuracion...
+2008-11-17 21:01:35 INFO: Cargando base de datos... bullet
+2008-11-17 21:01:35 ADVERTENCIA: Base de datos deshabilitada desde configuracion -> comeet
+2008-11-17 21:01:35 ADVERTENCIA: Base de datos deshabilitada desde configuracion -> oracle
+2008-11-17 21:01:35 INFO: Cargando cache de enlace [bullet]
+2008-11-17 21:01:36 INFO: Iniciando demonio pop3
+2008-11-17 21:01:36 INFO: Servidor de correo {localhost}
+2008-11-17 21:01:36 INFO: Iniciando demonio de sincronizacion
+2008-11-17 21:01:36 INFO: Servidor CoMeet escuchando por el puerto 9119
+2008-11-17 21:08:32 INFO: Se ha establecido una nueva conexion TCP/IP Socket[addr=/127.0.0.1,port=34164,localport=9119]
+2008-11-17 21:08:32 INFO: Inicio de autenticacion para el usuario {admin} con la clave {21232f297a57a5a743894a0e4a801fc3}
+2008-11-17 21:08:32 INFO: Control de acceso sobre direcciones ip no habilitado para este usuario
+2008-11-17 21:08:32 INFO: Usuario Administrador {admin} autenticado desde Ubicación No Registrada [127.0.0.1]
+2008-11-17 21:09:47 SENTENCIA SQL :: INSERT INTO 
+			ubicaciones (nombre,ip,gid) 
+			VALUES ('RESTREPO','192.168.1.250',8)
+2008-11-17 21:09:47 INFO: Operacion realizada exitosamente [Transaccion sobre POS]
+2008-11-17 21:34:36 SENTENCIA SQL :: UPDATE 
+			grupos SET nombre='SUR',visible=0,tipo_grupo=1,habilitado=0  
+			WHERE nombre='SUR'
+2008-11-17 21:34:36 INFO: Operacion realizada exitosamente [Transaccion sobre Grupos]
+2008-11-17 21:34:49 INFO: Cerrando conexion con cliente [OK]
+2008-11-17 21:34:58 INFO: Se ha establecido una nueva conexion TCP/IP Socket[addr=/127.0.0.1,port=42059,localport=9119]
+2008-11-17 21:34:58 INFO: Inicio de autenticacion para el usuario {admin} con la clave {21232f297a57a5a743894a0e4a801fc3}
+2008-11-17 21:34:58 INFO: Control de acceso sobre direcciones ip no habilitado para este usuario
+2008-11-17 21:34:58 INFO: Usuario Administrador {admin} autenticado desde Ubicación No Registrada [127.0.0.1]
+2008-11-17 21:35:08 SENTENCIA SQL :: UPDATE 
+			grupos SET nombre='SUR',visible=0,tipo_grupo=1,habilitado=1  
+			WHERE nombre='SUR'
+2008-11-17 21:35:08 INFO: Operacion realizada exitosamente [Transaccion sobre Grupos]
+2008-11-17 21:40:36 SENTENCIA SQL :: UPDATE 
+			grupos SET nombre='SUR',visible=0,tipo_grupo=1,habilitado=0  
+			WHERE nombre='SUR'
+2008-11-17 21:40:36 INFO: Operacion realizada exitosamente [Transaccion sobre Grupos]
+2008-11-17 21:40:42 INFO: Cerrando conexion con cliente [OK]
+2008-11-17 21:40:59 INFO: Se ha establecido una nueva conexion TCP/IP Socket[addr=/127.0.0.1,port=54630,localport=9119]
+2008-11-17 21:40:59 INFO: Inicio de autenticacion para el usuario {admin} con la clave {21232f297a57a5a743894a0e4a801fc3}
+2008-11-17 21:40:59 INFO: Control de acceso sobre direcciones ip no habilitado para este usuario
+2008-11-17 21:40:59 INFO: Usuario Administrador {admin} autenticado desde Ubicación No Registrada [127.0.0.1]
+2008-11-17 21:41:29 SENTENCIA SQL :: UPDATE 
+			grupos SET nombre='SUR',visible=0,tipo_grupo=1,habilitado=1  
+			WHERE nombre='SUR'
+2008-11-17 21:41:29 INFO: Operacion realizada exitosamente [Transaccion sobre Grupos]
+2008-11-17 22:15:09 INFO: Cerrando conexion con cliente [OK]
+2008-11-18 08:53:55 INFO: ConfigFile -> /home/xtingray/Projects/comeet/comeet/comeet/CoMeet-Server/comeet/conf/server.conf
+2008-11-18 08:53:56 INFO: Cargando archivo de configuracion...
+2008-11-18 08:53:56 INFO: Cargando base de datos... bullet
+2008-11-18 08:53:56 ADVERTENCIA: Base de datos deshabilitada desde configuracion -> comeet
+2008-11-18 08:53:56 ADVERTENCIA: Base de datos deshabilitada desde configuracion -> oracle
+2008-11-18 08:53:56 INFO: Cargando cache de enlace [bullet]
+2008-11-18 08:53:58 INFO: Iniciando demonio pop3
+2008-11-18 08:53:58 INFO: Servidor de correo {localhost}
+2008-11-18 08:53:58 INFO: Iniciando demonio de sincronizacion
+2008-11-18 08:53:58 INFO: Servidor CoMeet escuchando por el puerto 9119
+2008-11-18 17:07:57 INFO: Se ha establecido una nueva conexion TCP/IP Socket[addr=/127.0.0.1,port=51506,localport=9119]
+2008-11-18 17:07:58 INFO: Inicio de autenticacion para el usuario {admin} con la clave {21232f297a57a5a743894a0e4a801fc3}
+2008-11-18 17:07:58 INFO: Control de acceso sobre direcciones ip no habilitado para este usuario
+2008-11-18 17:07:58 INFO: Usuario Administrador {admin} autenticado desde Ubicación No Registrada [127.0.0.1]
+2008-11-18 20:31:32 INFO: Cerrando conexion con cliente [OK]
+2008-11-18 20:31:40 INFO: Se ha establecido una nueva conexion TCP/IP Socket[addr=/127.0.0.1,port=42818,localport=9119]
+2008-11-18 20:31:40 INFO: Inicio de autenticacion para el usuario {admin} con la clave {21232f297a57a5a743894a0e4a801fc3}
+2008-11-18 20:31:40 INFO: Control de acceso sobre direcciones ip no habilitado para este usuario
+2008-11-18 20:31:40 INFO: Usuario Administrador {admin} autenticado desde Ubicación No Registrada [127.0.0.1]
+2008-11-18 20:36:51 INFO: Cerrando conexion con cliente [OK]
+2008-11-18 20:37:01 INFO: Se ha establecido una nueva conexion TCP/IP Socket[addr=/127.0.0.1,port=41748,localport=9119]
+2008-11-18 20:37:01 INFO: Inicio de autenticacion para el usuario {admin} con la clave {21232f297a57a5a743894a0e4a801fc3}
+2008-11-18 20:37:01 INFO: Control de acceso sobre direcciones ip no habilitado para este usuario
+2008-11-18 20:37:01 INFO: Usuario Administrador {admin} autenticado desde Ubicación No Registrada [127.0.0.1]
+2008-11-18 20:41:02 SENTENCIA SQL :: INSERT INTO 
+			ubicaciones (nombre,ip,gid) 
+			VALUES ('BITTER','127.0.0.1',8)
+2008-11-18 20:41:02 INFO: Operacion realizada exitosamente [Transaccion sobre POS]
+2008-11-18 20:41:19 SENTENCIA SQL :: UPDATE ubicaciones SET ip='127.0.0.1',gid='8' WHERE nombre='BITTER'
+2008-11-18 20:41:19 INFO: Operacion realizada exitosamente [Transaccion sobre POS]
+2008-11-18 21:19:10 INFO: Cerrando conexion con cliente [OK]
+2008-11-18 21:19:20 INFO: ConfigFile -> /home/xtingray/Projects/comeet/comeet/comeet/CoMeet-Server/comeet/conf/server.conf
+2008-11-18 21:19:21 INFO: Cargando archivo de configuracion...
+2008-11-18 21:19:21 INFO: Cargando base de datos... bullet
+2008-11-18 21:19:21 ADVERTENCIA: Base de datos deshabilitada desde configuracion -> comeet
+2008-11-18 21:19:21 ADVERTENCIA: Base de datos deshabilitada desde configuracion -> oracle
+2008-11-18 21:19:21 INFO: Cargando cache de enlace [bullet]
+2008-11-18 21:19:21 INFO: Iniciando demonio pop3
+2008-11-18 21:19:21 INFO: Servidor de correo {localhost}
+2008-11-18 21:19:21 INFO: Iniciando demonio de sincronizacion
+2008-11-18 21:19:21 INFO: Servidor CoMeet escuchando por el puerto 9119
+2008-11-18 22:01:06 INFO: Se ha establecido una nueva conexion TCP/IP Socket[addr=/127.0.0.1,port=41520,localport=9119]
+2008-11-18 22:01:06 INFO: Inicio de autenticacion para el usuario {admin} con la clave {21232f297a57a5a743894a0e4a801fc3}
+2008-11-18 22:01:06 INFO: Control de acceso sobre direcciones ip no habilitado para este usuario
+2008-11-18 22:01:06 INFO: Usuario Administrador {admin} autenticado desde BITTER [127.0.0.1]
+2008-11-18 22:04:41 INFO: ConfigFile -> /home/xtingray/Projects/comeet/comeet/comeet/CoMeet-Server/comeet/conf/server.conf
+2008-11-18 22:04:41 INFO: Cargando archivo de configuracion...
+2008-11-18 22:04:41 INFO: Cargando base de datos... bullet
+2008-11-18 22:04:42 ADVERTENCIA: Base de datos deshabilitada desde configuracion -> comeet
+2008-11-18 22:04:42 ADVERTENCIA: Base de datos deshabilitada desde configuracion -> oracle
+2008-11-18 22:04:42 INFO: Cargando cache de enlace [bullet]
+2008-11-18 22:04:42 INFO: Iniciando demonio pop3
+2008-11-18 22:04:42 INFO: Servidor de correo {localhost}
+2008-11-18 22:04:42 INFO: Iniciando demonio de sincronizacion
+2008-11-18 22:04:42 INFO: Servidor CoMeet escuchando por el puerto 9119
+2008-11-18 22:04:52 INFO: Se ha establecido una nueva conexion TCP/IP Socket[addr=/127.0.0.1,port=52841,localport=9119]
+2008-11-18 22:04:52 INFO: Inicio de autenticacion para el usuario {admin} con la clave {21232f297a57a5a743894a0e4a801fc3}
+2008-11-18 22:04:53 INFO: Control de acceso sobre direcciones ip no habilitado para este usuario
+2008-11-18 22:04:53 INFO: Usuario Administrador {admin} autenticado desde BITTER [127.0.0.1]
+2008-11-18 22:09:34 INFO: ConfigFile -> /home/xtingray/Projects/comeet/comeet/comeet/CoMeet-Server/comeet/conf/server.conf
+2008-11-18 22:09:35 INFO: Cargando archivo de configuracion...
+2008-11-18 22:09:35 INFO: Cargando base de datos... bullet
+2008-11-18 22:09:35 ADVERTENCIA: Base de datos deshabilitada desde configuracion -> comeet
+2008-11-18 22:09:35 ADVERTENCIA: Base de datos deshabilitada desde configuracion -> oracle
+2008-11-18 22:09:35 INFO: Cargando cache de enlace [bullet]
+2008-11-18 22:09:35 INFO: Iniciando demonio pop3
+2008-11-18 22:09:35 INFO: Servidor de correo {localhost}
+2008-11-18 22:09:35 INFO: Iniciando demonio de sincronizacion
+2008-11-18 22:09:35 INFO: Servidor CoMeet escuchando por el puerto 9119
+2008-11-18 22:09:44 INFO: Se ha establecido una nueva conexion TCP/IP Socket[addr=/127.0.0.1,port=54526,localport=9119]
+2008-11-18 22:09:44 INFO: Inicio de autenticacion para el usuario {admin} con la clave {21232f297a57a5a743894a0e4a801fc3}
+2008-11-18 22:09:44 INFO: Control de acceso sobre direcciones ip no habilitado para este usuario
+2008-11-18 22:09:44 INFO: Usuario Administrador {admin} autenticado desde BITTER [127.0.0.1]
+2008-11-18 22:10:02 ERROR: Numero de tokens: 4 / Numero de args: 3
+2008-11-18 22:10:02 ERROR: Argumento[0]: 127.0.0.1
+2008-11-18 22:10:02 ERROR: Argumento[1]: 8
+2008-11-18 22:10:02 ERROR: Argumento[2]: BITTER
+2008-11-18 22:10:02 ERROR: Ocurrio una falla mientras se procesaba operacion de Punto de Venta [Tipo:edit]
+2008-11-18 22:10:02 Causa: ERROR: Argumentos invalidos para la sentencia: UPD0005
+2008-11-18 22:11:03 INFO: Cerrando conexion con cliente [OK]
+2008-11-18 22:11:13 INFO: ConfigFile -> /home/xtingray/Projects/comeet/comeet/comeet/CoMeet-Server/comeet/conf/server.conf
+2008-11-18 22:11:13 INFO: Cargando archivo de configuracion...
+2008-11-18 22:11:13 INFO: Cargando base de datos... bullet
+2008-11-18 22:11:14 ADVERTENCIA: Base de datos deshabilitada desde configuracion -> comeet
+2008-11-18 22:11:14 ADVERTENCIA: Base de datos deshabilitada desde configuracion -> oracle
+2008-11-18 22:11:14 INFO: Cargando cache de enlace [bullet]
+2008-11-18 22:11:14 INFO: Iniciando demonio pop3
+2008-11-18 22:11:14 INFO: Servidor de correo {localhost}
+2008-11-18 22:11:14 INFO: Iniciando demonio de sincronizacion
+2008-11-18 22:11:14 INFO: Servidor CoMeet escuchando por el puerto 9119
+2008-11-18 22:11:24 INFO: Se ha establecido una nueva conexion TCP/IP Socket[addr=/127.0.0.1,port=54551,localport=9119]
+2008-11-18 22:11:25 INFO: Inicio de autenticacion para el usuario {admin} con la clave {21232f297a57a5a743894a0e4a801fc3}
+2008-11-18 22:11:25 INFO: Control de acceso sobre direcciones ip no habilitado para este usuario
+2008-11-18 22:11:25 INFO: Usuario Administrador {admin} autenticado desde BITTER [127.0.0.1]
+2008-11-18 22:11:38 SENTENCIA SQL :: UPDATE ubicaciones SET ip='127.0.0.1',gid=8,habilitado=0 WHERE nombre='BITTER'
+2008-11-18 22:11:38 INFO: Operacion realizada exitosamente [Transaccion sobre POS]
+2008-11-18 22:11:50 SENTENCIA SQL :: UPDATE ubicaciones SET ip='127.0.0.1',gid=8,habilitado=1 WHERE nombre='BITTER'
+2008-11-18 22:11:50 INFO: Operacion realizada exitosamente [Transaccion sobre POS]
+2008-11-18 22:12:09 SENTENCIA SQL :: UPDATE ubicaciones SET ip='192.168.0.201',gid=8,habilitado=0 WHERE nombre='USME'
+2008-11-18 22:12:09 INFO: Operacion realizada exitosamente [Transaccion sobre POS]
+2008-11-18 22:12:26 SENTENCIA SQL :: UPDATE ubicaciones SET ip='192.168.0.201',gid=8,habilitado=1 WHERE nombre='USME'
+2008-11-18 22:12:26 INFO: Operacion realizada exitosamente [Transaccion sobre POS]
+2008-11-18 22:14:51 INFO: Cerrando conexion con cliente [OK]
+2008-11-18 22:15:00 INFO: Se ha establecido una nueva conexion TCP/IP Socket[addr=/127.0.0.1,port=45547,localport=9119]
+2008-11-18 22:15:00 INFO: Inicio de autenticacion para el usuario {admin} con la clave {21232f297a57a5a743894a0e4a801fc3}
+2008-11-18 22:15:00 INFO: Control de acceso sobre direcciones ip no habilitado para este usuario
+2008-11-18 22:15:00 INFO: Usuario Administrador {admin} autenticado desde BITTER [127.0.0.1]
+2008-11-18 22:18:46 INFO: Cerrando conexion con cliente [OK]
+2008-11-18 22:18:55 INFO: Se ha establecido una nueva conexion TCP/IP Socket[addr=/127.0.0.1,port=45622,localport=9119]
+2008-11-18 22:18:55 INFO: Inicio de autenticacion para el usuario {admin} con la clave {21232f297a57a5a743894a0e4a801fc3}
+2008-11-18 22:18:55 INFO: Control de acceso sobre direcciones ip no habilitado para este usuario
+2008-11-18 22:18:55 INFO: Usuario Administrador {admin} autenticado desde BITTER [127.0.0.1]
+2008-11-18 22:19:53 INFO: Cerrando conexion con cliente [OK]
+2008-11-18 22:22:55 INFO: Se ha establecido una nueva conexion TCP/IP Socket[addr=/127.0.0.1,port=51707,localport=9119]
+2008-11-18 22:22:55 INFO: Inicio de autenticacion para el usuario {admin} con la clave {21232f297a57a5a743894a0e4a801fc3}
+2008-11-18 22:22:55 INFO: Control de acceso sobre direcciones ip no habilitado para este usuario
+2008-11-18 22:22:55 INFO: Usuario Administrador {admin} autenticado desde BITTER [127.0.0.1]
+2008-11-18 22:24:58 SENTENCIA SQL :: INSERT INTO 
+			ubicaciones (nombre,ip,gid,habilitado) 
+			VALUES ('BITTER2','192.168.1.130',8,1)
+2008-11-18 22:24:58 INFO: Operacion realizada exitosamente [Transaccion sobre POS]
+2008-11-18 22:25:32 SENTENCIA SQL :: UPDATE ubicaciones SET ip='192.168.1.130',gid=8,habilitado=1 WHERE nombre='BITTER2'
+2008-11-18 22:25:32 INFO: Operacion realizada exitosamente [Transaccion sobre POS]
+2008-11-18 22:25:52 SENTENCIA SQL :: UPDATE ubicaciones SET ip='192.168.1.131',gid=8,habilitado=1 WHERE nombre='BITTER2'
+2008-11-18 22:25:52 INFO: Operacion realizada exitosamente [Transaccion sobre POS]
+2008-11-18 22:26:18 SENTENCIA SQL :: UPDATE ubicaciones SET ip='192.168.1.131',gid=8,habilitado=0 WHERE nombre='BITTER2'
+2008-11-18 22:26:18 INFO: Operacion realizada exitosamente [Transaccion sobre POS]
+2008-11-18 22:32:23 SENTENCIA SQL :: UPDATE ubicaciones SET ip='192.168.1.131',gid=8,habilitado=1 WHERE nombre='BITTER2'
+2008-11-18 22:32:23 INFO: Operacion realizada exitosamente [Transaccion sobre POS]
+2008-11-18 22:36:10 INFO: Editando usuario del sistema...
+2008-11-18 22:36:10 SENTENCIA SQL :: UPDATE usuarios SET 
+			login='batman',clave='827ccb0eea8a706c4c34a16891f84e7b',nombres='Dark Knight',correo='me@batman.org',rol='1',gid='3',habilitado='0'
+			WHERE codigo='18'
+2008-11-18 22:36:11 SENTENCIA SQL :: DELETE FROM 
+			usuarios_ubicacion 
+			WHERE 
+			id_usuario='18'
+2008-11-18 22:36:11 SENTENCIA SQL :: INSERT INTO 
+			usuarios_ubicacion (id_usuario,codigo_ubicacion,validar_ip) 
+			VALUES 
+			((SELECT codigo FROM usuarios WHERE login='batman'),12,0)
+2008-11-18 22:36:11 INFO: Operacion realizada exitosamente [Transaccion sobre Usuarios]
+2008-11-18 22:36:25 INFO: Editando usuario del sistema...
+2008-11-18 22:36:25 SENTENCIA SQL :: UPDATE usuarios SET 
+			login='batman',clave='827ccb0eea8a706c4c34a16891f84e7b',nombres='Dark Knight',correo='me@batman.org',rol='1',gid='3',habilitado='1'
+			WHERE codigo='18'
+2008-11-18 22:36:25 SENTENCIA SQL :: DELETE FROM 
+			usuarios_ubicacion 
+			WHERE 
+			id_usuario='18'
+2008-11-18 22:36:25 SENTENCIA SQL :: INSERT INTO 
+			usuarios_ubicacion (id_usuario,codigo_ubicacion,validar_ip) 
+			VALUES 
+			((SELECT codigo FROM usuarios WHERE login='batman'),12,0)
+2008-11-18 22:36:25 INFO: Operacion realizada exitosamente [Transaccion sobre Usuarios]
+2008-11-18 22:39:08 INFO: Cerrando conexion con cliente [OK]
+2008-11-18 23:30:15 INFO: Se ha establecido una nueva conexion TCP/IP Socket[addr=/127.0.0.1,port=43178,localport=9119]
+2008-11-18 23:30:15 INFO: Inicio de autenticacion para el usuario {admin} con la clave {21232f297a57a5a743894a0e4a801fc3}
+2008-11-18 23:30:15 INFO: Control de acceso sobre direcciones ip no habilitado para este usuario
+2008-11-18 23:30:15 INFO: Usuario Administrador {admin} autenticado desde BITTER [127.0.0.1]
+2008-11-18 23:30:21 INFO: Cerrando conexion con cliente [OK]
+2008-11-18 23:35:39 INFO: Se ha establecido una nueva conexion TCP/IP Socket[addr=/127.0.0.1,port=56928,localport=9119]
+2008-11-18 23:35:39 INFO: Inicio de autenticacion para el usuario {admin} con la clave {21232f297a57a5a743894a0e4a801fc3}
+2008-11-18 23:35:39 INFO: Control de acceso sobre direcciones ip no habilitado para este usuario
+2008-11-18 23:35:39 INFO: Usuario Administrador {admin} autenticado desde BITTER [127.0.0.1]
+2008-11-18 23:36:31 INFO: Cerrando conexion con cliente [OK]
+2008-11-18 23:39:18 INFO: Se ha establecido una nueva conexion TCP/IP Socket[addr=/127.0.0.1,port=38401,localport=9119]
+2008-11-18 23:39:19 INFO: Inicio de autenticacion para el usuario {admin} con la clave {21232f297a57a5a743894a0e4a801fc3}
+2008-11-18 23:39:19 INFO: Control de acceso sobre direcciones ip no habilitado para este usuario
+2008-11-18 23:39:19 INFO: Usuario Administrador {admin} autenticado desde BITTER [127.0.0.1]
+2008-11-18 23:39:24 INFO: Cerrando conexion con cliente [OK]
+2008-11-18 23:45:27 INFO: Se ha establecido una nueva conexion TCP/IP Socket[addr=/127.0.0.1,port=33004,localport=9119]
+2008-11-18 23:45:27 INFO: Inicio de autenticacion para el usuario {admin} con la clave {21232f297a57a5a743894a0e4a801fc3}
+2008-11-18 23:45:27 INFO: Control de acceso sobre direcciones ip no habilitado para este usuario
+2008-11-18 23:45:27 INFO: Usuario Administrador {admin} autenticado desde BITTER [127.0.0.1]
+2008-11-18 23:45:33 INFO: Cerrando conexion con cliente [OK]
+2008-11-18 23:48:09 INFO: Se ha establecido una nueva conexion TCP/IP Socket[addr=/127.0.0.1,port=33058,localport=9119]
+2008-11-18 23:48:10 INFO: Inicio de autenticacion para el usuario {admin} con la clave {21232f297a57a5a743894a0e4a801fc3}
+2008-11-18 23:48:10 INFO: Control de acceso sobre direcciones ip no habilitado para este usuario
+2008-11-18 23:48:10 INFO: Usuario Administrador {admin} autenticado desde BITTER [127.0.0.1]
+2008-11-18 23:48:14 INFO: Cerrando conexion con cliente [OK]
+2008-11-18 23:48:24 INFO: Se ha establecido una nueva conexion TCP/IP Socket[addr=/127.0.0.1,port=33063,localport=9119]
+2008-11-18 23:48:25 INFO: Inicio de autenticacion para el usuario {admin} con la clave {21232f297a57a5a743894a0e4a801fc3}
+2008-11-18 23:48:25 INFO: Control de acceso sobre direcciones ip no habilitado para este usuario
+2008-11-18 23:48:25 INFO: Usuario Administrador {admin} autenticado desde BITTER [127.0.0.1]
+2008-11-18 23:48:31 INFO: Cerrando conexion con cliente [OK]
+2008-11-18 23:48:53 INFO: Se ha establecido una nueva conexion TCP/IP Socket[addr=/127.0.0.1,port=33073,localport=9119]
+2008-11-18 23:48:53 INFO: Inicio de autenticacion para el usuario {auditor} con la clave {827ccb0eea8a706c4c34a16891f84e7b}
+2008-11-18 23:48:53 INFO: Control de acceso sobre direcciones ip no habilitado para este usuario
+2008-11-18 23:48:53 INFO: Auditor {auditor} autenticado desde BITTER [127.0.0.1]
+2008-11-18 23:49:02 No se pudo crear el estamento SEL0017 ORA-00904: "DATE_PART": identificador no válido
+
+2008-11-18 23:49:16 No se pudo crear el estamento SEL0017 ORA-00904: "DATE_PART": identificador no válido
+
+2008-11-19 00:01:16 INFO: ConfigFile -> /home/xtingray/Projects/comeet/comeet/comeet/CoMeet-Server/comeet/conf/server.conf
+2008-11-19 00:01:16 INFO: Cargando archivo de configuracion...
+2008-11-19 00:01:16 INFO: Cargando base de datos... bullet
+2008-11-19 00:01:17 ADVERTENCIA: Base de datos deshabilitada desde configuracion -> comeet
+2008-11-19 00:01:17 ADVERTENCIA: Base de datos deshabilitada desde configuracion -> oracle
+2008-11-19 00:01:17 INFO: Cargando cache de enlace [bullet]
+2008-11-19 00:01:17 INFO: Iniciando demonio pop3
+2008-11-19 00:01:17 INFO: Servidor de correo {localhost}
+2008-11-19 00:01:17 INFO: Iniciando demonio de sincronizacion
+2008-11-19 00:01:17 INFO: Servidor CoMeet escuchando por el puerto 9119
+2008-11-19 00:01:32 INFO: Se ha establecido una nueva conexion TCP/IP Socket[addr=/127.0.0.1,port=36635,localport=9119]
+2008-11-19 00:01:33 INFO: Inicio de autenticacion para el usuario {auditor} con la clave {f7d07071ed9431ecae3a8d45b4c82bb2}
+2008-11-19 00:01:33 INFO: Acceso denegado a {auditor} desde la ip 127.0.0.1 ingresando como Administrador/Auditor [Clave incorrecta]
+2008-11-19 00:01:37 INFO: Cerrando conexion con cliente [OK]
+2008-11-19 00:01:40 INFO: Se ha establecido una nueva conexion TCP/IP Socket[addr=/127.0.0.1,port=36640,localport=9119]
+2008-11-19 00:01:40 INFO: Inicio de autenticacion para el usuario {auditor} con la clave {827ccb0eea8a706c4c34a16891f84e7b}
+2008-11-19 00:01:40 INFO: Control de acceso sobre direcciones ip no habilitado para este usuario
+2008-11-19 00:01:40 INFO: Auditor {auditor} autenticado desde BITTER [127.0.0.1]
+2008-11-19 00:01:42 INFO: Cerrando conexion con cliente [OK]
+2008-11-19 00:11:59 INFO: Cerrando conexion con cliente [OK]
+2008-11-19 00:12:07 INFO: ConfigFile -> /home/xtingray/Projects/comeet/comeet/comeet/CoMeet-Server/comeet/conf/server.conf
+2008-11-19 00:12:07 INFO: Cargando archivo de configuracion...
+2008-11-19 00:12:07 INFO: Cargando base de datos... bullet
+2008-11-19 00:12:07 ADVERTENCIA: Base de datos deshabilitada desde configuracion -> comeet
+2008-11-19 00:12:07 ADVERTENCIA: Base de datos deshabilitada desde configuracion -> oracle
+2008-11-19 00:12:07 INFO: Cargando cache de enlace [bullet]
+2008-11-19 00:12:08 INFO: Iniciando demonio pop3
+2008-11-19 00:12:08 INFO: Servidor de correo {localhost}
+2008-11-19 00:12:08 INFO: Iniciando demonio de sincronizacion
+2008-11-19 00:12:08 INFO: Servidor CoMeet escuchando por el puerto 9119
+2008-11-19 00:12:20 INFO: Se ha establecido una nueva conexion TCP/IP Socket[addr=/127.0.0.1,port=47941,localport=9119]
+2008-11-19 00:12:20 INFO: Inicio de autenticacion para el usuario {auditor} con la clave {827ccb0eea8a706c4c34a16891f84e7b}
+2008-11-19 00:12:20 INFO: Control de acceso sobre direcciones ip no habilitado para este usuario
+2008-11-19 00:12:20 INFO: Auditor {auditor} autenticado desde BITTER [127.0.0.1]
+2008-11-19 00:15:11 INFO: Cerrando conexion con cliente [OK]
+2008-11-19 00:15:25 INFO: Se ha establecido una nueva conexion TCP/IP Socket[addr=/127.0.0.1,port=45457,localport=9119]
+2008-11-19 00:15:25 INFO: Inicio de autenticacion para el usuario {auditor} con la clave {827ccb0eea8a706c4c34a16891f84e7b}
+2008-11-19 00:15:26 INFO: Control de acceso sobre direcciones ip no habilitado para este usuario
+2008-11-19 00:15:26 INFO: Auditor {auditor} autenticado desde BITTER [127.0.0.1]
+2008-11-19 00:15:36 INFO: Cerrando conexion con cliente [OK]
+2008-11-19 00:15:43 INFO: ConfigFile -> /home/xtingray/Projects/comeet/comeet/comeet/CoMeet-Server/comeet/conf/server.conf
+2008-11-19 00:15:43 INFO: Cargando archivo de configuracion...
+2008-11-19 00:15:43 INFO: Cargando base de datos... bullet
+2008-11-19 00:15:44 ADVERTENCIA: Base de datos deshabilitada desde configuracion -> comeet
+2008-11-19 00:15:44 ADVERTENCIA: Base de datos deshabilitada desde configuracion -> oracle
+2008-11-19 00:15:44 INFO: Cargando cache de enlace [bullet]
+2008-11-19 00:15:44 INFO: Iniciando demonio pop3
+2008-11-19 00:15:44 INFO: Servidor de correo {localhost}
+2008-11-19 00:15:44 INFO: Iniciando demonio de sincronizacion
+2008-11-19 00:15:44 INFO: Servidor CoMeet escuchando por el puerto 9119
+2008-11-19 00:15:56 INFO: Se ha establecido una nueva conexion TCP/IP Socket[addr=/127.0.0.1,port=45467,localport=9119]
+2008-11-19 00:15:56 INFO: Inicio de autenticacion para el usuario {auditor} con la clave {827ccb0eea8a706c4c34a16891f84e7b}
+2008-11-19 00:15:56 INFO: Control de acceso sobre direcciones ip no habilitado para este usuario
+2008-11-19 00:15:56 INFO: Auditor {auditor} autenticado desde BITTER [127.0.0.1]
+2008-11-19 00:20:02 INFO: ConfigFile -> /home/xtingray/Projects/comeet/comeet/comeet/CoMeet-Server/comeet/conf/server.conf
+2008-11-19 00:20:02 INFO: Cargando archivo de configuracion...
+2008-11-19 00:20:02 INFO: Cargando base de datos... bullet
+2008-11-19 00:20:02 ADVERTENCIA: Base de datos deshabilitada desde configuracion -> comeet
+2008-11-19 00:20:02 ADVERTENCIA: Base de datos deshabilitada desde configuracion -> oracle
+2008-11-19 00:20:02 INFO: Cargando cache de enlace [bullet]
+2008-11-19 00:20:03 INFO: Iniciando demonio pop3
+2008-11-19 00:20:03 INFO: Servidor de correo {localhost}
+2008-11-19 00:20:03 INFO: Iniciando demonio de sincronizacion
+2008-11-19 00:20:03 INFO: Servidor CoMeet escuchando por el puerto 9119
+2008-11-19 00:20:15 INFO: Se ha establecido una nueva conexion TCP/IP Socket[addr=/127.0.0.1,port=37878,localport=9119]
+2008-11-19 00:20:15 INFO: Inicio de autenticacion para el usuario {auditor} con la clave {f7d07071ed9431ecae3a8d45b4c82bb2}
+2008-11-19 00:20:15 INFO: Acceso denegado a {auditor} desde la ip 127.0.0.1 ingresando como Administrador/Auditor [Clave incorrecta]
+2008-11-19 00:20:19 INFO: Cerrando conexion con cliente [OK]
+2008-11-19 00:20:22 INFO: Se ha establecido una nueva conexion TCP/IP Socket[addr=/127.0.0.1,port=37882,localport=9119]
+2008-11-19 00:20:22 INFO: Inicio de autenticacion para el usuario {auditor} con la clave {827ccb0eea8a706c4c34a16891f84e7b}
+2008-11-19 00:20:22 INFO: Control de acceso sobre direcciones ip no habilitado para este usuario
+2008-11-19 00:20:22 INFO: Auditor {auditor} autenticado desde BITTER [127.0.0.1]
+2008-11-19 00:20:25 INFO: Cerrando conexion con cliente [OK]
+2008-11-19 00:21:22 INFO: ConfigFile -> /home/xtingray/Projects/comeet/comeet/comeet/CoMeet-Server/comeet/conf/server.conf
+2008-11-19 00:21:23 INFO: Cargando archivo de configuracion...
+2008-11-19 00:21:23 INFO: Cargando base de datos... bullet
+2008-11-19 00:21:23 ADVERTENCIA: Base de datos deshabilitada desde configuracion -> comeet
+2008-11-19 00:21:23 ADVERTENCIA: Base de datos deshabilitada desde configuracion -> oracle
+2008-11-19 00:21:23 INFO: Cargando cache de enlace [bullet]
+2008-11-19 00:21:24 INFO: Iniciando demonio pop3
+2008-11-19 00:21:24 INFO: Servidor de correo {localhost}
+2008-11-19 00:21:24 INFO: Iniciando demonio de sincronizacion
+2008-11-19 00:21:24 INFO: Servidor CoMeet escuchando por el puerto 9119
+2008-11-19 00:21:34 INFO: Se ha establecido una nueva conexion TCP/IP Socket[addr=/127.0.0.1,port=37908,localport=9119]
+2008-11-19 00:21:35 INFO: Inicio de autenticacion para el usuario {auditor} con la clave {827ccb0eea8a706c4c34a16891f84e7b}
+2008-11-19 00:21:35 INFO: Control de acceso sobre direcciones ip no habilitado para este usuario
+2008-11-19 00:21:35 INFO: Auditor {auditor} autenticado desde BITTER [127.0.0.1]
+2008-11-19 00:23:29 INFO: Cerrando conexion con cliente [OK]
+2008-11-19 00:24:09 INFO: ConfigFile -> /home/xtingray/Projects/comeet/comeet/comeet/CoMeet-Server/comeet/conf/server.conf
+2008-11-19 00:24:09 INFO: Cargando archivo de configuracion...
+2008-11-19 00:24:09 INFO: Cargando base de datos... bullet
+2008-11-19 00:24:10 ADVERTENCIA: Base de datos deshabilitada desde configuracion -> comeet
+2008-11-19 00:24:10 ADVERTENCIA: Base de datos deshabilitada desde configuracion -> oracle
+2008-11-19 00:24:10 INFO: Cargando cache de enlace [bullet]
+2008-11-19 00:24:10 INFO: Iniciando demonio pop3
+2008-11-19 00:24:10 INFO: Servidor de correo {localhost}
+2008-11-19 00:24:10 INFO: Iniciando demonio de sincronizacion
+2008-11-19 00:24:10 ERROR: Finalizando el servidor de transacciones. Causa: Address already in use
+2008-11-19 00:24:19 INFO: ConfigFile -> /home/xtingray/Projects/comeet/comeet/comeet/CoMeet-Server/comeet/conf/server.conf
+2008-11-19 00:24:19 INFO: Cargando archivo de configuracion...
+2008-11-19 00:24:19 INFO: Cargando base de datos... bullet
+2008-11-19 00:24:20 ADVERTENCIA: Base de datos deshabilitada desde configuracion -> comeet
+2008-11-19 00:24:20 ADVERTENCIA: Base de datos deshabilitada desde configuracion -> oracle
+2008-11-19 00:24:20 INFO: Cargando cache de enlace [bullet]
+2008-11-19 00:24:20 INFO: Iniciando demonio pop3
+2008-11-19 00:24:20 INFO: Servidor de correo {localhost}
+2008-11-19 00:24:20 INFO: Iniciando demonio de sincronizacion
+2008-11-19 00:24:20 INFO: Servidor CoMeet escuchando por el puerto 9119
+2008-11-19 00:24:31 INFO: Se ha establecido una nueva conexion TCP/IP Socket[addr=/127.0.0.1,port=36376,localport=9119]
+2008-11-19 00:24:31 INFO: Inicio de autenticacion para el usuario {auditor} con la clave {827ccb0eea8a706c4c34a16891f84e7b}
+2008-11-19 00:24:32 INFO: Control de acceso sobre direcciones ip no habilitado para este usuario
+2008-11-19 00:24:32 INFO: Auditor {auditor} autenticado desde BITTER [127.0.0.1]
+2008-11-19 00:26:18 INFO: Cerrando conexion con cliente [OK]
+2008-11-19 00:26:28 INFO: Se ha establecido una nueva conexion TCP/IP Socket[addr=/127.0.0.1,port=36412,localport=9119]
+2008-11-19 00:26:29 INFO: Inicio de autenticacion para el usuario {auditor} con la clave {827ccb0eea8a706c4c34a16891f84e7b}
+2008-11-19 00:26:29 INFO: Control de acceso sobre direcciones ip no habilitado para este usuario
+2008-11-19 00:26:29 INFO: Auditor {auditor} autenticado desde BITTER [127.0.0.1]
+2008-11-19 00:28:01 INFO: Cerrando conexion con cliente [OK]
+2008-11-19 00:28:13 INFO: ConfigFile -> /home/xtingray/Projects/comeet/comeet/comeet/CoMeet-Server/comeet/conf/server.conf
+2008-11-19 00:28:13 INFO: Cargando archivo de configuracion...
+2008-11-19 00:28:13 INFO: Cargando base de datos... bullet
+2008-11-19 00:28:13 ADVERTENCIA: Base de datos deshabilitada desde configuracion -> comeet
+2008-11-19 00:28:13 ADVERTENCIA: Base de datos deshabilitada desde configuracion -> oracle
+2008-11-19 00:28:13 INFO: Cargando cache de enlace [bullet]
+2008-11-19 00:28:14 INFO: Iniciando demonio pop3
+2008-11-19 00:28:14 INFO: Servidor de correo {localhost}
+2008-11-19 00:28:14 INFO: Iniciando demonio de sincronizacion
+2008-11-19 00:28:14 INFO: Servidor CoMeet escuchando por el puerto 9119
+2008-11-19 00:28:37 INFO: Se ha establecido una nueva conexion TCP/IP Socket[addr=/127.0.0.1,port=36442,localport=9119]
+2008-11-19 00:28:38 INFO: Inicio de autenticacion para el usuario {auditor} con la clave {827ccb0eea8a706c4c34a16891f84e7b}
+2008-11-19 00:28:38 INFO: Control de acceso sobre direcciones ip no habilitado para este usuario
+2008-11-19 00:28:38 INFO: Auditor {auditor} autenticado desde BITTER [127.0.0.1]
+2008-11-19 00:47:29 INFO: Cerrando conexion con cliente [OK]
+2008-11-19 00:47:47 INFO: Se ha establecido una nueva conexion TCP/IP Socket[addr=/127.0.0.1,port=44535,localport=9119]
+2008-11-19 00:47:48 INFO: Inicio de autenticacion para el usuario {auditor} con la clave {827ccb0eea8a706c4c34a16891f84e7b}
+2008-11-19 00:47:48 INFO: Control de acceso sobre direcciones ip no habilitado para este usuario
+2008-11-19 00:47:48 INFO: Auditor {auditor} autenticado desde BITTER [127.0.0.1]
+2008-11-19 00:54:14 INFO: Cerrando conexion con cliente [OK]
+2008-11-19 00:54:23 INFO: Se ha establecido una nueva conexion TCP/IP Socket[addr=/127.0.0.1,port=42112,localport=9119]
+2008-11-19 00:54:23 INFO: Inicio de autenticacion para el usuario {auditor} con la clave {827ccb0eea8a706c4c34a16891f84e7b}
+2008-11-19 00:54:23 INFO: Control de acceso sobre direcciones ip no habilitado para este usuario
+2008-11-19 00:54:23 INFO: Auditor {auditor} autenticado desde BITTER [127.0.0.1]
+2008-11-19 00:54:34 No se pudo crear el estamento SEL0019 ORA-01840: el valor de entrada no es lo bastante largo para el formato de fecha
+
+2008-11-19 00:54:45 No se pudo crear el estamento SEL0018 ORA-00933: comando SQL no terminado correctamente
+
+2008-11-19 00:54:50 No se pudo crear el estamento SEL0019 ORA-01840: el valor de entrada no es lo bastante largo para el formato de fecha
+
+2008-11-19 00:55:53 INFO: ConfigFile -> /home/xtingray/Projects/comeet/comeet/comeet/CoMeet-Server/comeet/conf/server.conf
+2008-11-19 00:55:53 INFO: Cargando archivo de configuracion...
+2008-11-19 00:55:53 INFO: Cargando base de datos... bullet
+2008-11-19 00:55:54 ADVERTENCIA: Base de datos deshabilitada desde configuracion -> comeet
+2008-11-19 00:55:54 ADVERTENCIA: Base de datos deshabilitada desde configuracion -> oracle
+2008-11-19 00:55:54 INFO: Cargando cache de enlace [bullet]
+2008-11-19 00:55:54 INFO: Iniciando demonio pop3
+2008-11-19 00:55:54 INFO: Servidor de correo {localhost}
+2008-11-19 00:55:54 INFO: Iniciando demonio de sincronizacion
+2008-11-19 00:55:54 INFO: Servidor CoMeet escuchando por el puerto 9119
+2008-11-19 00:56:06 INFO: Se ha establecido una nueva conexion TCP/IP Socket[addr=/127.0.0.1,port=42142,localport=9119]
+2008-11-19 00:56:06 INFO: Inicio de autenticacion para el usuario {auditor} con la clave {827ccb0eea8a706c4c34a16891f84e7b}
+2008-11-19 00:56:06 INFO: Control de acceso sobre direcciones ip no habilitado para este usuario
+2008-11-19 00:56:06 INFO: Auditor {auditor} autenticado desde BITTER [127.0.0.1]
+2008-11-19 00:56:19 No se pudo crear el estamento SEL0019 ORA-01840: el valor de entrada no es lo bastante largo para el formato de fecha
+
+2008-11-19 01:00:20 INFO: Cerrando conexion con cliente [OK]
+2008-11-19 01:00:27 INFO: ConfigFile -> /home/xtingray/Projects/comeet/comeet/comeet/CoMeet-Server/comeet/conf/server.conf
+2008-11-19 01:00:28 INFO: Cargando archivo de configuracion...
+2008-11-19 01:00:28 INFO: Cargando base de datos... bullet
+2008-11-19 01:00:28 ADVERTENCIA: Base de datos deshabilitada desde configuracion -> comeet
+2008-11-19 01:00:28 ADVERTENCIA: Base de datos deshabilitada desde configuracion -> oracle
+2008-11-19 01:00:28 INFO: Cargando cache de enlace [bullet]
+2008-11-19 01:00:29 INFO: Iniciando demonio pop3
+2008-11-19 01:00:29 INFO: Servidor de correo {localhost}
+2008-11-19 01:00:29 INFO: Iniciando demonio de sincronizacion
+2008-11-19 01:00:29 INFO: Servidor CoMeet escuchando por el puerto 9119
+2008-11-19 01:00:38 INFO: Se ha establecido una nueva conexion TCP/IP Socket[addr=/127.0.0.1,port=38189,localport=9119]
+2008-11-19 01:00:38 INFO: Inicio de autenticacion para el usuario {auditor} con la clave {827ccb0eea8a706c4c34a16891f84e7b}
+2008-11-19 01:00:39 INFO: Control de acceso sobre direcciones ip no habilitado para este usuario
+2008-11-19 01:00:39 INFO: Auditor {auditor} autenticado desde BITTER [127.0.0.1]
+2008-11-19 01:05:07 INFO: Cerrando conexion con cliente [OK]
+2008-11-19 01:05:17 INFO: Se ha establecido una nueva conexion TCP/IP Socket[addr=/127.0.0.1,port=48486,localport=9119]
+2008-11-19 01:05:17 INFO: Inicio de autenticacion para el usuario {auditor} con la clave {827ccb0eea8a706c4c34a16891f84e7b}
+2008-11-19 01:05:17 INFO: Control de acceso sobre direcciones ip no habilitado para este usuario
+2008-11-19 01:05:17 INFO: Auditor {auditor} autenticado desde BITTER [127.0.0.1]
+2008-11-19 01:09:42 INFO: ConfigFile -> /home/xtingray/Projects/comeet/comeet/comeet/CoMeet-Server/comeet/conf/server.conf
+2008-11-19 01:09:42 INFO: Cargando archivo de configuracion...
+2008-11-19 01:09:42 INFO: Cargando base de datos... bullet
+2008-11-19 01:09:43 ADVERTENCIA: Base de datos deshabilitada desde configuracion -> comeet
+2008-11-19 01:09:43 ADVERTENCIA: Base de datos deshabilitada desde configuracion -> oracle
+2008-11-19 01:09:43 INFO: Cargando cache de enlace [bullet]
+2008-11-19 01:09:43 INFO: Iniciando demonio pop3
+2008-11-19 01:09:43 INFO: Servidor de correo {localhost}
+2008-11-19 01:09:43 INFO: Iniciando demonio de sincronizacion
+2008-11-19 01:09:43 INFO: Servidor CoMeet escuchando por el puerto 9119
+2008-11-19 01:09:59 INFO: Se ha establecido una nueva conexion TCP/IP Socket[addr=/127.0.0.1,port=33302,localport=9119]
+2008-11-19 01:09:59 INFO: Inicio de autenticacion para el usuario {auditor} con la clave {827ccb0eea8a706c4c34a16891f84e7b}
+2008-11-19 01:10:00 INFO: Control de acceso sobre direcciones ip no habilitado para este usuario
+2008-11-19 01:10:00 INFO: Auditor {auditor} autenticado desde BITTER [127.0.0.1]
+2008-11-19 01:10:22 No se pudo crear el estamento SEL0018 ORA-00933: comando SQL no terminado correctamente
+
+2008-11-19 01:11:37 INFO: ConfigFile -> /home/xtingray/Projects/comeet/comeet/comeet/CoMeet-Server/comeet/conf/server.conf
+2008-11-19 01:11:37 INFO: Cargando archivo de configuracion...
+2008-11-19 01:11:37 INFO: Cargando base de datos... bullet
+2008-11-19 01:11:37 ADVERTENCIA: Base de datos deshabilitada desde configuracion -> comeet
+2008-11-19 01:11:37 ADVERTENCIA: Base de datos deshabilitada desde configuracion -> oracle
+2008-11-19 01:11:37 INFO: Cargando cache de enlace [bullet]
+2008-11-19 01:11:38 INFO: Iniciando demonio pop3
+2008-11-19 01:11:38 INFO: Servidor de correo {localhost}
+2008-11-19 01:11:38 INFO: Iniciando demonio de sincronizacion
+2008-11-19 01:11:38 INFO: Servidor CoMeet escuchando por el puerto 9119
+2008-11-19 01:11:49 INFO: Se ha establecido una nueva conexion TCP/IP Socket[addr=/127.0.0.1,port=33326,localport=9119]
+2008-11-19 01:11:49 INFO: Inicio de autenticacion para el usuario {auditor} con la clave {827ccb0eea8a706c4c34a16891f84e7b}
+2008-11-19 01:11:50 INFO: Control de acceso sobre direcciones ip no habilitado para este usuario
+2008-11-19 01:11:50 INFO: Auditor {auditor} autenticado desde BITTER [127.0.0.1]
+2008-11-19 01:13:43 No se pudo crear el estamento SEL0021 ORA-00933: comando SQL no terminado correctamente
+
+2008-11-19 01:14:36 INFO: ConfigFile -> /home/xtingray/Projects/comeet/comeet/comeet/CoMeet-Server/comeet/conf/server.conf
+2008-11-19 01:14:36 INFO: Cargando archivo de configuracion...
+2008-11-19 01:14:36 INFO: Cargando base de datos... bullet
+2008-11-19 01:14:37 ADVERTENCIA: Base de datos deshabilitada desde configuracion -> comeet
+2008-11-19 01:14:37 ADVERTENCIA: Base de datos deshabilitada desde configuracion -> oracle
+2008-11-19 01:14:37 INFO: Cargando cache de enlace [bullet]
+2008-11-19 01:14:37 INFO: Iniciando demonio pop3
+2008-11-19 01:14:37 INFO: Servidor de correo {localhost}
+2008-11-19 01:14:37 INFO: Iniciando demonio de sincronizacion
+2008-11-19 01:14:37 INFO: Servidor CoMeet escuchando por el puerto 9119
+2008-11-19 01:16:18 INFO: Se ha establecido una nueva conexion TCP/IP Socket[addr=/127.0.0.1,port=55701,localport=9119]
+2008-11-19 01:16:19 INFO: Inicio de autenticacion para el usuario {auditor} con la clave {827ccb0eea8a706c4c34a16891f84e7b}
+2008-11-19 01:16:19 INFO: Control de acceso sobre direcciones ip no habilitado para este usuario
+2008-11-19 01:16:19 INFO: Auditor {auditor} autenticado desde BITTER [127.0.0.1]
+2008-11-19 01:16:36 No se pudo crear el estamento SEL0021 ORA-00920: operador relacional no válido
+
+2008-11-19 01:36:30 INFO: Cerrando conexion con cliente [OK]
+2008-11-19 01:36:45 INFO: ConfigFile -> /home/xtingray/Projects/comeet/comeet/comeet/CoMeet-Server/comeet/conf/server.conf
+2008-11-19 01:36:45 INFO: Cargando archivo de configuracion...
+2008-11-19 01:36:45 INFO: Cargando base de datos... bullet
+2008-11-19 01:36:45 ADVERTENCIA: Base de datos deshabilitada desde configuracion -> comeet
+2008-11-19 01:36:45 ADVERTENCIA: Base de datos deshabilitada desde configuracion -> oracle
+2008-11-19 01:36:45 INFO: Cargando cache de enlace [bullet]
+2008-11-19 01:36:46 INFO: Iniciando demonio pop3
+2008-11-19 01:36:46 INFO: Servidor de correo {localhost}
+2008-11-19 01:36:46 INFO: Iniciando demonio de sincronizacion
+2008-11-19 01:36:46 INFO: Servidor CoMeet escuchando por el puerto 9119
+2008-11-19 01:36:56 INFO: Se ha establecido una nueva conexion TCP/IP Socket[addr=/127.0.0.1,port=50000,localport=9119]
+2008-11-19 01:36:56 INFO: Inicio de autenticacion para el usuario {auditor} con la clave {827ccb0eea8a706c4c34a16891f84e7b}
+2008-11-19 01:36:56 INFO: Control de acceso sobre direcciones ip no habilitado para este usuario
+2008-11-19 01:36:56 INFO: Auditor {auditor} autenticado desde BITTER [127.0.0.1]
+2008-11-19 01:37:09 No se pudo crear el estamento SEL0021 ORA-00911: carácter no válido
+
+2008-11-19 01:39:10 INFO: Cerrando conexion con cliente [OK]
+2008-11-19 01:39:16 INFO: ConfigFile -> /home/xtingray/Projects/comeet/comeet/comeet/CoMeet-Server/comeet/conf/server.conf
+2008-11-19 01:39:17 INFO: Cargando archivo de configuracion...
+2008-11-19 01:39:17 INFO: Cargando base de datos... bullet
+2008-11-19 01:39:17 ADVERTENCIA: Base de datos deshabilitada desde configuracion -> comeet
+2008-11-19 01:39:17 ADVERTENCIA: Base de datos deshabilitada desde configuracion -> oracle
+2008-11-19 01:39:17 INFO: Cargando cache de enlace [bullet]
+2008-11-19 01:39:18 INFO: Iniciando demonio pop3
+2008-11-19 01:39:18 INFO: Servidor de correo {localhost}
+2008-11-19 01:39:18 INFO: Iniciando demonio de sincronizacion
+2008-11-19 01:39:18 INFO: Servidor CoMeet escuchando por el puerto 9119
+2008-11-19 01:39:29 INFO: Se ha establecido una nueva conexion TCP/IP Socket[addr=/127.0.0.1,port=44163,localport=9119]
+2008-11-19 01:39:29 INFO: Inicio de autenticacion para el usuario {auditor} con la clave {827ccb0eea8a706c4c34a16891f84e7b}
+2008-11-19 01:39:29 INFO: Control de acceso sobre direcciones ip no habilitado para este usuario
+2008-11-19 01:39:29 INFO: Auditor {auditor} autenticado desde BITTER [127.0.0.1]
+2008-11-19 01:41:12 INFO: Solicitud de envio del registro del servidor.
+2008-11-19 01:41:12 INFO: Solicitud de envio del registro del servidor enviada.
+2008-11-19 01:41:54 INFO: Solicitud de envio del registro del servidor.
+2008-11-19 01:41:54 INFO: Solicitud de envio del registro del servidor enviada.
