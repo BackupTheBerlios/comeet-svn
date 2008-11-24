@@ -377,19 +377,28 @@
 	<!--Descripcion: Esta consulta lista todos los grupos de usuarios de PC -->
 		<code>SEL0028</code>
 		<sql>
-			SELECT DISTINCT g.grupo_id,g.nombre 
-			FROM grupos g, usuarios u 
-			WHERE u.gid=g.grupo_id AND u.rol=3
-			ORDER BY g.nombre
+			SELECT DISTINCT grupo_id,nombre 
+			FROM grupos
+			WHERE tipo_grupo=1
+			ORDER BY nombre
 		</sql>
 	</sentence>
 	<sentence>
-	<!--Descripcion: Esta consulta lista todos los grupos de usuarios de PDA -->
+	<!--Descripcion: Esta consulta lista todos los usuarios de grupos PDA -->
 		<code>SEL0028A</code>
 		<sql>
 			SELECT login 
 			FROM usuarios
 			WHERE rol=4
+			ORDER BY login
+		</sql>
+	</sentence>
+	<sentence>
+	<!--Descripcion: Esta consulta lista todos los usuarios del sistema -->
+		<code>SEL0028B</code>
+		<sql>
+			SELECT login 
+			FROM usuarios
 			ORDER BY login
 		</sql>
 	</sentence>

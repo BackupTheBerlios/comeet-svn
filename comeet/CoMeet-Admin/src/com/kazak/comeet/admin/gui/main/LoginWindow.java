@@ -109,10 +109,10 @@ public class LoginWindow implements ActionListener, KeyListener {
 		userTextField.addKeyListener(this);
 		
 		// Edit this section for debugging tasks
-		/*
+		
 		userTextField.setDocument(new FixedSizePlainDocument(30));
 		portTextField.setDocument(new NumericDataValidator(4));
-		*/
+		
 		
         FileInputStream historyFile = null;
         Properties properties = new Properties();

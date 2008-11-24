@@ -90,7 +90,28 @@ public class Pop3Handler extends Thread {
 				Message messages[] = folder.getMessages();
 
 				for (Message message : messages) {
+					
 					InternetAddress address = (InternetAddress) message.getFrom()[0];
+					String sender = getGroupFromEmail(address.getAddress());
+					if(sender.equals("-1")) {
+						LogWriter.write("ERROR: El correo electronico " + address.getAddress() + " no se encuentra");
+						LogWriter.write("ERROR: asociado a ningun usuario del sistema.");
+						EmailSender mail = new EmailSender();
+						mail.setFrom(user+"@"+host);
+						mail.setDestination(ConfigFileHandler.getSupportContact());
+						mail.setSubject("[CoMeet] Error - Remitente no autorizado");
+						mail.setDate(new Date());
+						mail.setMessage (
+								"El correo electronico " + address.getAddress() + " no se encuentra\n" +
+								"asociado a ningun usuario del sistema.\n" +
+								"Por favor verifique si dicha cuenta deberia estar registrada como valida\n" +
+								"o si se trata de un intento de acceso indebido al sistema." +
+								"-------------------------------------\n" +
+						"Este mensaje fue generado automaticamente por el Sistema de Mensajeria Instantanea." );
+						mail.send();
+						return;
+					}
+				
 					String fullSubject =  message.getSubject();
 					fullSubject = fullSubject!=null ? fullSubject.trim() : null;
 
@@ -204,14 +225,7 @@ public class Pop3Handler extends Thread {
 								String hourString     = formatHour.format(date);
 								subject = subject.replaceAll("'","&39;");
 								content = content.replaceAll("'","&39;");
-								String sender = getGroupFromEmail(address.getAddress());
 								
-								if(sender.equals("-1")) {
-									LogWriter.write("ERROR: El correo electronico " + address.getAddress() + " no se encuentra ");
-									LogWriter.write("       asociado a ningun usuario");
-									return;
-								}
-
 								if (!toAllUsers && !inside) {
 									LogWriter.write("INFO: Consultando si usuario {" + to + "} existe en LOTES");
 									Enumeration keys = SocketServer.getPDdaHash().getKeys();

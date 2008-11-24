@@ -57,6 +57,7 @@ public class ConfigFileHandler {
     private static String mailUser; 
     private static String mailPassword;
     private static String mailServer;
+    private static String supportContact;
     private static int messageLifeTimeForClients;
     private static int messageLifeTimeInDB;
     private static int maxMessagesNumAllowed;
@@ -105,6 +106,8 @@ public class ConfigFileHandler {
     				mailPassword = records.getValue();
     			} else if (records.getName().equals("MailServer")) {
     				mailServer = records.getValue();
+    			} else if (records.getName().equals("SupportContact")) {
+    				supportContact = records.getValue();
     			} else if (records.getName().equals("CheckMailEvery")) {
     				checkMailEvery = Integer.parseInt(records.getValue());
     			} else if (records.getName().equals("MessageLifeTimeForClients")) {
@@ -307,6 +310,11 @@ public class ConfigFileHandler {
 	public static String getMailServer() {
 		return mailServer;
 	}
+	
+	public static String getSupportContact() {
+		return supportContact;
+	}
+	
 	public static int getTimeIntervalConnect() {
 		return checkMailEvery;
 	}
