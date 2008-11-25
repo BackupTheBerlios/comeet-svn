@@ -348,7 +348,7 @@
 		<sql>
 			SELECT 
 				u.codigo,login,nombres,correo,
-				g.grupo_id,g.nombre,ub.nombre
+				g.grupo_id,g.nombre,ub.nombre,rol
 			FROM 
 				usuarios u, grupos g, ubicaciones ub, usuarios_ubicacion uu
 			WHERE 
@@ -361,8 +361,7 @@
 		<code>SEL0027</code>
 		<sql>
     		SELECT 
-				u.codigo,u.login,u.nombres,u.correo,
-				u.rol,u.gid,b.nombre,'?'
+				u.codigo,u.login,u.nombres,u.correo,u.rol,u.gid,b.nombre,'?'
 			FROM 
 				usuarios u, ubicaciones b, usuarios_ubicacion c,
 		        (  SELECT ub.id_usuario AS codigo 
@@ -374,20 +373,20 @@
 		</sql>
 	</sentence>
 	<sentence>
-	<!--Descripcion: Esta consulta lista todos los grupos de usuarios de PC -->
+	<!--Descripcion: Esta consulta lista todos los usuarios de PC/POS -->
 		<code>SEL0028</code>
 		<sql>
-			SELECT DISTINCT grupo_id,nombre 
-			FROM grupos
-			WHERE tipo_grupo=1
-			ORDER BY nombre
+			SELECT DISTINCT codigo,login 
+			FROM usuarios
+			WHERE rol=3
+			ORDER BY login
 		</sql>
 	</sentence>
 	<sentence>
 	<!--Descripcion: Esta consulta lista todos los usuarios de grupos PDA -->
 		<code>SEL0028A</code>
 		<sql>
-			SELECT login 
+			SELECT DISTINCT login 
 			FROM usuarios
 			WHERE rol=4
 			ORDER BY login
@@ -397,8 +396,18 @@
 	<!--Descripcion: Esta consulta lista todos los usuarios del sistema -->
 		<code>SEL0028B</code>
 		<sql>
-			SELECT login 
+			SELECT DISTINCT codigo,login 
 			FROM usuarios
+			ORDER BY login
+		</sql>
+	</sentence>
+	<sentence>
+	<!--Descripcion: Esta consulta lista todos los usuarios administrativos -->
+		<code>SEL0028C</code>
+		<sql>
+			SELECT DISTINCT codigo,login 
+			FROM usuarios
+			WHERE rol=1 OR rol=2 OR rol=5
 			ORDER BY login
 		</sql>
 	</sentence>
@@ -524,7 +533,7 @@
 		 <sql>
 			SELECT 
 				u.codigo,login,nombres,correo,
-				u.gid,g.nombre,ub.nombre
+				u.gid,g.nombre,ub.nombre,rol
 			FROM 
 				usuarios u, grupos g, ubicaciones ub, usuarios_ubicacion uu
 			WHERE 

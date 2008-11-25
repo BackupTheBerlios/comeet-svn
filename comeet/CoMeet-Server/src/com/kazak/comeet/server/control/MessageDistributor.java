@@ -101,28 +101,18 @@ public class MessageDistributor {
 
 			// Sending message to pop users (admin users)
 			if (!senderIsMailUser) {
-				EmailSender mail = new EmailSender();
-				mail.setFrom(Pop3Handler.getUser()+"@"+Pop3Handler.getHost());
-				mail.setDestination(destination.getEmail());
-				mail.setSubject(sender.getLogin() + ", " + subject);
-				mail.setDate(date);
-				mail.setMessage(body);
-				if (rol == 4) {
-					mail.setSenderFullName(sender.getLogin() + " [PDA]");
-				} else {
-					mail.setSenderFullName(sender.getNames());
-				}
-				mail.setWorkStation(sender.getWsName());
-				mail.send();
-				LogWriter.write("INFO: [Envio a Cuenta de Correo] Remitente {" + sender.getLogin() 
-						+ "} - Destino: " + destination.getLogin() 
-						+ " - Asunto: " + subject);
+				sendMail(destination,sender);
 			}
 
 			// if destination user is offline
 			if (!control || (control && (sock!=null))) {			
 				subject = subject.replaceAll("'","&39;");
 				body = body.replaceAll("'","&39;");
+				int rol = destination.getUserRol(); 
+				System.out.println("ROL: " + rol + " - " + destination.getLogin());
+				if ((rol == 1) || (rol == 2) || (rol == 5)) {
+					sendMail(destination,sender);
+				}
 				String[] argsArray = {String.valueOf(destination.getUid()),
 						dateString,hourString,subject.trim(),body.trim(),
 						"0",String.valueOf(ConfigFileHandler.getMessageLifeTimeForClients()),
@@ -155,6 +145,25 @@ public class MessageDistributor {
 		}	
 	}
 
+	private void sendMail(SocketInfo destination, SocketInfo sender) {
+		EmailSender mail = new EmailSender();
+		mail.setFrom(Pop3Handler.getUser()+"@"+Pop3Handler.getHost());
+		mail.setDestination(destination.getEmail());
+		mail.setSubject(sender.getLogin() + ", " + subject);
+		mail.setDate(date);
+		mail.setMessage(body);
+		if (rol == 4) {
+			mail.setSenderFullName(sender.getLogin() + " [PDA]");
+		} else {
+			mail.setSenderFullName(sender.getNames());
+		}
+		mail.setWorkStation(sender.getWsName());
+		mail.send();
+		LogWriter.write("INFO: [Envio a Cuenta de Correo] Remitente {" + sender.getLogin() 
+				+ "} - Destino: " + destination.getLogin() 
+				+ " - Asunto: " + subject);					
+	}
+	
 	private void getMessageParams(Element element) {
 		groupIDString  = element.getChildText("idgroup");
 		groupID        = Integer.parseInt(groupIDString);
@@ -241,7 +250,8 @@ public class MessageDistributor {
 				user.setEmail(resultSet.getString(4));
 				user.setGroupID(resultSet.getInt(5));
 				user.setGroupName(resultSet.getString(6));
-				user.setWsName(resultSet.getString(7));	
+				user.setWsName(resultSet.getString(7));
+				user.setUserRol(resultSet.getInt(8));
 			}
 		} catch (SQLNotFoundException e) {
 			e.printStackTrace();
@@ -269,10 +279,10 @@ public class MessageDistributor {
 		if (!senderIsMailUser) {
 			usersVector = SocketServer.getAllClients(groupID);
 		}
-		// If sender is a POP user
 		else {
 			// If destination is one user
 			if(target != null) {
+				System.out.println("USER: " + target);
 				SocketInfo destination = getUserData(target,false);
 				if(destination!=null) {
 					usersVector.add(destination);

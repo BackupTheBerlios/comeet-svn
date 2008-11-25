@@ -163,8 +163,7 @@ public class Pop3Handler extends Thread {
 							"Este mensaje fue generado automaticamente por el Sistema de Mensajeria Instantanea." );
 							mail.send();
 						}
-					}
-					else {
+					} else {
 						String[] strings = fullSubject.split(":");
 						String lifeTime = "-1";
 						if (strings.length > 0 ) {
@@ -191,77 +190,60 @@ public class Pop3Handler extends Thread {
 						QueryRunner qRunner = null;
 						ResultSet resultSet = null;
 						String groupID = null;
-						boolean toAllUsers = false;
-
-						if ("TODOS".equals(to)) { 
-							LogWriter.write("INFO: Procesando mensaje para [TODOS] los puntos de venta");
-							toAllUsers=true; 
-						}
-
-						try {
-							boolean inside = false;
-							qRunner = toAllUsers ? new QueryRunner("SEL0028") :	new QueryRunner("SEL0024",new String[]{to,to});
-							resultSet = qRunner.select();
-							while (resultSet.next()) {
-								groupID =  resultSet.getString(1);
-								if (groupID!=null) {
-									inside = true;
-									Element xml = new Element("Message");
-									xml.addContent(createXMLElement("idgroup",groupID));
-									xml.addContent(createXMLElement("toName",toAllUsers ? resultSet.getString(2): to ));
-									xml.addContent(createXMLElement("from",from));
-									xml.addContent(createXMLElement("subject",subject));
-									xml.addContent(createXMLElement("message",content));
-									xml.addContent(createXMLElement("lifeTime",lifeTime));
-									new MessageDistributor(xml,true);
-								}
-							}
+						String sentence = "SEL0024";
+						boolean inside = false;
 						
-							if (ConfigFileHandler.getMovilSupport()) {
-								Date date = Calendar.getInstance().getTime();
-								SimpleDateFormat formatDate = new SimpleDateFormat("yyyy-MM-dd");
-								SimpleDateFormat formatHour = new SimpleDateFormat("HH:mm:ss a");
-								String dateString     = formatDate.format(date);
-								String hourString     = formatHour.format(date);
+						Date date = Calendar.getInstance().getTime();
+						SimpleDateFormat formatDate = new SimpleDateFormat("yyyy-MM-dd");
+						SimpleDateFormat formatHour = new SimpleDateFormat("HH:mm:ss a");
+						String dateString = formatDate.format(date);
+						String hourString = formatHour.format(date);
+						
+						try {
+							if ("TODOS".equals(to)) { 
+								LogWriter.write("INFO: Procesando mensaje para [TODOS] los usuarios del sistema");
+								sentence="SEL0028B"; 
+								inside = deliverMessage(sentence,groupID,from,subject,content,lifeTime);
+							} else if ("CORREO".equals(to)) { 
+								LogWriter.write("INFO: Procesando mensaje para todos los usuarios administrativos [CORREO] del sistema");
+								sentence="SEL0028C";
+								inside = deliverMessage(sentence,groupID,from,subject,content,lifeTime);
+							} else if ("POS".equals(to)) { 
+								LogWriter.write("INFO: Procesando mensaje para todos los usuarios operativos [POS] del sistema");
+								sentence="SEL0028"; 
+								inside = deliverMessage(sentence,groupID,from,subject,content,lifeTime);
+							} else if ("PDA".equals(to) && ConfigFileHandler.getMovilSupport()) { 
+								LogWriter.write("INFO: Procesando mensaje para todos los usuarios operativos [PDA] del sistema");
+								sentence="SEL0028A"; 
 								subject = subject.replaceAll("'","&39;");
 								content = content.replaceAll("'","&39;");
-								
-								if (!toAllUsers && !inside) {
-									LogWriter.write("INFO: Consultando si usuario {" + to + "} existe en LOTES");
-									Enumeration keys = SocketServer.getPDdaHash().getKeys();
-									if (SocketServer.getPDdaHashSize() > 0) {
-										while (keys.hasMoreElements()) {
-											SocketChannel socket = (SocketChannel)keys.nextElement();
-											String code = "Q" + QuerySender.getId();
-											if (QuerySender.verifyPDAUser(socket,code,to)) {
-												SocketInfo userData = (SocketInfo) SocketServer.getDataSocket(socket);
-												String slot = userData.getLogin();
-												LogWriter.write("INFO: El usuario {" + to + "} fue validado por el lote {" + slot + "}");
-												String[] argsArray = {to,sender,dateString,hourString,subject,content};
-												savePDAMessage(to,argsArray);
-												inside = true;
-												break;
-											}
-										}
-									}
-								} else if (toAllUsers) {
-									inside = true;
-									qRunner = new QueryRunner("SEL0028A");
-									resultSet = qRunner.select();
-									while (resultSet.next()) {	
-										String destination = resultSet.getString(1);
-										String[] argsArray = {destination,sender,dateString,hourString,subject,content};
-										savePDAMessage(to,argsArray);
+								inside = true;
+								qRunner = new QueryRunner(sentence);
+								resultSet = qRunner.select();
+								while (resultSet.next()) {	
+									String destination = resultSet.getString(1);
+									String[] argsArray = {destination,sender,dateString,hourString,subject,content};
+									savePDAMessage(to,argsArray);
+								}
+							} else {
+								qRunner = new QueryRunner(sentence,new String[]{to,to});
+								resultSet = qRunner.select();
+								while (resultSet.next()) {
+									groupID =  resultSet.getString(1);
+									if (groupID!=null) {
+										inside = true;
+										Element xml = new Element("Message");
+										xml.addContent(createXMLElement("idgroup",groupID));
+										xml.addContent(createXMLElement("toName",to));
+										xml.addContent(createXMLElement("from",from));
+										xml.addContent(createXMLElement("subject",subject));
+										xml.addContent(createXMLElement("message",content));
+										xml.addContent(createXMLElement("lifeTime",lifeTime));
+										new MessageDistributor(xml,true);
 									}
 								}
 							}
-							
-							if (!inside) {
-								LogWriter.write("ERROR: El usuario {" + to + "} no existe en el sistema.");
-								LogWriter.write("ERROR: Notificando al remitente -> {" + from + "}");
-								notifyBadDestination(address.getAddress(),to,fullSubject,content);
-							} 
-							
+
 						} catch (SQLNotFoundException e) {
 							e.printStackTrace();
 						} catch (SQLBadArgumentsException e) {
@@ -272,6 +254,38 @@ public class Pop3Handler extends Thread {
 							QueryClosingHandler.close(resultSet);
 							qRunner.closeStatement();
 						}
+												
+						if (ConfigFileHandler.getMovilSupport()) {
+							subject = subject.replaceAll("'","&39;");
+							content = content.replaceAll("'","&39;");
+
+							if (!inside) {
+								LogWriter.write("INFO: Consultando si usuario {" + to + "} existe en LOTES");
+								Enumeration keys = SocketServer.getPDdaHash().getKeys();
+								if (SocketServer.getPDdaHashSize() > 0) {
+									while (keys.hasMoreElements()) {
+										SocketChannel socket = (SocketChannel)keys.nextElement();
+										String code = "Q" + QuerySender.getId();
+										if (QuerySender.verifyPDAUser(socket,code,to)) {
+											SocketInfo userData = (SocketInfo) SocketServer.getDataSocket(socket);
+											String slot = userData.getLogin();
+											LogWriter.write("INFO: El usuario {" + to + "} fue validado por el lote {" + slot + "}");
+											String[] argsArray = {to,sender,dateString,hourString,subject,content};
+											savePDAMessage(to,argsArray);
+											inside = true;
+											break;
+										}
+									}
+								}
+							} 
+						}
+							
+						if (!inside) {
+							LogWriter.write("ERROR: El usuario {" + to + "} no existe en el sistema.");
+							LogWriter.write("ERROR: Notificando al remitente -> {" + from + "}");
+							notifyBadDestination(address.getAddress(),to,fullSubject,content);
+						} 
+							
 					}
 					message.setFlag(Flags.Flag.DELETED, true);
 				}
@@ -296,6 +310,40 @@ public class Pop3Handler extends Thread {
 			}
 		}
 	}	
+	
+	private boolean deliverMessage(String sentence,String groupID, String from, String subject, String content, String lifeTime) {	
+		boolean inside = false;
+		QueryRunner qRunner = null;
+		ResultSet resultSet = null;
+		
+		try {
+			qRunner = new QueryRunner(sentence);
+			resultSet = qRunner.select();
+	
+			while (resultSet.next()) {
+				groupID =  resultSet.getString(1);
+				if (groupID!=null) {
+					inside = true;
+					Element xml = new Element("Message");
+					xml.addContent(createXMLElement("idgroup",groupID));
+					xml.addContent(createXMLElement("toName",resultSet.getString(2)));
+					xml.addContent(createXMLElement("from",from));
+					xml.addContent(createXMLElement("subject",subject));
+					xml.addContent(createXMLElement("message",content));
+					xml.addContent(createXMLElement("lifeTime",lifeTime));
+					new MessageDistributor(xml,true);
+				}
+			}
+		} catch (SQLNotFoundException e) {
+			e.printStackTrace();
+		} catch (SQLBadArgumentsException e) {
+			e.printStackTrace();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+		return inside;
+	}
 	
 	private String getGroupFromEmail(String email) {	
 		QueryRunner qRunner = null;

@@ -11585,3 +11585,745 @@ delete your own text from the attached returned message.
 			uid_destino=(SELECT codigo FROM usuarios WHERE login='pos01')
 2008-11-23 20:58:18 INFO: [2008-11-23 20:58:18 PM] Confirmada lectura de mensaje con destino {pos01}
 2008-11-23 22:31:19 INFO: Cerrando conexion con cliente [OK]
+2008-11-25 05:58:50 INFO: ConfigFile -> /home/xtingray/Projects/comeet/comeet/comeet/CoMeet-Server/comeet/conf/server.conf
+2008-11-25 05:58:51 INFO: Cargando archivo de configuracion...
+2008-11-25 05:58:51 INFO: Cargando base de datos... bullet
+2008-11-25 05:58:51 ADVERTENCIA: Base de datos deshabilitada desde configuracion -> comeet
+2008-11-25 05:58:51 ADVERTENCIA: Base de datos deshabilitada desde configuracion -> oracle
+2008-11-25 05:58:51 INFO: Cargando cache de enlace [bullet]
+2008-11-25 05:58:52 INFO: Iniciando demonio pop3
+2008-11-25 05:58:52 INFO: Servidor de correo {localhost}
+2008-11-25 05:58:52 INFO: Iniciando demonio de sincronizacion
+2008-11-25 05:58:52 INFO: Servidor CoMeet escuchando por el puerto 9119
+2008-11-25 05:59:05 INFO: Se ha establecido una nueva conexion TCP/IP Socket[addr=/127.0.0.1,port=49815,localport=9119]
+2008-11-25 05:59:05 INFO: Inicio de autenticacion para el usuario {suba} con la clave {827ccb0eea8a706c4c34a16891f84e7b}
+2008-11-25 05:59:06 INFO: Control de acceso sobre direcciones ip no habilitado para este usuario
+2008-11-25 05:59:06 INFO: Lote {suba} autenticado desde BITTER [127.0.0.1]
+2008-11-25 05:59:06 INFO: 1 conexion activa en el pool de lotes
+2008-11-25 05:59:06 SENTENCIA SQL :: UPDATE mensajes_pda SET entregado=1 
+			WHERE login_destino='FRANCIA'
+2008-11-25 05:59:22 INFO: Se ha establecido una nueva conexion TCP/IP Socket[addr=/127.0.0.1,port=49819,localport=9119]
+2008-11-25 05:59:22 INFO: Inicio de autenticacion para el usuario {pos01} con la clave {827ccb0eea8a706c4c34a16891f84e7b}
+2008-11-25 05:59:22 INFO: Control de acceso sobre direcciones ip no habilitado para este usuario
+2008-11-25 05:59:22 INFO: Colocador {pos01} autenticado desde BITTER [127.0.0.1]
+2008-11-25 06:02:03 INFO: Leyendo correo del buzon de mensajes
+2008-11-25 06:02:03 INFO: Formato de mensaje -> text/*
+2008-11-25 06:02:03 INFO: Nuevo mensaje desde {xtingray@localhost} con asunto [ POS, mensaje para todos los POS ]
+2008-11-25 06:02:03 INFO: Procesando mensaje para todos los usuarios operativos [POS] del sistema
+2008-11-25 06:02:04 INFO: Enviando mensaje a 0 usuarios
+2008-11-25 06:02:04 INFO: Enviando mensaje a 0 usuarios
+2008-11-25 06:02:04 INFO: Enviando mensaje a 1 usuario
+2008-11-25 06:02:04 INFO: [Envio a Punto de Venta] Remitente {auditor3} - Destino: pos01 - Asunto: mensaje para todos los POS
+2008-11-25 06:02:04 INFO: Almacenando registro de mensaje en la base de datos [pos01]
+2008-11-25 06:02:04 SENTENCIA SQL :: INSERT INTO 
+			mensajes (uid_destino,fecha_envio,hora_envio,asunto,texto,confirmado,tiempo_vida,uid_origen,control,minutos)
+			VALUES (4,to_date('2008-11-25','yyyy-mm-dd'),'06:02:04 AM','mensaje para todos los POS','A que no adivinas!',0,3,15,0,0)
+2008-11-25 06:02:04 INFO: Enviando mensaje a 1 usuario
+2008-11-25 06:02:04 INFO: [Envio a Punto de Venta] Remitente {auditor3} - Destino: pos01 - Asunto: mensaje para todos los POS
+2008-11-25 06:02:04 INFO: Almacenando registro de mensaje en la base de datos [pos01]
+2008-11-25 06:02:04 SENTENCIA SQL :: INSERT INTO 
+			mensajes (uid_destino,fecha_envio,hora_envio,asunto,texto,confirmado,tiempo_vida,uid_origen,control,minutos)
+			VALUES (4,to_date('2008-11-25','yyyy-mm-dd'),'06:02:04 AM','mensaje para todos los POS','A que no adivinas!',0,3,15,0,0)
+2008-11-25 06:02:04 INFO: Enviando mensaje a 0 usuarios
+2008-11-25 06:02:04 INFO: Enviando mensaje a 0 usuarios
+2008-11-25 06:02:04 INFO: Enviando mensaje a 1 usuario
+2008-11-25 06:02:04 INFO: Almacenando registro de mensaje en la base de datos [pos02]
+2008-11-25 06:02:04 SENTENCIA SQL :: INSERT INTO 
+			mensajes (uid_destino,fecha_envio,hora_envio,asunto,texto,confirmado,tiempo_vida,uid_origen,control,minutos)
+			VALUES (5,to_date('2008-11-25','yyyy-mm-dd'),'06:02:04 AM','mensaje para todos los POS','A que no adivinas!',0,3,15,0,0)
+2008-11-25 06:02:10 SENTENCIA SQL :: UPDATE mensajes SET confirmado=1, fecha_confirmacion=to_date('2008-11-25','yyyy-mm-dd'), hora_confirmacion=('06:02:10 AM')
+			WHERE fecha_envio=to_date('2008-11-25','yyyy-mm-dd') AND hora_envio='06:02:04 AM' AND confirmado=0 AND
+			uid_destino=(SELECT codigo FROM usuarios WHERE login='pos01')
+2008-11-25 06:02:10 INFO: [2008-11-25 06:02:10 AM] Confirmada lectura de mensaje con destino {pos01}
+2008-11-25 06:02:12 SENTENCIA SQL :: UPDATE mensajes SET confirmado=1, fecha_confirmacion=to_date('2008-11-25','yyyy-mm-dd'), hora_confirmacion=('06:02:12 AM')
+			WHERE fecha_envio=to_date('2008-11-25','yyyy-mm-dd') AND hora_envio='06:02:04 AM' AND confirmado=0 AND
+			uid_destino=(SELECT codigo FROM usuarios WHERE login='pos01')
+2008-11-25 06:02:12 INFO: [2008-11-25 06:02:12 AM] Confirmada lectura de mensaje con destino {pos01}
+2008-11-25 06:12:04 INFO: Cerrando conexion con cliente [OK]
+2008-11-25 06:12:09 INFO: Cerrando conexion con cliente [OK]
+2008-11-25 06:12:16 INFO: ConfigFile -> /home/xtingray/Projects/comeet/comeet/comeet/CoMeet-Server/comeet/conf/server.conf
+2008-11-25 06:12:17 INFO: Cargando archivo de configuracion...
+2008-11-25 06:12:17 INFO: Cargando base de datos... bullet
+2008-11-25 06:12:17 ADVERTENCIA: Base de datos deshabilitada desde configuracion -> comeet
+2008-11-25 06:12:17 ADVERTENCIA: Base de datos deshabilitada desde configuracion -> oracle
+2008-11-25 06:12:17 INFO: Cargando cache de enlace [bullet]
+2008-11-25 06:12:18 INFO: Iniciando demonio pop3
+2008-11-25 06:12:18 INFO: Servidor de correo {localhost}
+2008-11-25 06:12:18 INFO: Iniciando demonio de sincronizacion
+2008-11-25 06:12:18 INFO: Servidor CoMeet escuchando por el puerto 9119
+2008-11-25 06:12:27 INFO: Se ha establecido una nueva conexion TCP/IP Socket[addr=/127.0.0.1,port=43984,localport=9119]
+2008-11-25 06:12:28 INFO: Inicio de autenticacion para el usuario {suba} con la clave {827ccb0eea8a706c4c34a16891f84e7b}
+2008-11-25 06:12:28 INFO: Control de acceso sobre direcciones ip no habilitado para este usuario
+2008-11-25 06:12:28 INFO: Lote {suba} autenticado desde BITTER [127.0.0.1]
+2008-11-25 06:12:28 INFO: 1 conexion activa en el pool de lotes
+2008-11-25 06:12:28 SENTENCIA SQL :: UPDATE mensajes_pda SET entregado=1 
+			WHERE login_destino='FRANCIA'
+2008-11-25 06:12:39 INFO: Se ha establecido una nueva conexion TCP/IP Socket[addr=/127.0.0.1,port=43991,localport=9119]
+2008-11-25 06:12:40 INFO: Inicio de autenticacion para el usuario {pos01} con la clave {827ccb0eea8a706c4c34a16891f84e7b}
+2008-11-25 06:12:40 INFO: Control de acceso sobre direcciones ip no habilitado para este usuario
+2008-11-25 06:12:40 INFO: Colocador {pos01} autenticado desde BITTER [127.0.0.1]
+2008-11-25 06:12:58 INFO: Leyendo correo del buzon de mensajes
+2008-11-25 06:12:58 INFO: Formato de mensaje -> text/*
+2008-11-25 06:12:58 INFO: Nuevo mensaje desde {xtingray@localhost} con asunto [ pos01, hola mundo ]
+2008-11-25 06:12:58 INFO: Enviando mensaje a 1 usuario
+2008-11-25 06:12:58 INFO: [Envio a Punto de Venta] Remitente {auditor3} - Destino: pos01 - Asunto: hola mundo
+2008-11-25 06:12:58 INFO: Almacenando registro de mensaje en la base de datos [pos01]
+2008-11-25 06:12:58 SENTENCIA SQL :: INSERT INTO 
+			mensajes (uid_destino,fecha_envio,hora_envio,asunto,texto,confirmado,tiempo_vida,uid_origen,control,minutos)
+			VALUES (4,to_date('2008-11-25','yyyy-mm-dd'),'06:12:58 AM','hola mundo','va uno!',0,3,15,0,0)
+2008-11-25 06:13:04 SENTENCIA SQL :: UPDATE mensajes SET confirmado=1, fecha_confirmacion=to_date('2008-11-25','yyyy-mm-dd'), hora_confirmacion=('06:13:04 AM')
+			WHERE fecha_envio=to_date('2008-11-25','yyyy-mm-dd') AND hora_envio='06:12:58 AM' AND confirmado=0 AND
+			uid_destino=(SELECT codigo FROM usuarios WHERE login='pos01')
+2008-11-25 06:13:04 INFO: [2008-11-25 06:13:04 AM] Confirmada lectura de mensaje con destino {pos01}
+2008-11-25 06:13:29 INFO: Leyendo correo del buzon de mensajes
+2008-11-25 06:13:29 INFO: Formato de mensaje -> text/*
+2008-11-25 06:13:29 INFO: Nuevo mensaje desde {xtingray@localhost} con asunto [ POS, este es el segundo ]
+2008-11-25 06:13:29 INFO: Procesando mensaje para todos los usuarios operativos [POS] del sistema
+2008-11-25 06:13:29 INFO: Enviando mensaje a 1 usuario
+2008-11-25 06:13:29 INFO: [Envio a Punto de Venta] Remitente {auditor3} - Destino: pos01 - Asunto: este es el segundo
+2008-11-25 06:13:29 INFO: Almacenando registro de mensaje en la base de datos [pos01]
+2008-11-25 06:13:29 SENTENCIA SQL :: INSERT INTO 
+			mensajes (uid_destino,fecha_envio,hora_envio,asunto,texto,confirmado,tiempo_vida,uid_origen,control,minutos)
+			VALUES (4,to_date('2008-11-25','yyyy-mm-dd'),'06:13:29 AM','este es el segundo','no me crees?',0,3,15,0,0)
+2008-11-25 06:13:29 INFO: Enviando mensaje a 1 usuario
+2008-11-25 06:13:29 INFO: Almacenando registro de mensaje en la base de datos [pos02]
+2008-11-25 06:13:29 SENTENCIA SQL :: INSERT INTO 
+			mensajes (uid_destino,fecha_envio,hora_envio,asunto,texto,confirmado,tiempo_vida,uid_origen,control,minutos)
+			VALUES (5,to_date('2008-11-25','yyyy-mm-dd'),'06:13:29 AM','este es el segundo','no me crees?',0,3,15,0,0)
+2008-11-25 06:13:32 SENTENCIA SQL :: UPDATE mensajes SET confirmado=1, fecha_confirmacion=to_date('2008-11-25','yyyy-mm-dd'), hora_confirmacion=('06:13:32 AM')
+			WHERE fecha_envio=to_date('2008-11-25','yyyy-mm-dd') AND hora_envio='06:13:29 AM' AND confirmado=0 AND
+			uid_destino=(SELECT codigo FROM usuarios WHERE login='pos01')
+2008-11-25 06:13:32 INFO: [2008-11-25 06:13:32 AM] Confirmada lectura de mensaje con destino {pos01}
+2008-11-25 06:17:42 INFO: ConfigFile -> /home/xtingray/Projects/comeet/comeet/comeet/CoMeet-Server/comeet/conf/server.conf
+2008-11-25 06:17:42 INFO: Cargando archivo de configuracion...
+2008-11-25 06:17:42 INFO: Cargando base de datos... bullet
+2008-11-25 06:17:42 ADVERTENCIA: Base de datos deshabilitada desde configuracion -> comeet
+2008-11-25 06:17:42 ADVERTENCIA: Base de datos deshabilitada desde configuracion -> oracle
+2008-11-25 06:17:42 INFO: Cargando cache de enlace [bullet]
+2008-11-25 06:17:43 INFO: Iniciando demonio pop3
+2008-11-25 06:17:43 INFO: Servidor de correo {localhost}
+2008-11-25 06:17:43 INFO: Iniciando demonio de sincronizacion
+2008-11-25 06:17:43 INFO: Servidor CoMeet escuchando por el puerto 9119
+2008-11-25 06:17:54 INFO: Se ha establecido una nueva conexion TCP/IP Socket[addr=/127.0.0.1,port=42094,localport=9119]
+2008-11-25 06:17:54 INFO: Inicio de autenticacion para el usuario {suba} con la clave {827ccb0eea8a706c4c34a16891f84e7b}
+2008-11-25 06:17:54 INFO: Control de acceso sobre direcciones ip no habilitado para este usuario
+2008-11-25 06:17:54 INFO: Lote {suba} autenticado desde BITTER [127.0.0.1]
+2008-11-25 06:17:54 INFO: 1 conexion activa en el pool de lotes
+2008-11-25 06:17:54 SENTENCIA SQL :: UPDATE mensajes_pda SET entregado=1 
+			WHERE login_destino='FRANCIA'
+2008-11-25 06:18:13 INFO: Se ha establecido una nueva conexion TCP/IP Socket[addr=/127.0.0.1,port=42097,localport=9119]
+2008-11-25 06:18:13 INFO: Inicio de autenticacion para el usuario {pos01} con la clave {827ccb0eea8a706c4c34a16891f84e7b}
+2008-11-25 06:18:13 INFO: Control de acceso sobre direcciones ip no habilitado para este usuario
+2008-11-25 06:18:13 INFO: Colocador {pos01} autenticado desde BITTER [127.0.0.1]
+2008-11-25 06:19:14 INFO: Leyendo correo del buzon de mensajes
+2008-11-25 06:19:14 INFO: Formato de mensaje -> text/*
+2008-11-25 06:19:14 INFO: Nuevo mensaje desde {xtingray@localhost} con asunto [ POS, never mind ]
+2008-11-25 06:19:14 INFO: Procesando mensaje para todos los usuarios operativos [POS] del sistema
+2008-11-25 06:19:14 INFO: Enviando mensaje a 1 usuario
+2008-11-25 06:19:14 INFO: [Envio a Punto de Venta] Remitente {auditor3} - Destino: pos01 - Asunto: never mind
+2008-11-25 06:19:14 INFO: Almacenando registro de mensaje en la base de datos [pos01]
+2008-11-25 06:19:14 SENTENCIA SQL :: INSERT INTO 
+			mensajes (uid_destino,fecha_envio,hora_envio,asunto,texto,confirmado,tiempo_vida,uid_origen,control,minutos)
+			VALUES (4,to_date('2008-11-25','yyyy-mm-dd'),'06:19:14 AM','never mind','hello world!',0,3,15,0,0)
+2008-11-25 06:19:14 INFO: Enviando mensaje a 1 usuario
+2008-11-25 06:19:14 INFO: Almacenando registro de mensaje en la base de datos [pos02]
+2008-11-25 06:19:14 SENTENCIA SQL :: INSERT INTO 
+			mensajes (uid_destino,fecha_envio,hora_envio,asunto,texto,confirmado,tiempo_vida,uid_origen,control,minutos)
+			VALUES (5,to_date('2008-11-25','yyyy-mm-dd'),'06:19:14 AM','never mind','hello world!',0,3,15,0,0)
+2008-11-25 06:19:17 SENTENCIA SQL :: UPDATE mensajes SET confirmado=1, fecha_confirmacion=to_date('2008-11-25','yyyy-mm-dd'), hora_confirmacion=('06:19:17 AM')
+			WHERE fecha_envio=to_date('2008-11-25','yyyy-mm-dd') AND hora_envio='06:19:14 AM' AND confirmado=0 AND
+			uid_destino=(SELECT codigo FROM usuarios WHERE login='pos01')
+2008-11-25 06:19:17 INFO: [2008-11-25 06:19:17 AM] Confirmada lectura de mensaje con destino {pos01}
+2008-11-25 06:19:44 INFO: Leyendo correo del buzon de mensajes
+2008-11-25 06:19:44 INFO: Formato de mensaje -> text/*
+2008-11-25 06:19:44 INFO: Nuevo mensaje desde {xtingray@localhost} con asunto [ TODOS, para todos! ]
+2008-11-25 06:19:44 INFO: Procesando mensaje para [TODOS] los usuarios del sistema
+2008-11-25 06:19:44 INFO: Enviando mensaje a 1 usuario
+2008-11-25 06:19:44 INFO: Almacenando registro de mensaje en la base de datos [admin]
+2008-11-25 06:19:44 SENTENCIA SQL :: INSERT INTO 
+			mensajes (uid_destino,fecha_envio,hora_envio,asunto,texto,confirmado,tiempo_vida,uid_origen,control,minutos)
+			VALUES (1,to_date('2008-11-25','yyyy-mm-dd'),'06:19:44 AM','para todos!','te llego?',0,3,15,0,0)
+2008-11-25 06:19:44 INFO: Enviando mensaje a 1 usuario
+2008-11-25 06:19:44 INFO: Almacenando registro de mensaje en la base de datos [auditor]
+2008-11-25 06:19:44 SENTENCIA SQL :: INSERT INTO 
+			mensajes (uid_destino,fecha_envio,hora_envio,asunto,texto,confirmado,tiempo_vida,uid_origen,control,minutos)
+			VALUES (2,to_date('2008-11-25','yyyy-mm-dd'),'06:19:44 AM','para todos!','te llego?',0,3,15,0,0)
+2008-11-25 06:19:44 INFO: Enviando mensaje a 1 usuario
+2008-11-25 06:19:44 INFO: Almacenando registro de mensaje en la base de datos [auditor2]
+2008-11-25 06:19:44 SENTENCIA SQL :: INSERT INTO 
+			mensajes (uid_destino,fecha_envio,hora_envio,asunto,texto,confirmado,tiempo_vida,uid_origen,control,minutos)
+			VALUES (14,to_date('2008-11-25','yyyy-mm-dd'),'06:19:44 AM','para todos!','te llego?',0,3,15,0,0)
+2008-11-25 06:19:44 INFO: Enviando mensaje a 1 usuario
+2008-11-25 06:19:44 INFO: Almacenando registro de mensaje en la base de datos [auditor3]
+2008-11-25 06:19:44 SENTENCIA SQL :: INSERT INTO 
+			mensajes (uid_destino,fecha_envio,hora_envio,asunto,texto,confirmado,tiempo_vida,uid_origen,control,minutos)
+			VALUES (15,to_date('2008-11-25','yyyy-mm-dd'),'06:19:44 AM','para todos!','te llego?',0,3,15,0,0)
+2008-11-25 06:19:44 INFO: Enviando mensaje a 1 usuario
+2008-11-25 06:19:44 INFO: Almacenando registro de mensaje en la base de datos [auditor4]
+2008-11-25 06:19:44 SENTENCIA SQL :: INSERT INTO 
+			mensajes (uid_destino,fecha_envio,hora_envio,asunto,texto,confirmado,tiempo_vida,uid_origen,control,minutos)
+			VALUES (16,to_date('2008-11-25','yyyy-mm-dd'),'06:19:44 AM','para todos!','te llego?',0,3,15,0,0)
+2008-11-25 06:19:44 INFO: Enviando mensaje a 1 usuario
+2008-11-25 06:19:44 INFO: Almacenando registro de mensaje en la base de datos [batman]
+2008-11-25 06:19:44 SENTENCIA SQL :: INSERT INTO 
+			mensajes (uid_destino,fecha_envio,hora_envio,asunto,texto,confirmado,tiempo_vida,uid_origen,control,minutos)
+			VALUES (18,to_date('2008-11-25','yyyy-mm-dd'),'06:19:44 AM','para todos!','te llego?',0,3,15,0,0)
+2008-11-25 06:19:45 INFO: Enviando mensaje a 0 usuarios
+2008-11-25 06:19:45 INFO: Enviando mensaje a 1 usuario
+2008-11-25 06:19:45 INFO: Almacenando registro de mensaje en la base de datos [mensajero]
+2008-11-25 06:19:45 SENTENCIA SQL :: INSERT INTO 
+			mensajes (uid_destino,fecha_envio,hora_envio,asunto,texto,confirmado,tiempo_vida,uid_origen,control,minutos)
+			VALUES (9,to_date('2008-11-25','yyyy-mm-dd'),'06:19:45 AM','para todos!','te llego?',0,3,15,0,0)
+2008-11-25 06:19:45 INFO: Enviando mensaje a 1 usuario
+2008-11-25 06:19:45 INFO: [Envio a Punto de Venta] Remitente {auditor3} - Destino: pos01 - Asunto: para todos!
+2008-11-25 06:19:45 INFO: Almacenando registro de mensaje en la base de datos [pos01]
+2008-11-25 06:19:45 SENTENCIA SQL :: INSERT INTO 
+			mensajes (uid_destino,fecha_envio,hora_envio,asunto,texto,confirmado,tiempo_vida,uid_origen,control,minutos)
+			VALUES (4,to_date('2008-11-25','yyyy-mm-dd'),'06:19:45 AM','para todos!','te llego?',0,3,15,0,0)
+2008-11-25 06:19:45 INFO: Enviando mensaje a 1 usuario
+2008-11-25 06:19:45 INFO: Almacenando registro de mensaje en la base de datos [pos02]
+2008-11-25 06:19:45 SENTENCIA SQL :: INSERT INTO 
+			mensajes (uid_destino,fecha_envio,hora_envio,asunto,texto,confirmado,tiempo_vida,uid_origen,control,minutos)
+			VALUES (5,to_date('2008-11-25','yyyy-mm-dd'),'06:19:45 AM','para todos!','te llego?',0,3,15,0,0)
+2008-11-25 06:19:45 INFO: Enviando mensaje a 1 usuario
+2008-11-25 06:19:45 INFO: Almacenando registro de mensaje en la base de datos [prueba01]
+2008-11-25 06:19:45 SENTENCIA SQL :: INSERT INTO 
+			mensajes (uid_destino,fecha_envio,hora_envio,asunto,texto,confirmado,tiempo_vida,uid_origen,control,minutos)
+			VALUES (10,to_date('2008-11-25','yyyy-mm-dd'),'06:19:45 AM','para todos!','te llego?',0,3,15,0,0)
+2008-11-25 06:19:45 INFO: Enviando mensaje a 1 usuario
+2008-11-25 06:19:45 INFO: Almacenando registro de mensaje en la base de datos [prueba02]
+2008-11-25 06:19:45 SENTENCIA SQL :: INSERT INTO 
+			mensajes (uid_destino,fecha_envio,hora_envio,asunto,texto,confirmado,tiempo_vida,uid_origen,control,minutos)
+			VALUES (11,to_date('2008-11-25','yyyy-mm-dd'),'06:19:45 AM','para todos!','te llego?',0,3,15,0,0)
+2008-11-25 06:19:45 INFO: Enviando mensaje a 1 usuario
+2008-11-25 06:19:45 INFO: Almacenando registro de mensaje en la base de datos [prueba03]
+2008-11-25 06:19:45 SENTENCIA SQL :: INSERT INTO 
+			mensajes (uid_destino,fecha_envio,hora_envio,asunto,texto,confirmado,tiempo_vida,uid_origen,control,minutos)
+			VALUES (12,to_date('2008-11-25','yyyy-mm-dd'),'06:19:45 AM','para todos!','te llego?',0,3,15,0,0)
+2008-11-25 06:19:45 INFO: Enviando mensaje a 1 usuario
+2008-11-25 06:19:45 INFO: Almacenando registro de mensaje en la base de datos [raul]
+2008-11-25 06:19:45 SENTENCIA SQL :: INSERT INTO 
+			mensajes (uid_destino,fecha_envio,hora_envio,asunto,texto,confirmado,tiempo_vida,uid_origen,control,minutos)
+			VALUES (17,to_date('2008-11-25','yyyy-mm-dd'),'06:19:45 AM','para todos!','te llego?',0,3,15,0,0)
+2008-11-25 06:19:45 INFO: Enviando mensaje a 1 usuario
+2008-11-25 06:19:45 INFO: Almacenando registro de mensaje en la base de datos [secretaria]
+2008-11-25 06:19:45 SENTENCIA SQL :: INSERT INTO 
+			mensajes (uid_destino,fecha_envio,hora_envio,asunto,texto,confirmado,tiempo_vida,uid_origen,control,minutos)
+			VALUES (13,to_date('2008-11-25','yyyy-mm-dd'),'06:19:45 AM','para todos!','te llego?',0,3,15,0,0)
+2008-11-25 06:19:45 INFO: Enviando mensaje a 1 usuario
+2008-11-25 06:19:45 INFO: [Envio a Punto de Venta] Remitente {auditor3} - Destino: suba - Asunto: para todos!
+2008-11-25 06:19:45 INFO: Almacenando registro de mensaje en la base de datos [suba]
+2008-11-25 06:19:45 SENTENCIA SQL :: INSERT INTO 
+			mensajes (uid_destino,fecha_envio,hora_envio,asunto,texto,confirmado,tiempo_vida,uid_origen,control,minutos)
+			VALUES (3,to_date('2008-11-25','yyyy-mm-dd'),'06:19:45 AM','para todos!','te llego?',0,3,15,0,0)
+2008-11-25 06:19:59 SENTENCIA SQL :: UPDATE mensajes SET confirmado=1, fecha_confirmacion=to_date('2008-11-25','yyyy-mm-dd'), hora_confirmacion=('06:19:59 AM')
+			WHERE fecha_envio=to_date('2008-11-25','yyyy-mm-dd') AND hora_envio='06:19:45 AM' AND confirmado=0 AND
+			uid_destino=(SELECT codigo FROM usuarios WHERE login='pos01')
+2008-11-25 06:19:59 INFO: [2008-11-25 06:19:59 AM] Confirmada lectura de mensaje con destino {pos01}
+2008-11-25 06:21:57 INFO: Leyendo correo del buzon de mensajes
+2008-11-25 06:21:57 INFO: Formato de mensaje -> text/*
+2008-11-25 06:21:57 INFO: Nuevo mensaje desde {xtingray@localhost} con asunto [ CORREO, hola a todos ]
+2008-11-25 06:21:57 INFO: Procesando mensaje para todos los usuarios administrativos [CORREO] del sistema
+2008-11-25 06:21:57 INFO: Enviando mensaje a 1 usuario
+2008-11-25 06:21:57 INFO: Almacenando registro de mensaje en la base de datos [admin]
+2008-11-25 06:21:57 SENTENCIA SQL :: INSERT INTO 
+			mensajes (uid_destino,fecha_envio,hora_envio,asunto,texto,confirmado,tiempo_vida,uid_origen,control,minutos)
+			VALUES (1,to_date('2008-11-25','yyyy-mm-dd'),'06:21:57 AM','hola a todos','usuarios administrativos!',0,3,15,0,0)
+2008-11-25 06:21:57 INFO: Enviando mensaje a 1 usuario
+2008-11-25 06:21:57 INFO: Almacenando registro de mensaje en la base de datos [auditor]
+2008-11-25 06:21:57 SENTENCIA SQL :: INSERT INTO 
+			mensajes (uid_destino,fecha_envio,hora_envio,asunto,texto,confirmado,tiempo_vida,uid_origen,control,minutos)
+			VALUES (2,to_date('2008-11-25','yyyy-mm-dd'),'06:21:57 AM','hola a todos','usuarios administrativos!',0,3,15,0,0)
+2008-11-25 06:21:57 INFO: Enviando mensaje a 1 usuario
+2008-11-25 06:21:57 INFO: Almacenando registro de mensaje en la base de datos [auditor2]
+2008-11-25 06:21:57 SENTENCIA SQL :: INSERT INTO 
+			mensajes (uid_destino,fecha_envio,hora_envio,asunto,texto,confirmado,tiempo_vida,uid_origen,control,minutos)
+			VALUES (14,to_date('2008-11-25','yyyy-mm-dd'),'06:21:57 AM','hola a todos','usuarios administrativos!',0,3,15,0,0)
+2008-11-25 06:21:57 INFO: Enviando mensaje a 1 usuario
+2008-11-25 06:21:57 INFO: Almacenando registro de mensaje en la base de datos [auditor3]
+2008-11-25 06:21:57 SENTENCIA SQL :: INSERT INTO 
+			mensajes (uid_destino,fecha_envio,hora_envio,asunto,texto,confirmado,tiempo_vida,uid_origen,control,minutos)
+			VALUES (15,to_date('2008-11-25','yyyy-mm-dd'),'06:21:57 AM','hola a todos','usuarios administrativos!',0,3,15,0,0)
+2008-11-25 06:21:57 INFO: Enviando mensaje a 1 usuario
+2008-11-25 06:21:57 INFO: Almacenando registro de mensaje en la base de datos [auditor4]
+2008-11-25 06:21:57 SENTENCIA SQL :: INSERT INTO 
+			mensajes (uid_destino,fecha_envio,hora_envio,asunto,texto,confirmado,tiempo_vida,uid_origen,control,minutos)
+			VALUES (16,to_date('2008-11-25','yyyy-mm-dd'),'06:21:57 AM','hola a todos','usuarios administrativos!',0,3,15,0,0)
+2008-11-25 06:21:57 INFO: Enviando mensaje a 1 usuario
+2008-11-25 06:21:57 INFO: Almacenando registro de mensaje en la base de datos [batman]
+2008-11-25 06:21:57 SENTENCIA SQL :: INSERT INTO 
+			mensajes (uid_destino,fecha_envio,hora_envio,asunto,texto,confirmado,tiempo_vida,uid_origen,control,minutos)
+			VALUES (18,to_date('2008-11-25','yyyy-mm-dd'),'06:21:57 AM','hola a todos','usuarios administrativos!',0,3,15,0,0)
+2008-11-25 06:21:57 INFO: Enviando mensaje a 0 usuarios
+2008-11-25 06:21:57 INFO: Enviando mensaje a 1 usuario
+2008-11-25 06:21:57 INFO: Almacenando registro de mensaje en la base de datos [mensajero]
+2008-11-25 06:21:57 SENTENCIA SQL :: INSERT INTO 
+			mensajes (uid_destino,fecha_envio,hora_envio,asunto,texto,confirmado,tiempo_vida,uid_origen,control,minutos)
+			VALUES (9,to_date('2008-11-25','yyyy-mm-dd'),'06:21:57 AM','hola a todos','usuarios administrativos!',0,3,15,0,0)
+2008-11-25 06:21:57 INFO: Enviando mensaje a 1 usuario
+2008-11-25 06:21:57 INFO: Almacenando registro de mensaje en la base de datos [prueba01]
+2008-11-25 06:21:57 SENTENCIA SQL :: INSERT INTO 
+			mensajes (uid_destino,fecha_envio,hora_envio,asunto,texto,confirmado,tiempo_vida,uid_origen,control,minutos)
+			VALUES (10,to_date('2008-11-25','yyyy-mm-dd'),'06:21:57 AM','hola a todos','usuarios administrativos!',0,3,15,0,0)
+2008-11-25 06:21:57 INFO: Enviando mensaje a 1 usuario
+2008-11-25 06:21:57 INFO: Almacenando registro de mensaje en la base de datos [prueba02]
+2008-11-25 06:21:57 SENTENCIA SQL :: INSERT INTO 
+			mensajes (uid_destino,fecha_envio,hora_envio,asunto,texto,confirmado,tiempo_vida,uid_origen,control,minutos)
+			VALUES (11,to_date('2008-11-25','yyyy-mm-dd'),'06:21:57 AM','hola a todos','usuarios administrativos!',0,3,15,0,0)
+2008-11-25 06:21:57 INFO: Enviando mensaje a 1 usuario
+2008-11-25 06:21:57 INFO: Almacenando registro de mensaje en la base de datos [prueba03]
+2008-11-25 06:21:57 SENTENCIA SQL :: INSERT INTO 
+			mensajes (uid_destino,fecha_envio,hora_envio,asunto,texto,confirmado,tiempo_vida,uid_origen,control,minutos)
+			VALUES (12,to_date('2008-11-25','yyyy-mm-dd'),'06:21:57 AM','hola a todos','usuarios administrativos!',0,3,15,0,0)
+2008-11-25 06:21:57 INFO: Enviando mensaje a 1 usuario
+2008-11-25 06:21:57 INFO: Almacenando registro de mensaje en la base de datos [raul]
+2008-11-25 06:21:57 SENTENCIA SQL :: INSERT INTO 
+			mensajes (uid_destino,fecha_envio,hora_envio,asunto,texto,confirmado,tiempo_vida,uid_origen,control,minutos)
+			VALUES (17,to_date('2008-11-25','yyyy-mm-dd'),'06:21:57 AM','hola a todos','usuarios administrativos!',0,3,15,0,0)
+2008-11-25 06:21:57 INFO: Enviando mensaje a 1 usuario
+2008-11-25 06:21:57 INFO: Almacenando registro de mensaje en la base de datos [secretaria]
+2008-11-25 06:21:57 SENTENCIA SQL :: INSERT INTO 
+			mensajes (uid_destino,fecha_envio,hora_envio,asunto,texto,confirmado,tiempo_vida,uid_origen,control,minutos)
+			VALUES (13,to_date('2008-11-25','yyyy-mm-dd'),'06:21:57 AM','hola a todos','usuarios administrativos!',0,3,15,0,0)
+2008-11-25 06:44:29 INFO: ConfigFile -> /home/xtingray/Projects/comeet/comeet/comeet/CoMeet-Server/comeet/conf/server.conf
+2008-11-25 06:44:30 INFO: Cargando archivo de configuracion...
+2008-11-25 06:44:30 INFO: Cargando base de datos... bullet
+2008-11-25 06:44:30 ADVERTENCIA: Base de datos deshabilitada desde configuracion -> comeet
+2008-11-25 06:44:30 ADVERTENCIA: Base de datos deshabilitada desde configuracion -> oracle
+2008-11-25 06:44:30 INFO: Cargando cache de enlace [bullet]
+2008-11-25 06:44:30 INFO: Iniciando demonio pop3
+2008-11-25 06:44:30 INFO: Servidor de correo {localhost}
+2008-11-25 06:44:30 INFO: Iniciando demonio de sincronizacion
+2008-11-25 06:44:31 INFO: Servidor CoMeet escuchando por el puerto 9119
+2008-11-25 06:44:41 INFO: Se ha establecido una nueva conexion TCP/IP Socket[addr=/127.0.0.1,port=58433,localport=9119]
+2008-11-25 06:44:41 INFO: Inicio de autenticacion para el usuario {suba} con la clave {827ccb0eea8a706c4c34a16891f84e7b}
+2008-11-25 06:44:42 INFO: Control de acceso sobre direcciones ip no habilitado para este usuario
+2008-11-25 06:44:42 INFO: Lote {suba} autenticado desde BITTER [127.0.0.1]
+2008-11-25 06:44:42 INFO: 1 conexion activa en el pool de lotes
+2008-11-25 06:44:42 SENTENCIA SQL :: UPDATE mensajes_pda SET entregado=1 
+			WHERE login_destino='FRANCIA'
+2008-11-25 06:44:56 INFO: Se ha establecido una nueva conexion TCP/IP Socket[addr=/127.0.0.1,port=58438,localport=9119]
+2008-11-25 06:44:56 INFO: Inicio de autenticacion para el usuario {pos01} con la clave {827ccb0eea8a706c4c34a16891f84e7b}
+2008-11-25 06:44:56 INFO: Control de acceso sobre direcciones ip no habilitado para este usuario
+2008-11-25 06:44:56 INFO: Colocador {pos01} autenticado desde BITTER [127.0.0.1]
+2008-11-25 06:45:42 INFO: Leyendo correo del buzon de mensajes
+2008-11-25 06:45:42 INFO: Formato de mensaje -> text/*
+2008-11-25 06:45:42 INFO: Nuevo mensaje desde {xtingray@localhost} con asunto [ CORREO, mensaje para usuarios de outlook ]
+2008-11-25 06:45:42 INFO: Procesando mensaje para todos los usuarios administrativos [CORREO] del sistema
+2008-11-25 06:45:42 INFO: Enviando mensaje a 1 usuario
+2008-11-25 06:45:42 INFO: Almacenando registro de mensaje en la base de datos [admin]
+2008-11-25 06:45:42 SENTENCIA SQL :: INSERT INTO 
+			mensajes (uid_destino,fecha_envio,hora_envio,asunto,texto,confirmado,tiempo_vida,uid_origen,control,minutos)
+			VALUES (1,to_date('2008-11-25','yyyy-mm-dd'),'06:45:42 AM','mensaje para usuarios de outlook','veamos si llega!',0,3,15,0,0)
+2008-11-25 06:45:42 INFO: Enviando mensaje a 1 usuario
+2008-11-25 06:45:42 INFO: Almacenando registro de mensaje en la base de datos [auditor]
+2008-11-25 06:45:42 SENTENCIA SQL :: INSERT INTO 
+			mensajes (uid_destino,fecha_envio,hora_envio,asunto,texto,confirmado,tiempo_vida,uid_origen,control,minutos)
+			VALUES (2,to_date('2008-11-25','yyyy-mm-dd'),'06:45:42 AM','mensaje para usuarios de outlook','veamos si llega!',0,3,15,0,0)
+2008-11-25 06:45:42 INFO: Enviando mensaje a 1 usuario
+2008-11-25 06:45:42 INFO: Almacenando registro de mensaje en la base de datos [auditor2]
+2008-11-25 06:45:42 SENTENCIA SQL :: INSERT INTO 
+			mensajes (uid_destino,fecha_envio,hora_envio,asunto,texto,confirmado,tiempo_vida,uid_origen,control,minutos)
+			VALUES (14,to_date('2008-11-25','yyyy-mm-dd'),'06:45:42 AM','mensaje para usuarios de outlook','veamos si llega!',0,3,15,0,0)
+2008-11-25 06:45:42 INFO: Enviando mensaje a 1 usuario
+2008-11-25 06:45:42 INFO: Almacenando registro de mensaje en la base de datos [auditor3]
+2008-11-25 06:45:42 SENTENCIA SQL :: INSERT INTO 
+			mensajes (uid_destino,fecha_envio,hora_envio,asunto,texto,confirmado,tiempo_vida,uid_origen,control,minutos)
+			VALUES (15,to_date('2008-11-25','yyyy-mm-dd'),'06:45:42 AM','mensaje para usuarios de outlook','veamos si llega!',0,3,15,0,0)
+2008-11-25 06:45:42 INFO: Enviando mensaje a 1 usuario
+2008-11-25 06:45:42 INFO: Almacenando registro de mensaje en la base de datos [auditor4]
+2008-11-25 06:45:42 SENTENCIA SQL :: INSERT INTO 
+			mensajes (uid_destino,fecha_envio,hora_envio,asunto,texto,confirmado,tiempo_vida,uid_origen,control,minutos)
+			VALUES (16,to_date('2008-11-25','yyyy-mm-dd'),'06:45:42 AM','mensaje para usuarios de outlook','veamos si llega!',0,3,15,0,0)
+2008-11-25 06:45:42 INFO: Enviando mensaje a 1 usuario
+2008-11-25 06:45:42 INFO: Almacenando registro de mensaje en la base de datos [batman]
+2008-11-25 06:45:42 SENTENCIA SQL :: INSERT INTO 
+			mensajes (uid_destino,fecha_envio,hora_envio,asunto,texto,confirmado,tiempo_vida,uid_origen,control,minutos)
+			VALUES (18,to_date('2008-11-25','yyyy-mm-dd'),'06:45:42 AM','mensaje para usuarios de outlook','veamos si llega!',0,3,15,0,0)
+2008-11-25 06:45:42 INFO: Enviando mensaje a 0 usuarios
+2008-11-25 06:45:42 INFO: Enviando mensaje a 1 usuario
+2008-11-25 06:45:42 INFO: Almacenando registro de mensaje en la base de datos [mensajero]
+2008-11-25 06:45:42 SENTENCIA SQL :: INSERT INTO 
+			mensajes (uid_destino,fecha_envio,hora_envio,asunto,texto,confirmado,tiempo_vida,uid_origen,control,minutos)
+			VALUES (9,to_date('2008-11-25','yyyy-mm-dd'),'06:45:42 AM','mensaje para usuarios de outlook','veamos si llega!',0,3,15,0,0)
+2008-11-25 06:45:42 INFO: Enviando mensaje a 1 usuario
+2008-11-25 06:45:42 INFO: Almacenando registro de mensaje en la base de datos [prueba01]
+2008-11-25 06:45:42 SENTENCIA SQL :: INSERT INTO 
+			mensajes (uid_destino,fecha_envio,hora_envio,asunto,texto,confirmado,tiempo_vida,uid_origen,control,minutos)
+			VALUES (10,to_date('2008-11-25','yyyy-mm-dd'),'06:45:42 AM','mensaje para usuarios de outlook','veamos si llega!',0,3,15,0,0)
+2008-11-25 06:45:42 INFO: Enviando mensaje a 1 usuario
+2008-11-25 06:45:42 INFO: Almacenando registro de mensaje en la base de datos [prueba02]
+2008-11-25 06:45:42 SENTENCIA SQL :: INSERT INTO 
+			mensajes (uid_destino,fecha_envio,hora_envio,asunto,texto,confirmado,tiempo_vida,uid_origen,control,minutos)
+			VALUES (11,to_date('2008-11-25','yyyy-mm-dd'),'06:45:42 AM','mensaje para usuarios de outlook','veamos si llega!',0,3,15,0,0)
+2008-11-25 06:45:42 INFO: Enviando mensaje a 1 usuario
+2008-11-25 06:45:42 INFO: Almacenando registro de mensaje en la base de datos [prueba03]
+2008-11-25 06:45:42 SENTENCIA SQL :: INSERT INTO 
+			mensajes (uid_destino,fecha_envio,hora_envio,asunto,texto,confirmado,tiempo_vida,uid_origen,control,minutos)
+			VALUES (12,to_date('2008-11-25','yyyy-mm-dd'),'06:45:42 AM','mensaje para usuarios de outlook','veamos si llega!',0,3,15,0,0)
+2008-11-25 06:45:42 INFO: Enviando mensaje a 1 usuario
+2008-11-25 06:45:42 INFO: Almacenando registro de mensaje en la base de datos [raul]
+2008-11-25 06:45:42 SENTENCIA SQL :: INSERT INTO 
+			mensajes (uid_destino,fecha_envio,hora_envio,asunto,texto,confirmado,tiempo_vida,uid_origen,control,minutos)
+			VALUES (17,to_date('2008-11-25','yyyy-mm-dd'),'06:45:42 AM','mensaje para usuarios de outlook','veamos si llega!',0,3,15,0,0)
+2008-11-25 06:45:42 INFO: Enviando mensaje a 1 usuario
+2008-11-25 06:45:42 INFO: Almacenando registro de mensaje en la base de datos [secretaria]
+2008-11-25 06:45:42 SENTENCIA SQL :: INSERT INTO 
+			mensajes (uid_destino,fecha_envio,hora_envio,asunto,texto,confirmado,tiempo_vida,uid_origen,control,minutos)
+			VALUES (13,to_date('2008-11-25','yyyy-mm-dd'),'06:45:42 AM','mensaje para usuarios de outlook','veamos si llega!',0,3,15,0,0)
+2008-11-25 06:47:01 INFO: ConfigFile -> /home/xtingray/Projects/comeet/comeet/comeet/CoMeet-Server/comeet/conf/server.conf
+2008-11-25 06:47:02 INFO: Cargando archivo de configuracion...
+2008-11-25 06:47:02 INFO: Cargando base de datos... bullet
+2008-11-25 06:47:02 ADVERTENCIA: Base de datos deshabilitada desde configuracion -> comeet
+2008-11-25 06:47:02 ADVERTENCIA: Base de datos deshabilitada desde configuracion -> oracle
+2008-11-25 06:47:02 INFO: Cargando cache de enlace [bullet]
+2008-11-25 06:47:03 INFO: Iniciando demonio pop3
+2008-11-25 06:47:03 INFO: Servidor de correo {localhost}
+2008-11-25 06:47:03 INFO: Iniciando demonio de sincronizacion
+2008-11-25 06:47:03 INFO: Servidor CoMeet escuchando por el puerto 9119
+2008-11-25 06:47:16 INFO: Se ha establecido una nueva conexion TCP/IP Socket[addr=/127.0.0.1,port=58472,localport=9119]
+2008-11-25 06:47:16 INFO: Inicio de autenticacion para el usuario {pos01} con la clave {827ccb0eea8a706c4c34a16891f84e7b}
+2008-11-25 06:47:16 INFO: Control de acceso sobre direcciones ip no habilitado para este usuario
+2008-11-25 06:47:16 INFO: Colocador {pos01} autenticado desde BITTER [127.0.0.1]
+2008-11-25 06:47:44 INFO: Leyendo correo del buzon de mensajes
+2008-11-25 06:47:44 INFO: Formato de mensaje -> text/*
+2008-11-25 06:47:44 INFO: Nuevo mensaje desde {xtingray@localhost} con asunto [ CORREO, adivinen que? ]
+2008-11-25 06:47:44 INFO: Procesando mensaje para todos los usuarios administrativos [CORREO] del sistema
+2008-11-25 06:47:44 INFO: Enviando mensaje a 1 usuario
+2008-11-25 06:47:44 INFO: Almacenando registro de mensaje en la base de datos [admin]
+2008-11-25 06:47:44 SENTENCIA SQL :: INSERT INTO 
+			mensajes (uid_destino,fecha_envio,hora_envio,asunto,texto,confirmado,tiempo_vida,uid_origen,control,minutos)
+			VALUES (1,to_date('2008-11-25','yyyy-mm-dd'),'06:47:44 AM','adivinen que?','ja!',0,3,15,0,0)
+2008-11-25 06:47:44 INFO: Enviando mensaje a 1 usuario
+2008-11-25 06:47:44 INFO: Almacenando registro de mensaje en la base de datos [auditor]
+2008-11-25 06:47:44 SENTENCIA SQL :: INSERT INTO 
+			mensajes (uid_destino,fecha_envio,hora_envio,asunto,texto,confirmado,tiempo_vida,uid_origen,control,minutos)
+			VALUES (2,to_date('2008-11-25','yyyy-mm-dd'),'06:47:44 AM','adivinen que?','ja!',0,3,15,0,0)
+2008-11-25 06:47:44 INFO: Enviando mensaje a 1 usuario
+2008-11-25 06:47:44 INFO: Almacenando registro de mensaje en la base de datos [auditor2]
+2008-11-25 06:47:44 SENTENCIA SQL :: INSERT INTO 
+			mensajes (uid_destino,fecha_envio,hora_envio,asunto,texto,confirmado,tiempo_vida,uid_origen,control,minutos)
+			VALUES (14,to_date('2008-11-25','yyyy-mm-dd'),'06:47:44 AM','adivinen que?','ja!',0,3,15,0,0)
+2008-11-25 06:47:44 INFO: Enviando mensaje a 1 usuario
+2008-11-25 06:47:44 INFO: Almacenando registro de mensaje en la base de datos [auditor3]
+2008-11-25 06:47:44 SENTENCIA SQL :: INSERT INTO 
+			mensajes (uid_destino,fecha_envio,hora_envio,asunto,texto,confirmado,tiempo_vida,uid_origen,control,minutos)
+			VALUES (15,to_date('2008-11-25','yyyy-mm-dd'),'06:47:44 AM','adivinen que?','ja!',0,3,15,0,0)
+2008-11-25 06:47:44 INFO: Enviando mensaje a 1 usuario
+2008-11-25 06:47:44 INFO: Almacenando registro de mensaje en la base de datos [auditor4]
+2008-11-25 06:47:44 SENTENCIA SQL :: INSERT INTO 
+			mensajes (uid_destino,fecha_envio,hora_envio,asunto,texto,confirmado,tiempo_vida,uid_origen,control,minutos)
+			VALUES (16,to_date('2008-11-25','yyyy-mm-dd'),'06:47:44 AM','adivinen que?','ja!',0,3,15,0,0)
+2008-11-25 06:47:44 INFO: Enviando mensaje a 1 usuario
+2008-11-25 06:47:44 INFO: Almacenando registro de mensaje en la base de datos [batman]
+2008-11-25 06:47:44 SENTENCIA SQL :: INSERT INTO 
+			mensajes (uid_destino,fecha_envio,hora_envio,asunto,texto,confirmado,tiempo_vida,uid_origen,control,minutos)
+			VALUES (18,to_date('2008-11-25','yyyy-mm-dd'),'06:47:44 AM','adivinen que?','ja!',0,3,15,0,0)
+2008-11-25 06:47:44 INFO: Enviando mensaje a 0 usuarios
+2008-11-25 06:47:44 INFO: Enviando mensaje a 1 usuario
+2008-11-25 06:47:44 INFO: Almacenando registro de mensaje en la base de datos [mensajero]
+2008-11-25 06:47:44 SENTENCIA SQL :: INSERT INTO 
+			mensajes (uid_destino,fecha_envio,hora_envio,asunto,texto,confirmado,tiempo_vida,uid_origen,control,minutos)
+			VALUES (9,to_date('2008-11-25','yyyy-mm-dd'),'06:47:44 AM','adivinen que?','ja!',0,3,15,0,0)
+2008-11-25 06:47:44 INFO: Enviando mensaje a 1 usuario
+2008-11-25 06:47:44 INFO: Almacenando registro de mensaje en la base de datos [prueba01]
+2008-11-25 06:47:44 SENTENCIA SQL :: INSERT INTO 
+			mensajes (uid_destino,fecha_envio,hora_envio,asunto,texto,confirmado,tiempo_vida,uid_origen,control,minutos)
+			VALUES (10,to_date('2008-11-25','yyyy-mm-dd'),'06:47:44 AM','adivinen que?','ja!',0,3,15,0,0)
+2008-11-25 06:47:44 INFO: Enviando mensaje a 1 usuario
+2008-11-25 06:47:44 INFO: Almacenando registro de mensaje en la base de datos [prueba02]
+2008-11-25 06:47:44 SENTENCIA SQL :: INSERT INTO 
+			mensajes (uid_destino,fecha_envio,hora_envio,asunto,texto,confirmado,tiempo_vida,uid_origen,control,minutos)
+			VALUES (11,to_date('2008-11-25','yyyy-mm-dd'),'06:47:44 AM','adivinen que?','ja!',0,3,15,0,0)
+2008-11-25 06:47:44 INFO: Enviando mensaje a 1 usuario
+2008-11-25 06:47:44 INFO: Almacenando registro de mensaje en la base de datos [prueba03]
+2008-11-25 06:47:44 SENTENCIA SQL :: INSERT INTO 
+			mensajes (uid_destino,fecha_envio,hora_envio,asunto,texto,confirmado,tiempo_vida,uid_origen,control,minutos)
+			VALUES (12,to_date('2008-11-25','yyyy-mm-dd'),'06:47:44 AM','adivinen que?','ja!',0,3,15,0,0)
+2008-11-25 06:47:44 INFO: Enviando mensaje a 1 usuario
+2008-11-25 06:47:44 INFO: Almacenando registro de mensaje en la base de datos [raul]
+2008-11-25 06:47:44 SENTENCIA SQL :: INSERT INTO 
+			mensajes (uid_destino,fecha_envio,hora_envio,asunto,texto,confirmado,tiempo_vida,uid_origen,control,minutos)
+			VALUES (17,to_date('2008-11-25','yyyy-mm-dd'),'06:47:44 AM','adivinen que?','ja!',0,3,15,0,0)
+2008-11-25 06:47:44 INFO: Enviando mensaje a 1 usuario
+2008-11-25 06:47:44 INFO: Almacenando registro de mensaje en la base de datos [secretaria]
+2008-11-25 06:47:44 SENTENCIA SQL :: INSERT INTO 
+			mensajes (uid_destino,fecha_envio,hora_envio,asunto,texto,confirmado,tiempo_vida,uid_origen,control,minutos)
+			VALUES (13,to_date('2008-11-25','yyyy-mm-dd'),'06:47:44 AM','adivinen que?','ja!',0,3,15,0,0)
+2008-11-25 06:50:03 INFO: Cerrando conexion con cliente [OK]
+2008-11-25 06:50:12 INFO: ConfigFile -> /home/xtingray/Projects/comeet/comeet/comeet/CoMeet-Server/comeet/conf/server.conf
+2008-11-25 06:50:12 INFO: Cargando archivo de configuracion...
+2008-11-25 06:50:12 INFO: Cargando base de datos... bullet
+2008-11-25 06:50:13 ADVERTENCIA: Base de datos deshabilitada desde configuracion -> comeet
+2008-11-25 06:50:13 ADVERTENCIA: Base de datos deshabilitada desde configuracion -> oracle
+2008-11-25 06:50:13 INFO: Cargando cache de enlace [bullet]
+2008-11-25 06:50:13 INFO: Iniciando demonio pop3
+2008-11-25 06:50:13 INFO: Servidor de correo {localhost}
+2008-11-25 06:50:13 INFO: Iniciando demonio de sincronizacion
+2008-11-25 06:50:13 INFO: Servidor CoMeet escuchando por el puerto 9119
+2008-11-25 06:50:23 INFO: Se ha establecido una nueva conexion TCP/IP Socket[addr=/127.0.0.1,port=48899,localport=9119]
+2008-11-25 06:50:24 INFO: Inicio de autenticacion para el usuario {pos01} con la clave {827ccb0eea8a706c4c34a16891f84e7b}
+2008-11-25 06:50:24 INFO: Control de acceso sobre direcciones ip no habilitado para este usuario
+2008-11-25 06:50:24 INFO: Colocador {pos01} autenticado desde BITTER [127.0.0.1]
+2008-11-25 06:50:54 INFO: Leyendo correo del buzon de mensajes
+2008-11-25 06:50:54 INFO: Formato de mensaje -> text/*
+2008-11-25 06:50:54 INFO: Nuevo mensaje desde {xtingray@localhost} con asunto [ CORREO, prueba de concepto ]
+2008-11-25 06:50:54 INFO: Procesando mensaje para todos los usuarios administrativos [CORREO] del sistema
+2008-11-25 06:50:54 INFO: Enviando mensaje a 1 usuario
+2008-11-25 06:50:54 INFO: Almacenando registro de mensaje en la base de datos [admin]
+2008-11-25 06:50:54 SENTENCIA SQL :: INSERT INTO 
+			mensajes (uid_destino,fecha_envio,hora_envio,asunto,texto,confirmado,tiempo_vida,uid_origen,control,minutos)
+			VALUES (1,to_date('2008-11-25','yyyy-mm-dd'),'06:50:54 AM','prueba de concepto','al final de mil caminos...',0,3,15,0,0)
+2008-11-25 06:50:54 INFO: Enviando mensaje a 1 usuario
+2008-11-25 06:50:54 INFO: Almacenando registro de mensaje en la base de datos [auditor]
+2008-11-25 06:50:54 SENTENCIA SQL :: INSERT INTO 
+			mensajes (uid_destino,fecha_envio,hora_envio,asunto,texto,confirmado,tiempo_vida,uid_origen,control,minutos)
+			VALUES (2,to_date('2008-11-25','yyyy-mm-dd'),'06:50:54 AM','prueba de concepto','al final de mil caminos...',0,3,15,0,0)
+2008-11-25 06:50:54 INFO: Enviando mensaje a 1 usuario
+2008-11-25 06:50:54 INFO: Almacenando registro de mensaje en la base de datos [auditor2]
+2008-11-25 06:50:54 SENTENCIA SQL :: INSERT INTO 
+			mensajes (uid_destino,fecha_envio,hora_envio,asunto,texto,confirmado,tiempo_vida,uid_origen,control,minutos)
+			VALUES (14,to_date('2008-11-25','yyyy-mm-dd'),'06:50:54 AM','prueba de concepto','al final de mil caminos...',0,3,15,0,0)
+2008-11-25 06:50:54 INFO: Enviando mensaje a 1 usuario
+2008-11-25 06:50:54 INFO: Almacenando registro de mensaje en la base de datos [auditor3]
+2008-11-25 06:50:54 SENTENCIA SQL :: INSERT INTO 
+			mensajes (uid_destino,fecha_envio,hora_envio,asunto,texto,confirmado,tiempo_vida,uid_origen,control,minutos)
+			VALUES (15,to_date('2008-11-25','yyyy-mm-dd'),'06:50:54 AM','prueba de concepto','al final de mil caminos...',0,3,15,0,0)
+2008-11-25 06:50:54 INFO: Enviando mensaje a 1 usuario
+2008-11-25 06:50:54 INFO: Almacenando registro de mensaje en la base de datos [auditor4]
+2008-11-25 06:50:54 SENTENCIA SQL :: INSERT INTO 
+			mensajes (uid_destino,fecha_envio,hora_envio,asunto,texto,confirmado,tiempo_vida,uid_origen,control,minutos)
+			VALUES (16,to_date('2008-11-25','yyyy-mm-dd'),'06:50:54 AM','prueba de concepto','al final de mil caminos...',0,3,15,0,0)
+2008-11-25 06:50:54 INFO: Enviando mensaje a 1 usuario
+2008-11-25 06:50:54 INFO: Almacenando registro de mensaje en la base de datos [batman]
+2008-11-25 06:50:54 SENTENCIA SQL :: INSERT INTO 
+			mensajes (uid_destino,fecha_envio,hora_envio,asunto,texto,confirmado,tiempo_vida,uid_origen,control,minutos)
+			VALUES (18,to_date('2008-11-25','yyyy-mm-dd'),'06:50:54 AM','prueba de concepto','al final de mil caminos...',0,3,15,0,0)
+2008-11-25 06:50:54 INFO: Enviando mensaje a 0 usuarios
+2008-11-25 06:50:54 INFO: Enviando mensaje a 1 usuario
+2008-11-25 06:50:54 INFO: Almacenando registro de mensaje en la base de datos [mensajero]
+2008-11-25 06:50:54 SENTENCIA SQL :: INSERT INTO 
+			mensajes (uid_destino,fecha_envio,hora_envio,asunto,texto,confirmado,tiempo_vida,uid_origen,control,minutos)
+			VALUES (9,to_date('2008-11-25','yyyy-mm-dd'),'06:50:54 AM','prueba de concepto','al final de mil caminos...',0,3,15,0,0)
+2008-11-25 06:50:54 INFO: Enviando mensaje a 1 usuario
+2008-11-25 06:50:54 INFO: Almacenando registro de mensaje en la base de datos [prueba01]
+2008-11-25 06:50:54 SENTENCIA SQL :: INSERT INTO 
+			mensajes (uid_destino,fecha_envio,hora_envio,asunto,texto,confirmado,tiempo_vida,uid_origen,control,minutos)
+			VALUES (10,to_date('2008-11-25','yyyy-mm-dd'),'06:50:54 AM','prueba de concepto','al final de mil caminos...',0,3,15,0,0)
+2008-11-25 06:50:54 INFO: Enviando mensaje a 1 usuario
+2008-11-25 06:50:54 INFO: Almacenando registro de mensaje en la base de datos [prueba02]
+2008-11-25 06:50:54 SENTENCIA SQL :: INSERT INTO 
+			mensajes (uid_destino,fecha_envio,hora_envio,asunto,texto,confirmado,tiempo_vida,uid_origen,control,minutos)
+			VALUES (11,to_date('2008-11-25','yyyy-mm-dd'),'06:50:54 AM','prueba de concepto','al final de mil caminos...',0,3,15,0,0)
+2008-11-25 06:50:54 INFO: Enviando mensaje a 1 usuario
+2008-11-25 06:50:54 INFO: Almacenando registro de mensaje en la base de datos [prueba03]
+2008-11-25 06:50:54 SENTENCIA SQL :: INSERT INTO 
+			mensajes (uid_destino,fecha_envio,hora_envio,asunto,texto,confirmado,tiempo_vida,uid_origen,control,minutos)
+			VALUES (12,to_date('2008-11-25','yyyy-mm-dd'),'06:50:54 AM','prueba de concepto','al final de mil caminos...',0,3,15,0,0)
+2008-11-25 06:50:54 INFO: Enviando mensaje a 1 usuario
+2008-11-25 06:50:54 INFO: Almacenando registro de mensaje en la base de datos [raul]
+2008-11-25 06:50:54 SENTENCIA SQL :: INSERT INTO 
+			mensajes (uid_destino,fecha_envio,hora_envio,asunto,texto,confirmado,tiempo_vida,uid_origen,control,minutos)
+			VALUES (17,to_date('2008-11-25','yyyy-mm-dd'),'06:50:54 AM','prueba de concepto','al final de mil caminos...',0,3,15,0,0)
+2008-11-25 06:50:54 INFO: Enviando mensaje a 1 usuario
+2008-11-25 06:50:54 INFO: Almacenando registro de mensaje en la base de datos [secretaria]
+2008-11-25 06:50:54 SENTENCIA SQL :: INSERT INTO 
+			mensajes (uid_destino,fecha_envio,hora_envio,asunto,texto,confirmado,tiempo_vida,uid_origen,control,minutos)
+			VALUES (13,to_date('2008-11-25','yyyy-mm-dd'),'06:50:54 AM','prueba de concepto','al final de mil caminos...',0,3,15,0,0)
+2008-11-25 07:18:51 INFO: Cerrando conexion con cliente [OK]
+2008-11-25 07:18:58 INFO: ConfigFile -> /home/xtingray/Projects/comeet/comeet/comeet/CoMeet-Server/comeet/conf/server.conf
+2008-11-25 07:18:59 INFO: Cargando archivo de configuracion...
+2008-11-25 07:18:59 INFO: Cargando base de datos... bullet
+2008-11-25 07:18:59 ADVERTENCIA: Base de datos deshabilitada desde configuracion -> comeet
+2008-11-25 07:18:59 ADVERTENCIA: Base de datos deshabilitada desde configuracion -> oracle
+2008-11-25 07:18:59 INFO: Cargando cache de enlace [bullet]
+2008-11-25 07:19:00 INFO: Iniciando demonio pop3
+2008-11-25 07:19:00 INFO: Servidor de correo {localhost}
+2008-11-25 07:19:00 INFO: Iniciando demonio de sincronizacion
+2008-11-25 07:19:00 INFO: Servidor CoMeet escuchando por el puerto 9119
+2008-11-25 07:19:41 INFO: Se ha establecido una nueva conexion TCP/IP Socket[addr=/127.0.0.1,port=46824,localport=9119]
+2008-11-25 07:19:42 INFO: Inicio de autenticacion para el usuario {pos01} con la clave {827ccb0eea8a706c4c34a16891f84e7b}
+2008-11-25 07:19:42 INFO: Control de acceso sobre direcciones ip no habilitado para este usuario
+2008-11-25 07:19:42 INFO: Colocador {pos01} autenticado desde BITTER [127.0.0.1]
+2008-11-25 07:20:01 INFO: Leyendo correo del buzon de mensajes
+2008-11-25 07:20:01 INFO: Formato de mensaje -> text/*
+2008-11-25 07:20:01 INFO: Nuevo mensaje desde {xtingray@localhost} con asunto [ CORREO, data 1 ]
+2008-11-25 07:20:01 INFO: Procesando mensaje para todos los usuarios administrativos [CORREO] del sistema
+2008-11-25 07:20:01 INFO: Enviando mensaje a 1 usuario
+2008-11-25 07:20:01 INFO: Almacenando registro de mensaje en la base de datos [admin]
+2008-11-25 07:20:01 SENTENCIA SQL :: INSERT INTO 
+			mensajes (uid_destino,fecha_envio,hora_envio,asunto,texto,confirmado,tiempo_vida,uid_origen,control,minutos)
+			VALUES (1,to_date('2008-11-25','yyyy-mm-dd'),'07:20:01 AM','data 1','data 2',0,3,15,0,0)
+2008-11-25 07:20:01 INFO: Enviando mensaje a 1 usuario
+2008-11-25 07:20:01 INFO: Almacenando registro de mensaje en la base de datos [auditor]
+2008-11-25 07:20:01 SENTENCIA SQL :: INSERT INTO 
+			mensajes (uid_destino,fecha_envio,hora_envio,asunto,texto,confirmado,tiempo_vida,uid_origen,control,minutos)
+			VALUES (2,to_date('2008-11-25','yyyy-mm-dd'),'07:20:01 AM','data 1','data 2',0,3,15,0,0)
+2008-11-25 07:20:01 INFO: Enviando mensaje a 1 usuario
+2008-11-25 07:20:01 INFO: Almacenando registro de mensaje en la base de datos [auditor2]
+2008-11-25 07:20:01 SENTENCIA SQL :: INSERT INTO 
+			mensajes (uid_destino,fecha_envio,hora_envio,asunto,texto,confirmado,tiempo_vida,uid_origen,control,minutos)
+			VALUES (14,to_date('2008-11-25','yyyy-mm-dd'),'07:20:01 AM','data 1','data 2',0,3,15,0,0)
+2008-11-25 07:20:01 INFO: Enviando mensaje a 1 usuario
+2008-11-25 07:20:01 INFO: Almacenando registro de mensaje en la base de datos [auditor3]
+2008-11-25 07:20:01 SENTENCIA SQL :: INSERT INTO 
+			mensajes (uid_destino,fecha_envio,hora_envio,asunto,texto,confirmado,tiempo_vida,uid_origen,control,minutos)
+			VALUES (15,to_date('2008-11-25','yyyy-mm-dd'),'07:20:01 AM','data 1','data 2',0,3,15,0,0)
+2008-11-25 07:20:01 INFO: Enviando mensaje a 1 usuario
+2008-11-25 07:20:01 INFO: Almacenando registro de mensaje en la base de datos [auditor4]
+2008-11-25 07:20:01 SENTENCIA SQL :: INSERT INTO 
+			mensajes (uid_destino,fecha_envio,hora_envio,asunto,texto,confirmado,tiempo_vida,uid_origen,control,minutos)
+			VALUES (16,to_date('2008-11-25','yyyy-mm-dd'),'07:20:01 AM','data 1','data 2',0,3,15,0,0)
+2008-11-25 07:20:01 INFO: Enviando mensaje a 1 usuario
+2008-11-25 07:20:01 INFO: Almacenando registro de mensaje en la base de datos [batman]
+2008-11-25 07:20:01 SENTENCIA SQL :: INSERT INTO 
+			mensajes (uid_destino,fecha_envio,hora_envio,asunto,texto,confirmado,tiempo_vida,uid_origen,control,minutos)
+			VALUES (18,to_date('2008-11-25','yyyy-mm-dd'),'07:20:01 AM','data 1','data 2',0,3,15,0,0)
+2008-11-25 07:20:01 INFO: Enviando mensaje a 0 usuarios
+2008-11-25 07:20:01 INFO: Enviando mensaje a 1 usuario
+2008-11-25 07:20:01 INFO: Almacenando registro de mensaje en la base de datos [mensajero]
+2008-11-25 07:20:01 SENTENCIA SQL :: INSERT INTO 
+			mensajes (uid_destino,fecha_envio,hora_envio,asunto,texto,confirmado,tiempo_vida,uid_origen,control,minutos)
+			VALUES (9,to_date('2008-11-25','yyyy-mm-dd'),'07:20:01 AM','data 1','data 2',0,3,15,0,0)
+2008-11-25 07:20:01 INFO: Enviando mensaje a 1 usuario
+2008-11-25 07:20:01 INFO: Almacenando registro de mensaje en la base de datos [prueba01]
+2008-11-25 07:20:01 SENTENCIA SQL :: INSERT INTO 
+			mensajes (uid_destino,fecha_envio,hora_envio,asunto,texto,confirmado,tiempo_vida,uid_origen,control,minutos)
+			VALUES (10,to_date('2008-11-25','yyyy-mm-dd'),'07:20:01 AM','data 1','data 2',0,3,15,0,0)
+2008-11-25 07:20:01 INFO: Enviando mensaje a 1 usuario
+2008-11-25 07:20:01 INFO: Almacenando registro de mensaje en la base de datos [prueba02]
+2008-11-25 07:20:01 SENTENCIA SQL :: INSERT INTO 
+			mensajes (uid_destino,fecha_envio,hora_envio,asunto,texto,confirmado,tiempo_vida,uid_origen,control,minutos)
+			VALUES (11,to_date('2008-11-25','yyyy-mm-dd'),'07:20:01 AM','data 1','data 2',0,3,15,0,0)
+2008-11-25 07:20:01 INFO: Enviando mensaje a 1 usuario
+2008-11-25 07:20:01 INFO: Almacenando registro de mensaje en la base de datos [prueba03]
+2008-11-25 07:20:01 SENTENCIA SQL :: INSERT INTO 
+			mensajes (uid_destino,fecha_envio,hora_envio,asunto,texto,confirmado,tiempo_vida,uid_origen,control,minutos)
+			VALUES (12,to_date('2008-11-25','yyyy-mm-dd'),'07:20:01 AM','data 1','data 2',0,3,15,0,0)
+2008-11-25 07:20:01 INFO: Enviando mensaje a 1 usuario
+2008-11-25 07:20:01 INFO: Almacenando registro de mensaje en la base de datos [raul]
+2008-11-25 07:20:01 SENTENCIA SQL :: INSERT INTO 
+			mensajes (uid_destino,fecha_envio,hora_envio,asunto,texto,confirmado,tiempo_vida,uid_origen,control,minutos)
+			VALUES (17,to_date('2008-11-25','yyyy-mm-dd'),'07:20:01 AM','data 1','data 2',0,3,15,0,0)
+2008-11-25 07:20:01 INFO: Enviando mensaje a 1 usuario
+2008-11-25 07:20:01 INFO: Almacenando registro de mensaje en la base de datos [secretaria]
+2008-11-25 07:20:01 SENTENCIA SQL :: INSERT INTO 
+			mensajes (uid_destino,fecha_envio,hora_envio,asunto,texto,confirmado,tiempo_vida,uid_origen,control,minutos)
+			VALUES (13,to_date('2008-11-25','yyyy-mm-dd'),'07:20:01 AM','data 1','data 2',0,3,15,0,0)
+2008-11-25 07:25:21 INFO: ConfigFile -> /home/xtingray/Projects/comeet/comeet/comeet/CoMeet-Server/comeet/conf/server.conf
+2008-11-25 07:25:21 INFO: Cargando archivo de configuracion...
+2008-11-25 07:25:21 INFO: Cargando base de datos... bullet
+2008-11-25 07:25:21 ADVERTENCIA: Base de datos deshabilitada desde configuracion -> comeet
+2008-11-25 07:25:21 ADVERTENCIA: Base de datos deshabilitada desde configuracion -> oracle
+2008-11-25 07:25:21 INFO: Cargando cache de enlace [bullet]
+2008-11-25 07:25:22 INFO: Iniciando demonio pop3
+2008-11-25 07:25:22 INFO: Servidor de correo {localhost}
+2008-11-25 07:25:22 INFO: Iniciando demonio de sincronizacion
+2008-11-25 07:25:22 INFO: Servidor CoMeet escuchando por el puerto 9119
+2008-11-25 07:25:37 INFO: Se ha establecido una nueva conexion TCP/IP Socket[addr=/127.0.0.1,port=52418,localport=9119]
+2008-11-25 07:25:38 INFO: Inicio de autenticacion para el usuario {pos01} con la clave {827ccb0eea8a706c4c34a16891f84e7b}
+2008-11-25 07:25:38 INFO: Control de acceso sobre direcciones ip no habilitado para este usuario
+2008-11-25 07:25:38 INFO: Colocador {pos01} autenticado desde BITTER [127.0.0.1]
+2008-11-25 07:26:23 INFO: Leyendo correo del buzon de mensajes
+2008-11-25 07:26:23 INFO: Formato de mensaje -> text/*
+2008-11-25 07:26:23 INFO: Nuevo mensaje desde {xtingray@localhost} con asunto [ CORREO, never mind ]
+2008-11-25 07:26:23 INFO: Procesando mensaje para todos los usuarios administrativos [CORREO] del sistema
+2008-11-25 07:26:24 INFO: Enviando mensaje a 1 usuario
+2008-11-25 07:26:24 INFO: [Envio a Cuenta de Correo] Remitente {auditor3} - Destino: admin - Asunto: never mind
+2008-11-25 07:26:24 INFO: Almacenando registro de mensaje en la base de datos [admin]
+2008-11-25 07:26:24 SENTENCIA SQL :: INSERT INTO 
+			mensajes (uid_destino,fecha_envio,hora_envio,asunto,texto,confirmado,tiempo_vida,uid_origen,control,minutos)
+			VALUES (1,to_date('2008-11-25','yyyy-mm-dd'),'07:26:23 AM','never mind','never mind!!!',0,3,15,0,0)
+2008-11-25 07:26:24 INFO: Enviando mensaje a 1 usuario
+2008-11-25 07:26:24 INFO: [Envio a Cuenta de Correo] Remitente {auditor3} - Destino: auditor - Asunto: never mind
+2008-11-25 07:26:24 INFO: Almacenando registro de mensaje en la base de datos [auditor]
+2008-11-25 07:26:24 SENTENCIA SQL :: INSERT INTO 
+			mensajes (uid_destino,fecha_envio,hora_envio,asunto,texto,confirmado,tiempo_vida,uid_origen,control,minutos)
+			VALUES (2,to_date('2008-11-25','yyyy-mm-dd'),'07:26:24 AM','never mind','never mind!!!',0,3,15,0,0)
+2008-11-25 07:26:24 INFO: Enviando mensaje a 1 usuario
+2008-11-25 07:26:24 INFO: [Envio a Cuenta de Correo] Remitente {auditor3} - Destino: auditor2 - Asunto: never mind
+2008-11-25 07:26:24 INFO: Almacenando registro de mensaje en la base de datos [auditor2]
+2008-11-25 07:26:24 SENTENCIA SQL :: INSERT INTO 
+			mensajes (uid_destino,fecha_envio,hora_envio,asunto,texto,confirmado,tiempo_vida,uid_origen,control,minutos)
+			VALUES (14,to_date('2008-11-25','yyyy-mm-dd'),'07:26:24 AM','never mind','never mind!!!',0,3,15,0,0)
+2008-11-25 07:26:24 INFO: Enviando mensaje a 1 usuario
+2008-11-25 07:26:24 INFO: [Envio a Cuenta de Correo] Remitente {auditor3} - Destino: auditor3 - Asunto: never mind
+2008-11-25 07:26:24 INFO: Almacenando registro de mensaje en la base de datos [auditor3]
+2008-11-25 07:26:24 SENTENCIA SQL :: INSERT INTO 
+			mensajes (uid_destino,fecha_envio,hora_envio,asunto,texto,confirmado,tiempo_vida,uid_origen,control,minutos)
+			VALUES (15,to_date('2008-11-25','yyyy-mm-dd'),'07:26:24 AM','never mind','never mind!!!',0,3,15,0,0)
+2008-11-25 07:26:24 INFO: Enviando mensaje a 1 usuario
+2008-11-25 07:26:24 INFO: [Envio a Cuenta de Correo] Remitente {auditor3} - Destino: auditor4 - Asunto: never mind
+2008-11-25 07:26:24 INFO: Almacenando registro de mensaje en la base de datos [auditor4]
+2008-11-25 07:26:24 SENTENCIA SQL :: INSERT INTO 
+			mensajes (uid_destino,fecha_envio,hora_envio,asunto,texto,confirmado,tiempo_vida,uid_origen,control,minutos)
+			VALUES (16,to_date('2008-11-25','yyyy-mm-dd'),'07:26:24 AM','never mind','never mind!!!',0,3,15,0,0)
+2008-11-25 07:26:24 INFO: Enviando mensaje a 1 usuario
+2008-11-25 07:26:24 INFO: [Envio a Cuenta de Correo] Remitente {auditor3} - Destino: batman - Asunto: never mind
+2008-11-25 07:26:24 INFO: Almacenando registro de mensaje en la base de datos [batman]
+2008-11-25 07:26:24 SENTENCIA SQL :: INSERT INTO 
+			mensajes (uid_destino,fecha_envio,hora_envio,asunto,texto,confirmado,tiempo_vida,uid_origen,control,minutos)
+			VALUES (18,to_date('2008-11-25','yyyy-mm-dd'),'07:26:24 AM','never mind','never mind!!!',0,3,15,0,0)
+2008-11-25 07:26:24 INFO: Enviando mensaje a 0 usuarios
+2008-11-25 07:26:24 INFO: Enviando mensaje a 1 usuario
+2008-11-25 07:26:24 INFO: [Envio a Cuenta de Correo] Remitente {auditor3} - Destino: mensajero - Asunto: never mind
+2008-11-25 07:26:24 INFO: Almacenando registro de mensaje en la base de datos [mensajero]
+2008-11-25 07:26:24 SENTENCIA SQL :: INSERT INTO 
+			mensajes (uid_destino,fecha_envio,hora_envio,asunto,texto,confirmado,tiempo_vida,uid_origen,control,minutos)
+			VALUES (9,to_date('2008-11-25','yyyy-mm-dd'),'07:26:24 AM','never mind','never mind!!!',0,3,15,0,0)
+2008-11-25 07:26:24 INFO: Enviando mensaje a 1 usuario
+2008-11-25 07:26:24 INFO: [Envio a Cuenta de Correo] Remitente {auditor3} - Destino: prueba01 - Asunto: never mind
+2008-11-25 07:26:24 INFO: Almacenando registro de mensaje en la base de datos [prueba01]
+2008-11-25 07:26:24 SENTENCIA SQL :: INSERT INTO 
+			mensajes (uid_destino,fecha_envio,hora_envio,asunto,texto,confirmado,tiempo_vida,uid_origen,control,minutos)
+			VALUES (10,to_date('2008-11-25','yyyy-mm-dd'),'07:26:24 AM','never mind','never mind!!!',0,3,15,0,0)
+2008-11-25 07:26:24 INFO: Enviando mensaje a 1 usuario
+2008-11-25 07:26:24 INFO: [Envio a Cuenta de Correo] Remitente {auditor3} - Destino: prueba02 - Asunto: never mind
+2008-11-25 07:26:24 INFO: Almacenando registro de mensaje en la base de datos [prueba02]
+2008-11-25 07:26:24 SENTENCIA SQL :: INSERT INTO 
+			mensajes (uid_destino,fecha_envio,hora_envio,asunto,texto,confirmado,tiempo_vida,uid_origen,control,minutos)
+			VALUES (11,to_date('2008-11-25','yyyy-mm-dd'),'07:26:24 AM','never mind','never mind!!!',0,3,15,0,0)
+2008-11-25 07:26:24 INFO: Enviando mensaje a 1 usuario
+2008-11-25 07:26:24 INFO: [Envio a Cuenta de Correo] Remitente {auditor3} - Destino: prueba03 - Asunto: never mind
+2008-11-25 07:26:24 INFO: Almacenando registro de mensaje en la base de datos [prueba03]
+2008-11-25 07:26:24 SENTENCIA SQL :: INSERT INTO 
+			mensajes (uid_destino,fecha_envio,hora_envio,asunto,texto,confirmado,tiempo_vida,uid_origen,control,minutos)
+			VALUES (12,to_date('2008-11-25','yyyy-mm-dd'),'07:26:24 AM','never mind','never mind!!!',0,3,15,0,0)
+2008-11-25 07:26:24 INFO: Enviando mensaje a 1 usuario
+2008-11-25 07:26:24 INFO: [Envio a Cuenta de Correo] Remitente {auditor3} - Destino: raul - Asunto: never mind
+2008-11-25 07:26:24 INFO: Almacenando registro de mensaje en la base de datos [raul]
+2008-11-25 07:26:24 SENTENCIA SQL :: INSERT INTO 
+			mensajes (uid_destino,fecha_envio,hora_envio,asunto,texto,confirmado,tiempo_vida,uid_origen,control,minutos)
+			VALUES (17,to_date('2008-11-25','yyyy-mm-dd'),'07:26:24 AM','never mind','never mind!!!',0,3,15,0,0)
+2008-11-25 07:26:24 INFO: Enviando mensaje a 1 usuario
+2008-11-25 07:26:24 INFO: [Envio a Cuenta de Correo] Remitente {auditor3} - Destino: secretaria - Asunto: never mind
+2008-11-25 07:26:24 INFO: Almacenando registro de mensaje en la base de datos [secretaria]
+2008-11-25 07:26:24 SENTENCIA SQL :: INSERT INTO 
+			mensajes (uid_destino,fecha_envio,hora_envio,asunto,texto,confirmado,tiempo_vida,uid_origen,control,minutos)
+			VALUES (13,to_date('2008-11-25','yyyy-mm-dd'),'07:26:24 AM','never mind','never mind!!!',0,3,15,0,0)
+2008-11-25 07:29:46 INFO: Leyendo correo del buzon de mensajes
+2008-11-25 07:29:46 INFO: Formato de mensaje -> text/*
+2008-11-25 07:29:46 INFO: Nuevo mensaje desde {xtingray@localhost} con asunto [ NORTE, para los de arriba ]
+2008-11-25 07:29:46 INFO: Enviando mensaje a 1 usuario
+2008-11-25 07:29:46 INFO: [Envio a Punto de Venta] Remitente {auditor3} - Destino: pos01 - Asunto: para los de arriba
+2008-11-25 07:29:46 INFO: Almacenando registro de mensaje en la base de datos [pos01]
+2008-11-25 07:29:46 SENTENCIA SQL :: INSERT INTO 
+			mensajes (uid_destino,fecha_envio,hora_envio,asunto,texto,confirmado,tiempo_vida,uid_origen,control,minutos)
+			VALUES (4,to_date('2008-11-25','yyyy-mm-dd'),'07:29:46 AM','para los de arriba','desde abajo!',0,3,15,0,0)
+2008-11-25 07:29:49 SENTENCIA SQL :: UPDATE mensajes SET confirmado=1, fecha_confirmacion=to_date('2008-11-25','yyyy-mm-dd'), hora_confirmacion=('07:29:49 AM')
+			WHERE fecha_envio=to_date('2008-11-25','yyyy-mm-dd') AND hora_envio='07:29:46 AM' AND confirmado=0 AND
+			uid_destino=(SELECT codigo FROM usuarios WHERE login='pos01')
+2008-11-25 07:29:50 INFO: [2008-11-25 07:29:49 AM] Confirmada lectura de mensaje con destino {pos01}
+2008-11-25 07:55:16 INFO: Leyendo correo del buzon de mensajes
+2008-11-25 07:55:16 INFO: Formato de mensaje -> text/*
+2008-11-25 07:55:16 INFO: Nuevo mensaje desde {xtingray@localhost} con asunto [ pos01, 'a esos!' ]
+2008-11-25 07:55:16 INFO: Enviando mensaje a 1 usuario
+2008-11-25 07:55:16 INFO: [Envio a Punto de Venta] Remitente {auditor3} - Destino: pos01 - Asunto: 'a esos!'
+2008-11-25 07:55:16 INFO: Almacenando registro de mensaje en la base de datos [pos01]
+2008-11-25 07:55:16 SENTENCIA SQL :: INSERT INTO 
+			mensajes (uid_destino,fecha_envio,hora_envio,asunto,texto,confirmado,tiempo_vida,uid_origen,control,minutos)
+			VALUES (4,to_date('2008-11-25','yyyy-mm-dd'),'07:55:16 AM','&39;a esos!&39;','no que &39;no&39; ?',0,3,15,0,0)
+2008-11-25 07:55:19 SENTENCIA SQL :: UPDATE mensajes SET confirmado=1, fecha_confirmacion=to_date('2008-11-25','yyyy-mm-dd'), hora_confirmacion=('07:55:19 AM')
+			WHERE fecha_envio=to_date('2008-11-25','yyyy-mm-dd') AND hora_envio='07:55:16 AM' AND confirmado=0 AND
+			uid_destino=(SELECT codigo FROM usuarios WHERE login='pos01')
+2008-11-25 07:55:19 INFO: [2008-11-25 07:55:19 AM] Confirmada lectura de mensaje con destino {pos01}

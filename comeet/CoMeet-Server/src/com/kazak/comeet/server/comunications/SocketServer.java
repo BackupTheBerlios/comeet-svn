@@ -241,7 +241,7 @@ public class SocketServer {
 		name = new Element("cols").setText(getName(connection));
 		String pos = getPosName(connection);
 		if (pos == null) {
-			pos = "Punto de Colocación NO asignado";
+			pos = "POS NO asignado";
 		}
 		posName = new Element("cols").setText(pos);
 		ip = new Element("cols").setText(getCurrentIp(connection));
@@ -407,8 +407,6 @@ public class SocketServer {
         private String names;
         private int uid;
         private String email;
-        //private boolean admin;
-        //private boolean audit;
         private int gid;
         private String groupName;
         private String currentIP;
@@ -459,15 +457,6 @@ public class SocketServer {
     		this.names = names;
     	}
     	
-    	/*
-    	public void setAudit(boolean audit) {
-    		this.audit = audit;
-    	}
-    	
-    	public boolean getAudit() { // TODO: Preguntar donde se llama? se necesita?
-    		return audit;
-    	}*/
-    	
         public int getUid() {
     		return uid;
     	}
@@ -475,16 +464,6 @@ public class SocketServer {
     	public void setUid(int userID) {
     		this.uid = userID;
     	}
-
-    	/*
-    	public boolean isAdmin() {
-    		return admin;
-    	}
-
-    	public void setAdmin(boolean admin) {
-    		this.admin = admin;
-    	}
-    	*/
 
     	public String getEmail() {
     		return email;
@@ -707,12 +686,10 @@ public class SocketServer {
 		Vector<SocketInfo> groupVector = new Vector<SocketInfo>();
 		QueryRunner qRunner = null;
 	    ResultSet resultSet = null;
-	    System.out.println("Capturando lista de usuarios del grupo " + groupName);
 	    
         for (SocketInfo socketInfo : generalSocketsHash.values()) { 
         	Vector groups = getUserGroups(String.valueOf(socketInfo.getUid()));
             if (groups.contains(groupName)) {
-            	System.out.println("Adicionando usuario: " + socketInfo.getLogin());
                 groupVector.add(socketInfo);
             }
         }
@@ -727,15 +704,13 @@ public class SocketServer {
 				user.setLogin(resultSet.getString(2));
 				user.setNames(resultSet.getString(3));
 				user.setEmail(resultSet.getString(4));
-				//user.setAdmin(resultSet.getBoolean(5));
-				//user.setAudit(resultSet.getBoolean(6));
 				user.setUserRol(resultSet.getInt(5));
 				user.setGroupID(resultSet.getInt(6));
 				user.setWsName(resultSet.getString(7));
 				user.setGroupName(resultSet.getString(8));		
 				
 				if (!containsSocketInfo(groupVector, user)) {
-						groupVector.add(user);
+					groupVector.add(user);
 				}
 			}
 		} catch (SQLNotFoundException e) {
