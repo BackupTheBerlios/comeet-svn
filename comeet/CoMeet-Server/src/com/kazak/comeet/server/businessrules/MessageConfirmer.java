@@ -23,60 +23,58 @@ public class MessageConfirmer {
 	private static SimpleDateFormat formatHour = new SimpleDateFormat("HH:mm:ss a");
 	
 	public MessageConfirmer(SocketChannel sock, Element args, Element packet, String id) {
-			
+
 		this.iterator = packet.getChildren("package").iterator();
 		Iterator argsIterator = args.getChildren("args").iterator();
 		QueryRunner queryRunner = null;
-		
-		while(argsIterator.hasNext()) {
-			Element element = (Element) argsIterator.next();
-			String sqlCode = element.getValue();
-			
-			Element nextElement = (Element)iterator.next();
-			List list = nextElement.getChildren();
-			String[] sqlArgs = new String[5];
-			Iterator listIterator = list.iterator();
 
-			Date date  = Calendar.getInstance().getTime();
-			sqlArgs[0] = formatDate.format(date); 
-			sqlArgs[1] = formatHour.format(date);
-			sqlArgs[2] = ((Element) listIterator.next()).getValue();
-			sqlArgs[3] = formatDate(((Element) listIterator.next()).getValue()); // date
-			sqlArgs[4] = ((Element) listIterator.next()).getValue();
-			
-			try {
-				queryRunner = new QueryRunner(sqlCode,sqlArgs);
-				queryRunner.setAutoCommit(false);
-				queryRunner.executeSQL();
-				queryRunner.commit();
-				LogWriter.write("INFO: [" + sqlArgs[0] + " " + sqlArgs[1] + "] Confirmada lectura de mensaje con destino {" + sqlArgs[4] + "}");
-				SocketServer.getSocketInfo(sqlArgs[4]);
-			} catch (SQLException e) {
+		Element element = (Element) argsIterator.next();
+		String sqlCode = element.getValue();
+
+		Element nextElement = (Element)iterator.next();
+		List list = nextElement.getChildren();
+		String[] sqlArgs = new String[5];
+		Iterator listIterator = list.iterator();
+
+		Date date  = Calendar.getInstance().getTime();
+		sqlArgs[0] = formatDate.format(date); 
+		sqlArgs[1] = formatHour.format(date);
+		sqlArgs[2] = ((Element) listIterator.next()).getValue();
+		sqlArgs[3] = formatDate(((Element) listIterator.next()).getValue()); // date
+		sqlArgs[4] = ((Element) listIterator.next()).getValue();
+
+		try {
+			queryRunner = new QueryRunner(sqlCode,sqlArgs);
+			queryRunner.setAutoCommit(false);
+			queryRunner.executeSQL();
+			queryRunner.commit();
+			LogWriter.write("INFO: [" + sqlArgs[0] + " " + sqlArgs[1] + "] Confirmada lectura de mensaje con destino {" + sqlArgs[4] + "}");
+			SocketServer.getSocketInfo(sqlArgs[4]);
+		} catch (SQLException e) {
+			queryRunner.rollback();
+			LogWriter.write("ERROR: " + e.getErrorCode());
+			e.printStackTrace();
+			if (queryRunner!=null) {
 				queryRunner.rollback();
-				LogWriter.write("ERROR: " + e.getErrorCode());
-				e.printStackTrace();
-				if (queryRunner!=null) {
-					queryRunner.rollback();
-				}
-				TransactionRunner.notifyErrorMessage(
-						 sock,
-                    	 id,
-                    	 "No se pudo procesar la operación:\n" +
- 						 "Causa:\n" + e.getLocalizedMessage());
-			} catch (SQLNotFoundException e) {
-				e.printStackTrace();
-				TransactionRunner.notifyErrorMessage(
-						 sock,
-						 id,
-						 "La sentencia  " + sqlCode + " no existe.");
-			} catch (SQLBadArgumentsException e) {
-				e.printStackTrace();
-				TransactionRunner.notifyErrorMessage(
-						 sock,
-						 id,
-						 "Argumentos inválidos " +
-						 "para la sentencia : " + sqlCode);
 			}
+			TransactionRunner.notifyErrorMessage(
+					sock,
+					id,
+					"No se pudo procesar la operación:\n" +
+					"Causa:\n" + e.getLocalizedMessage());
+		} catch (SQLNotFoundException e) {
+			e.printStackTrace();
+			TransactionRunner.notifyErrorMessage(
+					sock,
+					id,
+					"La sentencia  " + sqlCode + " no existe.");
+		} catch (SQLBadArgumentsException e) {
+			e.printStackTrace();
+			TransactionRunner.notifyErrorMessage(
+					sock,
+					id,
+					"Argumentos inválidos " +
+					"para la sentencia : " + sqlCode);
 		}
 	}
 	
@@ -90,4 +88,7 @@ public class MessageConfirmer {
 		}
 	       return basic;
     }
+    
+    
+    
 }

@@ -13042,3 +13042,60 @@ delete your own text from the attached returned message.
 2008-11-29 01:50:45 SENTENCIA SQL :: INSERT INTO 
 			mensajes (uid_destino,fecha_envio,hora_envio,asunto,texto,confirmado,tiempo_vida,uid_origen,control,minutos)
 			VALUES (3,to_date('2008-11-29','yyyy-mm-dd'),'01:50:45 AM','llegará?','quien sabe?',0,3,15,0,0)
+2008-11-29 02:53:04 INFO: Cerrando conexion con cliente [OK]
+2008-11-29 13:30:25 INFO: ConfigFile -> /home/xtingray/Projects/comeet/comeet/comeet/CoMeet-Server/comeet/conf/server.conf
+2008-11-29 13:30:26 INFO: Cargando archivo de configuracion...
+2008-11-29 13:30:26 INFO: Cargando base de datos... bullet
+2008-11-29 13:30:26 ADVERTENCIA: Base de datos deshabilitada desde configuracion -> comeet
+2008-11-29 13:30:26 ADVERTENCIA: Base de datos deshabilitada desde configuracion -> oracle
+2008-11-29 13:30:26 INFO: Cargando cache de enlace [bullet]
+2008-11-29 13:30:26 INFO: Iniciando demonio pop3
+2008-11-29 13:30:26 INFO: Servidor de correo {localhost}
+2008-11-29 13:30:26 INFO: Iniciando demonio de sincronizacion
+2008-11-29 13:30:26 INFO: Servidor CoMeet escuchando por el puerto 9119
+2008-11-29 13:31:25 INFO: Se ha establecido una nueva conexion TCP/IP Socket[addr=/127.0.0.1,port=36774,localport=9119]
+2008-11-29 13:31:25 INFO: Inicio de autenticacion para el usuario {pos01} con la clave {827ccb0eea8a706c4c34a16891f84e7b}
+2008-11-29 13:31:25 INFO: Control de acceso sobre direcciones ip no habilitado para este usuario
+2008-11-29 13:31:25 INFO: Colocador {pos01} autenticado desde BITTER [127.0.0.1]
+2008-11-29 13:32:38 INFO: Leyendo correo del buzon de mensajes
+2008-11-29 13:32:38 INFO: Formato de mensaje -> text/*
+2008-11-29 13:32:38 INFO: Nuevo mensaje desde {xtingray@localhost} con asunto [ pos01, bullet proof ]
+2008-11-29 13:32:38 INFO: Enviando mensaje a 1 usuario
+2008-11-29 13:32:38 INFO: [Envio a Punto de Venta] Remitente {auditor3} - Destino: pos01 - Asunto: bullet proof
+2008-11-29 13:32:38 INFO: Almacenando registro de mensaje en la base de datos [pos01]
+2008-11-29 13:32:38 SENTENCIA SQL :: INSERT INTO 
+			mensajes (uid_destino,fecha_envio,hora_envio,asunto,texto,confirmado,tiempo_vida,uid_origen,control,minutos)
+			VALUES (4,to_date('2008-11-29','yyyy-mm-dd'),'13:32:38 PM','bullet proof','oh my God!',0,3,15,0,0)
+2008-11-29 13:32:42 SENTENCIA SQL :: UPDATE mensajes SET confirmado=1, fecha_confirmacion=to_date('2008-11-29','yyyy-mm-dd'), hora_confirmacion=('13:32:41 PM')
+			WHERE fecha_envio=to_date('2008-11-29','yyyy-mm-dd') AND hora_envio='13:32:38 PM' AND confirmado=0 AND
+			uid_destino=(SELECT codigo FROM usuarios WHERE login='pos01')
+2008-11-29 13:32:42 INFO: [2008-11-29 13:32:41 PM] Confirmada lectura de mensaje con destino {pos01}
+2008-11-29 13:33:26 INFO: Cerrando conexion con cliente [OK]
+2008-11-29 14:02:30 INFO: ConfigFile -> /home/xtingray/Projects/comeet/comeet/comeet/CoMeet-Server/comeet/conf/server.conf
+2008-11-29 14:02:30 INFO: Cargando archivo de configuracion...
+2008-11-29 14:02:30 INFO: Cargando base de datos... bullet
+2008-11-29 14:02:31 ADVERTENCIA: Base de datos deshabilitada desde configuracion -> comeet
+2008-11-29 14:02:31 ADVERTENCIA: Base de datos deshabilitada desde configuracion -> oracle
+2008-11-29 14:02:31 INFO: Cargando cache de enlace [bullet]
+2008-11-29 14:02:31 INFO: Iniciando demonio pop3
+2008-11-29 14:02:31 INFO: Servidor de correo {localhost}
+2008-11-29 14:02:31 INFO: Iniciando demonio de sincronizacion
+2008-11-29 14:02:31 INFO: Servidor CoMeet escuchando por el puerto 9119
+2008-11-29 14:02:45 INFO: Se ha establecido una nueva conexion TCP/IP Socket[addr=/127.0.0.1,port=42182,localport=9119]
+2008-11-29 14:02:46 INFO: Inicio de autenticacion para el usuario {pos01} con la clave {827ccb0eea8a706c4c34a16891f84e7b}
+2008-11-29 14:02:46 INFO: Control de acceso sobre direcciones ip no habilitado para este usuario
+2008-11-29 14:02:46 INFO: Colocador {pos01} autenticado desde BITTER [127.0.0.1]
+2008-11-29 14:04:53 INFO: Leyendo correo del buzon de mensajes
+2008-11-29 14:04:53 INFO: Formato de mensaje -> text/*
+2008-11-29 14:04:53 INFO: Nuevo mensaje desde {xtingray@localhost} con asunto [ pos01, al final de mil caminos ]
+2008-11-29 14:04:53 INFO: Enviando mensaje a 1 usuario
+2008-11-29 14:04:53 INFO: [Envio a Punto de Venta] Remitente {auditor3} - Destino: pos01 - Asunto: al final de mil caminos
+2008-11-29 14:04:53 INFO: Almacenando registro de mensaje en la base de datos [pos01]
+2008-11-29 14:04:53 SENTENCIA SQL :: INSERT INTO 
+			mensajes (uid_destino,fecha_envio,hora_envio,asunto,texto,confirmado,tiempo_vida,uid_origen,control,minutos)
+			VALUES (4,to_date('2008-11-29','yyyy-mm-dd'),'14:04:53 PM','al final de mil caminos','siempre habra desvios',0,3,15,0,0)
+2008-11-29 14:05:01 SENTENCIA SQL :: UPDATE mensajes SET confirmado=1, fecha_confirmacion=to_date('2008-11-29','yyyy-mm-dd'), hora_confirmacion=('14:05:01 PM')
+			WHERE fecha_envio=to_date('2008-11-29','yyyy-mm-dd') AND hora_envio='14:04:53 PM' AND confirmado=0 AND
+			uid_destino=(SELECT codigo FROM usuarios WHERE login='pos01')
+2008-11-29 14:05:02 INFO: [2008-11-29 14:05:01 PM] Confirmada lectura de mensaje con destino {pos01}
+2008-11-29 16:14:05 INFO: Cerrando conexion con cliente [OK]

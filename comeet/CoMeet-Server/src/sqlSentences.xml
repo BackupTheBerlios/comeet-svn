@@ -166,21 +166,30 @@
 		<sql>
 		    SELECT * FROM (
 				SELECT
-				m.fecha_envio,m.hora_envio,g.nombre,m.asunto,m.texto
+				  '0',m.fecha_envio,m.hora_envio,g.nombre,m.asunto,m.texto
 				FROM 
-				mensajes_pda m, grupos g
+				  mensajes_pda m, grupos g
 				WHERE 
-				m.entregado=0 AND g.grupo_id=m.gid_origen AND m.login_destino='?'
+				  m.entregado=0 AND g.grupo_id=m.gid_origen AND m.login_destino='?'
 			UNION
 				SELECT
-				m.fecha_envio,m.hora_envio,g.nombre,m.asunto,m.texto
+				  '1',m.fecha_envio,m.hora_envio,g.nombre,m.asunto,m.texto
 				FROM 
-				mensajes m, grupos g, usuarios u
+				  mensajes m, grupos g, usuarios u
 				WHERE 
-				g.grupo_id=u.gid AND u.codigo=m.uid_origen AND m.uid_destino=(SELECT codigo FROM usuarios WHERE login='?')
-				AND (SELECT COUNT(*) FROM masivos_pda a WHERE login='?' AND a.mid=m.mid)=0
+				  g.grupo_id=u.gid AND u.codigo=m.uid_origen AND m.uid_destino=(SELECT codigo FROM usuarios WHERE login='?')
+				  AND (SELECT COUNT(*) FROM masivos_pda a WHERE login='?' AND a.mid=m.mid)=0
 			) foo
 			ORDER BY fecha_envio, hora_envio ASC
+		</sql>
+	</sentence>
+	<sentence>
+	<!--Descripcion: Esta consulta retorna el id de un mensaje -->
+		<code>SEL0012B</code>
+		<sql>
+		      SELECT mid 
+		      FROM mensajes 
+		      WHERE fecha_envio='?' AND hora_envio='?' AND uid_destino=(SELECT uid FROM usuarios WHERE login='?')
 		</sql>
 	</sentence>
 	<sentence>
@@ -645,13 +654,20 @@
 			VALUES ('?','?',?,?)
 		</sql>
 	</sentence>
-		<sentence>
+	<sentence>
 	<!--Descripcion: Esta instruccion confirma la lectura de un mensaje masivo de un usuario PDA -->
 		<code>INS0008</code>
 		<sql>
 			INSERT INTO 
 			masivos_pda (mid,login,fecha_confirmacion,hora_confirmacion) 
 			VALUES ('?',?,to_date('?','yyyy-mm-dd'),'?')
+		</sql>
+	</sentence>
+	<sentence>
+	<!--Descripcion: Esta instruccion confirma la lectura de un mensaje masivo de un usuario PDA -->
+		<code>INS0008A</code>
+		<sql>
+			INSERT INTO masivos_pda VALUES(?,'?','?','?')
 		</sql>
 	</sentence>
 	<!--====================== Delete======================================= -->

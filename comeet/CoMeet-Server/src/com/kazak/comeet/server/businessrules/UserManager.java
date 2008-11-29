@@ -170,17 +170,7 @@ public class UserManager {
 		QueryRunner qRunner = new QueryRunner(sqlCode,args);
 		queries.add(qRunner);
 		qRunner.setAutoCommit(false);
-		qRunner.executeSQL();
-		
-		/*
-		element = (Element)iterator.next();
-		args = getPackArgs(element);
-		sqlCode = ((Element)argsIterator.next()).getText();
-		qRunner = new QueryRunner(sqlCode,args);
-		queries.add(qRunner);
-		qRunner.setAutoCommit(false);
-		qRunner.executeSQL();
-		*/
+		qRunner.executeSQL();	
 		
 		return true;
 	}
@@ -221,6 +211,7 @@ public class UserManager {
 			QueryClosingHandler.close(resultSet);
 			queryRunner.closeStatement();
 		}
+		
 		return null;
 	}
 }
