@@ -63,12 +63,7 @@ public class UserLogin {
 	    validate = data.getChild("validate")!=null ? true : false;
     }
     
-    public boolean isValid() {
-	    //login = data.getChild("login").getValue();
-	    //String password = data.getChild("password").getValue();
-	    //ip = data.getChild("ip").getValue();
-	    // boolean validate = data.getChild("validate")!=null ? true : false;
-	    
+    public boolean isValid() {	    
 	    QueryRunner queryRunner = null;
 	    ResultSet resultSet = null;
 	    int count = 0;

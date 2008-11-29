@@ -53,7 +53,9 @@ public class QueryClosingHandler {
     
     public static void close(ResultSet rs) {
         try {
-            rs.close();
+        	if (rs != null) {
+        		rs.close();
+        	}
         }
         catch(SQLException SQLEe) {
             SQLEe.printStackTrace();

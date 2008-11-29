@@ -189,7 +189,7 @@ public class Pop3Handler extends Thread {
 
 						QueryRunner qRunner = null;
 						ResultSet resultSet = null;
-						String groupID = null;
+						String destination = null;
 						String sentence = "SEL0024";
 						boolean inside = false;
 						
@@ -203,18 +203,20 @@ public class Pop3Handler extends Thread {
 							if ("TODOS".equals(to)) { 
 								LogWriter.write("INFO: Procesando mensaje para [TODOS] los usuarios del sistema");
 								sentence="SEL0028B"; 
-								inside = deliverMessage(sentence,groupID,from,subject,content,lifeTime);
+								inside = deliverMessage(sentence,destination,from,subject,content,lifeTime);
 							} else if ("CORREO".equals(to)) { 
 								LogWriter.write("INFO: Procesando mensaje para todos los usuarios administrativos [CORREO] del sistema");
 								sentence="SEL0028C";
-								inside = deliverMessage(sentence,groupID,from,subject,content,lifeTime);
+								inside = deliverMessage(sentence,destination,from,subject,content,lifeTime);
 							} else if ("POS".equals(to)) { 
 								LogWriter.write("INFO: Procesando mensaje para todos los usuarios operativos [POS] del sistema");
 								sentence="SEL0028"; 
-								inside = deliverMessage(sentence,groupID,from,subject,content,lifeTime);
+								inside = deliverMessage(sentence,destination,from,subject,content,lifeTime);
 							} else if ("PDA".equals(to) && ConfigFileHandler.getMovilSupport()) { 
 								LogWriter.write("INFO: Procesando mensaje para todos los usuarios operativos [PDA] del sistema");
 								sentence="SEL0028A"; 
+								inside = deliverMessage(sentence,destination,from,subject,content,lifeTime);
+								/*
 								subject = subject.replaceAll("'","&39;");
 								content = content.replaceAll("'","&39;");
 								inside = true;
@@ -225,15 +227,16 @@ public class Pop3Handler extends Thread {
 									String[] argsArray = {destination,sender,dateString,hourString,subject,content};
 									savePDAMessage(to,argsArray);
 								}
+								*/
 							} else {
 								qRunner = new QueryRunner(sentence,new String[]{to,to});
 								resultSet = qRunner.select();
 								while (resultSet.next()) {
-									groupID =  resultSet.getString(1);
-									if (groupID!=null) {
+									destination =  resultSet.getString(1);
+									if (destination!=null) {
 										inside = true;
 										Element xml = new Element("Message");
-										xml.addContent(createXMLElement("idgroup",groupID));
+										xml.addContent(createXMLElement("idgroup",destination));
 										xml.addContent(createXMLElement("toName",to));
 										xml.addContent(createXMLElement("from",from));
 										xml.addContent(createXMLElement("subject",subject));
@@ -242,6 +245,8 @@ public class Pop3Handler extends Thread {
 										new MessageDistributor(xml,true);
 									}
 								}
+								QueryClosingHandler.close(resultSet);
+								qRunner.closeStatement();
 							}
 
 						} catch (SQLNotFoundException e) {
@@ -250,10 +255,7 @@ public class Pop3Handler extends Thread {
 							e.printStackTrace();
 						} catch (SQLException e) {
 							e.printStackTrace();
-						} finally {
-							QueryClosingHandler.close(resultSet);
-							qRunner.closeStatement();
-						}
+						} 
 												
 						if (ConfigFileHandler.getMovilSupport()) {
 							subject = subject.replaceAll("'","&39;");
@@ -340,6 +342,9 @@ public class Pop3Handler extends Thread {
 			e.printStackTrace();
 		} catch (SQLException e) {
 			e.printStackTrace();
+		} finally {
+			QueryClosingHandler.close(resultSet);
+			qRunner.closeStatement();
 		}
 		
 		return inside;

@@ -72,7 +72,7 @@ public class MessageDistributor {
 			SocketChannel sock = destination.getSock()!=null ? destination.getSock().getChannel() : null;
 
 			// If the POS user is online
-			if (sock!=null) {
+			if ((sock!=null) && (destination.getUserRol()==3)) {
 				Element message = new Element("Message");
 				Element root = new Element("root");
 
