@@ -395,9 +395,6 @@ if(!$db->imagen())
 
 <table width="100%" border="0" cellspacing="0" cellpadding="0"  class="t_bordeVerde">
 	<tr align="center">
-		<td height="35"><img width=80 src='<?=$logo?>'></td>
-	</tr>
-	<tr align="center">
 		<td height="20">
 			<font size="1" face="Verdana, Arial, Helvetica, sans-serif">
 			Equipo:

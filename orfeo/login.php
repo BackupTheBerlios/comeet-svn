@@ -43,6 +43,28 @@ $datosEnvio = "$fechah&" . session_name() . "=" . trim(session_id()) . "&krd=$kr
 <title>Orfeo - Sistema de Gesti&oacute;n Documental</title>
 <link rel="stylesheet" rev="stylesheet" href="css/estilos.css" />
 <script language="javascript" type="text/javascript" src="js/scripts.js"></script>
+ <SCRIPT TYPE="text/javascript">
+<!--
+function submitenter(myfield,e)
+{
+   var keycode;
+   if (window.event) 
+       keycode = window.event.keyCode;
+   else if (e) 
+       keycode = e.which;
+   else 
+       return true;
+
+   if (keycode == 13)
+   {
+       myfield.form.submit();
+       return false;
+   }
+   else
+       return true;
+}
+//-->
+</SCRIPT>
 </head>
 <body>
 <form name="formulario" action="index_frames.php?fechah=<?php echo $datosEnvio; ?>" method="post">
@@ -90,7 +112,7 @@ $datosEnvio = "$fechah&" . session_name() . "=" . trim(session_id()) . "&krd=$kr
                           </tr>
                           <tr>
                             <td><label for="clave">Contrase&ntilde;a:</label></td>
-                            <td><input type="password" name="drd" id="clave" class="txtLogin" /></td>
+                            <td><input type="password" name="drd" id="clave" class="txtLogin" onKeyPress="return submitenter(this,event)"/></td>
                           </tr>
                           <tr>
                             <td>&nbsp;</td>
