@@ -1,18 +1,31 @@
 <?php
+
 $servicio = "orfeo";
+
 $usuario = "orfeo";
+
 $contrasena = "3ld0r4d0"; 
+
 $servidor = "localhost:5432";
+
 $db = "orfeo";
+
 $driver = "postgres";
+
  //Variable que indica el ambiente de trabajo, sus valores pueden ser  desarrollo,prueba,orfeo
 $ambiente = "orfeo";
+
 //Servidor que procesa los documentos
 $servProcDocs = "192.168.1.5";
+
 $entidad= "OPAIN S.A.";
-$FILE_LOCAL = "localEcuador.php";
+
+//$FILE_LOCAL = "localEcuador.php";
+
 $entidad_largo= "OPAIN S.A."; //Variable usada generalmente para los títulos en informes.";
+
 $entidad_tel = 000000; 
+
 $entidad_dir = "Avenida El Dorado";
 
 /****
@@ -23,6 +36,7 @@ $entidad_dir = "Avenida El Dorado";
         */
 
 $ADODB_PATH = "/home/orfeo/adodb";
+
 $ADODB_CACHE_DIR = "/tmp";
 
 ?>
