@@ -7764,7 +7764,7 @@ COPY anexos_tipo (anex_tipo_codi, anex_tipo_ext, anex_tipo_desc) FROM stdin;
 14	odt	.odt (Procesador de Texto - odf)
 15	ods	.ods (Hoja de Calculo - Odf)
 5	jpg	.jpg (Imagen)
-6	AutoCAD	.dwg (autoCAD)
+6	dwg	.dwg (autoCAD)
 \.
 
 
@@ -7781,8 +7781,6 @@ COPY aux_01 (r) FROM stdin;
 --
 
 COPY bodega_empresas (nombre_de_la_empresa, nuir, nit_de_la_empresa, sigla_de_la_empresa, direccion, codigo_del_departamento, codigo_del_municipio, telefono_1, telefono_2, email, nombre_rep_legal, cargo_rep_legal, identificador_empresa, are_esp_secue, id_cont, id_pais, activa, flag_rups) FROM stdin;
-POLICCC	789456123	801111111	pol	cll 12 54-54	11	1	4561231	4564110		PACO	\N	1	8	1	170	1	0
-POLICCC	789456123	801111111	pol	cll 12 54-54	11	1	4561231	4564110		PACO	\N	1	8	1	170	1	0
 \.
 
 
@@ -7828,24 +7826,6 @@ COPY carpeta (carp_codi, carp_desc) FROM stdin;
 --
 
 COPY carpeta_per (usua_codi, depe_codi, nomb_carp, desc_carp, codi_carp) FROM stdin;
-17	900	EDGAR	PRUEBA	1
-13	900	hojadevida	ninguna	1
-1	900	prueba2	no se que escribir	1
-3	906	Masiva	Radicacion Masiva	5
-1	906	Pruebas	Pruebas 	1
-3	908	DocXarciva	Documentos por archivar	1
-4	908	PQR	PQR ASES	1
-1	905	Masiva	Radicacion Masiva	5
-16	900	Masiva	Radicacion Masiva	5
-1	900	Pendientes	Por tramitar	2
-1	100	Pendientes	Pendientes importantes	1
-2	100	PRBLEMAS	PROBLEMAS PENDIENTES	1
-3	100	Masiva	Radicacion Masiva	5
-2	180	Masiva	Radicacion Masiva	5
-1	140	remisiones	remisión documentos	1
-1	140	pendientes		2
-1	999	Masiva	Radicacion Masiva	5
-1	120	predios	gestión predial	1
 \.
 
 
@@ -7903,7 +7883,6 @@ COPY departamento (dpto_codi, dpto_nomb, id_cont, id_pais) FROM stdin;
 
 COPY dependencia (depe_codi, depe_nomb, dpto_codi, depe_codi_padre, muni_codi, depe_codi_territorial, dep_sigla, dep_central, dep_direccion, depe_num_interna, depe_num_resolucion, depe_rad_tp1, depe_rad_tp2, depe_rad_tp3, depe_rad_tp4, depe_rad_tp5, depe_rad_tp9, id_cont, id_pais, depe_estado) FROM stdin;
 900	Administracion ORFEO	11	900	57	900		\N		900	900	900	900	900	900	900	\N	1	170	0
-905	Administracion de Sistemas	11	905	57	905		\N		905	900	900	905	905	905	905	\N	1	170	0
 \.
 
 
@@ -27855,559 +27834,6 @@ COPY hist_eventos (depe_codi, hist_fech, usua_codi, radi_nume_radi, hist_obse, u
 --
 
 COPY informados (radi_nume_radi, usua_codi, depe_codi, info_desc, info_fech, info_leido, usua_codi_info, info_codi, usua_doc, info_resp) FROM stdin;
-20081600013862	1	170	A:  -  	2008-08-26	0	\N	44001662		0         
-20081600014992	1	170	A:  -  	2008-09-04	0	\N	44001662		0         
-20081200000082	1	203	A:  -  	2008-04-21	0	\N	43563338		0         
-20081600016922	1	100	A:  - Ingeniro este tema debemos trabajarlo la próxima semana, ya solicité a predios información sobre el mismo 	2008-09-24	0	\N	43069684		0         
-20081600019872	1	170	A:  -  	2008-10-15	0	\N	44001662		0         
-20081600020402	1	201	A:  - Jorge: para tu información y para ver que hacemos con esto 	2008-10-21	0	\N	3228538		0         
-20081600021262	1	170	A:  - Para tu información 	2008-10-28	0	\N	3228538		0         
-20081200000442	1	203	A:  -  	2008-04-22	0	\N	43563338		0         
-20081600000592	1	204	A:  -  	2008-04-23	0	\N	44001662		0         
-20081200000722	1	900	A:  -  	2008-04-23	0	\N	43563338		0         
-20081300016972	1	201	A:  - Jorge te emito el estudio acerca de la creciente quebrada limonar, realizado por integral  	2008-09-19	0	\N	70093389		0         
-20081600017402	1	170	A:  -  	2008-09-23	0	\N	44001662		0         
-20081600017522	1	100	A:  - Ingeniero: Esta es la declaración del ingeniero Alejandro Jaramillo, residente del tramo Solla-Niquía, dentro del proceso que cursa en contra el Metro de Medellín por la tala de arboles, proceso  en el cual argumentan que dicha tala la realizamos nosotros. 	2008-09-25	0	\N	70093389		0         
-20081600018042	1	100	A:  -  	2008-09-29	0	\N	44001662		0         
-20081600018612	7	201	A:  - Victor, ya se envió la corrección del presupuesto a la Interventoría. Carlos Cruz me confirmó que ya se estaban haciendo los correctivos en obra, favor verificar. 	2008-10-07	0	\N	716771931		0         
-20081600020192	1	170	A:  - Marisol, para tu información 	2008-10-21	0	\N	3228538		0         
-20081600000141	1	170	A:  - ESTE ES EL OFICIO ENVIADO A ODINSA, CON SU RESPECTIVO RECIBO DE SERVIENTREGA. BIVI 	2008-04-24	0	\N	44001662		0         
-20081600017012	3	201	A:  - Favor tener en cuenta en próximos informes 	2008-09-19	0	\N	70093389		0         
-20081600018612	1	201	A:  -  	2008-10-03	0	\N	44001662		0         
-20081000000502	1	110	A:  -  	2008-04-22	1	\N	79985053		0         
-20081600000391	3	120	A:  - RECIBIDO DE ACTA DE FINALIZACION DE CONTRATO ENVIADA A INTERVENTORIA 	2008-04-24	1	\N	44001662		0         
-20081600020892	1	170	A:  - Para tu información 	2008-10-28	0	\N	3228538		0         
-20081600003382	2	190	A:  - Por favor respondamos esto 	2008-05-20	0	\N	71668436		0         
-20081600004512	1	170	A:  -  	2008-05-28	0	\N	44001662		0         
-20081600006052	3	201	A:  - Pronunciamiento de la Interventoría acerca de Botaderos Jurisdicción Municipio de Girardota 	2008-06-16	0	\N	70093389		0         
-20081800000872	2	180	A:  - Informando para probar algo 	2008-04-25	0	\N	79985053		0         
-20081600005592	2	201	A:  - Elizabeth: Ya fue autorizada la brigada por la interventoría 	2008-06-17	0	\N	70093389		0         
-20081600003952	1	170	A:  -  	2008-05-23	1	\N	44001662		0         
-20081600003012	1	170	A:  -  	2008-05-15	0	\N	44001662		0         
-20081600014122	1	203	A:  - Ludis: Te informo en que va el procedimiento de la nueva sede de la oficina. 	2008-08-29	0	\N	70093389		0         
-20081600014152	13	201	A:  - Alexander, por favor verificar si la especificacion de Pintuco,aplica en este contrato. Si no aplica, por favor preparar una respuesta a la Interventoría. 	2008-09-26	0	\N	716771931		0         
-20081600014282	3	100	A:  - Para qe esten informados 	2008-09-04	0	\N	716771931		0         
-20081600014272	3	100	A:  - Para qe esten informados 	2008-09-04	0	\N	716771931		0         
-20081600003142	2	190	A:  - Construcción obras acorde a diseño, limitacion al pago por cantidades y actividades por fuera de los diseños Rehabilitación ACEVEDO COPACABANA,  	2008-05-16	0	\N	3228538		0         
-20081600014142	3	100	A:  - Para qe esten informados 	2008-09-04	0	\N	716771931		0         
-20081600003332	2	190	A:  - Para su información,  Jorge por favor nos ayudas con la respuesta me parece que GY esta desenfocada sobre el alcance del consultor y esta citando el del contrato de interventoria 	2008-05-20	0	\N	71668436		0         
-20081600003972	1	170	A:  -  	2008-05-23	0	\N	44001662		0         
-20081600004522	1	170	A:  -  	2008-05-28	0	\N	44001662		0         
-20081600005062	1	170	A:  -  	2008-06-04	0	\N	44001662		0         
-20081600013812	3	100	A:  - Para qe esten informados 	2008-09-04	0	\N	716771931		0         
-20081600013792	3	100	A:  - Para qe esten informados 	2008-09-04	0	\N	716771931		0         
-20081600013492	3	100	A:  - Para qe esten informados 	2008-09-04	0	\N	716771931		0         
-20081600013462	3	100	A:  - Para qe esten informados 	2008-09-04	0	\N	716771931		0         
-20081600013422	3	100	A:  - Para qe esten informados 	2008-09-04	0	\N	716771931		0         
-20081600013412	3	100	A:  - Para qe esten informados 	2008-09-04	0	\N	716771931		0         
-20082010012541	1	203	A:  -  	2008-09-30	0	\N	3258796		0         
-20081600013402	3	100	A:  - Para qe esten informados 	2008-09-04	0	\N	716771931		0         
-20081200014252	3	100	A:  - Para qe esten informados 	2008-09-04	0	\N	716771931		0         
-20081200014242	3	100	A:  - Para qe esten informados 	2008-09-04	0	\N	716771931		0         
-20081200013582	3	100	A:  - Para qe esten informados 	2008-09-04	0	\N	716771931		0         
-20081200013572	3	100	A:  - Para qe esten informados 	2008-09-04	0	\N	716771931		0         
-20081200013392	3	100	A:  - Para qe esten informados 	2008-09-04	0	\N	716771931		0         
-20081200013372	3	100	A:  - Para qe esten informados 	2008-09-04	0	\N	716771931		0         
-20081200013362	3	100	A:  - Para qe esten informados 	2008-09-04	0	\N	716771931		0         
-20081200013352	3	100	A:  - Para qe esten informados 	2008-09-04	0	\N	716771931		0         
-20081200013342	3	100	A:  - Para qe esten informados 	2008-09-04	0	\N	716771931		0         
-20081600015832	1	170	A:  -  	2008-09-11	0	\N	44001662		0         
-20081600018682	1	170	A:  -  	2008-10-06	0	\N	44001662		0         
-20081600020092	1	201	A:  - Para tu información. Redireccionada a EDL 	2008-10-21	0	\N	3228538		0         
-20081200020712	1	201	A:  - Favor analizar y conceptura 	2008-10-28	0	\N	3228538		0         
-20081600003992	1	170	A:  -  	2008-05-23	0	\N	44001662		0         
-20081600000381	3	120	A:  - RECIBIDO DE ACTIVIDADES PRINCO PERIODO ENERO 19 FEBRERO 18 ENVIADA A INTERVENTORIA 	2008-04-24	1	\N	44001662		0         
-20081200015352	6	120	A:  - Mateo, por favor hacer presupuesto y enviar con carta a Interventoria, pero solo si es obra adicional.Verificar esto con EDL 	2008-09-25	1	\N	716771931		0         
-20081600004532	1	170	A:  -  	2008-05-28	0	\N	44001662		0         
-20081600005122	1	170	A:  -  	2008-06-04	0	\N	44001662		0         
-20081600004462	6	201	A:  - Ingeniero le informo  acerca del estado del trámite de Resolución tránsito de volquetas y vehículos en obra 	2008-06-09	0	\N	70093389		0         
-20081600020072	1	170	A:  -  	2008-10-16	0	\N	44001662		0         
-20081600019992	1	170	A:  - Marisol, para tu información. Redireccionada a Germán 	2008-10-21	0	\N	3228538		0         
-20081600020722	2	190	A:  - Para tus comentarios 	2008-10-28	0	\N	3228538		0         
-20081200000402	3	120	A:  - Ya se entrego la respuesta 	2008-04-28	0	\N	98632481		0         
-20081600017952	1	170	A:  - Hola Mari, te informo de este radicado en donde Asocomunal nos recuerda que no hemos facturado las herramientas q les vendimos, me cuentas. Gracias. Mónica 	2008-09-30	1	\N	40042789		0         
-20081600017082	1	140	A:  -  	2008-09-19	0	\N	44001662		0         
-20081600004012	1	170	A:  -  	2008-05-23	0	\N	44001662		0         
-20081600004542	1	170	A:  -  	2008-05-28	0	\N	44001662		0         
-20081600005132	1	170	A:  -  	2008-06-04	0	\N	44001662		0         
-20081600000711	1	140	A:  - Programar reunón con Cocan y afectados para responder a Interventroia 	2008-04-28	0	\N	3228538		0         
-20081600005432	3	100	A:  - Dr Jorge  y Ricardo esta es la correspondencia recibida el viernes 	2008-06-09	0	\N	71668436		0         
-20081600005422	3	100	A:  - Dr Jorge  y Ricardo esta es la correspondencia recibida el viernes 	2008-06-09	0	\N	71668436		0         
-20081600001422	1	170	A:  -  	2008-04-29	0	\N	44001662		0         
-20081600005412	3	100	A:  - Dr Jorge  y Ricardo esta es la correspondencia recibida el viernes 	2008-06-09	0	\N	71668436		0         
-20081600001422	2	170	A:  - para pago 	2008-04-29	0	\N	3228538		0         
-20081600005402	3	100	A:  - Dr Jorge  y Ricardo esta es la correspondencia recibida el viernes 	2008-06-09	0	\N	71668436		0         
-20081600005342	3	100	A:  - Dr Jorge  y Ricardo esta es la correspondencia recibida el viernes 	2008-06-09	0	\N	71668436		0         
-20081600005332	3	100	A:  - Dr Jorge  y Ricardo esta es la correspondencia recibida el viernes 	2008-06-09	0	\N	71668436		0         
-20081600005312	3	100	A:  - Dr Jorge  y Ricardo esta es la correspondencia recibida el viernes 	2008-06-09	0	\N	71668436		0         
-20081600001462	1	170	A:  -  	2008-04-29	0	\N	44001662		0         
-20081200005392	3	100	A:  - Dr Jorge  y Ricardo esta es la correspondencia recibida el viernes 	2008-06-09	0	\N	71668436		0         
-20081200005382	3	100	A:  - Dr Jorge  y Ricardo esta es la correspondencia recibida el viernes 	2008-06-09	0	\N	71668436		0         
-20081600001152	1	190	A:  - Implica re diseñar y tramitar nuevamente ante el Ministerio de Ambiente.  Generar una carta de respuesta con las implicaciones sociales y económicas con la nueva afectación de la linea férrea 	2008-04-29	0	\N	3228538		0         
-20081600020672	1	140	A:  - Para su información 	2008-10-28	0	\N	3228538		0         
-20081600003132	2	190	A:  - Requerimiento de la Interventoria que necesarimente debe corregirse en razón de la deflexión vertical por km (IRI) debe cumplir la norma. CALIDAD de hatovial deberá verificar y revisar 	2008-05-18	0	\N	3228538		0         
-20081600003402	2	190	A:  - Por favor programemos una reunión el próximo viernes para responder esta carta 	2008-05-20	1	\N	71668436		0         
-20081600004062	1	170	A:  -  	2008-05-23	0	\N	44001662		0         
-20081600000762	1	190	A:  - Siempre hay diferencia entre 2 lineas de tubería a una sola con diámetro hidráulico suficiente. Remitir a EDL para que respondan teniendo muy presente que AIM  retiene los pagos de las obras que no están justificados técnicamente. so  	2008-04-29	0	\N	3228538		0         
-20081600015062	3	100	A:  - Para que esten enterados 	2008-09-04	0	\N	71668436		0         
-20081600015052	3	100	A:  - Para que esten enterados 	2008-09-04	0	\N	71668436		0         
-20081600015032	3	100	A:  - Para que esten enterados 	2008-09-04	0	\N	71668436		0         
-20081600015022	3	100	A:  - Para que esten enterados 	2008-09-04	0	\N	71668436		0         
-20081600015012	3	100	A:  - Para que esten enterados 	2008-09-04	0	\N	71668436		0         
-20081600015002	3	100	A:  - Para que esten enterados 	2008-09-04	0	\N	71668436		0         
-20081600014992	3	100	A:  - Para que esten enterados 	2008-09-04	0	\N	71668436		0         
-20081600014972	3	100	A:  - Para que esten enterados 	2008-09-04	0	\N	71668436		0         
-20081600014912	3	100	A:  - Para que esten enterados 	2008-09-04	0	\N	71668436		0         
-20081600014892	3	100	A:  - Para que esten enterados 	2008-09-04	0	\N	71668436		0         
-20081600014782	3	100	A:  - Para que esten enterados 	2008-09-04	0	\N	71668436		0         
-20081600014752	3	100	A:  - Para que esten enterados 	2008-09-04	0	\N	71668436		0         
-20081600014732	3	100	A:  - Para que esten enterados 	2008-09-04	0	\N	71668436		0         
-20081600014722	3	100	A:  - Para que esten enterados 	2008-09-04	0	\N	71668436		0         
-20081600014712	3	100	A:  - Para que esten enterados 	2008-09-04	0	\N	71668436		0         
-20081200014962	3	100	A:  - Para que esten enterados 	2008-09-04	0	\N	71668436		0         
-20081200014952	3	100	A:  - Para que esten enterados 	2008-09-04	0	\N	71668436		0         
-20082010014872	7	201	A:  - diego favor marcar filtros y victor programar perforaciones para drenaje 	2008-09-04	0	\N	7630451		0         
-20081600004122	1	170	A:  -  	2008-05-23	0	\N	44001662		0         
-20081600016992	3	100	A:  - Para su información. 	2008-09-19	0	\N	71668436		0         
-20081600016952	3	100	A:  - Para su información. 	2008-09-19	0	\N	71668436		0         
-20081600016902	3	100	A:  - Para su información. 	2008-09-19	0	\N	71668436		0         
-20081600016872	3	100	A:  - Para su información. 	2008-09-19	0	\N	71668436		0         
-20081600016862	3	100	A:  - Para su información. 	2008-09-19	0	\N	71668436		0         
-20081600016852	3	100	A:  - Para su información. 	2008-09-19	0	\N	71668436		0         
-20081600016842	3	100	A:  - Para su información. 	2008-09-19	0	\N	71668436		0         
-20081600001292	1	140	A:  - Maribel es importante asociar esta carta de respuesta a la GG15141 y al borrador de carta que envie hoy relacionada con el descole de la ora de drenaje Acvedo Copacabana predios de Cemex (argos). Una 	2008-04-28	1	\N	3228538		0         
-20081600016822	3	100	A:  - Para su información. 	2008-09-19	0	\N	71668436		0         
-20081600016812	3	100	A:  - Para su información. 	2008-09-19	0	\N	71668436		0         
-20081600016802	3	100	A:  - Para su información. 	2008-09-19	0	\N	71668436		0         
-20081600016792	3	100	A:  - Para su información. 	2008-09-19	0	\N	71668436		0         
-20081600016662	3	100	A:  - Para su información. 	2008-09-19	0	\N	71668436		0         
-20081200016982	3	100	A:  - Para su información. 	2008-09-19	0	\N	71668436		0         
-20081200016892	3	100	A:  - Para su información. 	2008-09-19	0	\N	71668436		0         
-20081200016782	3	100	A:  - Para su información. 	2008-09-19	0	\N	71668436		0         
-20081200016772	3	100	A:  - Para su información. 	2008-09-19	0	\N	71668436		0         
-20081200016762	3	100	A:  - Para su información. 	2008-09-19	0	\N	71668436		0         
-20081600005142	3	100	A:  - Esta es la correspondencia recibida de Hatovial, la estoy repartiendo 	2008-06-04	0	\N	71668436		0         
-20081600005132	3	100	A:  - Esta es la correspondencia recibida de Hatovial, la estoy repartiendo 	2008-06-04	0	\N	71668436		0         
-20081600005122	3	100	A:  - Esta es la correspondencia recibida de Hatovial, la estoy repartiendo 	2008-06-04	0	\N	71668436		0         
-20081600005112	3	100	A:  - Esta es la correspondencia recibida de Hatovial, la estoy repartiendo 	2008-06-04	0	\N	71668436		0         
-20081600005062	3	100	A:  - Esta es la correspondencia recibida de Hatovial, la estoy repartiendo 	2008-06-04	0	\N	71668436		0         
-20081200016672	3	100	A:  - Para su información. 	2008-09-19	0	\N	71668436		0         
-20081600016522	1	100	A:  - Ingeniero, no los conozco, sin embargo voy a concretar una cita con ellos para conocerlos y solicitar propuesta para mantenimiento rutinario.\r\nMónica 	2008-09-23	0	\N	40042789		0         
-20081100012891	1	201	A:  - Respuesta al Area Metropolitana según comunicación radicado 20081600012582, en donde recomienda a la Concesión eel rediseño y construcción de la tubería transversal de la vía. Esta fue aprobada por Gcia e Interventoría.   	2008-10-06	0	\N	70093389		0         
-20081600003062	1	170	A:  -  	2008-05-15	0	\N	44001662		0         
-20081600013562	1	140	A:  - Hola Maribel, te envio esta carta para informarte que Asocomunal esta solicitando la legalización de los contratos de mantenimiento cuya vigencia se venció el pasado 15 de agosto y que ya yo te informe. Gracias 	2008-09-01	0	\N	40042789		0         
-20081600017042	1	100	A:  - Ingeniero para su información, la propuesta de Kazak para el programa Gestión de Vias 	2008-09-23	0	\N	40042789		0         
-20081600000561	2	170	A:  - RECIBIDO  	2008-04-25	1	\N	44001662		0         
-20081600018612	1	201	A:  - Para solucionar los defectos de cosntrucción Lo reasignaré a JFajardo, para lo de la corrección del presupuesto 	2008-10-06	0	\N	3228538		0         
-20081400000171	2	180	A:  - ksajkklf ksjdk kjs 	2008-04-30	1	\N	799850534		0         
-20081600000571	2	170	A:  - RECIBIDO DE LA FIDUCIARIA ACERCA DE DEVOLUCION DE CARTAS 	2008-04-28	1	\N	44001662		0         
-20081600002812	2	190	A:  - Jorge por favor tomar atenta nota para repsonder a AIM 	2008-05-18	0	\N	3228538		0         
-20081600020642	1	170	A:  - Para tu información 	2008-10-28	0	\N	3228538		0         
-20081600003762	1	170	A:  -  	2008-05-21	0	\N	44001662		0         
-20081600004132	1	170	A:  -  	2008-05-23	0	\N	44001662		0         
-20081600005002	3	100	A:  - Esta es la correspondencia recibida de Hatovial, la estoy repartiendo 	2008-06-04	0	\N	71668436		0         
-20081600004962	3	100	A:  - Esta es la correspondencia recibida de Hatovial, la estoy repartiendo 	2008-06-04	0	\N	71668436		0         
-20081600004942	3	100	A:  - Esta es la correspondencia recibida de Hatovial, la estoy repartiendo 	2008-06-04	0	\N	71668436		0         
-20081600004832	3	100	A:  - Esta es la correspondencia recibida de Hatovial, la estoy repartiendo 	2008-06-04	0	\N	71668436		0         
-20081600004702	3	100	A:  - Esta es la correspondencia recibida de Hatovial, la estoy repartiendo 	2008-06-04	0	\N	71668436		0         
-20081600004682	3	100	A:  - Esta es la correspondencia recibida de Hatovial, la estoy repartiendo 	2008-06-04	0	\N	71668436		0         
-20081600004672	3	100	A:  - Esta es la correspondencia recibida de Hatovial, la estoy repartiendo 	2008-06-04	0	\N	71668436		0         
-20081200005102	3	100	A:  - Esta es la correspondencia recibida de Hatovial, la estoy repartiendo 	2008-06-04	0	\N	71668436		0         
-20081200005082	3	100	A:  - Esta es la correspondencia recibida de Hatovial, la estoy repartiendo 	2008-06-04	0	\N	71668436		0         
-20081200005072	3	100	A:  - Esta es la correspondencia recibida de Hatovial, la estoy repartiendo 	2008-06-04	0	\N	71668436		0         
-20081600022352	1	120	A:  -  	2008-11-05	0	\N	44001662		0         
-20081200005022	3	100	A:  - Esta es la correspondencia recibida de Hatovial, la estoy repartiendo 	2008-06-04	0	\N	71668436		0         
-20081200004662	3	100	A:  - Esta es la correspondencia recibida de Hatovial, la estoy repartiendo 	2008-06-04	0	\N	71668436		0         
-20081200004642	3	100	A:  - Esta es la correspondencia recibida de Hatovial, la estoy repartiendo 	2008-06-04	0	\N	71668436		0         
-20081600005882	1	170	A:  -  	2008-06-11	0	\N	44001662		0         
-20081600000962	1	190	A:  - Para responder a traves de EDL Puente Rodas 	2008-04-30	0	\N	3228538		0         
-20081600000912	1	190	A:  - Observaciones de AIm para responder 	2008-04-30	0	\N	3228538		0         
-20081600017192	1	140	A:  -  	2008-09-22	0	\N	44001662		0         
-20081200010721	1	201	A:  -  	2008-09-04	0	\N	71668436		0         
-20081600018162	1	203	A:  - Hola Ludis: Te informo la respuesta a la queja de los usuarios acerca de los peajes recibida por Regency, con la que se puede responder a ellos. Mónica 	2008-10-01	0	\N	40042789		0         
-20081600018692	1	201	A:  - Para que estés enerdao 	2008-10-06	0	\N	3228538		0         
-20081600020232	1	170	A:  -  	2008-10-17	0	\N	44001662		0         
-20081600020632	8	201	A:  - Para tu información y revisión 	2008-10-28	0	\N	3228538		0         
-20081600022362	1	120	A:  -  	2008-11-05	1	\N	44001662		0         
-20081600003132	2	190	A:  - Les remitimos la información que recibimos del concedente 	2008-05-19	0	\N	71668436		0         
-20081200003442	2	190	A:  - Les remitimos la información que recibimos del concedente 	2008-05-19	0	\N	71668436		0         
-20081600003142	2	190	A:  - Por favor tener en cuenta lo que menciona la Interventoria sobre los espesores. 	2008-05-19	0	\N	71668436		0         
-20081600004712	1	170	A:  -  	2008-05-29	0	\N	44001662		0         
-20081200004632	3	100	A:  - Esta es la correspondencia recibida de Hatovial, la estoy repartiendo 	2008-06-04	0	\N	71668436		0         
-20081600011051	3	100	A:  - Esta es la correspondencia recibida el viernes 	2008-09-14	0	\N	71668436		0         
-20082010015182	7	201	A:  - estemos pendiente con la resistencia a los 28 dias. A caludia lopez se le informa por medio de carta, mientras le crean cuenta en orfeo 	2008-09-06	0	\N	7630451		0         
-20081600018002	8	201	A:  - Jaime. Para tener en cuenta 	2008-10-02	0	\N	3228538		0         
-20081600020632	1	170	A:  -  	2008-10-22	0	\N	44001662		0         
-20081600020902	1	170	A:  - Para tu información 	2008-10-28	0	\N	3228538		0         
-20081200022152	1	201	A:  - Para su información y correctivos. Reasignado a Claudia 	2008-11-05	0	\N	3228538		0         
-20081600003332	2	190	A:  - revisión estudios ACevedo Copacabana 	2008-05-20	0	\N	3228538		0         
-20081600015862	3	100	A:  - Para que esten informados 	2008-09-11	0	\N	71668436		0         
-20081600015852	3	100	A:  - Para que esten informados 	2008-09-11	0	\N	71668436		0         
-20081600015842	3	100	A:  - Para que esten informados 	2008-09-11	0	\N	71668436		0         
-20081600015832	3	100	A:  - Para que esten informados 	2008-09-11	0	\N	71668436		0         
-20081600015812	3	100	A:  - Para que esten informados 	2008-09-11	0	\N	71668436		0         
-20081200003722	6	201	A:  - Por favor envien por la información adjunta 	2008-05-21	1	\N	71668436		0         
-20081600004742	1	170	A:  -  	2008-05-29	0	\N	44001662		0         
-20081600015802	3	100	A:  - Para que esten informados 	2008-09-11	0	\N	71668436		0         
-20081600015792	3	100	A:  - Para que esten informados 	2008-09-11	0	\N	71668436		0         
-20081600015782	3	100	A:  - Para que esten informados 	2008-09-11	0	\N	71668436		0         
-20081600015772	3	100	A:  - Para que esten informados 	2008-09-11	0	\N	71668436		0         
-20081600005792	1	140	A:  - Para su información, documentos de protección social de Comarca 	2008-06-11	0	\N	40042789		0         
-20081600015742	3	100	A:  - Para que esten informados 	2008-09-11	0	\N	71668436		0         
-20081600015732	3	100	A:  - Para que esten informados 	2008-09-11	0	\N	71668436		0         
-20081600015722	3	100	A:  - Para que esten informados 	2008-09-11	0	\N	71668436		0         
-20081600015712	3	100	A:  - Para que esten informados 	2008-09-11	0	\N	71668436		0         
-20081600015682	3	100	A:  - Para que esten informados 	2008-09-11	0	\N	71668436		0         
-20081200015822	3	100	A:  - Para que esten informados 	2008-09-11	0	\N	71668436		0         
-20081600004222	1	140	A:  -  	2008-05-27	1	\N	44001662		0         
-20081200015652	3	100	A:  - Para que esten informados 	2008-09-11	0	\N	71668436		0         
-20081200015642	3	100	A:  - Para que esten informados 	2008-09-11	0	\N	71668436		0         
-20081200015632	3	100	A:  - Para que esten informados 	2008-09-11	0	\N	71668436		0         
-20081200015622	3	100	A:  - Para que esten informados 	2008-09-11	0	\N	71668436		0         
-20081600014492	3	100	A:  - para que esten enterados 	2008-09-02	0	\N	71668436		0         
-20082010015192	7	201	A:  - enterar a los subcontratistas de los respectivos tramos y diego coordina localizacion 	2008-09-06	0	\N	7630451		0         
-20081600001792	1	202	A:  -  	2008-05-02	0	\N	44001662		0         
-20081600003422	2	190	A:  - Jorge Dussan:   Por favor atender y tramitar las respuestas correspondientes.  	2008-05-20	0	\N	3228538		0         
-20081600003412	2	190	A:  - Jorge Dussan:   Por favor atender y tramitar las respuestas correspondientes.  	2008-05-20	0	\N	3228538		0         
-20081600003382	2	190	A:  - Jorge Dussan:   Por favor atender y tramitar las respuestas correspondientes.  	2008-05-20	0	\N	3228538		0         
-20081600003402	2	190	A:  - Jorge Dussan:   Por favor atender y tramitar las respuestas correspondientes.  	2008-05-20	1	\N	3228538		0         
-20081600004272	1	170	A:  -  	2008-05-27	0	\N	44001662		0         
-20081600020372	1	201	A:  -  	2008-10-20	0	\N	44001662		0         
-20081600022022	1	170	A:  - Para tu información y trámite. Reasignada a Germán 	2008-11-05	0	\N	3228538		0         
-20081200000941	1	201	A:  - informado 	2008-05-03	0	\N	3228538		0         
-20081200014962	7	201	A:  - diego localiza y victor coordina su ejecucion. no equiere enviar presupuesto a la interventoria esta dentro del presupuesto del del contrato 	2008-09-06	0	\N	7630451		0         
-20081600002802	2	190	A:  - Solicitud correcciones HUGO Correa a diseños geometricos 	2008-05-18	0	\N	3228538		0         
-20081600015442	1	203	A:  - Ludis esta carta nos llego de la Alcaldía de Barbosa. Vamos a participar con dosmillones de pesos, pero nos deben colocar pendón de Hatovial. Se debe coordinar con la Gerencia  	2008-09-12	1	\N	70093389		0         
-20081600017542	1	100	A:  -  	2008-09-24	0	\N	44001662		0         
-20081600015252	6	120	A:  - Mateo, mientras EDL responde las demás observaciones, por favor elaborar presupuesto de esta obra. 	2008-09-26	0	\N	716771931		0         
-20081600017982	2	190	A:  - Jorge. Para tus comentarios 	2008-10-02	0	\N	3228538		0         
-20081600018682	1	100	A:  - Se solicito que se cambiara la fv por la razón social equivocada, recibimos una nueva fv la cual se envio a la fiduciaria para su pago en la semana del 17 de 0ct. 	2008-10-21	0	\N	43801746		0         
-20081600000992	1	190	A:  - respuesta a AIM previa corrección por parte del DISEÑADOR 	2008-05-06	0	\N	3228538		0         
-20081200020542	2	190	A:  - Favor atender esto 	2008-10-28	0	\N	3228538		0         
-20081600017552	1	100	A:  -  	2008-09-24	0	\N	44001662		0         
-20081600020072	1	170	A:  - Hola Mari, para tu info recibimos el acta de operación y mantenimiento 15.09 aprobada por interventoria.  	2008-10-22	0	\N	40042789		0         
-20081600003842	1	170	A:  -  	2008-05-22	0	\N	44001662		0         
-20081200005492	3	100	A:  - Esta es la correspondencia recibida en la semana 	2008-06-16	0	\N	71668436		0         
-20081200005692	3	100	A:  - Esta es la correspondencia recibida en la semana 	2008-06-16	0	\N	71668436		0         
-20081600005452	3	100	A:  - Esta es la correspondencia recibida en la semana 	2008-06-16	0	\N	71668436		0         
-20081600005462	3	100	A:  - Esta es la correspondencia recibida en la semana 	2008-06-16	0	\N	71668436		0         
-20081200001781	3	120	A:  - Yadira, para que revises que la imagen no corresponde al radicado. 	2008-05-19	0	\N	4516715		0         
-20081600002042	1	170	A:  -  	2008-05-07	0	\N	44001662		0         
-20081600003602	1	170	A:  -  	2008-05-20	0	\N	44001662		0         
-20081600003862	1	170	A:  -  	2008-05-22	0	\N	44001662		0         
-20081600004312	3	100	A:  - Acueducto en la zona de Friko 	2008-05-28	0	\N	71668436		0         
-20081600005272	1	170	A:  -  	2008-06-05	0	\N	44001662		0         
-20081600005642	1	170	A:  -  	2008-06-09	0	\N	44001662		0         
-20081600006302	1	170	A:  -  	2008-06-13	0	\N	44001662		0         
-20081600002442	1	170	A:  -  	2008-05-12	0	\N	44001662		0         
-20081600002462	1	202	A:  -  	2008-05-12	0	\N	44001662		0         
-20081600002472	1	170	A:  -  	2008-05-12	0	\N	44001662		0         
-20081600002482	1	170	A:  -  	2008-05-12	0	\N	44001662		0         
-20081600005472	3	100	A:  - Esta es la correspondencia recibida en la semana 	2008-06-16	0	\N	71668436		0         
-20081600005482	3	100	A:  - Esta es la correspondencia recibida en la semana 	2008-06-16	0	\N	71668436		0         
-20081600005502	3	100	A:  - Esta es la correspondencia recibida en la semana 	2008-06-16	0	\N	71668436		0         
-20081600003282	1	170	A:  -  	2008-05-19	0	\N	44001662		0         
-20081600002021	1	150	A:  - Jaime, pata tu información 	2008-05-13	1	\N	43069684		0         
-20081600002011	1	150	A:  - Jaime, pata tu información 	2008-05-13	1	\N	43069684		0         
-20081600002672	1	170	A:  -  	2008-05-13	0	\N	44001662		0         
-20081600016162	3	100	A:  - Esta es la correspondencia recibida el viernes 	2008-09-14	0	\N	71668436		0         
-20081600003912	1	170	A:  -  	2008-05-23	0	\N	44001662		0         
-20081600016152	3	100	A:  - Esta es la correspondencia recibida el viernes 	2008-09-14	0	\N	71668436		0         
-20081600016142	3	100	A:  - Esta es la correspondencia recibida el viernes 	2008-09-14	0	\N	71668436		0         
-20081600016132	3	100	A:  - Esta es la correspondencia recibida el viernes 	2008-09-14	0	\N	71668436		0         
-20081600016112	3	100	A:  - Esta es la correspondencia recibida el viernes 	2008-09-14	0	\N	71668436		0         
-20081600004912	1	170	A:  -  	2008-06-03	0	\N	44001662		0         
-20081600016082	3	100	A:  - Esta es la correspondencia recibida el viernes 	2008-09-14	0	\N	71668436		0         
-20081600016062	3	100	A:  - Esta es la correspondencia recibida el viernes 	2008-09-14	0	\N	71668436		0         
-20081600016052	3	100	A:  - Esta es la correspondencia recibida el viernes 	2008-09-14	0	\N	71668436		0         
-20081600016032	3	100	A:  - Esta es la correspondencia recibida el viernes 	2008-09-14	0	\N	71668436		0         
-20081600005412	1	170	A:  -  	2008-06-06	0	\N	44001662		0         
-20081600005662	1	170	A:  -  	2008-06-09	0	\N	44001662		0         
-20081600006312	1	170	A:  -  	2008-06-13	0	\N	44001662		0         
-20081600005512	3	100	A:  - Esta es la correspondencia recibida en la semana 	2008-06-16	0	\N	71668436		0         
-20081600005522	3	100	A:  - Esta es la correspondencia recibida en la semana 	2008-06-16	0	\N	71668436		0         
-20081600005562	3	100	A:  - Esta es la correspondencia recibida en la semana 	2008-06-16	0	\N	71668436		0         
-20081600005572	3	100	A:  - Esta es la correspondencia recibida en la semana 	2008-06-16	0	\N	71668436		0         
-20081600005582	3	100	A:  - Esta es la correspondencia recibida en la semana 	2008-06-16	0	\N	71668436		0         
-20081600005592	3	100	A:  - Esta es la correspondencia recibida en la semana 	2008-06-16	0	\N	71668436		0         
-20081600005602	3	100	A:  - Esta es la correspondencia recibida en la semana 	2008-06-16	0	\N	71668436		0         
-20081600005612	3	100	A:  - Esta es la correspondencia recibida en la semana 	2008-06-16	0	\N	71668436		0         
-20081600005622	3	100	A:  - Esta es la correspondencia recibida en la semana 	2008-06-16	0	\N	71668436		0         
-20081600005632	3	100	A:  - Esta es la correspondencia recibida en la semana 	2008-06-16	0	\N	71668436		0         
-20081600005642	3	100	A:  - Esta es la correspondencia recibida en la semana 	2008-06-16	0	\N	71668436		0         
-20081600005652	3	100	A:  - Esta es la correspondencia recibida en la semana 	2008-06-16	0	\N	71668436		0         
-20081600016012	3	100	A:  - Esta es la correspondencia recibida el viernes 	2008-09-14	0	\N	71668436		0         
-20081600016002	3	100	A:  - Esta es la correspondencia recibida el viernes 	2008-09-14	0	\N	71668436		0         
-20081600015992	3	100	A:  - Esta es la correspondencia recibida el viernes 	2008-09-14	0	\N	71668436		0         
-20081600015912	3	100	A:  - Esta es la correspondencia recibida el viernes 	2008-09-14	0	\N	71668436		0         
-20081600002332	1	190	A:  - Precauciones y prevenciones que deben ser adoptadas por el CONSTRCUTOR,  y alos que realicen estudios y diseños sobre el sitio, entregar copia al COCAN y que certifiquen el recibo del requerimiento de ECOPETROL 	2008-05-13	0	\N	3228538		0         
-20081600001901	1	140	A:  - Para hacer seguimiento 	2008-05-13	0	\N	43069684		0         
-20081200016102	3	100	A:  - Esta es la correspondencia recibida el viernes 	2008-09-14	0	\N	71668436		0         
-20081200015892	3	100	A:  - Esta es la correspondencia recibida el viernes 	2008-09-14	0	\N	71668436		0         
-20081600003932	1	170	A:  -  	2008-05-23	0	\N	44001662		0         
-20081600004382	1	170	A:  -  	2008-05-28	0	\N	44001662		0         
-20081600006432	3	100	A:  - para su información 	2008-09-16	0	\N	71668436		0         
-20081600017242	1	203	A:  -  	2008-09-22	1	\N	44001662		0         
-20081600015322	3	100	A:  - Para que esten enterados 	2008-09-08	0	\N	71668436		0         
-20081600015312	3	100	A:  - Para que esten enterados 	2008-09-08	0	\N	71668436		0         
-20081600015302	3	100	A:  - Para que esten enterados 	2008-09-08	0	\N	71668436		0         
-20081600015292	3	100	A:  - Para que esten enterados 	2008-09-08	0	\N	71668436		0         
-20081600015272	3	100	A:  - Para que esten enterados 	2008-09-08	0	\N	71668436		0         
-20081600015262	3	100	A:  - Para que esten enterados 	2008-09-08	0	\N	71668436		0         
-20081600015252	3	100	A:  - Para que esten enterados 	2008-09-08	0	\N	71668436		0         
-20081600015242	3	100	A:  - Para que esten enterados 	2008-09-08	0	\N	71668436		0         
-20081600005422	1	170	A:  -  	2008-06-06	0	\N	44001662		0         
-20081600015232	3	100	A:  - Para que esten enterados 	2008-09-08	0	\N	71668436		0         
-20081600015162	3	100	A:  - Para que esten enterados 	2008-09-08	0	\N	71668436		0         
-20081600014922	3	100	A:  - Para que esten enterados 	2008-09-08	0	\N	71668436		0         
-20081600014852	3	100	A:  - Para que esten enterados 	2008-09-08	0	\N	71668436		0         
-20081600002902	1	170	A:  -  	2008-05-15	0	\N	44001662		0         
-20081600014462	3	100	A:  - Para que esten enterados 	2008-09-08	0	\N	71668436		0         
-20081600002092	2	201	A:  - Se debe preparar respuesta 	2008-05-15	0	\N	70093389		0         
-20081200015352	3	100	A:  - Para que esten enterados 	2008-09-08	0	\N	71668436		0         
-20081600002412	3	201	A:  - estar pendientes de ésto 	2008-05-15	0	\N	70093389		0         
-20081200015342	3	100	A:  - Para que esten enterados 	2008-09-08	0	\N	71668436		0         
-20081200015332	3	100	A:  - Para que esten enterados 	2008-09-08	0	\N	71668436		0         
-20081200015282	3	100	A:  - Para que esten enterados 	2008-09-08	0	\N	71668436		0         
-20081200015222	3	100	A:  - Para que esten enterados 	2008-09-08	0	\N	71668436		0         
-20081200015172	3	100	A:  - Para que esten enterados 	2008-09-08	0	\N	71668436		0         
-20081600003412	2	190	A:  - Es urgente que respondamos este documento. 	2008-05-20	0	\N	71668436		0         
-20081600003942	1	170	A:  -  	2008-05-23	0	\N	44001662		0         
-20081600004502	1	170	A:  -  	2008-05-28	0	\N	44001662		0         
-20081600004992	3	100	A:  - Buenas Tardes Ingeniero, Le informo que llego esta solicitud de Reajuste a la liquidación Laboral del empleado retirado Oscar Fernando Loaiza Sanchez. Este tema ya es de conocimiento de la Dirección Juridica. 	2008-06-03	0	\N	71661189		0         
-20081600005432	1	170	A:  -  	2008-06-06	0	\N	44001662		0         
-20081600017562	1	100	A:  -  	2008-09-24	0	\N	44001662		0         
-20081600005662	3	100	A:  - Esta es la correspondencia recibida en la semana 	2008-06-16	0	\N	71668436		0         
-20081800004571	1	150	A:  -  	2008-06-13	1	\N	15371834		0         
-20081600000462	1	150	A:  -  	2008-04-22	1	\N	44001662		0         
-20081600005832	1	170	A:  - Marisol, es para no pagar despues de la fecha de sesión 	2008-06-17	0	\N	71661189		0         
-20081300012241	1	203	A:  - LUDYS LE ENVIO EL OFICIO QUE SE ENVIO A REGENCY DE LAS QUEJAS EN LA ESTACION DE PEAJE NIQUIA 	2008-09-29	1	\N	1035414745		0         
-20081600018422	9	201	A:  - Para que estés enterado y se cobre cuando se haga 	2008-10-06	0	\N	3228538		0         
-20081600017232	2	190	A:  - Para sus comentarios 	2008-09-23	0	\N	3228538		0         
-20081600002912	1	170	A:  - Verificar con COCAN si se hizo este descuento y además si Gehatovial le hizo el descuento a COCAN 	2008-06-18	0	\N	43069684		0         
-20081600002301	1	170	A:  - Verificar con COCAN si se hizo este descuento y además si Gehatovial le hizo el descuento a COCAN 	2008-06-18	0	\N	43069684		0         
-20081600002261	1	170	A:  - Verificar con COCAN si se hizo este descuento y además si Gehatovial le hizo el descuento a COCAN 	2008-06-18	0	\N	43069684		0         
-20081600017572	1	100	A:  -  	2008-09-24	0	\N	44001662		0         
-20081600004192	1	140	A:  - COPIAS INCAPACIDADES, HISTORIA CLINICA DEL SEÑOR JESUS ALBERTO MACIAS 	2008-05-27	1	\N	70093389		0         
-20081200017752	9	201	A:  - Creo quue ya miramos los planos de esto. Informaré de su existencia a JOrtiz 	2008-10-06	0	\N	3228538		0         
-20081600003752	1	140	A:  -  	2008-05-21	1	\N	44001662		0         
-20081600003752	1	140	A:  - Para tu información dictamen médico de la ARP del accidente de trabajo ocurrido el 3 de agosto de 2007 	2008-05-21	1	\N	70093389		0         
-20081600003202	1	140	A:  - supuestos daños durante la rehablitación HatilloBarbosa. SOlcitar alCOCAN la información del caso para proceder conforme 	2008-05-19	1	\N	3228538		0         
-20081600003162	1	140	A:  - Preguntar a Catalina sobre este tema 	2008-06-17	1	\N	43069684		0         
-20081600002412	1	140	A:  - Mientras no existan recursos el Concesionario no podrá acometer obras diferentes a las presupuestadas. 	2008-05-13	1	\N	3228538		0         
-20081600001541	1	140	A:  - Para hacer seguimiento 	2008-05-13	1	\N	43069684		0         
-20081600004652	1	140	A:  -  	2008-05-29	1	\N	44001662		0         
-20081600002662	1	140	A:  -  	2008-05-13	1	\N	44001662		0         
-20081600005742	1	140	A:  - para tener en cuenta en revisión de acta, cometar a katidia 	2008-06-17	1	\N	43069684		0         
-20081600005582	3	201	A:  - Karol: Te informo de este comunicado de la interventoría 	2008-06-19	0	\N	70093389		0         
-20081600006982	1	170	A:  -  	2008-06-19	0	\N	44001662		0         
-20082010015962	1	201	A:  - Ya estarás enterado!! 	2008-09-23	0	\N	3228538		0         
-20081600007052	1	170	A:  -  	2008-06-20	0	\N	44001662		0         
-20081600007082	1	170	A:  -  	2008-06-20	0	\N	44001662		0         
-20081600007112	1	170	A:  -  	2008-06-23	0	\N	44001662		0         
-20081200007122	3	201	A:  - Karol: Ya recibimos el juego del estudio de impacto ambiental Hatillo-Barbosa enreagdo al Ministerio con radicado 4120-E165494 	2008-06-24	0	\N	70093389		0         
-20081600007212	1	170	A:  -  	2008-06-24	0	\N	44001662		0         
-20081600007332	1	170	A:  -  	2008-06-24	0	\N	44001662		0         
-20081600007342	1	170	A:  -  	2008-06-24	0	\N	44001662		0         
-20081600007352	1	170	A:  -  	2008-06-24	0	\N	44001662		0         
-20081600007722	1	170	A:  -  	2008-06-26	0	\N	44001662		0         
-20081600007912	1	170	A:  -  	2008-07-01	0	\N	44001662		0         
-20081600007922	1	170	A:  -  	2008-07-01	0	\N	44001662		0         
-20081600020482	1	170	A:  - Marisol, para tu información. La comunicación fue reasignada a Germán Vélez.  	2008-10-21	0	\N	3228538		0         
-20081600021222	1	170	A:  - Para tu información 	2008-10-28	0	\N	3228538		0         
-20081600008092	1	170	A:  -  	2008-07-02	0	\N	44001662		0         
-20081600008172	1	170	A:  -  	2008-07-03	0	\N	44001662		0         
-20081600014762	1	250	A:  - Para que esten enterados 	2008-09-08	0	\N	71668436		0         
-20081600000341	2	110	A:  - ESTE ES EL RECIBIDO DEL OFICIO SOBRE ACLARACION DE ALQUILER R.O.S.A ENVIADO A AIM 	2008-04-24	1	\N	44001662		0         
-20081600009981	8	120	A:  - Hola Byron, te informo que tengo la carta que enviaste al Exito, ya la asocie con la carta que nos llego como solicitud y la archive para que porfavor asocies esa carta que tienes, con el siguiente radicado 20081600009981. Gracias 	2008-09-03	1	\N	40042789		0         
-20082010010871	1	201	A:  -  	2008-09-08	0	\N	43874224		0         
-20081600019402	1	140	A:  -  	2008-10-10	0	\N	44001662		0         
-20081600020472	1	170	A:  - Marsiol para tu información. Reasignada a Germán 	2008-10-21	0	\N	3228538		0         
-20081600008572	1	170	A:  -  	2008-07-07	0	\N	44001662		0         
-20081600008582	1	170	A:  -  	2008-07-07	0	\N	44001662		0         
-20081600008592	1	170	A:  -  	2008-07-07	0	\N	44001662		0         
-20081600008602	1	170	A:  -  	2008-07-07	0	\N	44001662		0         
-20081600008612	1	170	A:  -  	2008-07-07	0	\N	44001662		0         
-20081600008652	1	170	A:  -  	2008-07-07	0	\N	44001662		0         
-20081600008662	1	170	A:  -  	2008-07-07	0	\N	44001662		0         
-20081600020252	1	170	A:  - Para tu información 	2008-10-28	0	\N	3228538		0         
-20081600009152	1	170	A:  -  	2008-07-10	0	\N	44001662		0         
-20082010006621	1	201	A:  -  	2008-07-10	0	\N	43874224		0         
-20082010006631	1	201	A:  -  	2008-07-10	0	\N	43874224		0         
-20082010006641	1	201	A:  -  	2008-07-10	0	\N	43874224		0         
-20082010006651	1	201	A:  -  	2008-07-10	0	\N	43874224		0         
-20081700006761	1	170	A:  -  	2008-07-11	0	\N	43870158		0         
-20081200015392	8	120	A:  - Byron. Me puedes informar si el área requerida relacionada en esta carta se encuentra disponible para la ampliación de la DC? 	2008-09-15	0	\N	98632481		0         
-20081600017612	1	100	A:  -  	2008-09-24	0	\N	44001662		0         
-20082010010891	1	201	A:  -  	2008-09-08	0	\N	43874224		0         
-20081600016232	1	203	A:  - Hola Ludis: te informo de carta respuesta de Comarca acerca de queja acerca del arrojar escombros en predios de este usuario, para los fines pertinentes. Mónica 	2008-09-23	1	\N	40042789		0         
-20081600020442	1	201	A:  - Favor tener esto en cuenta 	2008-10-21	0	\N	3228538		0         
-20081600021112	1	201	A:  - Que sabemos de esto 	2008-10-28	0	\N	3228538		0         
-20081600016252	3	100	A:  - Para su información 	2008-09-15	0	\N	71668436		0         
-20081600016222	3	100	A:  - Para su información 	2008-09-15	0	\N	71668436		0         
-20081600016212	3	100	A:  - Para su información 	2008-09-15	0	\N	71668436		0         
-20081600016192	3	100	A:  - Para su información 	2008-09-15	0	\N	71668436		0         
-20081600016182	3	100	A:  - Para su información 	2008-09-15	0	\N	71668436		0         
-20081600016172	3	100	A:  - Para su información 	2008-09-15	0	\N	71668436		0         
-20081600009462	7	201	A:  - Para su informacion 	2008-07-17	0	\N	71668436		0         
-20081600009422	7	201	A:  - Para su informacion 	2008-07-17	0	\N	71668436		0         
-20081600016262	3	100	A:  - Para su información. 	2008-09-19	0	\N	71668436		0         
-20082030009892	1	201	A:  -  	2008-07-18	0	\N	39214584		0         
-20081600017622	1	140	A:  -  	2008-09-24	0	\N	44001662		0         
-20081200017932	2	190	A:  - Jorge:\r\n\r\nTe agradecería no te olvides de lo que hablamos, de que, en general, y si fuere aplicable, tratemos de ver la información a enviar antes de entregarla a la I, disciplina que nos puede ser útil en Hatillo Barbosa para mantener en cintura el presupuesto y en Barbosa Cisneros para controlar nuestros costos y maximizar nuestra U. \r\n\r\nCordial saludo,\r\n\r\nJCSA 	2008-09-29	0	\N	3228538		0         
-20081600018822	1	170	A:  -  	2008-10-06	0	\N	44001662		0         
-20081600019632	1	170	A:  -  	2008-10-14	0	\N	44001662		0         
-20081600020312	1	170	A:  - Marisol, para tu información. Fue reasignada a Germán Vélez 	2008-10-21	0	\N	3228538		0         
-20081600016142	7	201	A:  - analicemos conjuntamente como cobrar el tiempo de los equipos trabajando en la q. el limonar. Me preocupa la posicion de la interventoria acudiendo a una figura de solidaridad. eso es un negocio 	2008-09-16	0	\N	7630451		0         
-20081600017632	1	100	A:  -  	2008-09-24	0	\N	44001662		0         
-20081600017802	2	190	A:  - Favor sus comentarios sobre esto para el próximo miércoles; puedes enviarlo por correo @ 	2008-09-29	0	\N	3228538		0         
-20081600018832	1	170	A:  -  	2008-10-06	0	\N	44001662		0         
-20081600019662	1	140	A:  -  	2008-10-14	0	\N	44001662		0         
-20081600020332	1	170	A:  - Marisol, para tu información. Reasignada a G Vélez 	2008-10-21	0	\N	3228538		0         
-20081600017642	1	100	A:  -  	2008-09-24	0	\N	44001662		0         
-20081600002012	3	201	A:  - ESta fue la carta del MAVDT de la ultima visita para cuando se envien documenetos relacionados hacer referncia a este radicado 	2008-05-18	1	\N	3228538		0         
-20081600001881	3	201	A:  - Para su inofrmación 	2008-05-13	1	\N	3228538		0         
-20081600001672	3	201	A:  - Karol: Favor ejecutar mediciones de aire autorizadas por interventoría y facturar por Admon Delegada 	2008-05-02	1	\N	70093389		0         
-20081600017672	9	201	A:  - Se le va a pedir a EDL que cotice esto 	2008-10-06	0	\N	3228538		0         
-20081600018842	1	170	A:  -  	2008-10-06	0	\N	44001662		0         
-20081300008021	1	203	A:  - Ludis, la queja del usuario sobre el alumbrado se remitio a la Interventoria ya que no tenemos nexo contractual para el alumbrado, ese contrato es entre EPM y la Gobernación. Mónica 	2008-07-28	0	\N	40042789		0         
-20081200015892	9	201	A:  - diego revisar topograficamente. Jaime: Luego de la revision por parte de Diego enviarlo a AIM para revision 	2008-09-16	1	\N	7630451		0         
-20081600020352	8	201	A:  - Jaime. Para que estés enterado. J Ortiz ya sabe. 	2008-10-21	0	\N	3228538		0         
-20081600010482	1	201	A:  - Traslado comunicado de interventoría sobre las obras hidráulicas de la troncal occidental 	2008-07-30	0	\N	98632481		0         
-20081600021072	1	140	A:  -  	2008-10-27	0	\N	44001662		0         
-20081200014631	1	100	A:  -  	2008-10-31	0	\N	43563338		0         
-20081600010472	7	201	A:  - Cotización aprobada a LUGÓN por la interventoría para construcción de tanque 	2008-07-30	1	\N	98632481		0         
-20081600011052	1	203	A:  - Ludis,para tu inforamación esta es la respuesta que le da la Interventoria al usuario que puso la queja en Rosa acerca del alumbrado. Mónica 	2008-07-31	0	\N	40042789		0         
-20081600011262	1	170	A:  -  	2008-08-04	0	\N	44001662		0         
-20081600016612	3	100	A:  - para su información 	2008-09-16	0	\N	71668436		0         
-20081600016602	3	100	A:  - para su información 	2008-09-16	0	\N	71668436		0         
-20081600016522	3	100	A:  - para su información 	2008-09-16	0	\N	71668436		0         
-20081600016512	3	100	A:  - para su información 	2008-09-16	0	\N	71668436		0         
-20081600016432	3	100	A:  - para su información 	2008-09-16	0	\N	71668436		0         
-20081600016422	3	100	A:  - para su información 	2008-09-16	0	\N	71668436		0         
-20081600016412	3	100	A:  - para su información 	2008-09-16	0	\N	71668436		0         
-20081600016402	3	100	A:  - para su información 	2008-09-16	0	\N	71668436		0         
-20081600016392	3	100	A:  - para su información 	2008-09-16	0	\N	71668436		0         
-20081600016382	3	100	A:  - para su información 	2008-09-16	0	\N	71668436		0         
-20081600016342	3	100	A:  - para su información 	2008-09-16	0	\N	71668436		0         
-20081600016332	3	100	A:  - para su información 	2008-09-16	0	\N	71668436		0         
-20081600016322	3	100	A:  - para su información 	2008-09-16	0	\N	71668436		0         
-20081600016312	3	100	A:  - para su información 	2008-09-16	0	\N	71668436		0         
-20081600006892	3	201	A:  - Karol: Te remito el radicado del Ministerio; ya se envío al Dr Omar Hoyos 	2008-06-19	1	\N	70093389		0         
-20081600011282	3	201	A:  - Karol: Para los fines pertinentes y envío al Ministerio  	2008-08-05	0	\N	70093389		0         
-20081200016592	3	100	A:  - para su información 	2008-09-16	0	\N	71668436		0         
-20081200016582	3	100	A:  - para su información 	2008-09-16	0	\N	71668436		0         
-20081200016622	3	100	A:  - Para su información. 	2008-09-19	0	\N	71668436		0         
-20081200015172	2	190	A:  - Para tener en cuenta. Ha pasado algo con esto? 	2008-09-29	0	\N	3228538		0         
-20081600011702	1	170	A:  -  	2008-08-06	0	\N	44001662		0         
-20081600011862	3	100	A:  - Para su información 	2008-08-10	0	\N	71668436		0         
-20081600020342	1	201	A:  - Para su información 	2008-10-21	0	\N	3228538		0         
-20081600019742	1	203	A:  -  	2008-10-14	1	\N	44001662		0         
-20081600021112	1	140	A:  -  	2008-10-27	0	\N	44001662		0         
-20081600021342	1	170	A:  - Para tu informacion 	2008-10-31	0	\N	40042789		0         
-20081600016312	1	203	A:  - Ludis para tu información estamos pendientes de la autorización por parte de la gerencia 	2008-09-17	1	\N	70093389		0         
-20081600012282	1	170	A:  -  	2008-08-13	0	\N	44001662		0         
-20081200000432	1	203	A:  -  	2008-04-22	1	\N	43563338		0         
-20081100007361	1	203	A:  - Te envío la comunicación dirigida a la interventoría acerca de las solicitudes conversadas por teléfono 	2008-07-31	1	\N	70093389		0         
-20081600018902	1	170	A:  -  	2008-10-07	0	\N	44001662		0         
-20081600020362	1	170	A:  - Marisol, para tu información. Redireccionada a G. Vélez 	2008-10-21	0	\N	3228538		0         
-20082030021872	1	150	A:  -  	2008-11-04	0	\N	39214584		0         
-20081600012732	1	170	A:  - Marisol, para tu info envio carta consignación seguridad vial hecha por Regency. Mónica 	2008-08-15	0	\N	40042789		0         
-20081600012762	5	110	A:  - Tatiana: Esta es la inscripción del COPASO de ASOCOMUNAL ante el Ministerio.  	2008-08-19	0	\N	70093389		0         
-20081600013042	1	170	A:  -  	2008-08-19	0	\N	44001662		0         
-20081600012052	3	201	A:  - Karol para tu información 	2008-08-25	0	\N	70093389		0         
-20081600013142	3	201	A:  - Karito para tu información 	2008-08-25	0	\N	70093389		0         
-20081600012592	3	201	A:  - Karito para tu información 	2008-08-25	0	\N	70093389		0         
-20081600012582	3	201	A:  - Karol para tu información 	2008-08-25	0	\N	70093389		0         
-20081600012562	3	201	A:  - Karol para tu información 	2008-08-25	0	\N	70093389		0         
-20081600012552	3	201	A:  - Karol para tu información 	2008-08-25	0	\N	70093389		0         
-20081600012542	3	201	A:  - Karol para tu información 	2008-08-25	0	\N	70093389		0         
-20081600012532	3	201	A:  - Karol para tu información 	2008-08-25	0	\N	70093389		0         
-20081600012302	3	201	A:  - Karol para tu información 	2008-08-25	0	\N	70093389		0         
-20081600017352	1	201	A:  -  	2008-09-23	0	\N	44001662		0         
-20081600017672	1	201	A:  -  	2008-09-24	0	\N	44001662		0         
-20081600018912	1	170	A:  -  	2008-10-07	0	\N	44001662		0         
-20081600011252	7	120	A:  - Para su información 	2008-08-13	1	\N	71668436		0         
-20081600003772	7	201	A:  - Por favor proceder de acuerdo con este comunicado 	2008-05-21	1	\N	71668436		0         
-20081200020392	8	201	A:  - Para que estés enterado. Se est;á redireccionando a JOrtiz 	2008-10-21	0	\N	3228538		0         
-20081200015342	7	201	A:  - sacar presupuesto y enviar a interventoria para aprobacion. no creo que este dentro del presupuesto 	2008-09-10	0	\N	7630451		0         
-20081600021272	1	170	A:  - Para tu información 	2008-10-28	0	\N	3228538		0         
-20081600021882	1	140	A:  -  	2008-11-04	0	\N	44001662		0         
-20081600022532	1	170	A:  - Para tu información. Reasignada a Germán 	2008-11-07	0	\N	3228538		0         
-20081600022472	1	140	A:  - Para tu información  	2008-11-07	0	\N	3228538		0         
-20081200022412	1	201	A:  - Para tu infromación. Reasignado a Claudia López 	2008-11-07	0	\N	3228538		0         
-20082030021842	1	120	A:  - Ingeniero German, esta es la solicitud de la Junta de Isaza, que pide patrocinio para el sonido de un día civico de integración. El sonido lo valoran muy alto en $800.000, seguro cuesta mucho menos con el que nos ha prestado el servicio en otros eventos. Gracias. 	2008-11-07	1	\N	32017343		0         
-20081600019712	1	203	A:  -  	2008-10-14	1	\N	44001662		0         
-20081600021132	1	120	A:  - Hola Germán, te informo la carta de rta de la interventoria a la entrega de la propuesta de Diseño del Peaje Niquia en las condiciones actuales de predios. Mónica 	2008-11-12	0	\N	40042789		0         
-20081600023292	1	170	A:  - Para tu información. Reasignada a Germán 	2008-11-13	0	\N	3228538		0         
-20081600023132	1	140	A:  - Para tu información 	2008-11-13	0	\N	3228538		0         
-20081600022982	2	190	A:  - Para información 	2008-11-13	0	\N	3228538		0         
-20081600022872	1	170	A:  - Para tu información 	2008-11-13	0	\N	3228538		0         
-20081200022992	2	190	A:  - Para que estén enterados 	2008-11-13	0	\N	3228538		0         
-20081600023002	2	190	A:  - Para su información 	2008-11-13	0	\N	3228538		0         
-20081600023032	1	120	A:  - Para que estés enterado 	2008-11-13	0	\N	3228538		0         
-20081600023132	1	100	A:  - Ya nos notificamos. Se trata de la licencia Ambiental del tramo Hatillo-Barbosa 	2008-11-13	0	\N	70093389		0         
-20081600023282	1	170	A:  - Para tu información 	2008-11-14	0	\N	3228538		0         
-20081600023402	2	190	A:  - Para que nos indiques tus comentarios 	2008-11-14	0	\N	3228538		0         
-20081200023312	1	201	A:  - Para tu información 	2008-11-14	0	\N	3228538		0         
-20081600023222	1	170	A:  - Para tu información 	2008-11-14	0	\N	3228538		0         
-20081200022782	1	201	A:  - Para tu información. Reasignado a Claudia 	2008-11-14	0	\N	3228538		0         
-20081600022682	1	201	A:  - Para tu información 	2008-11-14	0	\N	3228538		0         
-20081600022672	1	201	A:  - Para tu información 	2008-11-14	0	\N	3228538		0         
-20081600022662	1	201	A:  - Para tu información 	2008-11-14	0	\N	3228538		0         
-20081600022702	1	201	A:  - Para tu información 	2008-11-14	0	\N	3228538		0         
-20081600022712	1	201	A:  - Pra tu información 	2008-11-14	0	\N	3228538		0         
-20081600022722	1	201	A:  - Para que estés enterado 	2008-11-14	0	\N	3228538		0         
-20081600022732	1	201	A:  - Para que estés enterado y pongas cuidado  	2008-11-14	0	\N	3228538		0         
-20081600023792	1	120	A:  -  	2008-11-18	0	\N	44001662		0         
-20081600023802	1	100	A:  -  	2008-11-18	0	\N	44001662		0         
-20081600023812	1	100	A:  -  	2008-11-18	0	\N	44001662		0         
-20081600023822	1	100	A:  -  	2008-11-18	0	\N	44001662		0         
-20081600023492	1	170	A:  - Para que estes enterada. Reasignada a Germán 	2008-11-18	0	\N	3228538		0         
-20081600023502	1	170	A:  - Para que estes enterada. Reasignada a Germán 	2008-11-18	0	\N	3228538		0         
-20081600023472	1	170	A:  - Para que estes enterada. Reasignada a Germán 	2008-11-18	0	\N	3228538		0         
-20081600023462	1	170	A:  - Para que estes enterada. Reasignada a Germán   	2008-11-18	0	\N	3228538		0         
-20081600023452	1	170	A:  - Para que estes enterada. Reasignada a Germán 	2008-11-18	0	\N	3228538		0         
-20081600023442	1	170	A:  - Para que estés enterada. Reasignada a Germán 	2008-11-18	0	\N	3228538		0         
-20081600023482	1	170	A:  - Para que estes enterada. Reasignada a Germán 	2008-11-18	0	\N	3228538		0         
-20081200023522	1	120	A:  - Para tu información. Reasignada a J. Fajardo 	2008-11-18	0	\N	3228538		0         
-20081200023642	1	201	A:  - Para tu información. Claudia López queda a cargo 	2008-11-18	0	\N	3228538		0         
-20081600023702	1	170	A:  - Para que estes enterada. Reasignada a Germán 	2008-11-18	0	\N	3228538		0         
-20081600023692	1	170	A:  - Para que estes enterada. Reasignada a Germán 	2008-11-18	0	\N	3228538		0         
-20081600023682	1	170	A:  - Para que estés enterada. Reasignada a germán 	2008-11-18	0	\N	3228538		0         
-20081200023662	8	201	A:  - Para que estés einformado. Reasignada a Germán 	2008-11-18	0	\N	3228538		0         
-20081600023602	1	120	A:  - Para que estes informado 	2008-11-18	0	\N	3228538		0         
-20081600024112	1	170	A:  -  	2008-11-20	0	\N	44001662		0         
-20081600024182	1	120	A:  -  	2008-11-21	0	\N	44001662		0         
-20081600024692	1	120	A:  -  	2008-11-26	0	\N	44001662		0         
-20081600024702	1	140	A:  -  	2008-11-26	0	\N	44001662		0         
-20081600024762	5	110	A:  - Tatiana: Esta es la información enviadad por Comarca y solicitada por la gerencia dentro de los nuevos lineamientos de seguimiento a los contratos. Recuerda  el caso de la DCC 	2008-11-27	0	\N	70093389		0         
-20081600023972	5	110	A:  - Para su información 	2008-11-27	0	\N	40042789		0         
-20081200023322	1	130	A:  - Para tu información 	2008-11-14	1	\N	3228538		0         
-20081600024392	1	203	A:  - Hola Ludis: te Informo de la respuesta de Regency, si eres tan amable verificar con la Sra la claridad de la llamada que le hizo Regency a ella. Gracias 	2008-11-26	1	\N	40042789		0         
-20081600015302	3	203	A:  - Eliza: Estos son los soportes para el acta en el componente social. Recuerda concertar antes con Vicky los itemes para esta acta y posteriormente se entregan a Jaime Fajardo 	2008-09-10	1	\N	70093389		0         
-20082010024902	1	201	A:  -  	2008-11-27	0	\N	3258796		0         
-20081600024922	1	120	A:  -  	2008-11-27	0	\N	44001662		0         
-20081600024682	1	140	A:  - Para que colabores con Germán en la atención de esta comunicación 	2008-12-01	0	\N	3228538		0         
-20081600024702	1	170	A:  - Para tu información. Reasignada a Germán 	2008-12-01	0	\N	3228538		0         
-20081600024712	1	170	A:  - Para tu información. Reasignada a Germán 	2008-12-01	0	\N	3228538		0         
-20081600024752	1	120	A:  - Se reasigna a Marisol. Para que estés enterado 	2008-12-01	0	\N	3228538		0         
-20081600024802	1	120	A:  - Para tu información. Marisol queda a cargo 	2008-12-01	0	\N	3228538		0         
-20081600024882	1	120	A:  - Para tu información. Reasignada a J. Ortiz para que proceda 	2008-12-01	0	\N	3228538		0         
-20081600024552	1	201	A:  - Para su información 	2008-12-01	0	\N	3228538		0         
-20081600024562	1	201	A:  - pARA TU INFORMACIÓN 	2008-12-01	0	\N	3228538		0         
-20081600024542	1	201	A:  - Para tu información 	2008-12-01	0	\N	3228538		0         
-20081600025042	1	120	A:  - Para que estés enterado. Fabio queda a cargo 	2008-12-01	0	\N	3228538		0         
-20081600025032	1	120	A:  - Para tu información. Jaime F. queda a cargo 	2008-12-01	0	\N	3228538		0         
-20081200024962	1	120	A:  - Para tu información 	2008-12-01	0	\N	3228538		0         
-20081600025222	1	120	A:  -  	2008-12-01	0	\N	44001662		0         
-20081200024832	1	120	A:  - Para tu información 	2008-12-01	0	\N	3228538		0         
-20081200024952	1	201	A:  - Para tu información 	2008-12-01	0	\N	3228538		0         
-20081600025142	2	190	A:  - HAY PROBLEMAS DE CÁLCULO O DE CONSTRUCIÓN? 	2008-12-01	0	\N	3228538		0         
-20081600025132	1	120	A:  - Para tu información. Reasignada a J. Ortiz 	2008-12-01	0	\N	3228538		0         
-20081600024872	1	120	A:  - Para tu información. Reasignada a J. Ortiz 	2008-12-01	0	\N	3228538		0         
-20081600024302	1	120	A:  - Para tu información 	2008-12-01	0	\N	3228538		0         
-20081000000522	2	180	A:  - ksajkklf ksjdk kjs 	2008-04-30	1	\N	799850534		0         
 \.
 
 
@@ -29660,65 +29086,6 @@ COPY sgd_actadd_actualiadicional (sgd_actadd_codi, sgd_apli_codi, sgd_instorf_co
 --
 
 COPY sgd_agen_agendados (sgd_agen_fech, sgd_agen_observacion, radi_nume_radi, usua_doc, depe_codi, sgd_agen_codigo, sgd_agen_fechplazo, sgd_agen_activo) FROM stdin;
-2007-09-21	Agendado para el 2007-09-28 - Prueba agendar. 	20079000000172	900102030	900	\N	2007-09-28	1
-2007-09-21	Agendado para el 2007-09-28 - rtgrtrgtr 	20079000000431	951357	900	\N	2007-09-28	1
-2007-09-21	Agendado para el 2007-09-25 - Prueba agendar sin expediente 	20079000000182	900102030	900	\N	2007-09-17	1
-2007-09-21	Agendado para el 2007-09-28 - rtgrtrgtr 	20079000000431	951357	900	\N	2007-09-28	1
-2007-09-21	Agendado para el 2007-09-28 - Prueba agendar. 	20079000000172	900102030	900	\N	2007-09-28	0
-2007-09-21	Agendado para el 2007-09-25 - Prueba agendar sin expediente 	20079000000182	900102030	900	\N	2007-09-17	0
-2008-04-17	Agendado para el 2008-04-18 - Estar pendiente del documento pilas  	20081600000102	44001662	160	\N	2008-04-18	1
-2008-04-17	Agendado para el 2008-04-18 - ojo no dejar pasar 	20081300518051	71736206	130	\N	2008-04-18	1
-2008-04-17	Agendado para el 2008-04-18 - no aplica 	20081300518051	71736206	130	\N	2008-04-18	1
-2008-04-19	Agendado para el 2008-04-30 - no puede pasar de esta semana 	20081600000072	79985053	100	\N	2008-04-30	1
-2008-04-21	Agendado para el 2008-04-22 - Enviar urgente 	20081200000011	71668436	120	\N	2008-04-22	1
-2008-04-22	Agendado para el 2008-04-23 - Remitir a Cocan y a Sociales para tomar acciones y terminar el puente independientemente de las EPM 	20081600000412	3228538	100	\N	2008-04-23	1
-2008-04-22	Agendado para el 2008-04-23 - Información y tratar con Cocan 	20081600000412	3228538	100	\N	2008-04-23	1
-2008-04-22	Agendado para el 2008-04-23 - Remitir carat a Cocan incluyendo la de la comunidad  	20081600000372	3228538	100	\N	2008-04-23	1
-2008-04-22	Agendado para el 2008-04-23 - Interventoria autorización de ejecución por Admons delegada 	20081600000362	3228538	100	\N	2008-04-23	1
-2008-04-22	Agendado para el 2008-04-23 - ACCIONES CON COCAN 	20081600000352	3228538	100	\N	2008-04-23	1
-2008-04-24	Agendado para el 2008-04-25 - Remitir a EDl y estar pendiente de que atiendan los requerimientos de AIM 	20081600000902	3228538	100	\N	2008-04-25	0
-2008-04-24	Agendado para el 2008-04-25 - Agendado para el 2008-04-25 - Remitir a EDl y estar pendiente de que atiendan los requerimientos de AIM 	20081600000892	3228538	100	\N	2008-04-25	0
-2008-04-24	Agendado para el 2008-04-25 - Agendado para el 2008-04-25 - Agendado para el 2008-04-25 - Remitir a EDl y estar pendiente de que atiendan los requerimientos de AIM 	20081600000882	3228538	100	\N	2008-04-25	0
-2008-04-24	Agendado para el 2008-04-25 - Agendado para el 2008-04-25 - Agendado para el 2008-04-25 - Agendado para el 2008-04-25 - Remitir a EDl y estar pendiente de que atiendan los requerimientos de AIM 	20081600000862	3228538	100	\N	2008-04-25	0
-2008-04-24	Agendado para el 2008-04-25 - Agendado para el 2008-04-25 - Agendado para el 2008-04-25 - Agendado para el 2008-04-25 - Agendado para el 2008-04-25 - Remitir a EDl y estar pendiente de que atiendan los requerimientos de AIM 	20081600000852	3228538	100	\N	2008-04-25	0
-2008-04-22	Agendado para el 2008-04-23 - Enterdao 	20081600000462	3228538	100	\N	2008-04-23	0
-2008-04-29	Agendado para el 2008-04-30 - Responder sin falta 	20081600001162	71668436	120	\N	2008-04-30	1
-2008-04-29	Agendado para el 2008-04-30 - Agendado para el 2008-04-30 - Responder sin falta 	20081600001152	71668436	120	\N	2008-04-30	1
-2008-04-29	Agendado para el 2008-05-06 - Estar pendiente de los documentos y la fecha de la audiencia, averiguarla 	20081500001392	43069684	140	\N	2008-05-06	1
-2008-04-28	Agendado para el 2008-04-30 - Pagaré debe estar firmado con el fin de terminar el procedimiento de asegurabilidad con COMARCA. 	20081600001182	432235467	140	\N	2008-04-30	0
-2008-04-28	Agendado para el 2008-04-29 - Dirección Juridica, complementar borrador de solicitud sobre acciones para intervenir rehabilitación de la obra 	20081600001292	3228538	100	\N	2008-04-29	0
-2008-04-28	Agendado para el 2008-04-30 - Se requiere información de otras dependencias 	20081600000072	43069684	140	\N	2008-04-30	0
-2008-04-21	Agendado para el 2008-04-23 - Escritura para tramitar predio Zapata Jimenez 	20081600000092	3228538	100	\N	2008-04-23	0
-2008-04-21	Agendado para el 2008-04-24 - Para Pago Fideicoimiso Rubro predios  tener presente el saldo de predios 	20081600000032	3228538	100	\N	2008-04-24	0
-2008-04-29	Agendado para el 2008-05-09 - Dar respuesta al derecho de petición 	20081600001552	43069684	140	\N	2008-05-09	0
-2008-04-30	Agendado para el 2008-05-02 - Enviar a Sura al doctor Fernando Moreno y con las demás reclamaciones a Lozano 	20081600001722	43069684	140	\N	2008-05-02	0
-2008-04-30	Agendado para el 2008-05-02 - Verificar quien en cocan nos puede dar acompañamiento para verificar los daños en el predio y si cabe responsabilidad al proyecto 	20081500001702	43069684	140	\N	2008-05-02	0
-2008-05-13	Agendado para el 2008-05-15 - Discutir el tema con Risks en mi concepto no debe autorizarse 	20081600002362	43069684	140	\N	2008-05-15	0
-2008-05-13	Agendado para el 2008-05-15 - Este tema es para tratarlo con los de Risks en la reunión del jueves 	20081600002362	43069684	140	\N	2008-05-15	0
-2008-05-13	Agendado para el 2008-05-15 - pra reunión jueves risks 	20081600002362	43069684	140	\N	2008-05-15	0
-2008-05-13	Agendado para el 2008-05-15 - reunión jueves risks 	20081600002362	43069684	140	\N	2008-05-15	0
-2008-04-21	Agendado para el 2008-04-22 - dar res´puesta a la GERNCIA SOBRE LA DEOLUCIÓN DE LA OFICNA DE REGISTRO. Coordinar con Byron e informarme 	20081600000202	3228538	100	\N	2008-04-22	0
-2008-04-21	Agendado para el 2008-04-24 - ENVIO FIEICOMISDO PARA PAGO DEL FONDO  DE PREDIOS 	20081600000232	3228538	100	\N	2008-04-24	0
-2008-06-05	Agendado para el 2008-06-11 - Pendiente respuesta de la doctora Cecilia Uribe porque la audiencia se suspendió debido a que todas las partes no fueron representadas 	20081600005012	43069684	140	\N	2008-06-11	1
-2008-05-14	Agendado para el 2008-05-15 - Responder antes de esta fecha 	20081600002742	40042789	130	\N	2008-05-15	0
-2008-05-16	Agendado para el 2008-05-23 - Realizar este parcheo, luego de determinar forma de pago por parte de interventoria.\r\nMónica 	20081600002842	40042789	130	\N	2008-05-23	0
-2008-06-17	Agendado para el 2008-06-19 - Decir a Catalina que se notifique o verifique si se nos está notificando por aviso 	20081600006392	43069684	140	\N	2008-06-19	1
-2008-06-17	Agendado para el 2008-06-23 - Estar pndiente de cuando asignen fecha para audiencia 	20081600006062	43069684	140	\N	2008-06-23	1
-2008-06-17	Agendado para el 2008-06-18 - remitir a los socios nuevamente 	20081600004372	43069684	140	\N	2008-06-18	1
-2008-06-17	Agendado para el 2008-06-18 - Verificar este tema con el Cocan 	20081600003392	43069684	140	\N	2008-06-18	1
-2008-06-18	Agendado para el 2008-06-26 - Estar pendiente de este procedimiento con COCAN preparase para reclamación 	20081600002662	43069684	140	\N	2008-06-26	1
-2008-07-07	Agendado para el 2008-07-08 - Averiguar con interventoría si ya le dieron respuesta 	20081600007962	43069684	140	\N	2008-07-08	1
-2008-06-18	Agendado para el 2008-06-19 - Hablan con cesar otro siniestro que no se cobija 	20081600002892	43069684	140	\N	2008-06-19	0
-2008-04-22	Agendado para el 2008-04-30 - Es cobro  	20081800000482	70093389	110	\N	2008-04-30	0
-2008-04-23	Agendado para el 2008-04-28 - Ojo que no pase de la fecha  	20081600000352	70093389	110	\N	2008-04-28	0
-2008-04-29	Agendado para el 2008-04-30 - responder\r\n 	20081200001442	98632481	120	\N	2008-04-30	0
-2008-04-28	Agendado para el 2008-04-29 - Contestar 	20081200001342	98632481	120	\N	2008-04-29	0
-2008-04-29	Agendado para el 2008-04-30 - Agendado para el 2008-04-30 - responder\r\n 	20081200001342	98632481	120	\N	2008-04-30	0
-2008-08-01	Agendado para el 2008-08-20 - Audiencia para el 21 de agosto 	20081600010312	43069684	140	\N	2008-08-20	1
-2008-09-29	Agendado para el 2008-10-01 - Responder 	20081600017892	3228538	100	\N	2008-10-01	1
-2008-09-29	Agendado para el 2008-10-01 - enviado a J. Dussan para comentarios 	20081600017802	3228538	100	\N	2008-10-01	1
-2008-09-29	Agendado para el 2008-10-06 - Favor analizar y cotizar, para mirar el costo internamente y luego informar a la I sobre su valor. 	20081600017672	3228538	100	\N	2008-10-06	1
-2008-11-05	Agendado para el 2008-11-19 - Verificar el cumplimiento 	20081600017722	71668436	120	\N	2008-11-19	1
 \.
 
 
@@ -29735,31 +29102,6 @@ COPY sgd_anar_anexarg (sgd_anar_codi, anex_codigo, sgd_argd_codi, sgd_anar_argco
 --
 
 COPY sgd_anu_anulados (sgd_anu_id, sgd_anu_desc, radi_nume_radi, sgd_eanu_codi, sgd_anu_sol_fech, sgd_anu_fech, depe_codi, usua_doc, usua_codi, depe_codi_anu, usua_doc_anu, usua_codi_anu, usua_anu_acta, sgd_anu_path_acta, sgd_trad_codigo) FROM stdin;
-\N	Solicitud Anulacion.Solicitud de anulacion 	20081800000872	1	2008-04-25	\N	180	805123512349	2	\N	\N	\N	\N	\N	\N
-\N	Solicitud Anulacion.anule por el error que se genró	20081800000482	1	2008-04-25	\N	180	799850534	1	\N	\N	\N	\N	\N	\N
-\N	Solicitud Anulacion.era una prueba de orfeo	20081400000171	2	2008-05-14	\N	140	43069684	1	180	15371834	1	1	/pdfs/planillas/ActaAnul_180_1_001.pdf	1
-\N	Solicitud Anulacion.este radicado se hizo por error, se debia de hacer en el usuario de  gehatovial y se hizo en el usuario de bmolina por eso se pide la anulacion	20081600000241	2	2008-05-14	\N	160	44001662	1	180	15371834	1	1	/pdfs/planillas/ActaAnul_180_1_001.pdf	1
-\N	Solicitud Anulacion.ESTOS RADICADOS SE CREARON CUANDO ESTABAN EN PERIODO DE PRUEBA Y HUBIERON CAMBIOS EN EL SISTEMA	20081700000441	2	2008-05-14	\N	170	43870158	2	180	15371834	1	1	/pdfs/planillas/ActaAnul_180_1_001.pdf	1
-\N	Solicitud Anulacion.ESTOS RADICADOS SE CREARON CUANDO ESTABAN EN PERIODO DE PRUEBA Y HUBIERON CAMBIOS EN EL SISTEMA	20081700000451	2	2008-05-14	\N	170	43870158	2	180	15371834	1	1	/pdfs/planillas/ActaAnul_180_1_001.pdf	1
-\N	Solicitud Anulacion.ESTOS RADICADOS SE CREARON CUANDO ESTABAN EN PERIODO DE PRUEBA Y HUBIERON CAMBIOS EN EL SISTEMA	20081700000501	2	2008-05-14	\N	170	43870158	2	180	15371834	1	1	/pdfs/planillas/ActaAnul_180_1_001.pdf	1
-\N	Solicitud Anulacion.ESTOS RADICADOS SE CREARON CUANDO ESTABAN EN PERIODO DE PRUEBA Y HUBIERON CAMBIOS EN EL SISTEMA	20081700000511	2	2008-05-14	\N	170	43870158	2	180	15371834	1	1	/pdfs/planillas/ActaAnul_180_1_001.pdf	1
-\N	Solicitud Anulacion.eSTE RADICADO SE TRATA DE UN SIMULACRO CUANDO SE RECIBIÓ LA RESPECTIVA CAPACITACIÓN	20081100000161	1	2008-05-19	\N	110	70093389	1	\N	\N	\N	\N	\N	\N
-\N	Solicitud Anulacion.POR QUE ESTE OFICIO ERA DE SALIDA O LO INGRESE COMO ENTRADA	20081600004142	1	2008-05-23	\N	160	44001662	1	\N	\N	\N	\N	\N	\N
-\N	Solicitud Anulacion.Se solicita la anulacion del presente radicado, ya que COMCEL, no la recibio	20081500003301	1	2008-05-29	\N	150	43100987	3	\N	\N	\N	\N	\N	\N
-\N	Solicitud Anulacion.ME EQUIVOQUE ERA DE SALIDA Y LO RADIQUE DE ENTRAGA\r\nYADIRA JARAMILLO	20081200005492	1	2008-06-09	\N	120	43563338	3	\N	\N	\N	\N	\N	\N
-\N	Solicitud Anulacion.por que ya no se realizara el envio	20082000004051	1	2008-06-09	\N	200	1234567890	1	\N	\N	\N	\N	\N	\N
-\N	Solicitud Anulacion.PORQUE AL RADICAR SE LE INGRESA EL DESTINATARIO EQUIVICADO	20081600005562	1	2008-06-09	\N	160	44001662	1	\N	\N	\N	\N	\N	\N
-\N	Solicitud Anulacion.ME EQUIVOQUE  A DARLE ENTRADA Y NO SALIDA	20081200003472	1	2008-06-27	\N	120	43563338	3	\N	\N	\N	\N	\N	\N
-\N	Solicitud Anulacion.NO SE RADICO YA QUE EL ING. GERMAN HABLO ESTOS TEMAS CON ING. JORGE DUSSAN	20081200008691	1	2008-08-12	\N	120	43563338	3	\N	\N	\N	\N	\N	\N
-\N	Solicitud Anulacion.NO SE ENVIO AL CONSTRUCTOR PUES NO ES DEFINITIVO RADICAREMOS EL QUE APRUEBE EL MINISTERIO CON LA LICENCIA	20081200001941	1	2008-08-12	\N	120	43563338	3	\N	\N	\N	\N	\N	\N
-\N	Solicitud Anulacion.ME EQUIVOQUE ERA RADICADO DE SALIDA Y NO DE ENTRADA \r\n	20081200012402	1	2008-08-20	\N	120	43563338	3	\N	\N	\N	\N	\N	\N
-\N	Solicitud Anulacion.POR FALLA EN DIGITACION DE DESTINATARIO	20081700009951	1	2008-08-27	\N	170	42825542	4	\N	\N	\N	\N	\N	\N
-\N	Solicitud Anulacion.de acuerdo a solicitud de la Oficina de registro de quitar las areas de los linderos y asi no devolver las escrituras para aclarar.	20081200010201	1	2008-09-04	\N	120	71759850	8	\N	\N	\N	\N	\N	\N
-\N	Solicitud Anulacion.se debe corregor la minuta firmada por concedente, con relacion a las distancias de linderos toda vez que es una solicitud de la Registradora que no quiere tener estas distancias.	20081200010211	1	2008-09-04	\N	120	71759850	8	\N	\N	\N	\N	\N	\N
-\N	Solicitud Anulacion.por que este oficio era de entrada  y por error se hizo se salida	20081600010901	1	2008-09-09	\N	160	44001662	1	\N	\N	\N	\N	\N	\N
-\N	Solicitud Anulacion.Equivocación de objeto	20082010011591	1	2008-09-19	\N	201	716771931	9	\N	\N	\N	\N	\N	\N
-\N	Solicitud Anulacion.ERA DE SALIDA Y LO RADIQUE DE ENTRADA	20081200014501	1	2008-11-13	\N	120	43563338	3	\N	\N	\N	\N	\N	\N
-\N	Solicitud Anulacion.por que ya se habia enviado con el radicado de salida 20081300015381	20081300016151	1	2008-12-02	\N	130	1035414745	4	\N	\N	\N	\N	\N	\N
 \.
 
 
@@ -30060,8 +29402,6 @@ COPY sgd_ent_entidades (sgd_ent_nit, sgd_ent_codsuc, sgd_ent_pias, dpto_codi, mu
 --
 
 COPY sgd_enve_envioespecial (sgd_fenv_codigo, sgd_enve_valorl, sgd_enve_valorn, sgd_enve_desc) FROM stdin;
-109	100	1000	Envío especial-Acuse recibo
-109	100	1000	Envío especial-Acuse recibo
 \.
 
 
@@ -30106,11 +29446,9 @@ COPY sgd_fenv_frmenvio (sgd_fenv_codigo, sgd_fenv_descrip, sgd_fenv_planilla, sg
 103	ENTREGA PERSONAL	0	1
 104	FAX	0	1
 106	CORREO ELECTRÓNICO	0	1
-107	CORRA	0	1
 108	NORMAL	1	1
 109	CERTIFICADO CON ACUSE	1	1
 901	NO ENVIADO	0	1
-105	POSTEXPRESS	0	1
 \.
 
 
@@ -30433,50 +29771,6 @@ COPY sgd_srd_seriesrd (sgd_srd_codigo, sgd_srd_descrip, sgd_srd_fechini, sgd_srd
 --
 
 COPY sgd_tar_tarifas (sgd_fenv_codigo, sgd_tar_codser, sgd_tar_codigo, sgd_tar_valenv1, sgd_tar_valenv2, sgd_tar_valenv1g1, sgd_clta_codser, sgd_tar_valenv2g2, sgd_clta_descrip) FROM stdin;
-101	1	1	3500	4200	\N	1	\N	\N
-101	1	2	5000	5700	\N	1	\N	\N
-101	1	3	1200	1400	0	1	0	\N
-101	1	4	6200	7100	\N	1	\N	\N
-101	1	5	7400	8500	\N	1	\N	\N
-101	1	6	8600	9900	\N	1	\N	\N
-103	1	1	1	1	\N	1	\N	\N
-104	1	1	1	1	\N	1	\N	\N
-106	1	1	1	1	\N	1	\N	\N
-107	1	1	1	1	\N	1	\N	\N
-108	1	1	1200	3100	\N	1	\N	\N
-108	1	2	1400	3200	\N	1	\N	\N
-108	1	3	2600	4600	\N	1	\N	\N
-108	1	4	3800	6000	\N	1	\N	\N
-108	1	5	5000	7400	\N	1	\N	\N
-108	1	6	6200	8800	\N	1	\N	\N
-109	1	1	3500	4200	\N	1	\N	\N
-109	1	2	5000	5700	\N	1	\N	\N
-109	1	3	6200	7100	\N	1	\N	\N
-901	1	1	1	1	\N	1	\N	\N
-102	\N	1	100	1000	0	1	0	\N
-105	\N	1	100	1000	0	1	0	\N
-101	1	1	3500	4200	\N	1	\N	\N
-101	1	2	5000	5700	\N	1	\N	\N
-101	1	3	1200	1400	0	1	0	\N
-101	1	4	6200	7100	\N	1	\N	\N
-101	1	5	7400	8500	\N	1	\N	\N
-101	1	6	8600	9900	\N	1	\N	\N
-103	1	1	1	1	\N	1	\N	\N
-104	1	1	1	1	\N	1	\N	\N
-106	1	1	1	1	\N	1	\N	\N
-107	1	1	1	1	\N	1	\N	\N
-108	1	1	1200	3100	\N	1	\N	\N
-108	1	2	1400	3200	\N	1	\N	\N
-108	1	3	2600	4600	\N	1	\N	\N
-108	1	4	3800	6000	\N	1	\N	\N
-108	1	5	5000	7400	\N	1	\N	\N
-108	1	6	6200	8800	\N	1	\N	\N
-109	1	1	3500	4200	\N	1	\N	\N
-109	1	2	5000	5700	\N	1	\N	\N
-109	1	3	6200	7100	\N	1	\N	\N
-901	1	1	1	1	\N	1	\N	\N
-102	\N	1	100	1000	0	1	0	\N
-105	\N	1	100	1000	0	1	0	\N
 \.
 
 
@@ -30559,8 +29853,6 @@ COPY sgd_tpr_tpdcumento (sgd_tpr_codigo, sgd_tpr_descrip, sgd_tpr_termino, sgd_t
 COPY sgd_trad_tiporad (sgd_trad_codigo, sgd_trad_descr, sgd_trad_icono, sgd_trad_genradsal) FROM stdin;
 1	Salida	RadSalida.gif	\N
 3	Memorando	RadInterna.gif	\N
-4	Resolucion	RadResolucion.gif	\N
-9	Proyectos	RadProyectos.gif	\N
 2	Entrada	RadEntrada.gif	\N
 \.
 
@@ -30653,7 +29945,6 @@ COPY tipo_remitente (trte_codi, trte_desc) FROM stdin;
 0	ESP
 1	OTRA EMPRESA
 2	PERSONA NATURAL
-5	PREDIO
 3	OTRO
 \.
 
@@ -30671,8 +29962,7 @@ COPY ubicacion_fisica (ubic_depe_radi, ubic_depe_arch) FROM stdin;
 --
 
 COPY usuario (usua_codi, depe_codi, usua_login, usua_fech_crea, usua_pasw, usua_esta, usua_nomb, perm_radi, usua_admin, usua_nuevo, usua_doc, codi_nivel, usua_sesion, usua_fech_sesion, usua_ext, usua_nacim, usua_email, usua_at, usua_piso, perm_radi_sal, usua_admin_archivo, usua_masiva, usua_perm_dev, usua_perm_numera_res, usua_doc_suip, usua_perm_numeradoc, sgd_panu_codi, usua_prad_tp1, usua_prad_tp2, usua_prad_tp3, usua_prad_tp4, usua_prad_tp5, usua_perm_envios, usua_perm_modifica, usua_perm_impresion, usua_prad_tp9, sgd_aper_codigo, usu_telefono1, usua_encuesta, sgd_perm_estadistica, usua_perm_sancionados, usua_admin_sistema, usua_perm_trd, usua_perm_firma, usua_perm_prestamo, usuario_publico, usuario_reasignar, usua_perm_notifica, usua_perm_expediente, usua_login_externo, id_pais, id_cont, usua_auth_ldap, perm_archi, perm_vobo, perm_borrar_anexo, perm_tipif_anexo, usua_perm_adminflujos, usua_exp_trd) FROM stdin;
-1	999	SALIDA	2008-07-24	5ef8924973420229be604d76af	1	USER SALIDA	0	0	1	15371835	1	192o168o1o80oSALIDA	2008-10-14	\N	1984-01-01	\N	HATOVIAL	1	2	0	0	0	\N	\N	\N	0	3	3	0	0	0	0	0	0	0	\N	\N	\N	0	\N	0	0	0	0	0	1	0	0	\N	170	1	0	1	1	0	0	0	0
-1	900	ADMON	2007-02-19	27ccb0eea8a706c4c34a16891f	1	ADMINISTRADOR	1	1	1	900102030	1	127o0o0o1oADMON	2008-12-03	1111	\N	\N	11	5	2	4	1	1	\N	\N	\N	3	3	1	3	0	3	1	1	2	0	\N	\N	\N	2	\N	1	1	3	1	0	1	0	1	\N	170	1	0	1	1	1	1	0	0
+1	900	ADMON	2007-02-19	27ccb0eea8a706c4c34a16891f	1	ADMINISTRADOR	1	1	1	900102030	1	172o16o6o20oADMON	2008-12-03	1111	\N	\N	11	5	2	4	1	1	\N	\N	\N	3	3	1	3	0	3	1	1	2	0	\N	\N	\N	2	\N	1	1	3	1	0	1	0	1	\N	170	1	0	1	1	1	1	0	0
 \.
 
 
