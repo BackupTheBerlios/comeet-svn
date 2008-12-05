@@ -1,81 +1,99 @@
-<?
-session_start();
-include_once "../include/db/ConnectionHandler.php";
-$ruta_raiz = "..";
-if (!$dependencia)   include "../rec_session.php";
-if (!$dep_sel) $dep_sel = $dependencia;
+<?php
+ session_start();
+ include_once "../include/db/ConnectionHandler.php";
+ $ruta_raiz = "..";
+ if (!$dependencia)  { 
+     include "../rec_session.php";
+ }
+ if (!$dep_sel) {
+     $dep_sel = $dependencia;
+ }
 ?>
+
 <html>
 <head>
   <meta http-equiv="Cache-Control" content="cache">
   <meta http-equiv="Pragma" content="public">
-<?
-$fechah=date("dmy") . "_". time("h_m_s");
-$encabezado = session_name()."=".session_id()."&krd=$krd&devolucion=$devolucion";
-?><script>
-function back() {
-    history.go(-1);
-}
-   function sel_dependencia ()
-   {
+
+<?php
+
+  $fechah=date("dmy") . "_". time("h_m_s");
+  $encabezado = session_name()."=".session_id()."&krd=$krd&devolucion=$devolucion";
+?>
+
+<script>
+  function back() {
+     history.go(-1);
+  }
+
+  function sel_dependencia () {
       document.write("<form name=forma_b_correspondencia action='cuerpopdf.php?<?=$encabezado?>'  method=post>");
-	  depsel = form1.dep_sel.value ;
-
-	  document.write("<input type=hidden name=depsel value="+depsel+">");
-	  document.write("<input type=hidden name=estado_sal  value=3>");
-	  document.write("<input type=hidden name=estado_sal_max  value=3>");
-	  document.write("<input type=hidden name=fechah value='<?=$fechah?>'>");
-	  document.write("</form>");
-	  forma_b_correspondencia.submit();
-   }
-
+      depsel = form1.dep_sel.value ;
+      document.write("<input type=hidden name=depsel value="+depsel+">");
+      document.write("<input type=hidden name=estado_sal  value=3>");
+      document.write("<input type=hidden name=estado_sal_max  value=3>");
+      document.write("<input type=hidden name=fechah value='<?=$fechah?>'>");
+      document.write("</form>");
+      forma_b_correspondencia.submit();
+  }
 </script>
+
 <?php
    error_reporting(7);
-  ?>
-<link rel="stylesheet" href="../estilos_totales.css">
-<?PHP
- if(!$estado_sal)   {$estado_sal=2;}
- if(!$estado_sal_max) $estado_sal_max=3;
-if($estado_sal==3)
-  {
-    $accion_sal = "Envio de Documentos";
-	$pagina_sig = "envio.php";
-	if(!$dep_sel) $dep_sel = $dependencia;
-	$dependencia_busq1= " and a.radi_nume_sal like '2004$dep_sel%'";
-	$dependencia_busq2= " and a.radi_nume_salida like '2004$dep_sel%'";
-  }
-if($estado_sal==2)
-  {
+?>
 
-    $accion_sal = "Marcar Documentos Como Impresos";
-	$pagina_sig = "envio_imp.php";
-	$dependencia_busq1= " and a.radi_nume_sal like '2004$dependencia%'";
-	$dependencia_busq2= " and a.radi_nume_salida like '2004$dependencia%'";
-  }
-  if($estado_sal==4)
-  {
-    if($devolucion==1)
-	{
-		$accion_sal = "Devolución de Documentos";
+<link rel="stylesheet" href="../estilos_totales.css">
+
+<?php
+
+ if (!$estado_sal) {
+     $estado_sal=2;
+ }
+
+ if (!$estado_sal_max) {
+     $estado_sal_max=3;
+ }
+
+ if ($estado_sal==3) {
+     $accion_sal = "Env&iacute;o de Documentos";
+     $pagina_sig = "envio.php";
+     if (!$dep_sel) {
+         $dep_sel = $dependencia;
+     }
+     $dependencia_busq1= " and a.radi_nume_sal like '2004$dep_sel%'";
+     $dependencia_busq2= " and a.radi_nume_salida like '2004$dep_sel%'";
+ }
+
+ if ($estado_sal==2) {
+     $accion_sal = "Marcar Documentos Como Impresos";
+     $pagina_sig = "envio_imp.php";
+     $dependencia_busq1= " and a.radi_nume_sal like '2004$dependencia%'";
+     $dependencia_busq2= " and a.radi_nume_salida like '2004$dependencia%'";
+ }
+
+ if ($estado_sal==4) {
+    if ($devolucion==1) {
+		$accion_sal = "Devoluci&oacute;n de Documentos";
 		$pagina_sig = "dev_corresp_otras.php";
-	}else
-	{
-		$accion_sal = "Modificar Planilla de Envio";
+    } else {
+		$accion_sal = "Modificar Planilla de Env&iacute;o";
 		$pagina_sig = "envio_mod.php";
-	}
-	if(!$dep_sel) $dep_sel = $dependencia;
-	$dependencia_busq1= " and a.radi_nume_sal like '2004$dep_sel%'";
-	$dependencia_busq2= " an a.radi_nume_salida like '2004$dep_sel%'";
-  }
-if($busq_radicados)
-{
-    $busq_radicados = trim($busq_radicados);
-    $textElements = split (",", $busq_radicados);
-    $newText = "";
-    $i = 0;
-    foreach ($textElements as $item)
-    {
+    }
+
+    if (!$dep_sel) {
+        $dep_sel = $dependencia; 
+    }
+
+    $dependencia_busq1= " and a.radi_nume_sal like '2004$dep_sel%'";
+    $dependencia_busq2= " an a.radi_nume_salida like '2004$dep_sel%'";
+ }
+
+ if ($busq_radicados) {
+     $busq_radicados = trim($busq_radicados);
+     $textElements = split (",", $busq_radicados);
+     $newText = "";
+     $i = 0;
+     foreach ($textElements as $item) {
          $item = trim ( $item );
          if ($item)
 		 { 
@@ -85,24 +103,29 @@ if($busq_radicados)
 		   $i++;
 		  }
      }
-	 //if(substr($busq_radicados_tmp,-1)==",")   $busq_radicados_tmp = substr($busq_radicados_tmp,0,strlen($busq_radicados_tmp)-1);
-	 $dependencia_busq2 .= " and ($busq_radicados_tmp) ";
-}
-$tbbordes = "#CEDFC6";
-$tbfondo = "#FFFFCC";
-if(!$orno){$orno=1;}
-$imagen="flechadesc.gif";
-if($estado_sal==2)
-  {
+     //if(substr($busq_radicados_tmp,-1)==",")   $busq_radicados_tmp = substr($busq_radicados_tmp,0,strlen($busq_radicados_tmp)-1);
+    $dependencia_busq2 .= " and ($busq_radicados_tmp) ";
+ }
 
-	$dependencia_busq1 .= " and a.radi_nume_sal like '2004$dependencia%'";
-	$dependencia_busq2 .= " and a.radi_nume_salida like '2004$dependencia%'";
-  }
-?><script>
+ $tbbordes = "#CEDFC6";
+ $tbfondo = "#FFFFCC";
+
+ if (!$orno) {
+     $orno=1;
+ }
+
+ $imagen="flechadesc.gif";
+
+ if ($estado_sal==2) {
+     $dependencia_busq1 .= " and a.radi_nume_sal like '2004$dependencia%'";
+     $dependencia_busq2 .= " and a.radi_nume_salida like '2004$dependencia%'";
+ }
+?>
+
+<script>
 <!-- Esta funcion esconde el combo de las dependencia e inforados Se activan cuando el menu envie una señal de cambio.-->
 
-function window_onload()
-{
+function window_onload() {
    form1.depsel.style.display = '';
    form1.enviara.style.display = '';
    form1.depsel8.style.display = 'none';
@@ -110,49 +133,53 @@ function window_onload()
    setVariables();
    setupDescriptions();
 }
+
 <!-- Cuando existe una señan de cambio el program ejecuta esta funcion mostrando el combo seleccionado -->
-function changedepesel()
-{
+function changedepesel() {
   form1.depsel.style.display = 'none';
   form1.carpper.style.display = 'none';
   form1.depsel8.style.display = 'none';
-  if(form1.enviara.value==10)
-  {
+  if (form1.enviara.value==10) {
     form1.depsel.style.display = 'none';
-	form1.carpper.style.display = '';
-	form1.depsel8.style.display = 'none';
+    form1.carpper.style.display = '';
+    form1.depsel8.style.display = 'none';
   }
-  if(form1.enviara.value==9 )
-  {
+  if (form1.enviara.value==9) {
     form1.depsel.style.display = '';
-	form1.carpper.style.display = 'none';
-	form1.depsel8.style.display = 'none';
+    form1.carpper.style.display = 'none';
+    form1.depsel8.style.display = 'none';
   }
- if(form1.enviara.value==8 )
-  {
-  form1.depsel.style.display = 'none';
-	form1.depsel8.style.display = '';
-	form1.carpper.style.display = 'none';
+  if (form1.enviara.value==8) {
+    form1.depsel.style.display = 'none';
+    form1.depsel8.style.display = '';
+    form1.carpper.style.display = 'none';
   }
 }
+
 <!-- Funcion que activa el sistema de marcar o desmarcar todos los check  -->
-function markAll()
-{
-if(document.form1.elements['marcartodos'].checked)
-for(i=2;i<document.form1.elements.length;i++)
-	document.form1.elements[i].checked=1;
-else
-  for(i=2;i<document.form1.elements.length;i++)
+function markAll() {
+ if (document.form1.elements['marcartodos'].checked) {
+     for(i=2;i<document.form1.elements.length;i++) {
+         document.form1.elements[i].checked=1;
+     }
+ }
+ else {
+     for(i=2;i<document.form1.elements.length;i++) {
   	document.form1.elements[i].checked=0;
+     }
+ }
 }
+
 <?php
    //include "libjs.php";
-	 function tohtml($strValue)
-{
+function tohtml($strValue) {
   return htmlspecialchars($strValue);
 }
 ?>
-</script><style type="text/css">
+
+</script>
+
+<style type="text/css">
 <!--
 .textoOpcion {  font-family: Arial, Helvetica, sans-serif; font-size: 8pt; color: #000000; text-decoration: underline}
 -->
@@ -160,132 +187,188 @@ else
 </head>
 
 <body bgcolor="#FFFFFF" topmargin="0" >
+
 <div id="object1" style="position:absolute; visibility:show; left:10px; top:-50px; width=80%; z-index:2" >
   <p>Cuadro de Historico</p>
 </div>
+
 <?php
  /*
- PARA EL FUNCIONAMIENTO CORRECTO DE ESTA PAGINA SE NECESITAN UNAS VARIABLE QUE DEBEN VENIR
+ PARA EL FUNCIONAMIENTO CORRECTO DE ESTA PAGINA SE NECESITAN LAS SIGUIENTES VARIABLES:
  carpeta  "Codigo de la carpeta a abrir"
  nomcarpeta "Nombre de la Carpeta"
  tipocarpeta "Tipo de Carpeta  (0,1)(Generales,Personales)"
-
-
  seleccionar todos los checkboxes
-*/
-	$img1="";$img2="";$img3="";$img4="";$img5="";$img6="";$img7="";$img8="";$img9="";
-         IF($ordcambio)
-				   {IF($ascdesc=="ASC"){$ascdesc="DESC";	$imagen="flechadesc.gif";}else{$ascdesc="ASC";$imagen="flechaasc.gif";}}
-					 else
-					 {IF($ascdesc==""){$ascdesc="DESC";$imagen="flechadesc.gif";}else{$ascdesc="ASC";	$imagen="flechaasc.gif";}}
-	if($orno==1){$order=" a.radi_nume_salida $ascdesc";$img1="<img src='../iconos/$imagen' border=0 alt='$data'>";}
-	if($orno==2){$order=" a.ANEX_RADI_NUME $ascdesc";$img2="<img src='../iconos/$imagen' border=0 alt='$data'>";}
-	if($orno==3){$order=" a.anex_radi_fech $ascdesc";$img3="<img src='../iconos/$imagen' border=0 alt='$data'>";}
-	if($orno==4){$order=" a.anex_desc $ascdesc" ;$img4="<img src='../iconos/$imagen' border=0 alt='$data'>";}
-	if($orno==5){$order=" nombres $ascdesc";$img5="<img src='../iconos/$imagen' border=0 alt='$data'>";}
-	if($orno==6){$order="  $ascdesc";$img6="<img src='../iconos/$imagen' border=0 alt='$data'>";}
-	if($orno==9){$order=" a.anex_creador $ascdesc";$img9="<img src='../iconos/$imagen' border=0 alt='$data'>";}
-	if($orno==7){$order=" a.anex_estado desc , a.radi_nume_salida desc";$img7=" <img src='../iconos/flechanoleidos.gif' border=0 alt='$data'> ";}
-	if($orno==8){$order=" a.anex_estado  , radi_nume_salida desc";$img7=" <img src='../iconos/flechaleidos.gif' border=0 alt='$data'> ";}
-	//if($orno==9){$order=" sgd_deve_fech $ascdesc, radi_nume_salida desc"; $dependencia_busq2 .= " and sgd_deve_codigo is not null "; $img9=" <img src='../iconos/$imagen' border=0 alt='$data'> ";}
-  $datosaenviar = "fechaf=$fechaf&tipo_carp=$tipo_carp&ascdesc=$ascdesc&orno=$orno&nomcarpeta=$nomcarpeta";
-  $encabezado = session_name()."=".session_id()."&dep_sel=$dep_sel&krd=$krd&estado_sal=$estado_sal&fechah=$fechah&estado_sal_max=$estado_sal_max&ascdesc=$ascdesc&devolucion=$devolucion&busq_radicados=$busq_radicados&nomcarpeta=$nomcarpeta&orno=";
-    $fechah=date("dmy") . "_". time("h_m_s");
-	$check=1;
-	$fechaf=date("dmy") . "_" . time("hms");
-    $numeroa=0;$numero=0;$numeros=0;$numerot=0;$numerop=0;$numeroh=0;
-	$db = new ConnectionHandler("..");
-	$db->conn->SetFetchMode(ADODB_FETCH_ASSOC);	
-    $isql = "select * from usuario where USUA_LOGIN ='$krd' and USUA_SESION='". substr(session_id(),0,29)."' ";
-	//$db->conn->debug=true;
-	$rs=$db->query($isql);
-	// Validacion de Usuario y COntraseña MD5
-	//echo "** $krd *** $drde";
-  if (trim($rs->fields["USUA_LOGIN"])==trim($krd))
-		{
-		$nombusuario =$rs->fields["USUA_NOMB"];
-		$contraxx=$rs->fields["USUA_PASW"];
+ */
 
-		$nivelus=$rs->fields["CODI_NIVEL"];
-		if($rs->fields["USUA_NUEVO"]=="1"){
-				?>
-<br>
-<table border=0 width='100%' class='t_bordeGris' align='center' bgcolor="#CCCCCC">
-  <tr >
-    <td height="20" >
+ $img1="";$img2="";$img3="";$img4="";$img5="";$img6="";$img7="";$img8="";$img9="";
+ if ($ordcambio) {
+     if ($ascdesc=="ASC") {
+         $ascdesc="DESC";
+         $imagen="flechadesc.gif";
+     } else {
+         $ascdesc="ASC";
+         $imagen="flechaasc.gif";
+     }
+ } else {
+     if ($ascdesc=="") {
+         $ascdesc="DESC";
+         $imagen="flechadesc.gif";
+         } else {
+           $ascdesc="ASC";
+           $imagen="flechaasc.gif";
+         }
+ }
+ if ($orno==1) {
+     $order=" a.radi_nume_salida $ascdesc";
+     $img1="<img src='../iconos/$imagen' border=0 alt='$data'>";
+ }
+ if($orno==2) {
+    $order=" a.ANEX_RADI_NUME $ascdesc";
+    $img2="<img src='../iconos/$imagen' border=0 alt='$data'>";
+ }
+ if ($orno==3) {
+     $order=" a.anex_radi_fech $ascdesc";
+     $img3="<img src='../iconos/$imagen' border=0 alt='$data'>";
+ }
+ if ($orno==4) {
+     $order=" a.anex_desc $ascdesc" ;
+     $img4="<img src='../iconos/$imagen' border=0 alt='$data'>";
+ }
+ if ($orno==5) {
+     $order=" nombres $ascdesc";
+     $img5="<img src='../iconos/$imagen' border=0 alt='$data'>";
+ }
+ if ($orno==6) {
+     $order="  $ascdesc";
+     $img6="<img src='../iconos/$imagen' border=0 alt='$data'>";
+ }
+ if ($orno==9) {
+     $order=" a.anex_creador $ascdesc";
+     $img9="<img src='../iconos/$imagen' border=0 alt='$data'>";
+ }
+ if ($orno==7) {
+     $order=" a.anex_estado desc , a.radi_nume_salida desc";
+     $img7=" <img src='../iconos/flechanoleidos.gif' border=0 alt='$data'> ";
+ }
+ if ($orno==8) {
+     $order=" a.anex_estado  , radi_nume_salida desc";
+     $img7=" <img src='../iconos/flechaleidos.gif' border=0 alt='$data'> ";
+ }
 
-	<?php
-	/** Instruccion que realiza la consulta de radicados segun criterios
-		* Tambien observamos que se encuentra la varialbe $carpetaenviar que maneja la carpeta 11.
-		*/
-		$limit = "";
-	?>
-	    <table BORDER=0  cellpad=2 cellspacing='0' WIDTH=98% class='t_bordeGris' valign='top' align='center' >
-          <TR >
-            <TD width='35%' >
-              <table width='100%' border='0' cellspacing='1' cellpadding='0'>
-                <tr> <?
-	     IF($nomcarpeta=="")
-			 {
-			      $nomcarpeta=" ENTRADA ";
-			 }
+ //if($orno==9){$order=" sgd_deve_fech $ascdesc, radi_nume_salida desc"; $dependencia_busq2 .= " and sgd_deve_codigo is not null "; $img9=" <img src='../iconos/$imagen' border=0 alt='$data'> ";}
 
-  ?>
-                  <td height="20" class="celdaGris"><img src="../imagenes/listado.gif" width="85" height="20"></td>
-                </tr><tr>
-                  <td height="20" class="tituloListado"><span class="etextomenu"><?=$nomcarpeta ?>
-                    </span></td>
-                </tr>
+ $datosaenviar = "fechaf=$fechaf&tipo_carp=$tipo_carp&ascdesc=$ascdesc&orno=$orno&nomcarpeta=$nomcarpeta";
+ $encabezado = session_name()."=".session_id()."&dep_sel=$dep_sel&krd=$krd&estado_sal=$estado_sal&fechah=$fechah&estado_sal_max=$estado_sal_max&ascdesc=$ascdesc&devolucion=$devolucion&busq_radicados=$busq_radicados&nomcarpeta=$nomcarpeta&orno=";
+ $fechah=date("dmy") . "_". time("h_m_s");
+ $check=1;
+ $fechaf=date("dmy") . "_" . time("hms");
+ $numeroa=0;$numero=0;$numeros=0;$numerot=0;$numerop=0;$numeroh=0;
+ $db = new ConnectionHandler("..");
+ $db->conn->SetFetchMode(ADODB_FETCH_ASSOC);	
+ $isql = "select * from usuario where USUA_LOGIN ='$krd' and USUA_SESION='". substr(session_id(),0,29)."' ";
+ //$db->conn->debug=true;
+ $rs=$db->query($isql);
+ // Validacion de Usuario y COntraseña MD5
+ // echo "** $krd *** $drde";
+ if (trim($rs->fields["USUA_LOGIN"])==trim($krd)) {
+     $nombusuario =$rs->fields["USUA_NOMB"];
+     $contraxx=$rs->fields["USUA_PASW"];
+     $nivelus=$rs->fields["CODI_NIVEL"];
+     if ($rs->fields["USUA_NUEVO"]=="1") {
+ ?>
+     <br>
+     <table border=0 width='100%' class='t_bordeGris' align='center' bgcolor="#CCCCCC">
+     <tr>
+     <td height="20" >
+     <?php
+        /** Instruccion que realiza la consulta de radicados segun criterios
+         * Tambien observamos que se encuentra la varialbe $carpetaenviar que maneja la carpeta 11.
+         */
+         $limit = "";
+     ?>
+     <table BORDER=0  cellpad=2 cellspacing='0' WIDTH=98% class='t_bordeGris' valign='top' align='center' >
+      <tr>
+        <td width='35%' >
+          <table width='100%' border='0' cellspacing='1' cellpadding='0'>
+            <tr>
+             <?php
+	       if($nomcarpeta=="") {
+                  $nomcarpeta=" ENTRADA ";
+               }
+             ?>
+             <td height="20" class="celdaGris"><img src="../imagenes/listado.gif" width="85" height="20">
+             </td>
+            </tr>
+            <tr>
+             <td height="20" class="tituloListado"><span class="etextomenu"><?=$nomcarpeta ?></span>
+             </td>
+            </tr>
+          </table>
+        </td>
+        <td width='32%'>
+            <table width="100%" border="0" cellspacing="1" cellpadding="0">
+              <tr>
+                 <td width="10%" class="celdaGris" height="20"><img src="../imagenes/usuario.gif" width="58" height="20"></td>
+              </tr>
+              <tr>
+                  <td width="90%" height="20"><span class='etextomenu'><?=$nombusuario ?></span>
+                  </td>
+              </tr>
               </table>
-            </td>
-            <TD width='32%'  >
-                
-                <table width="100%" border="0" cellspacing="1" cellpadding="0">
-                <tr>
-                  <td width="10%" class="celdaGris" height="20"><img src="../imagenes/usuario.gif" width="58" height="20"></td>
-                </tr><tr>
-                  <td width="90%" height="20"><span class='etextomenu'><?=$nombusuario ?></span></td>
-                </tr>
-              </table>
-            </td>
-            <td height="37" width="33%">
-              <table width="100%" border="0" cellspacing="1" cellpadding="0">
-                <tr>
-                  <td width="16%" class="celdaGris" height="20"><img src="../imagenes/dependencia.gif" width="87" height="20"></td>
-                </tr><tr>
-                  <td width="84%" height="20"><span class='etextomenu'>
-                    <?
-if($estado_sal>=3)
-{
-	$isql = "select depe_codi,depe_nomb from DEPENDENCIA ORDER BY DEPE_CODI";
-	$rs1=$db->query($isql);
-	$numerot = $rs1->RecordCount();
-		// Combo en el que se muestran las dependencias, en el caso  de que el usuario escoja reasignar.
-		?>
-	<FORM name=form_busq_dep action='cuerpopdf.php?<?=session_name()."=".session_id()."&krd=$krd" ?>&estado_sal=<?=$estado_sal?>&estado_sal_max=<?=$estado_sal_max?>&pagina_sig=<?=$pagina_sig?>&nomcarpeta=<?=$nomcarpeta?>' method=post>
-        <select name='dep_sel' class='ebuttons2' onChange='submit();' >
-<?
+        </td>
+        <td height="37" width="33%">
+          <table width="100%" border="0" cellspacing="1" cellpadding="0">
+            <tr>
+                <td width="16%" class="celdaGris" height="20"><img src="../imagenes/dependencia.gif" width="87" height="20">
+                </td>
+            </tr>
+            <tr>
+                <td width="84%" height="20"><span class='etextomenu'>
+
+     <?php
+       if ($estado_sal>=3) {
+	   $isql = "select depe_codi,depe_nomb from DEPENDENCIA ORDER BY DEPE_CODI";
+	   $rs1=$db->query($isql);
+	   $numerot = $rs1->RecordCount();
+	   // Combo en el que se muestran las dependencias, en el caso  de que el usuario escoja reasignar.
+      ?>
+
+      <form name=form_busq_dep action='cuerpopdf.php?<?=session_name()."=".session_id()."&krd=$krd" ?>&estado_sal=<?=$estado_sal?>&estado_sal_max=<?=$estado_sal_max?>&pagina_sig=<?=$pagina_sig?>&nomcarpeta=<?=$nomcarpeta?>' method=post>
+
+      <select name='dep_sel' class='ebuttons2' onChange='submit();' >
+
+      <?php
 	$dependencianomb=substr($dependencianomb,0,35);
-	do
-		{
-			$depcod = $rs1->fields["DEPE_CODI"];
-				$depdes = substr($rs1->fields["DEPE_NOMB"],0,35);
-				if ($depcod==$dep_sel){
-					$datosdep = " selected ";
-				}else {$datosdep="";}
-				echo "<option value=$depcod $datosdep>$depcod - $depdes</option>\n";
-				$rs1->MoveNext();
-		}while(!$rs1->EOF);
-		?>
-</select>
-		</FORM>
-<?
-			}else {echo "$depe_nomb";}
-				    ?>
-                    </span></td>
-                </tr>
-              </table>
-            </TD>
+	do {
+             $depcod = $rs1->fields["DEPE_CODI"];
+             $depdes = substr($rs1->fields["DEPE_NOMB"],0,35);
+             if ($depcod==$dep_sel) {
+                 $datosdep = " selected ";
+             } else {
+                 $datosdep="";
+             }
+
+             echo "<option value=$depcod $datosdep>$depcod - $depdes</option>\n";
+             $rs1->MoveNext();
+           } while(!$rs1->EOF);
+
+      ?>
+
+      </select>
+      </form>
+
+      <?php
+        } else {
+          echo "$depe_nomb";
+        }
+       ?>
+
+       </span>
+       </td>
+       </tr>
+      </table>
+            </td>
           </tr>
         </table>
      <TABLE width="98%" align="center" cellspacing="0" cellpadding="0">
@@ -596,9 +679,9 @@ if($estado_sal>=3)
     <input type=hidden name=depsel>
     <input type=hidden name=depsel8>
     <input type=hidden name=carpper>
-    <span class='etextou'>NO TIENE AUTORIZACION PARA INGRESAR</span><BR>
+    <span class='etextou'>NO TIENE AUTORIZACI&Oacute;N PARA INGRESAR</span><BR>
     <span class='eerrores'><a href='../login.php' target=_parent><span class="textoOpcion">Por 
-    Favor intente validarse de nuevo. Presione aca !</span></a></span> </div>
+    favor intente validarse de nuevo.</span></a></span> </div>
 </form>
            <?
 		}

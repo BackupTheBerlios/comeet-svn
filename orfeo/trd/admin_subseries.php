@@ -57,7 +57,7 @@
 if($_POST['actua_subserie'])
   {
  ?>
- <td width="35" height="21"><input type=submit name=modi_subserie Value='Grabar Modificacion' class=botones_largo ></td>
+ <td width="35" height="21"><input type=submit name=modi_subserie Value='Grabar Modificaci&oacute;n' class=botones_largo ></td>
  <?
  }
  ?>
@@ -224,7 +224,7 @@ if($_POST['actua_subserie'])
 			  $rs = $db->query($isqlB); # Executa la busqueda y obtiene el registro a actualizar.
 			  $radiNumero = $rs->fields["SGD_SRD_CODIGO"];
 	          if ($radiNumero =='') {
-			    $mensaje_err = "<HR><center><B><FONT COLOR=RED>EL CODIGO < $codserie >< $tsub > NO EXISTE. <BR>  VERIFIQUE LA INFORMACION E INTENTE DE NUEVO</FONT></B></center><HR>";
+			    $mensaje_err = "<HR><center><B><FONT COLOR=RED>EL C&Oacute;DIGO < $codserie >< $tsub > NO EXISTE. <BR>  VERIFIQUE LA INFORMACI&Oacute;N E INTENTE DE NUEVO</FONT></B></center><HR>";
 			   } 
 			   else 
 			   {
@@ -291,7 +291,7 @@ if($_POST['actua_subserie'])
 	  		$radiNumero = $rs->fields["SGD_SRD_CODIGO"];
 	  		if ($radiNumero !='') 
 	    		{
-		   			$mensaje_err = "<HR><center><B><FONT COLOR=RED>LA SUBSERIE <$detasub > YA EXISTE. <BR>  VERIFIQUE LA INFORMACION E INTENTE DE NUEVO</FONT></B></center><HR>";
+		   			$mensaje_err = "<HR><center><B><FONT COLOR=RED>LA SUBSERIE <$detasub > YA EXISTE. <BR>  VERIFIQUE LA INFORMACI&Oacute;N E INTENTE DE NUEVO</FONT></B></center><HR>";
 	    		}
 	  		else  
 	    		{		   
@@ -313,7 +313,7 @@ if($_POST['actua_subserie'])
 					$tiem_ag = '';
 					$tiem_ac = '';
 					$soporte = '';	
-					$mensaje_err ="<HR><center><B><FONT COLOR=RED>SE MODIFICO LA SUBSERIE</FONT></B></center><HR>";
+					$mensaje_err ="<HR><center><B><FONT COLOR=RED>SE MODIFIC&Oacute; LA SUBSERIE</FONT></B></center><HR>";
 					?>
 					<script language="javascript">
 				        document.adm_subserie.elements['detasub'].value= '';

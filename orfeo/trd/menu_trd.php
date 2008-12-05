@@ -27,7 +27,7 @@ $phpsession = session_name()."=".session_id(); ?>
 <table width="47%" align="center" border="0" cellpadding="0" cellspacing="5" class="borde_tab">
      <tr> 
       <td height="25" class="titulos4"> 
-        ADMINISTRACION  -TABLAS RETENCION DOCUMENTAL- 
+        ADMINISTRACI&Oacute;N  -TABLAS RETENCI&Oacute;N DOCUMENTAL- 
       </td>
     </tr>
     <tr align="center"> 
@@ -54,14 +54,14 @@ $phpsession = session_name()."=".session_id(); ?>
     </tr>
 	<tr align="center"> 
       <td class="listado2" >
-	  <a href='../trd/procModTrdArea.php?<?=$phpsession ?>&krd=<?=$krd?>&krd=<?=$krd?>&<? echo "fechah=$fechah"; ?>' class="vinculos" target='mainFrame'>Modificacion 
+	  <a href='../trd/procModTrdArea.php?<?=$phpsession ?>&krd=<?=$krd?>&krd=<?=$krd?>&<? echo "fechah=$fechah"; ?>' class="vinculos" target='mainFrame'>Modificaci&oacute;n 
           TRD Area </a>
 	  </td>
     </tr>
 	<tr align="center"> 
       <td class="listado2" >
 	  <a href='../trd/informe_trd.php?<?=$phpsession ?>&krd=<?=$krd?>&krd=<?=$krd?>&<? echo "fechah=$fechah"; ?>' class="vinculos" target='mainFrame'>Listado 
-          Tablas de Retencion Documental </a>
+          Tablas de Retenci&oacute;n Documental </a>
 	  </td>
 	   </tr>  
     </tr>

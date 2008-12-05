@@ -19,11 +19,11 @@ if(!$krd) $krd=$krdOsld;
 			<a href='../envios/cuerpoEnvioNormal.php?<?=$datos_enviar?>&estado_sal=3&estado_sal_max=3&krd=<?=$krd?>&nomcarpeta=Radicados Para Envio' class='vinculos'>Normal
 			</a>
 			</td>
-			<td class='listado2' ><a href='../envios/cuerpoModifEnvio.php?<?=$datos_enviar?>&estado_sal=4&estado_sal_max=4&devolucion=3&krd=<?=$krd?>' class='vinculos'>Modificacion Registro de Envio
+			<td class='listado2' ><a href='../envios/cuerpoModifEnvio.php?<?=$datos_enviar?>&estado_sal=4&estado_sal_max=4&devolucion=3&krd=<?=$krd?>' class='vinculos'>Modificaci&oacute;n Registro de Envio
 			</a></td>
 			<td class='listado2' ><a href='../radsalida/cuerpo_masiva.php?<?=$datos_enviar?>&krd=<?=$krd?>&estado_sal=3&estado_sal_max=3' class='vinculos'>Masiva
 			</a></td>
-			<td class='listado2'><b><a href='../radsalida/generar_envio.php?<?=$datos_enviar?>&krd=<?=$krd?>' class='vinculos'>Generacion de Planillas
+			<td class='listado2'><b><a href='../radsalida/generar_envio.php?<?=$datos_enviar?>&krd=<?=$krd?>' class='vinculos'>Generaci&oacute;n de Planillas
 			y Guias 
 			</a></td>
 	</tr>

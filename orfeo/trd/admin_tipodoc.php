@@ -57,7 +57,7 @@ function regresar(){
    <TR>
     <TD width="125" height="21"  class='titulos2'> C&oacute;digo<br> </td>
 	<TD valign="top" colspan="3" align="left" class='listado2'><input type=text name=codtdocI value='<?=$codtdocI?>' class='tex_area' size=11 maxlength="7" >
-	<td width="125" height="21"><input type=submit name=modi_tdoc Value='Grabar Modificacion' class=botones_largo ></td>
+	<td width="125" height="21"><input type=submit name=modi_tdoc Value='Grabar Modificaci&oacute;n' class=botones_largo ></td>
     </td>
 	</tr>
 <?
@@ -118,7 +118,7 @@ if($_POST['insertar_tdoc'] && $detatipod !='')
 	$rs = $db->query($isqlB); # Executa la busqueda y obtiene el registro a actualizar.
 	$radiNumero = $rs->fields["SGD_TPR_CODIGO"];
 	if ($radiNumero !='')
-	{	$mensaje_err = "<HR><center><B><FONT COLOR=RED>El Tipo Documento < $radiNumero $detatipod > YA EXISTE. <BR>  VERIFIQUE LA INFORMACION E INTENTE DE NUEVO</FONT></B></center><HR>";
+	{	$mensaje_err = "<HR><center><B><FONT COLOR=RED>El Tipo Documento < $radiNumero $detatipod > YA EXISTE. <BR>  VERIFIQUE LA INFORMACI&Oacute;N E INTENTE DE NUEVO</FONT></B></center><HR>";
 	} 
 	else 
 	{	$isql = "select max(sgd_tpr_codigo) as NUME from sgd_tpr_tpdcumento"; 
@@ -159,7 +159,7 @@ if($_POST['modi_tdoc'] && ($detatipod != '') && ($codtdocI !=0) )
 		$rsIN = $db->conn->query($query);
 		$terminot = '' ;
 		$detatipod = '';
-		$mensaje_err ="<HR><center><B><FONT COLOR=RED>SE MODIFICO EL TIPO DOCUMENTAL</FONT></B></center><HR>";
+		$mensaje_err ="<HR><center><B><FONT COLOR=RED>SE MODIFIC&Oacute; EL TIPO DOCUMENTAL</FONT></B></center><HR>";
 		?>
 		<script language="javascript">
 			document.adm_tipodoc.detatipod.value ='';
