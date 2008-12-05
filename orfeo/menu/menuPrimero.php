@@ -62,7 +62,7 @@ if($_SESSION["usua_admin_sistema"]==1)
 				<tr valign="middle">
 					<td width="25"><img src="imagenes/menu.gif" width="15" height="18"></td>
 					<td width="125">
-						<a href="Administracion/formAdministracion.php?<?=$phpsession ?>&krd=<?=$krd?>&<? echo "fechah=$fechah&usr=".md5($dep)."&primera=1&ent=1"; ?>" target='mainFrame' class="menu_princ">Administracion</a>
+						<a href="Administracion/formAdministracion.php?<?=$phpsession ?>&krd=<?=$krd?>&<? echo "fechah=$fechah&usr=".md5($dep)."&primera=1&ent=1"; ?>" target='mainFrame' class="menu_princ">Administraci&oacute;n</a>
 					</td>
 				</tr>
 <?php
@@ -84,7 +84,7 @@ if($_SESSION["usua_perm_envios"]>=1)
 				<tr valign="middle">
 					<td width="25"><img src="imagenes/menu.gif" width="15" height="18"></td>
 					<td width="125">
-						<a href="radicacion/formRadEnvios.php?<?=$phpsession ?>&krd=<?=$krd?>&<? echo "fechah=$fechah&usr=".md5($dep)."&primera=1&ent=1"; ?>" target='mainFrame' class="menu_princ">Envios</a>
+						<a href="radicacion/formRadEnvios.php?<?=$phpsession ?>&krd=<?=$krd?>&<? echo "fechah=$fechah&usr=".md5($dep)."&primera=1&ent=1"; ?>" target='mainFrame' class="menu_princ">Env&iacute;os</a>
 					</td>
 				</tr>
 <?php
@@ -190,7 +190,7 @@ if ($_SESSION["usua_perm_prestamo"]==1)
 				<tr valign="middle">
 					<td width="25"><img src="imagenes/menu.gif" width="15" height="18"></td>
 					<td width="125">
-						<span class="Estilo12"><a href="prestamo/menu_prestamo.php?<?=$phpsession ?>&etapa=1&&s_Listado=VerListado&krd=<?=$krd?>&<? echo "fechah=$fechah"; ?>" target='mainFrame' class="menu_princ">Prestamo</a></span>
+						<span class="Estilo12"><a href="prestamo/menu_prestamo.php?<?=$phpsession ?>&etapa=1&&s_Listado=VerListado&krd=<?=$krd?>&<? echo "fechah=$fechah"; ?>" target='mainFrame' class="menu_princ">Pr&eacute;stamo</a></span>
 					</td>
 				</tr>
 <?php

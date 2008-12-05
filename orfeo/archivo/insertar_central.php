@@ -677,7 +677,7 @@ if($ano!="" and $depe!="" and $orden!="" and $confi[1]!=""){
 		<tr><td align="center"><h1 class="titulosError">EL REGISTRO FUE MODIFICADO</h1>
 		</tr>
 		<?
-		$observa="Modificacion de registro en archivo central en la ubicacion: Zona ".$zona."-Carro ".$carro."-Cara ".$cara."-Estante ".$estante."-Entrepano ".$entre."-Caja ".$caja;
+		$observa="Modificaci&oacute;n de registro en archivo central en la ubicaci&oacute;n: Zona ".$zona."-Carro ".$carro."-Cara ".$cara."-Estante ".$estante."-Entrepano ".$entre."-Caja ".$caja;
 		$rad2[1]=$rad1;
 		
 		$objHistorico->insertarHistoricoArch($co,$rad2,$depeU,$usuacod,$observa, 63);

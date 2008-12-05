@@ -189,7 +189,7 @@ function envio_datos()
 <table border=1 width=93% class=t_bordeGris>
 	<tr class=timparr>
     <input name="nombreJefe" type="hidden" value='<?=$nombreJefe?>'>
-	<td class="titulos2" height="26">Nro Cedula <input readonly="yes" type=text name=cedula id=cedula value='<?=$cedula?>' size=15 maxlenght="14" > </td>
+	<td class="titulos2" height="26">Nro C&eacute;dula <input readonly="yes" type=text name=cedula id=cedula value='<?=$cedula?>' size=15 maxlenght="14" > </td>
 	<td class="titulos2" height="26">Usuario <input readonly="yes" type=text name=usuLogin id=usuLogin value='<?=$usuLogin?>' size=20 maxlenght=15></td>
 	</tr>
 </table>

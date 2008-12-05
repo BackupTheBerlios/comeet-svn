@@ -53,14 +53,14 @@ function regresar(){
 	$numRadiBusq = $rsB->fields["RADI_NUME_RADI"];
 	if($numRadiBusq=='')
 	  {
-	    $mensaje = "<hr><center><b><span class='alarmas'>No se encontro el radicado, por favor verifique e intente de nuevo</span></center></b></hr>";  
+	    $mensaje = "<hr><center><b><span class='alarmas'>No se encontr&oacute; el radicado, por favor verifique e intente de nuevo</span></center></b></hr>";  
 	  }
 	else
 	  {
 	    //Verificar la seleccion del tipo de vinculo
 	    if($tipVinDocto==0)
 	      {
-  		    $mensaje = "<hr><center><b><span class='alarmas'>Debe seleccionar un Tipo de Vinculacion</span></center></b></hr>";  
+  		    $mensaje = "<hr><center><b><span class='alarmas'>Debe seleccionar un Tipo de Vinculaci&oacute;n</span></center></b></hr>";  
 	      }
 		else
 		  {

@@ -115,7 +115,7 @@ include "../config.php";
 		ora_exec($cursor);
 		if(!$cursor)
 		{
-		 $estado = "No se encontro";
+		 $estado = "No se encontr&oacute;";
 		 $mensaje = "No hay registro";
 		}
 		$resultado = ora_fetch_into($cursor,$row2, ORA_FETCHINTO_NULLS|ORA_FETCHINTO_ASSOC);

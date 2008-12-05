@@ -65,7 +65,7 @@
 		?>
          <tr valign="middle">
            <td width="25"><img src="imagenes/menu.gif" width="15" height="18" name="plus<?=$i?>"></td>
-           <td width="125"><a  onclick="cambioMenu(<?=$i?>);" href='uploadFiles/uploadFileRadicado.php?<?=$phpsession ?>&krd=<?=$krd?>&<? echo "fechah=$fechah&usr=".md5($dep)."&primera=1&ent=2&depende=$dependencia"; ?>' alt='Asociar imagen de radicado'  target='mainFrame' class="menu_princ">Asociar Imagenes</a></td>
+           <td width="125"><a  onclick="cambioMenu(<?=$i?>);" href='uploadFiles/uploadFileRadicado.php?<?=$phpsession ?>&krd=<?=$krd?>&<? echo "fechah=$fechah&usr=".md5($dep)."&primera=1&ent=2&depende=$dependencia"; ?>' alt='Asociar imagen de radicado'  target='mainFrame' class="menu_princ">Asociar Im&aacute;genes</a></td>
          </tr>
           <?
 			}

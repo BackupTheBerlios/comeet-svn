@@ -13,7 +13,7 @@ session_start();
   <form action=mod_regenvio.php?sid_j=<?=$sid_j?>&<?=session_name()."=".session_id()?>" method="post" name="FrmBuscar">
     <table width="70%" border="0" >
   <tr class="timpar">
-        <td width="25%" height="49">Numero de Radicado</td>
+        <td width="25%" height="49">N&uacute;mero de Radicado</td>
     <td width="55%"><center></center><input type=text name=chk1 class=ecajas>
 	 <input type=submit name=Buscar Value="Buscar Radicado" class=ebuttons2>
 	 <?php

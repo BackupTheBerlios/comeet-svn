@@ -45,7 +45,7 @@ $graph->xaxis->SetTickLabels($nombUs);
 $graph->yaxis->SetPos('max');
 
 // Arrange the title
-$graph->yaxis->SetTitle("Numero de Radicados",'center');
+$graph->yaxis->SetTitle("N&uacute;mero de Radicados",'center');
 $graph->yaxis->SetTitleSide(SIDE_RIGHT);
 $graph->yaxis->title->SetFont(FF_FONT2,FS_BOLD);
 $graph->yaxis->title->SetAngle(0);

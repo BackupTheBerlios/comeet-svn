@@ -40,8 +40,8 @@ if ($borrar)
 		   {$detaTipoVin = "Asociado de";}
 	    if($ok)
 	       {   
-			  $mensaje = "<hr><center><b><span class=info>Vinculacion Eliminada</span></center></b></hr>";
-			  $observa = "*Se Elimino la Vinculacion Documento* ($radiDeriAnte) Tipo ($detaTipoVin)";
+			  $mensaje = "<hr><center><b><span class=info>Vinculaci&oacute;n Eliminada</span></center></b></hr>";
+			  $observa = "*Se Elimin&oacute; la Vinculaci&oacute;n Documento* ($radiDeriAnte) Tipo ($detaTipoVin)";
 			  $codusdp = str_pad($dependencia, 3, "0", STR_PAD_LEFT).str_pad($codusuario, 3, "0", STR_PAD_LEFT);	
 		      $objHistorico->insertarHistorico($arrayRad,$dependencia ,$codusuario, $dependencia,$codusuario, $observa, 38);
 			 }
@@ -52,7 +52,7 @@ if ($borrar)
 		}
   	   else
 	   {
-	     $mensaje = "<hr><center><b><span class=info>Numero de Radicado Inexistente</span></center></b></hr>";
+	     $mensaje = "<hr><center><b><span class=info>N&uacute;mero de Radicado Inexistente</span></center></b></hr>";
 	   } 
  	}
 ?>

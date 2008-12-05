@@ -17,16 +17,12 @@ if (!$dependencia)   include "$ruta_raiz/rec_session.php";
 <?
  
  include_once "$ruta_raiz/include/db/ConnectionHandler.php";
-error_reporting(7);
+ error_reporting(7);
  $db = new ConnectionHandler("$ruta_raiz");	 
  $db->conn->debug = true;
  $accion_sal = "Firmar Documentos";
  $nomcarpeta = "Documentos pendientes de firma digital";
  $pagina_sig = "firmarDocumentos.php";
- 
-
- 
- 
  
  if ($orden_cambio==1)  {
  	if (!$orderTipo)  {
@@ -92,7 +88,7 @@ error_reporting(7);
 
 
 	include "$ruta_raiz/include/query/firma/queryCuerpoPendientesFirma.php";
-	$db->conn->debug = true;
+	$db->conn->debug = false;
 	$rs=$db->conn->Execute($query);
 	
 	if (!$rs->EOF)  {
@@ -103,7 +99,7 @@ error_reporting(7);
 		$pager->Render($rows_per_page=20,$linkPagina,$checkbox=chkEnviar);		
 	} 
 	else{
-		echo "<hr><center><b>NO se encontro nada con el criterio de busqueda</center></b></hr>";	
+		echo "<hr><center><b>NO se encontr&oacute; nada con el criterio de b&uacute;squeda</center></b></hr>";	
 	}
 	
  ?>

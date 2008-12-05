@@ -85,7 +85,7 @@ loginTrue();
 	<TD>
 	<table width="200" border="0" align="center">
 		<tr>
-		<TD colspan="2"><center><font color=white face="arial" size=2><b>Numero de Radicado</b></font></center></TD>
+		<TD colspan="2"><center><font color=white face="arial" size=2><b>N&uacute;mero de Radicado</b></font></center></TD>
 		</tr>
 		<tr>
 			<td colspan="2" align="center">

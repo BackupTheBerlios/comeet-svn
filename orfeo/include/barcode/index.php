@@ -17,7 +17,7 @@ include("barcode.php");
 	<TD>
 	</TD>
 </TR>
-<tr><td class=listado1>Numero de Radicado <?=$nurad?>
+<tr><td class=listado1>N&uacute;mero de Radicado <?=$nurad?>
 </td></tr>
 </table>
 -->

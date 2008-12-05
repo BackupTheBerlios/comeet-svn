@@ -35,7 +35,7 @@ function envio_datos()
 	}
 
 	if(!isPositiveInteger(document.forms[0].cedula.value))
-	{	alert("No se ha diligenciado el Número de la Cedula del Usuario, o a diligenciado un valor no númerico.");
+	{	alert("No se ha diligenciado el Número de la C&eacute;dula del Usuario, o a diligenciado un valor no númerico.");
 		document.forms[0].cedula.focus();
 		return false;
 	}
@@ -51,7 +51,7 @@ function envio_datos()
 		return false;
 	}
 	if (!isPositiveInteger(document.forms[0].extension.value,true))
-	{	alert("El campo Extension del Usuario debe ser numérico.");
+	{	alert("El campo Extensi&oacute;n del Usuario debe ser numérico.");
 		document.forms[0].extension.focus();
 		return false;
 	}
@@ -62,7 +62,7 @@ function envio_datos()
 	}
 
 	if (!isYear(document.forms[0].ano.value ,true))
-	{	alert("El campo año del Usuario no tiene formato correcto.");
+	{	alert("El campo a&ntilde;o del Usuario no tiene formato correcto.");
 		document.forms[0].ano.focus();
 		return false;
 	}
@@ -95,7 +95,7 @@ function envio_datos()
   	<tr bordercolor="#FFFFFF">
     <td colspan="2" class="titulos4">
 	<center>
-	<p><B><span class=etexto>ADMINISTRACION DE USUARIOS Y PERFILES</span></B> </p>
+	<p><B><span class=etexto>ADMINISTRACI&Oacute;N DE USUARIOS Y PERFILES</span></B> </p>
 	<p><B><span class=etexto> <?=$tituloCrear ?></span></B> </p></center>
 	</td>
 	</tr>
@@ -183,10 +183,10 @@ if ($usModo ==2)
      <input name="nombreJefe" type="hidden" value='<?=$nombreJefe?>'>
     <input name="cedulaYa" type="hidden" value='<?=$cedulaYa?>'>
 <? if ($usModo == 1) { ?>
-	<td class="titulos2" height="26">Nro Cedula <input type=text name=cedula id=cedula value='<?=$cedula?>' size=15 maxlenght="14" > </td>
+	<td class="titulos2" height="26">Nro C&eacute;dula <input type=text name=cedula id=cedula value='<?=$cedula?>' size=15 maxlenght="14" > </td>
 	<td class="titulos2" height="26">Usuario <input type=text name=usuLogin id=usuLogin value='<?=$usuLogin?>' size=20 maxlenght=15></td>
 <? }else { ?>
-	<td class="titulos2" height="26">Nro Cedula <input readonly="yes" type=text name=cedula id=cedula value='<?=$cedula?>' size=15 maxlenght="14" > </td>
+	<td class="titulos2" height="26">Nro C&eacute;dula <input readonly="yes" type=text name=cedula id=cedula value='<?=$cedula?>' size=15 maxlenght="14" > </td>
 	<td class="titulos2" height="26">Usuario <input readonly="yes" type=text name=usuLogin id=usuLogin value='<?=$usuLogin?>' size=20 maxlenght=15></td>
 <? }  ?>
 	</tr>
@@ -242,9 +242,9 @@ if ($usModo ==2)
 </table>
 <table border=1 width=93% class=t_bordeGris align="center">
 	<tr class=timparr>
-	<td width="40%" height="26" class="titulos2">Ubicacion AT <input type=text name=ubicacion id=ubicacion value='<?=$ubicacion?>' size=20></td>
+	<td width="40%" height="26" class="titulos2">Ubicaci&oacute;n AT <input type=text name=ubicacion id=ubicacion value='<?=$ubicacion?>' size=20></td>
 	<td width="32%" height="26" class="titulos2">Piso <input type=text name=piso id=piso value='<?=$piso?>' size=10 ></td>
-	<td width="28%" height="26" class="titulos2">Extension <input type=text name=extension id=extension value='<?=$extension?>' size=10></td>
+	<td width="28%" height="26" class="titulos2">Extensi&oacute;n <input type=text name=extension id=extension value='<?=$extension?>' size=10></td>
 	</tr>
 </table>
 <table border=1 width=93% class=t_bordeGris align="center">

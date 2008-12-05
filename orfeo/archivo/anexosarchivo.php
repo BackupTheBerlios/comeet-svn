@@ -15,7 +15,7 @@
           "where anex_radi_nume=$radi";
 
    $cursor = ora_open($handle);
-   ora_parse($cursor,$isql) or die("No se encontro el radicado Buscado");
+   ora_parse($cursor,$isql) or die("No se encontr&oacute; el radicado Buscado");
    ora_exec($cursor);
    $bien=ora_fetch($cursor);
    $auxnumero=ora_getColumn($cursor,0);

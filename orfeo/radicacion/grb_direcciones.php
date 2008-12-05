@@ -110,7 +110,7 @@ if(!$modificar)
 }
 if ($nextval==-1)
 {
-	echo "<span class='etextomenu'>No se encontro la secuencia sec_dir_direcciones ";
+	echo "<span class='etextomenu'>No se encontr&oacute; la secuencia sec_dir_direcciones ";
 }
 global $ADODB_COUNTRECS;
 //$db->conn->debug = true;

@@ -44,13 +44,13 @@ function solonumeros()
 <body>
 	<table border=0 width=100% class="borde_tab" cellspacing="5">
 	<tr align="center" class="titulos5">
-	<td height="15" class="titulos5">MODIFICACION DE RADICADOS </td>
+	<td height="15" class="titulos5">MODIFICACI&Oacute;N DE RADICADOS </td>
 </tr></Table>
 <center></P>
   <form action='NEW.php?<?=session_name()."=".session_id()."&krd=$krd"?>&Submit3=ModificarDocumentos'  name="FrmBuscar" class=celdaGris method="POST">
     <table width="80%" class='borde_tab' cellspacing='5'>
   <tr class='titulos2'> 
-        <td width="25%" height="49">Numero de Radicado</td>
+        <td width="25%" height="49">N&uacute;mero de Radicado</td>
     <td width="55%" class=listado2>
 		<input type='text' name=nurad class=tex_area id=nurad>
 		<input type=hidden name=modificarRad Value="ModificarR" id=modificarRad> 

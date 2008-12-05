@@ -139,7 +139,7 @@ function ver_listado()
 	<td class="listado2"><input name="txtModelo" id="txtModelo" type="text" size="50" maxlength="30"></td>
 </tr>
 <tr bordercolor="#FFFFFF"> 
-	<td width="3%" align="justify" class="info" colspan="3" bgcolor="#FFFFFF"><b>NOTA: </b> Para una estandarizaci&oacute;n en los c&oacute;digos de pa&iacute;ses utilicemos los sugeridos por la ISO.  <a href="http://es.wikipedia.org/wiki/ISO_3166-1" target="_blank" class="vinculos">enlace</a></td>
+	<td width="3%" align="justify" class="info" colspan="3" bgcolor="#FFFFFF"><b>NOTA: </b> Para una estandarizaci&oacute;n en los c&oacute;digos de pa&iacute;ses utilicemos los <a href="http://es.wikipedia.org/wiki/ISO_3166-1" target="_blank" class="vinculos">sugeridos por la ISO</a>.</td>
 </tr>
 <?php
 if ($error)
