@@ -59,6 +59,7 @@ public class QueryRunner extends Element {
     	System.out.println("Ejecutando consulta: " + sqlCode);
         this.sqlCode = sqlCode;
         sql = SQLInstructions.getSentence(sqlCode,args);
+        System.out.println("SQL: " + sql);
     }
     
     public QueryRunner(String sqlCode,String sql) {

@@ -188,8 +188,8 @@
 		<code>SEL0012B</code>
 		<sql>
 		      SELECT mid 
-		      FROM mensajes 
-		      WHERE fecha_envio='?' AND hora_envio='?' AND uid_destino=(SELECT uid FROM usuarios WHERE login='?')
+              FROM mensajes
+              WHERE fecha_envio=to_date('?','yyyy-mm-dd') AND hora_envio='?' AND uid_destino=(SELECT codigo FROM usuarios WHERE login='?')
 		</sql>
 	</sentence>
 	<sentence>
@@ -667,7 +667,7 @@
 	<!--Descripcion: Esta instruccion confirma la lectura de un mensaje masivo de un usuario PDA -->
 		<code>INS0008A</code>
 		<sql>
-			INSERT INTO masivos_pda VALUES(?,'?','?','?')
+			INSERT INTO masivos_pda VALUES(?,'?',to_date('?','yyyy-mm-dd'),'?')
 		</sql>
 	</sentence>
 	<!--====================== Delete======================================= -->

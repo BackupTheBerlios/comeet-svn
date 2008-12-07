@@ -42,8 +42,9 @@ public class MassiveConfirmer {
 		List list = nextElement.getChildren();
 		Iterator listIterator = list.iterator();
 		
-		sentHour  = ((Element) listIterator.next()).getValue(); // hour date
-		sentDate  = formatDate(((Element) listIterator.next()).getValue()); // sent date
+		sentDate  = (((Element) listIterator.next()).getValue()); // sent date
+		String hour = ((Element) listIterator.next()).getValue(); // sent hour
+		sentHour  = formatHour(hour);
 		login     = ((Element) listIterator.next()).getValue(); // destination
 		pdaServer = ((Element) listIterator.next()).getValue(); // login server
 		isMassive = Integer.parseInt(((Element) listIterator.next()).getValue());
@@ -71,22 +72,26 @@ public class MassiveConfirmer {
 				QueryClosingHandler.close(resultSet);
 				queryRunner.closeStatement();
 			}
-		
-			try {
-				queryRunner = new QueryRunner("INS0008A",new String[]{mid + "",login,confirmationDate,confirmationHour});
-				queryRunner.setAutoCommit(false);
-				queryRunner.executeSQL();
-			} catch (SQLNotFoundException e) {
-				e.printStackTrace();
-			} catch (SQLBadArgumentsException e) {
-				e.printStackTrace();
-			} catch (SQLException e) {
-				e.printStackTrace();
-			} finally {
-				QueryClosingHandler.close(resultSet);
-				queryRunner.closeStatement();
-			}		
-			LogWriter.write("INFO: [" + confirmationDate + " " + confirmationHour + "] Confirmada lectura de mensaje con destino {" + login + "}");
+			
+			if (mid != -1) {
+				try {
+					queryRunner = new QueryRunner("INS0008A",new String[]{mid + "",login,confirmationDate,confirmationHour});
+					queryRunner.setAutoCommit(false);
+					queryRunner.executeSQL();
+				} catch (SQLNotFoundException e) {
+					e.printStackTrace();
+				} catch (SQLBadArgumentsException e) {
+					e.printStackTrace();
+				} catch (SQLException e) {
+					e.printStackTrace();
+				} finally {
+					QueryClosingHandler.close(resultSet);
+					queryRunner.closeStatement();
+				}		
+				LogWriter.write("INFO: [" + confirmationDate + " " + confirmationHour + "] Confirmada lectura de mensaje con destino {" + login + "}");
+			} else {
+				LogWriter.write("ERROR: No se pudo confirmar mensaje de usuario PDA. El identificador del mensaje no existe");				
+			}
 			
 		} else {
 			QueryRunner queryRunner = null;
@@ -132,7 +137,7 @@ public class MassiveConfirmer {
 		}
 	}
 	
-    private String formatDate(String basic) {
+    private String formatHour(String basic) {
     	int hour = Integer.parseInt(basic.substring(0,basic.indexOf(":")));
 		String meridian = basic.substring(basic.indexOf(" "),basic.length());
 		if (meridian.trim().equals("PM")) {
@@ -140,7 +145,7 @@ public class MassiveConfirmer {
 				String tail = basic.substring(basic.indexOf(":"),basic.length());
 				basic = hour + tail;
 		}
-	       return basic;
+	    return basic;
     }
     
     
