@@ -27,13 +27,13 @@ if (!$dbconn) {
   var dateAvailable2 = new ctlSpiffyCalendarBox("dateAvailable2", "adm_serie", "fecha_busq2","btnDate1","<?=$fecha_busq2?>",scBTNMODE_CUSTOMBLUE);
 </script>
 
-<form method="post" action="resultado01.php?krd=<?php echo $krd; ?>" name="adm_serie">
+<form method="post" action="resultado02.php?krd=<?php echo $krd; ?>" name="adm_serie">
 
 <center>
 <table  width="40%"  border="0" cellpadding="0" cellspacing="5" class="borde_tab">
  <tr>
   <td class="titulos4">
-       REPORTE: Radicaci&oacute;n - Consulta de radicados por usuario
+       REPORTE: Radicaci&oacute;n - Radicados Actuales por Dependencia 
   </td>
  </tr>
 </table>
@@ -46,8 +46,7 @@ if (!$dbconn) {
        Descripci&oacute;n:&nbsp; 
   </td>
   <td class="titulos3">
-       Este reporte genera la cantidad de radicados asignados o generados por cada usuario.
-       Se puede discriminar por tipo de radicaci&oacute;n. 
+       Este reporte lista los radicados de entrada cuyo vencimiento se encuentra en el rango de fechas seleccionado.
   </td>
  </tr>
 </table>
@@ -63,75 +62,6 @@ if (!$dbconn) {
     <select name="tipoDependencia" class="select">
     <?php
           $result=pg_query($dbconn, "SELECT depe_codi, depe_nomb FROM dependencia ORDER BY depe_nomb");
-          $size = pg_num_rows($result);
-          if ($size > 0) {
-              echo "<option value=\"-1\">Todos</option>\n";
-              while ($row = pg_fetch_array($result)) {
-                     echo "<option value=\"".$row[0]."\">\n";
-                     echo "$row[1]\n";
-                     echo "</option>\n";
-              }
-          } else {
-            echo "<option value=\"-1\">Todos</option>";
-          }
-    ?>
-    </select>
-   </td>
- </tr>
- <tr>
-   <td class="titulos2">
-    Usuario:
-   </td>
-   <td>
-    <select name="tipoUsuario" class="select">
-    <?php
-          $result=pg_query($dbconn, "SELECT usua_codi,usua_nomb FROM usuario ORDER BY usua_nomb");
-          $size = pg_num_rows($result);
-          if ($size > 0) {
-              echo "<option value=\"-1\">Todos</option>\n";
-              while ($row = pg_fetch_array($result)) {
-                     echo "<option value=\"".$row[0]."\">\n";
-                     echo "$row[1]\n";
-                     echo "</option>\n";
-              }
-          } else {
-            echo "<option value=\"-1\">Todos</option>";
-          }
-    ?>
-    </select>
-   </td>
- </tr>
- <tr>
-   <td class="titulos2">
-    Tipo de Radicado:
-   </td>
-   <td>
-    <select name="tipoRadicado" class="select">
-    <?php
-          $result=pg_query($dbconn, "SELECT sgd_trad_codigo, sgd_trad_descr FROM sgd_trad_tiporad ORDER BY sgd_trad_descr");
-          $size = pg_num_rows($result);
-          if ($size > 0) {
-              echo "<option value=\"-1\">Todos</option>\n";
-              while ($row = pg_fetch_array($result)) {
-                     echo "<option value=\"".$row[0]."\">\n";
-                     echo "$row[1]\n";
-                     echo "</option>\n";
-              }
-          } else {
-            echo "<option value=\"-1\">Todos</option>";
-          }
-    ?>
-    </select>
-   </td>
- </tr>
- <tr>
-   <td class="titulos2">
-    Tipo de Documento:
-   </td>
-   <td>
-    <select name="tipoDocumento" class="select">
-    <?php
-          $result=pg_query($dbconn, "SELECT sgd_tpr_codigo, sgd_tpr_descrip FROM sgd_tpr_tpdcumento ORDER BY  sgd_tpr_descrip");
           $size = pg_num_rows($result);
           if ($size > 0) {
               echo "<option value=\"-1\">Todos</option>\n";

@@ -27,13 +27,13 @@ if (!$dbconn) {
   var dateAvailable2 = new ctlSpiffyCalendarBox("dateAvailable2", "adm_serie", "fecha_busq2","btnDate1","<?=$fecha_busq2?>",scBTNMODE_CUSTOMBLUE);
 </script>
 
-<form method="post" action="resultado01.php?krd=<?php echo $krd; ?>" name="adm_serie">
+<form method="post" action="resultado03.php?krd=<?php echo $krd; ?>" name="adm_serie">
 
 <center>
 <table  width="40%"  border="0" cellpadding="0" cellspacing="5" class="borde_tab">
  <tr>
   <td class="titulos4">
-       REPORTE: Radicaci&oacute;n - Consulta de radicados por usuario
+       REPORTE: Radicaci&oacute;n - Reporte Asignaci&oacute;n Radicados
   </td>
  </tr>
 </table>
@@ -46,8 +46,7 @@ if (!$dbconn) {
        Descripci&oacute;n:&nbsp; 
   </td>
   <td class="titulos3">
-       Este reporte genera la cantidad de radicados asignados o generados por cada usuario.
-       Se puede discriminar por tipo de radicaci&oacute;n. 
+       Este reporte lista cuantos radicados de entrada han sido asignados a cada dependencia.
   </td>
  </tr>
 </table>

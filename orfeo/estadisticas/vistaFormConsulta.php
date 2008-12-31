@@ -17,13 +17,13 @@ include "$ruta_raiz/rec_session.php";
  <br/>
      <ul>
          <li>
-             <a href="reporte01.php">Reporte de Radicados por Usuario</a>
+             <a href="reporte01.php?krd=<?php echo $krd ?>">Reporte de Radicados por Usuario</a>
          </li>
          <li>
-             <a href="reporte02.php">Reporte de Radicados Actuales por Dependencia</a>
+             <a href="reporte02.php?krd=<?php echo $krd ?>">Reporte de Radicados Actuales por Dependencia</a>
          </li>
          <li>
-             <a href="reporte04.php">Reporte de Asignaci&oacute;n Radicados</a>
+             <a href="reporte03.php?krd=<?php echo $krd ?>">Reporte de Asignaci&oacute;n Radicados</a>
          </li>
      </ul>
  </td></tr>
