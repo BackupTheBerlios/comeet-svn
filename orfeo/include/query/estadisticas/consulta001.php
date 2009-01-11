@@ -1,4 +1,4 @@
-<?
+<?php
 /*************************************************************************************/
 /* ORFEO GPL:Sistema de Gestion Documental		http://www.orfeogpl.org	     */
 /*	Idea Original de la SUPERINTENDENCIA DE SERVICIOS PUBLICOS DOMICILIARIOS     */
@@ -23,8 +23,7 @@
 /*  Nombre Desarrollador   Correo     Fecha   Modificacion                           */
 /*  Martha Yaneth Mera    mymera@gmail.com     2006-05-10*/
 /*************************************************************************************/
-?>
-<?
+
 /** CONSUTLA 001 
 	* Estadiscas por medio de recepcion Entrada
 	* @autor JAIRO H LOSADA - SSPD
@@ -32,7 +31,11 @@
 	* 
 	*/
 $coltp3Esp = '"'.$tip3Nombre[3][2].'"';
-if(!$orno) $orno=2;
+
+if (!$orno) {
+    $orno=2;
+}
+
  /**
    * $db-driver Variable que trae el driver seleccionado en la conexion
    * @var string
@@ -53,54 +56,76 @@ if(!$orno) $orno=2;
    * @var string
    * @access public
    */
-switch($db->driver)
-	{
+
+switch($db->driver) {
 	case 'mssql':
-	case 'postgresql':	
-	{	if($tipoDocumento=='9999')
-			{	$queryE = "SELECT b.USUA_NOMB USUARIO, count(*) RADICADOS, MIN(USUA_CODI) HID_COD_USUARIO, MIN(depe_codi) HID_DEPE_USUA 
-						FROM RADICADO r 
-							INNER JOIN USUARIO b ON r.radi_usua_radi=b.usua_CODI AND $tmp_substr($radi_nume_radi,5,3)=b.depe_codi 
-						WHERE ".$db->conn->SQLDate('Y/m/d', 'r.radi_fech_radi')." BETWEEN '$fecha_ini' AND '$fecha_fin' 
-							$whereDependencia $whereActivos $whereTipoRadicado 
-						GROUP BY b.USUA_NOMB ORDER BY $orno $ascdesc";
-			}
-			else
-			{	$queryE = "SELECT b.USUA_NOMB USUARIO, t.SGD_TPR_DESCRIP TIPO_DOCUMENTO, count(*) RADICADOS,
-							MIN(USUA_CODI) HID_COD_USUARIO, MIN(SGD_TPR_CODIGO) HID_TPR_CODIGO, MIN(depe_codi) HID_DEPE_USUA
-						FROM RADICADO r 
-							INNER JOIN USUARIO b ON r.RADI_USUA_RADI = b.USUA_CODI AND $tmp_substr($radi_nume_radi, 5, 3) = b.DEPE_CODI 
-							LEFT OUTER JOIN SGD_TPR_TPDCUMENTO t ON r.TDOC_CODI = t.SGD_TPR_CODIGO
-						WHERE ".$db->conn->SQLDate('Y/m/d', 'r.radi_fech_radi')." BETWEEN '$fecha_ini' AND '$fecha_fin' 
-							$whereDependencia $whereActivos $whereTipoRadicado 
-						GROUP BY b.USUA_NOMB,t.SGD_TPR_DESCRIP ORDER BY $orno $ascdesc";		
-			}
- 			/** CONSULTA PARA VER DETALLES 
-	 		*/
-			$condicionDep = " AND depe_codi = $depeUs ";
-			$condicionE = " AND b.USUA_CODI=$codUs $condicionDep ";
-			$queryEDetalle = "SELECT $radi_nume_radi RADICADO
-					,r.RADI_FECH_RADI FECHA_RADICADO
-					,t.SGD_TPR_DESCRIP TIPO_DE_DOCUMENTO
-					,r.RA_ASUN ASUNTO 
-					,r.RADI_DESC_ANEX 
-					,r.RADI_NUME_HOJA 
-					,m.MREC_DESC MEDIO_RECEPCION
-					,b.usua_nomb Usuario
-					,r.RADI_PATH HID_RADI_PATH {$seguridad}
-					FROM RADICADO r
-						INNER JOIN USUARIO b ON r.radi_usua_radi=b.usua_CODI AND $tmp_substr($radi_nume_radi,5,3)=b.depe_codi 
-						LEFT OUTER JOIN SGD_TPR_TPDCUMENTO t ON r.tdoc_codi=t.SGD_TPR_CODIGO 
-						LEFT OUTER JOIN MEDIO_RECEPCION m ON r.MREC_CODI = m.MREC_CODI
-					WHERE ".$db->conn->SQLDate('Y/m/d', 'r.radi_fech_radi')." BETWEEN '$fecha_ini' AND '$fecha_fin' $whereTipoRadicado ";
-					$orderE = "	ORDER BY $orno $ascdesc";
-			 /** CONSULTA PARA VER TODOS LOS DETALLES 
-			 */ 
-		
-			$queryETodosDetalle = $queryEDetalle . $condicionDep . $orderE;
-			$queryEDetalle .= $condicionE . $orderE;
-		}
+
+	case 'postgres':	
+	      if ($tipoDocumento=='9999') {
+                  /*
+                  $queryE = "SELECT b.USUA_NOMB USUARIO, count(*) RADICADOS, MIN(USUA_CODI) HID_COD_USUARIO, MIN(depe_codi) HID_DEPE_USUA 
+                             FROM RADICADO r 
+                             INNER JOIN USUARIO b ON r.radi_usua_radi=b.usua_CODI AND $tmp_substr($radi_nume_radi,5,3)=b.depe_codi 
+                             WHERE ".$db->conn->SQLDate('Y/m/d', 'r.radi_fech_radi')." BETWEEN '$fecha_ini' AND '$fecha_fin' 
+                             $whereDependencia $whereActivos $whereTipoRadicado 
+                             GROUP BY b.USUA_NOMB ORDER BY $orno $ascdesc";
+                  */
+
+                  $queryE = "SELECT b.USUA_NOMB USUARIO, count(*) RADICADOS, MIN(USUA_CODI) HID_COD_USUARIO, MIN(depe_codi) HID_DEPE_USUA
+                             FROM RADICADO r
+                             INNER JOIN USUARIO b ON r.radi_usua_radi=b.usua_CODI AND $tmp_substr($radi_nume_radi,5,3)=b.depe_codi
+                             WHERE ".$db->conn->SQLDate('Y/m/d', 'r.radi_fech_radi')." BETWEEN '$fecha_ini' AND '$fecha_fin'
+                             $whereDependencia $whereActivos $whereTipoRadicado
+                             GROUP BY b.USUA_NOMB ORDER BY $orno $ascdesc";
+              } else {	
+                  /*
+                  $queryE = "SELECT b.USUA_NOMB USUARIO, t.SGD_TPR_DESCRIP TIPO_DOCUMENTO, count(*) RADICADOS,
+                             MIN(USUA_CODI) HID_COD_USUARIO, MIN(SGD_TPR_CODIGO) HID_TPR_CODIGO, MIN(depe_codi) HID_DEPE_USUA
+                             FROM RADICADO r 
+                             INNER JOIN USUARIO b ON r.RADI_USUA_RADI = b.USUA_CODI AND $tmp_substr($radi_nume_radi, 5, 3) = b.DEPE_CODI 
+                             LEFT OUTER JOIN SGD_TPR_TPDCUMENTO t ON r.TDOC_CODI = t.SGD_TPR_CODIGO
+                             WHERE ".$db->conn->SQLDate('Y/m/d', 'r.radi_fech_radi')." BETWEEN '$fecha_ini' AND '$fecha_fin' 
+                             $whereDependencia $whereActivos $whereTipoRadicado 
+                             GROUP BY b.USUA_NOMB,t.SGD_TPR_DESCRIP ORDER BY $orno $ascdesc";		
+                  */
+
+                  $queryE = "SELECT b.USUA_NOMB USUARIO, t.SGD_TPR_DESCRIP TIPO_DOCUMENTO, count(*) RADICADOS,
+                             MIN(USUA_CODI) HID_COD_USUARIO, MIN(SGD_TPR_CODIGO) HID_TPR_CODIGO, MIN(depe_codi) HID_DEPE_USUA
+                             FROM RADICADO r
+                             INNER JOIN USUARIO b ON r.RADI_USUA_RADI = b.USUA_CODI AND $tmp_substr($radi_nume_radi, 5, 3) = b.DEPE_CODI
+                             LEFT OUTER JOIN SGD_TPR_TPDCUMENTO t ON r.TDOC_CODI = t.SGD_TPR_CODIGO
+                             WHERE ".$db->conn->SQLDate('Y/m/d', 'r.radi_fech_radi')." BETWEEN '$fecha_ini' AND '$fecha_fin'
+                             $whereDependencia $whereActivos $whereTipoRadicado
+                             GROUP BY b.USUA_NOMB,t.SGD_TPR_DESCRIP ORDER BY $orno $ascdesc";
+              }
+              /** CONSULTA PARA VER DETALLES */
+              $condicionDep = " AND depe_codi = $depeUs ";
+              $condicionE = " AND b.usua_codi=$codUs $condicionDep ";
+
+              echo "SEC: $seguridad<br>";
+
+              $queryEDetalle = "SELECT $radi_nume_radi AS RADICADO,
+                                 r.radi_fech_radi AS FECHA_RADICADO,
+                                 t.sgd_tpr_descrip AS TIPO_DE_DOCUMENTO,
+                                 r.ra_asun AS ASUNTO,
+                                 r.radi_desc_anex, 
+                                 r.radi_nume_hoja, 
+                                 m.mrec_desc AS MEDIO_RECEPCION,
+                                 b.usua_nomb AS USUARIO,
+                                 r.radi_path AS HID_RADI_PATH {$seguridad}
+                                FROM radicado r
+                                 INNER JOIN usuario b ON r.radi_usua_radi = b.usua_codi AND $tmp_substr($radi_nume_radi,5,3) = b.depe_codi 
+                                 LEFT OUTER JOIN sgd_tpr_tpdcumento t ON r.tdoc_codi = t.sgd_tpr_codigo
+                                 LEFT OUTER JOIN medio_recepcion m ON r.mrec_codi = m.mrec_codi
+                                WHERE ".$db->conn->SQLDate('Y/m/d', 'r.radi_fech_radi')." BETWEEN '$fecha_ini' AND '$fecha_fin' $whereTipoRadicado ";
+
+                                $orderE = " ORDER BY $orno $ascdesc";
+                        /** CONSULTA PARA VER TODOS LOS DETALLES  */
+                        $queryETodosDetalle = $queryEDetalle . $condicionDep . $orderE;
+                        $queryEDetalle .= $condicionE . $orderE;
+
 	break;
+
 	case 'oracle':
 	case 'oci8':
 	case 'oci805':

@@ -4,7 +4,7 @@ $servicio = "orfeo";
 
 $usuario = "orfeo";
 
-$contrasena = "3ld0r4d0"; 
+$contrasena = ""; 
 
 $servidor = "localhost:5432";
 
@@ -16,7 +16,7 @@ $driver = "postgres";
 $ambiente = "orfeo";
 
 //Servidor que procesa los documentos
-$servProcDocs = "192.168.1.5";
+$servProcDocs = "";
 
 $entidad= "OPAIN S.A.";
 
@@ -35,7 +35,7 @@ $entidad_dir = "Avenida El Dorado";
         *       referencia donde se encuentre ADODB
         */
 
-$ADODB_PATH = "/home/orfeo/adodb";
+$ADODB_PATH = "/home/xtingray/orfeo/adodb";
 
 $ADODB_CACHE_DIR = "/tmp";
 

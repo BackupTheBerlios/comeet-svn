@@ -54,6 +54,7 @@ if(!$orno) $orno=2;
    * @var string
    * @access public
    */
+
 switch( $db->driver )
 	{
 	case 'mssql':
