@@ -56,7 +56,7 @@ $fechf=fnc_date_calc($fechafi,1);
 	  $dependencia_busq1= " and d.sgd_exp_estado=$tipo_archivo and d.depe_codi like '$dep_sel'  and (upper(d.sgd_exp_numero) like '%$buscar_exp%' and upper(d.RADI_NUME_RADI) like '%$buscar_rad%')";
 	  $dependencia_busq2= " and d.sgd_exp_estado=$tipo_archivo and d.depe_codi like '$dep_sel' and (upper(d.sgd_exp_numero) like '%$buscar_exp%' and upper(d.RADI_NUME_RADI) like '%$buscar_rad%') ";
 $dependencia_busq1.="and d.depe_codi!=900 and d.depe_codi!=905";
-$dependencia_busq1.=" and d.sgd_exp_fech <= '$fechf' and d.sgd_exp_fech >= '$fechai' ";
+$dependencia_busq1.=" and d.sgd_exp_fech between '$fechai' and '$fechf' ";
 $dependencia_busq2.=" and d.sgd_exp_fech <= '$fechf' and d.sgd_exp_fech >= '$fechai'";
 
 
@@ -222,7 +222,7 @@ if($tipo_archivo==2){$img7=" <img src='../iconos/flechanoleidos.gif' border=0 al
 	$fecha_hoy = Date("Y-m-d");
 	$sqlFechaHoy=$db->conn->DBDate($fecha_hoy);
 	include "$ruta_raiz/include/query/expediente/queryCuerpo_exp.php";
-	//$db->conn->debug = true;
+//	$db->conn->debug = true;
 	$rs=$db->conn->query($isql);
 	$nombusuario = $rs->fields["usua_nomb"];
 	$dependencianomb = $rs->fields["depe_nomb"];

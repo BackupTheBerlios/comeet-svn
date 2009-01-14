@@ -11,7 +11,7 @@ error_reporting(7);
 $db->conn->SetFetchMode(ADODB_FETCH_ASSOC);
 ?>
 <head>
-
+<META HTTP-EQUIV="Refresh" CONTENT="150">
 <link rel="stylesheet" href="estilos/orfeo.css">
 <script>
 // Variable que guarda la �ltima opci�n de la barra de herramientas de funcionalidades seleccionada
@@ -90,6 +90,26 @@ function verPersonales(img){
 ?>
 <form action=correspondencia.php method="post" >
 <?
+$fechC=date('Y-m-d');
+$ho=date('H');
+$mi=date('i')+1;
+$hf=$ho;
+$mo=$mi-3;
+if($mo<0){
+	$mo=57;
+	$hf=$hf-1;
+}
+//$db->conn->debug=true;
+$rsA=$db->conn->Execute("select r.radi_nume_radi,c.carp_desc from radicado r,usuario u, hist_eventos h, carpeta c where r.radi_depe_actu=u.depe_codi and r.radi_usua_actu=u.usua_codi and u.usua_login like '$krd' and c.carp_codi=r.carp_codi and h.radi_nume_radi=r.radi_nume_radi and h.hist_fech between '$fechC $hf:$mo' and '$fechC $ho:$mi'");
+$rad_r=$rsA->fields['RADI_NUME_RADI'];
+$car_r=$rsA->fields['CARP_DESC'];
+if($rad_r!=""){
+?>
+<script>
+alert("Tiene un radicado nuevo en la bandeja <?=$car_r?>");
+</script>
+<?
+}
  // Cambia a Mayuscula el login-->krd -- Permite al usuario escribir su login en mayuscula o Minuscula
  	$numeroa=0;$numero=0;$numeros=0;$numerot=0;$numerop=0;$numeroh=0;
 	$fechah=date("dmy") . time("hms");

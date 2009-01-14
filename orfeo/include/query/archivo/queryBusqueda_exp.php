@@ -4,6 +4,7 @@
 	case 'mssql':
 	case 'oracle':
 	case 'oci8':
+	case 'postgres':
 		$sql="select s.SGD_SRD_CODIGO,s.SGD_EXP_NUMERO,s.SGD_SBRD_CODIGO,s.SGD_PEXP_CODIGO,e.SGD_EXP_NUMERO,s.SGD_SEXP_PAREXP1,s.SGD_SEXP_PAREXP2,s.SGD_SEXP_PAREXP3,s.SGD_SEXP_PAREXP5,e.SGD_EXP_FECH_ARCH,e.SGD_EXP_FECHFIN,r.RADI_NUME_HOJA,e.SGD_EXP_CAJA,e.SGD_EXP_UFISICA,e.SGD_EXP_ISLA,e.RADI_NUME_RADI,c.SGD_DIR_DOC
 	,e.SGD_EXP_ESTANTE,e.SGD_EXP_CARPETA, e.SGD_EXP_RETE,r.radi_fech_radi,e.sgd_exp_carro,e.sgd_exp_entrepa, r.radi_path,r.RADI_CUENTAI,r.EESP_CODI
 	 from SGD_SEXP_SECEXPEDIENTES s, SGD_EXP_EXPEDIENTE e, radicado r, SGD_DIR_DRECCIONES c where $srds $c $sbrds $d $pross $ef $r $b $x $a $pis $f $caj $g $estan $h $entre $v $caja $t $caja2 $u $foli $k $fecha $i $fechafin $j $titul $l $conse $n $archi $o $depa $p $muni $q";

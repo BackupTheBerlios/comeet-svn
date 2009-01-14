@@ -62,6 +62,7 @@ if($carpeta==8)
 */
 include "$ruta_raiz/tx/verifSession.php";
 
+
 ?>
 <html><head><title>.: Modulo total :.</title>
 <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
@@ -69,6 +70,7 @@ include "$ruta_raiz/tx/verifSession.php";
 
 <!-- seleccionar todos los checkboxes-->
 <SCRIPT LANGUAGE="JavaScript">
+
 function datosBasicos()
 {
 	window.location='radicacion/NEW.PHP?krd=<?=$krd?>&<?=session_name()."=".session_id()?>&<?="nurad=$verrad&fechah=$fechah&ent=$ent&Buscar=Buscar Radicado&carpeta=$carpeta&nomcarpeta=$nomcarpeta"; ?>';
@@ -84,7 +86,11 @@ function ocultar(nombreCapa)
 var contadorVentanas=0
 <?
 if($verradPermisos == "Full" or $datoVer=="985")
-{	if($datoVer=="985")
+{	
+	$rsr=$db->conn->Execute("select codi_nivel from radicado where radi_nume_radi like '$numrad'");
+	$permrad=$rsr->fields['CODI_NIVEL'];
+
+	if($datoVer=="985" and $permrad<=$_SESSION['nivelus'])
 	{
 ?>
 function  window_onload()
@@ -307,15 +313,19 @@ if( isset( $_POST['ordenarPor'] ) && $_POST['ordenarPor'] != "" )
 	$numeroa=0;$numero=0;$numeros=0;$numerot=0;$numerop=0;$numeroh=0;
 	 ?>
  	 <?
+	$rsr=$db->conn->Execute("select codi_nivel from radicado where radi_nume_radi like '$numrad'");
+	$permrad=$rsr->fields['CODI_NIVEL'];
  	 include "ver_datosrad.php";
-   		if($verradPermisos == "Full" or $datoVer=="985")
+	if(($verradPermisos == "Full" or $datoVer=="985") and $permrad<=$_SESSION['nivelus'])
  		{
 
  		}else
  		{
  			$numRad = $verrad;
- 			if($nivelRad==1) include "$ruta_raiz/seguridad/sinPermisoRadicado.php";
- 			if($nivelRad==1) die("-");
+ 			//if($nivelRad==1) 
+			include "$ruta_raiz/seguridad/sinPermisoRadicado.php";
+ 			//if($nivelRad==1) 
+			die("-");
  		}
  ?>
 <table border=0 width=100%  cellpadding="0" cellspacing="5" class="borde_tab">

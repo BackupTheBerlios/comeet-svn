@@ -171,10 +171,15 @@ if ($_SESSION["usua_perm_trd"]==1)
 if($_SESSION["usua_admin_archivo"]>=1)
 {
 	$isql = "select count(*) as CONTADOR
-				from SGD_EXP_EXPEDIENTE
+				from SGD_EXP_EXPEDIENTE d, radicado a,sgd_tpr_tpdcumento b,dependencia e,usuario f
 				where
-				sgd_exp_estado=0 ";
-    $rs=$db->conn->Execute($isql);
+				d.sgd_exp_estado=0 and 
+f.usua_codi=a.radi_usua_actu and f.depe_codi=a.radi_depe_actu and e.depe_codi=a.radi_depe_actu and 
+a.tdoc_codi=b.sgd_tpr_codigo and a.radi_nume_radi=d.radi_nume_radi
+and d.depe_codi!=900
+";
+//$db->conn->debug=true;    
+$rs=$db->conn->Execute($isql);
     $num_exp = $rs->fields["CONTADOR"];
 ?>
 				<tr>

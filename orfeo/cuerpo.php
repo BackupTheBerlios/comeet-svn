@@ -52,7 +52,7 @@ if ($swLog==1)
 		}
 	}
 
-	if(!$carpeta) $carpeta=0;
+	if(!$carpeta) $carpeta=2;
 	if($busqRadicados)
 	{
     $busqRadicados = trim($busqRadicados);

@@ -73,14 +73,16 @@ function informar( $radicados, $loginOrigen,$depDestino,$depOrigen,$codUsDestino
 				DEPE_CODI=$depDestino
 				AND USUA_CODI=$codUsDestino";
 	# Busca el usuairo Origen para luego traer sus datos.
+//$this->db->conn->debug=true;
+
 	$rs = $this->db->query($sql); # Ejecuta la busqueda
 		
 	//Modificacion SKINA-IDRD para Postgres
 
-	$usNivel = $rs->fields["codi_nivel"];
-	$usLoginDestino = $rs->fields["usua_login"];
-	$nombreUsuario = $rs->fields["usua_nomb"];
-	$docUsuarioDest = $rs->fields["usua_doc"];
+	$usNivel = $rs->fields['CODI_NIVEL'];
+	$usLoginDestino = $rs->fields['USUA_LOGIN'];
+	$nombreUsuario = $rs->fields['USUA_NOMB'];
+	$docUsuarioDest = $rs->fields['USUA_DOC'];
 	$codTx = 8;
 	if($tomarNivel=="si")
 	{
@@ -92,7 +94,7 @@ function informar( $radicados, $loginOrigen,$depDestino,$depOrigen,$codUsDestino
 
 	$tmp_rad = array();
 	$informaSql = true;
-	
+
 	while ((list(,$noRadicado)=each($radicados)) and $informaSql)
 	{	if (strstr($noRadicado,'-'))	$tmp = explode('-',$noRadicado);
 		else $tmp = $noRadicado;
@@ -110,6 +112,7 @@ function informar( $radicados, $loginOrigen,$depDestino,$depOrigen,$codUsDestino
 		$record["INFO_DESC"] = "'$observacion '";
 		$record["USUA_DOC"] = "'$docUsuarioDest'";
 		$record["INFO_FECH"] = $this->db->conn->OffsetDate(0,$this->db->conn->sysTimeStamp);
+		$record["USUA_CODI_INFO"] = $codUsOrigen;
 
 		# Mandar como parametro el recordset vacio y el arreglo conteniendo los datos a insertar
 		# a la funcion GetInsertSQL. Esta procesara los datos y regresara un enunciado SQL
@@ -254,7 +257,7 @@ function borrarInformado( $radicados, $loginOrigen,$depDestino,$depOrigen,$codUs
 		$radicadosIn = join(",",$radicados);
 		$carp_codi=substr($depOrigen,0,2);
 		$carp_per = 0;
-		$carp_codi = 0;
+		$carp_codi = 2;
 		$isql = "update radicado
 					set
 					  RADI_USU_ANTE='$loginOrigen'

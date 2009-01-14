@@ -354,10 +354,10 @@ if($no_documento or $nombre_essp)
 	{	$array_nombre = split(" ",$nombre_essp."    ");
    		$isql = "select * from SGD_CIU_CIUDADANO ";
 		if($nombre_essp)
-   		{	if($array_nombre[0]) {$where_split = $db->conn->Concat("sgd_ciu_nombre","sgd_ciu_apell1","sgd_ciu_apell2"). " LIKE '%". $array_nombre[0] ."%' ";}
-			if($array_nombre[1]) {$where_split .= " and ". $db->conn->Concat("sgd_ciu_nombre","sgd_ciu_apell1","sgd_ciu_apell2"). " LIKE '%". $array_nombre[1] ."%' ";}
-			if($array_nombre[2]) {$where_split .= " and ". $db->conn->Concat("sgd_ciu_nombre","sgd_ciu_apell1","sgd_ciu_apell2"). " LIKE '%". $array_nombre[2] ."%' ";}
-			if($array_nombre[3]) {$where_split .= " and ". $db->conn->Concat("sgd_ciu_nombre","sgd_ciu_apell1","sgd_ciu_apell2"). " LIKE '%". $array_nombre[3] ."%' ";}         
+   		{	if($array_nombre[0]) {$where_split = "upper(".$db->conn->Concat("sgd_ciu_nombre","sgd_ciu_apell1","sgd_ciu_apell2"). ") LIKE upper('%". $array_nombre[0] ."%') ";}
+			if($array_nombre[1]) {$where_split .= " and upper(". $db->conn->Concat("sgd_ciu_nombre","sgd_ciu_apell1","sgd_ciu_apell2"). ") LIKE upper('%". $array_nombre[1] ."%') ";}
+			if($array_nombre[2]) {$where_split .= " and upper(". $db->conn->Concat("sgd_ciu_nombre","sgd_ciu_apell1","sgd_ciu_apell2"). ") LIKE upper('%". $array_nombre[2] ."%') ";}
+			if($array_nombre[3]) {$where_split .= " and upper(". $db->conn->Concat("sgd_ciu_nombre","sgd_ciu_apell1","sgd_ciu_apell2"). ") LIKE upper('%". $array_nombre[3] ."%') ";}         
 			$isql .= " where $where_split ";
 		}
 
@@ -370,7 +370,7 @@ if($no_documento or $nombre_essp)
 	if($tbusqueda==2)
 	{	$isql = "select SGD_OEM_NIT AS SGD_CIU_CEDULA,SGD_OEM_OEMPRESA as SGD_CIU_NOMBRE,SGD_OEM_REP_LEGAL as SGD_CIU_APELL2, ".
 				"SGD_OEM_CODIGO AS SGD_CIU_CODIGO,SGD_OEM_DIRECCION as SGD_CIU_DIRECCION,SGD_OEM_TELEFONO AS SGD_CIU_TELEFONO, ".
-				"SGD_OEM_SIGLA AS SGD_CIU_APELL1,MUNI_CODI,DPTO_CODI,ID_PAIS,ID_CONT from SGD_OEM_OEMPRESAS	where SGD_OEM_OEMPRESA LIKE '%$nombre_essp%'";
+				"SGD_OEM_SIGLA AS SGD_CIU_APELL1,MUNI_CODI,DPTO_CODI,ID_PAIS,ID_CONT from SGD_OEM_OEMPRESAS	where upper(SGD_OEM_OEMPRESA) LIKE upper('%$nombre_essp%')";
 		if($no_documento)	{	$isql .= " and SGD_OEM_NIT = '$no_documento'   ";  }
 		$isql .= " order by sgd_oem_oempresa"; 
 	}
@@ -395,10 +395,10 @@ if($no_documento or $nombre_essp)
 					"'' as SGD_CIU_APELL1,dependencia.ID_CONT, dependencia.ID_PAIS, dependencia.DPTO_CODI as DPTO_CODI,dependencia.MUNI_CODI as MUNI_CODI,USUARIO.usua_email as SGD_CIU_EMAIL ".
        				"from USUARIO,dependencia where USUA_ESTA='1' AND USUARIO.depe_codi = dependencia.depe_codi ";
 			if($nombre_essp)
-   			{	if($array_nombre[0]) {$where_split = "  USUA_NOMB LIKE '%". $array_nombre[0] ."%' ";}
-				if($array_nombre[1]) {$where_split .= " AND USUA_NOMB LIKE '%". $array_nombre[1] ."%' ";}
-				if($array_nombre[2]) {$where_split .= " AND USUA_NOMB LIKE '%". $array_nombre[2] ."%' ";}
-				if($array_nombre[3]) {$where_split .= " AND USUA_NOMB LIKE '%". $array_nombre[3] ."%' ";}     	 
+   			{	if($array_nombre[0]) {$where_split = "  upper(USUA_NOMB) LIKE upper('%". $array_nombre[0] ."%') ";}
+				if($array_nombre[1]) {$where_split .= " AND upper(USUA_NOMB) LIKE upper('%". $array_nombre[1] ."%') ";}
+				if($array_nombre[2]) {$where_split .= " AND upper(USUA_NOMB) LIKE upper('%". $array_nombre[2] ."%') ";}
+				if($array_nombre[3]) {$where_split .= " AND upper(USUA_NOMB) LIKE upper('%". $array_nombre[3] ."%') ";}     	 
 				$isql .= " and $where_split ";
    			}
 			if($no_documento)

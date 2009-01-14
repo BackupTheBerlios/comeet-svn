@@ -57,6 +57,7 @@
 	break;
 	case 'oracle':
 	case 'oci8':
+	case 'postgres':
 		$isql = "select d.sgd_exp_numero,
 				d.sgd_exp_estado,
 				a.radi_path,
@@ -71,7 +72,6 @@
 				b.sgd_tpr_descrip,
 				b.sgd_tpr_codigo,
 				b.sgd_tpr_termino,
-				ROUND(((radi_fech_radi+(b.sgd_tpr_termino * 7/5))-SYSDATE)) AS diasr ,
 				RADI_LEIDO,RADI_TIPO_DERI,RADI_NUME_DERI,a.radi_depe_actu,
 				e.depe_nomb,
 				f.usua_nomb,

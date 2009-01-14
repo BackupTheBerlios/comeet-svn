@@ -169,7 +169,7 @@ function regresar()
 	?>
 	</td>
 </tr>
-<tr> 
+<!--tr> 
 	<td align="right" height="25" class="titulos2">RELACION PROCEDIMENTAL</td>
 	<td class='listado2' colspan="6"> 
 	<?
@@ -405,7 +405,7 @@ function regresar()
 	  }
 	  ?>
     </td>
-  </tr>
+  </tr-->
 </table>
 </form>
 <table align="center" border=0 id=ver_datos witdth=80%>

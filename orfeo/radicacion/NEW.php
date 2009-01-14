@@ -229,19 +229,21 @@ i=1;
 							,$docAno AS DOCANO
 							,a.EESP_CODI
 							,a.RA_ASUN
-							,$fRad FECHA_RADICADO
+							,$fRad AS FECHA_RADICADO
 						from radicado a
-						where a.radi_nume_radi=$nurad";
-	$rs=$db->conn->query($query);
-	//$db->conn->debug = true;
+						where a.radi_nume_radi like '$nurad'";
+//$db->conn->debug=true;	
+$rs=$db->conn->query($query);
+//	$db->conn->debug = true;
 	$varQuery = $query;
   $busqueda=$nurad;
 	if(!$rs->EOF and is_numeric($busqueda))
 		{
-			if($cursor)
-			{
-				$Submit4 = "Modificar";
-			}
+			//if($cursor)
+			//{
+				 $Submit4 = "Modificar";
+			//	}
+//echo "aki entra";
 			$asu=$rs->fields["RA_ASUN"];
 			$tip_doc =$rs->fields["TDID_CODI"];
 			$radicadopadre=$rs->fields["RADI_NUME_DERI"];
@@ -300,7 +302,7 @@ i=1;
 							,$docMes AS DOCMES
 							,$docAno AS DOCANO
 							,a.EESP_CODI from radicado a
-						where a.radi_nume_radi=$radicadopadre";
+						where a.radi_nume_radi like '$radicadopadre'";
   $varQuery = $query;
 	$ADODB_FETCH_MODE = ADODB_FETCH_ASSOC;
 	$rs=$db->conn->query($query);
@@ -767,7 +769,7 @@ if($tpRadicado) {echo "<input type=hidden name=tpRadicado value=$tpRadicado>";}
 			</script>
 			</font> <font color="" face="Arial, Helvetica, sans-serif"></font>
 		</td>
-		<td width="15%" class="titulos5" align="right"><?=$_SESSION["descReferencia"]?></td>
+		<td width="15%" class="titulos5" align="right"><?=$_SESSION["descReferencia"]?>CUENTA INTERNA</td>
 		<td width="15%" class="listado5">
 			<font face="Arial, Helvetica, sans-serif">
 			<input name="cuentai" type="text"  maxlength="20" class="tex_area" value='<?php echo $cuentai; ?>' >
@@ -1308,7 +1310,7 @@ $ddate=date("d");
 	$tel +=0;
 	$cod +=0;
 	$radicadopadre .='';
-	$asu.='';
+	$asu .='';
 	$tip_rem=$tip_rem-1;
 	$rem2.='';
 	$dep +=0;
@@ -1483,7 +1485,7 @@ if($vector)
 				*	La siguiente decicion pregunta si la dependencia con la cual sale el radicado es
 				* a misma que se pretende informar, ademas si es el jefe. En este caso no informa.
 				*/
-				$observa = "$observa_inf";
+				echo $observa = $observa_inf;
 				if(!$cod_usuario_inf) $cod_usuario_inf=1;
 				$nombTx = "Informar Documentos";
 				$radicadoSel[0] = $nurad;
@@ -1669,8 +1671,9 @@ if ($_POST['coddepeinf'])
 ?>
 	<table border=1  width=100% class="borde_tab">
 	<tr>
-		<td class="titulos5"><b>SE HA INFORMADO A:<b></td><td class=listado2>Seleccione un doc. de Informado para borrar</td>
-		<td>
+		<td class="titulos5" colspan="2"><b>SE HA INFORMADO A:<b></td>
+		<td class=listado2 colspan="2">Seleccione un doc. de Informado para borrar</td>
+	</tr>		
 	<?php
 	$query2 = "select b.depe_nomb, a.INFO_DESC, b.DEPE_NOMB, a.DEPE_CODI, ".
 			$db->conn->SQLDate('d-m-Y','a.info_fech')." as INFO_FECH, INFO_DESC
@@ -1689,6 +1692,7 @@ if ($_POST['coddepeinf'])
 		$data5 = $rs->fields['INFO_FECH'];
 		$data6 = $rs->fields['INFO_DESC'];
 		?>
+<tr><td>
 		<input type='radio' name='borrarradicado' value='<?=$data3.$data6?>'></td>
 		<td class="listado5"><b><?=$data?></td><td class="listado5"> <center><?=$data2?></td><td class="listado5"><?=$data5?></td></tr>
 		<?
@@ -1697,7 +1701,7 @@ if ($_POST['coddepeinf'])
 	}
 	$verrad = $nurad;
 	?>
-	</td></tr>
+	
 	</table>
 	<input type='hidden' name='depende' value='<?php echo $depende; ?>'><BR>
 	<?
