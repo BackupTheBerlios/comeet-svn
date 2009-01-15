@@ -97,8 +97,7 @@ public class MainWindow implements TreeSelectionListener {
 
 			splitPane.setRightComponent(rightPanel);
 			frame.add(splitPane,BorderLayout.CENTER);	
-		}
-		if (userLevel.equals("2")) {
+		} else if (userLevel.equals("2")) {
 			Cache.loadInfoTree(0);
 			LogServerViewer.loadGUI();
 			frame.add(LogServerViewer.getPanel(),BorderLayout.CENTER);

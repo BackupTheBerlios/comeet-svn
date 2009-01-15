@@ -10,3 +10,416 @@
 2008-12-06 19:57:11 INFO: Control de acceso sobre direcciones ip no habilitado para este usuario
 2008-12-06 19:57:11 INFO: Usuario Administrador {admin} autenticado desde BITTER [127.0.0.1]
 2008-12-06 19:59:25 INFO: Cerrando conexion con cliente [OK]
+2008-12-06 20:24:08 INFO: ConfigFile -> /home/xtingray/Projects/comeet/comeet/CoMeet-Server/comeet/conf/server.conf
+2008-12-06 20:24:09 INFO: Cargando archivo de configuracion...
+2008-12-06 20:24:09 INFO: Cargando base de datos... bullet
+2008-12-06 20:24:09 ADVERTENCIA: Base de datos deshabilitada desde configuracion -> comeet
+2008-12-06 20:24:09 ADVERTENCIA: Base de datos deshabilitada desde configuracion -> oracle
+2008-12-06 20:24:09 INFO: Cargando cache de enlace [bullet]
+2008-12-06 20:24:10 INFO: Iniciando demonio pop3
+2008-12-06 20:24:10 INFO: Servidor de correo {localhost}
+2008-12-06 20:24:10 INFO: Iniciando demonio de sincronizacion
+2008-12-06 20:24:10 INFO: Servidor CoMeet escuchando por el puerto 9119
+2008-12-06 20:24:33 INFO: Se ha establecido una nueva conexion TCP/IP Socket[addr=/127.0.0.1,port=48423,localport=9119]
+2008-12-06 20:24:34 INFO: Inicio de autenticacion para el usuario {pos01} con la clave {827ccb0eea8a706c4c34a16891f84e7b}
+2008-12-06 20:24:34 INFO: Control de acceso sobre direcciones ip no habilitado para este usuario
+2008-12-06 20:24:34 INFO: Colocador {pos01} autenticado desde BITTER [127.0.0.1]
+2008-12-06 20:25:05 INFO: Se ha establecido una nueva conexion TCP/IP Socket[addr=/127.0.0.1,port=48432,localport=9119]
+2008-12-06 20:25:05 INFO: Inicio de autenticacion para el usuario {admin} con la clave {21232f297a57a5a743894a0e4a801fc3}
+2008-12-06 20:25:05 INFO: Control de acceso sobre direcciones ip no habilitado para este usuario
+2008-12-06 20:25:05 INFO: Usuario Administrador {admin} autenticado desde BITTER [127.0.0.1]
+2008-12-06 20:25:13 INFO: Cerrando conexion con cliente [OK]
+2008-12-06 20:25:16 INFO: Cerrando conexion con cliente [OK]
+2008-12-07 11:07:34 INFO: ConfigFile -> /home/xtingray/Projects/comeet/comeet/CoMeet-Server/comeet/conf/server.conf
+2008-12-07 11:07:34 INFO: Cargando archivo de configuracion...
+2008-12-07 11:07:34 INFO: Cargando base de datos... bullet
+2008-12-07 11:07:35 ADVERTENCIA: Base de datos deshabilitada desde configuracion -> comeet
+2008-12-07 11:07:35 ADVERTENCIA: Base de datos deshabilitada desde configuracion -> oracle
+2008-12-07 11:07:35 INFO: Cargando cache de enlace [bullet]
+2008-12-07 11:07:36 INFO: Iniciando demonio pop3
+2008-12-07 11:07:36 INFO: Servidor de correo {localhost}
+2008-12-07 11:07:36 INFO: Iniciando demonio de sincronizacion
+2008-12-07 11:07:36 INFO: Servidor CoMeet escuchando por el puerto 9119
+2008-12-07 11:07:40 INFO: Se ha establecido una nueva conexion TCP/IP Socket[addr=/192.168.1.1,port=60387,localport=9119]
+2008-12-07 11:07:43 INFO: Inicio de autenticacion para el usuario {suba} con la clave {827ccb0eea8a706c4c34a16891f84e7b}
+2008-12-07 11:07:43 INFO: Control de acceso sobre direcciones ip no habilitado para este usuario
+2008-12-07 11:07:43 INFO: Lote {suba} autenticado desde Ubicación No Registrada [192.168.1.128]
+2008-12-07 11:07:43 INFO: 1 conexion activa en el pool de lotes
+2008-12-07 11:09:08 INFO: Leyendo correo del buzon de mensajes
+2008-12-07 11:09:08 INFO: Formato de mensaje -> text/*
+2008-12-07 11:09:08 INFO: Nuevo mensaje desde {xtingray@localhost} con asunto [ 000007, prueba #1 ]
+2008-12-07 11:09:08 INFO: Consultando si usuario {000007} existe en LOTES
+2008-12-07 11:09:08 INFO: El usuario {000007} fue validado por el lote {suba}
+2008-12-07 11:09:08 INFO: Almacenando mensaje para usuario {000007/pda} en la base de datos
+2008-12-07 11:09:08 SENTENCIA SQL :: INSERT INTO 
+			mensajes_pda (login_destino,gid_origen,fecha_envio,hora_envio,asunto,texto) 
+			VALUES ('000007',11,to_date('2008-12-07','yyyy-mm-dd'),'11:09:08 AM','prueba #1','Mensaje directo a la PDA
+
+
+')
+2008-12-07 11:12:55 SENTENCIA SQL :: UPDATE mensajes_pda SET entregado=1 
+			WHERE login_destino='000007'
+2008-12-07 11:13:00 SENTENCIA SQL :: UPDATE mensajes_pda SET confirmado=1, fecha_confirmacion=to_date('2008-12-07','yyyy-mm-dd'), hora_confirmacion=('11:13:00 AM')
+			WHERE fecha_envio=to_date('2008-12-07','yyyy-mm-dd') AND hora_envio='11:09:08 AM' AND confirmado=0 AND login_destino='000007'
+2008-12-07 11:13:00 INFO: [2008-12-07 11:13:00 AM] Confirmada lectura de mensaje con destino {000007}
+2008-12-07 11:13:40 SENTENCIA SQL :: UPDATE mensajes_pda SET entregado=1 
+			WHERE login_destino='000007'
+2008-12-07 11:13:40 INFO: Leyendo correo del buzon de mensajes
+2008-12-07 11:13:40 INFO: Formato de mensaje -> text/*
+2008-12-07 11:13:40 INFO: Nuevo mensaje desde {xtingray@localhost} con asunto [ suba, mensaje #2 ]
+2008-12-07 11:13:40 INFO: Enviando mensaje a 1 usuario
+2008-12-07 11:13:40 INFO: Almacenando registro de mensaje en la base de datos [suba]
+2008-12-07 11:13:40 SENTENCIA SQL :: INSERT INTO 
+			mensajes (uid_destino,fecha_envio,hora_envio,asunto,texto,confirmado,tiempo_vida,uid_origen,control,minutos)
+			VALUES (3,to_date('2008-12-07','yyyy-mm-dd'),'11:13:40 AM','mensaje #2','Mensaje a todas las maquinas del servidor suba',0,3,15,0,0)
+2008-12-07 11:14:14 SENTENCIA SQL :: UPDATE mensajes_pda SET entregado=1 
+			WHERE login_destino='000007'
+2008-12-07 11:14:30 SENTENCIA SQL :: INSERT INTO masivos_pda VALUES(-1,'000007',to_date('2008-12-07','yyyy-mm-dd'),'11:14:30 AM')
+2008-12-07 11:14:31 INFO: [2008-12-07 11:14:30 AM] Confirmada lectura de mensaje con destino {000007}
+2008-12-07 11:15:24 INFO: Cerrando conexion con cliente [OK]
+2008-12-07 11:24:36 INFO: ConfigFile -> /home/xtingray/Projects/comeet/comeet/CoMeet-Server/comeet/conf/server.conf
+2008-12-07 11:24:36 INFO: Cargando archivo de configuracion...
+2008-12-07 11:24:36 INFO: Cargando base de datos... bullet
+2008-12-07 11:24:37 ADVERTENCIA: Base de datos deshabilitada desde configuracion -> comeet
+2008-12-07 11:24:37 ADVERTENCIA: Base de datos deshabilitada desde configuracion -> oracle
+2008-12-07 11:24:37 INFO: Cargando cache de enlace [bullet]
+2008-12-07 11:24:37 INFO: Iniciando demonio pop3
+2008-12-07 11:24:37 INFO: Servidor de correo {localhost}
+2008-12-07 11:24:37 INFO: Iniciando demonio de sincronizacion
+2008-12-07 11:24:37 INFO: Servidor CoMeet escuchando por el puerto 9119
+2008-12-07 11:25:03 INFO: Se ha establecido una nueva conexion TCP/IP Socket[addr=/192.168.1.1,port=60552,localport=9119]
+2008-12-07 11:25:05 INFO: Inicio de autenticacion para el usuario {suba} con la clave {827ccb0eea8a706c4c34a16891f84e7b}
+2008-12-07 11:25:06 INFO: Control de acceso sobre direcciones ip no habilitado para este usuario
+2008-12-07 11:25:06 INFO: Lote {suba} autenticado desde Ubicación No Registrada [192.168.1.128]
+2008-12-07 11:25:06 INFO: 1 conexion activa en el pool de lotes
+2008-12-07 11:25:32 INFO: Cerrando conexion con cliente [OK]
+2008-12-07 11:25:57 INFO: Se ha establecido una nueva conexion TCP/IP Socket[addr=/192.168.1.1,port=60571,localport=9119]
+2008-12-07 11:25:58 INFO: Leyendo correo del buzon de mensajes
+2008-12-07 11:25:58 INFO: Formato de mensaje -> text/*
+2008-12-07 11:25:58 INFO: Nuevo mensaje desde {xtingray@localhost} con asunto [ suba, mensaje de prueba #2a ]
+2008-12-07 11:25:58 INFO: Enviando mensaje a 1 usuario
+2008-12-07 11:25:58 INFO: Almacenando registro de mensaje en la base de datos [suba]
+2008-12-07 11:25:58 SENTENCIA SQL :: INSERT INTO 
+			mensajes (uid_destino,fecha_envio,hora_envio,asunto,texto,confirmado,tiempo_vida,uid_origen,control,minutos)
+			VALUES (3,to_date('2008-12-07','yyyy-mm-dd'),'11:25:58 AM','mensaje de prueba #2a','segundo intento a usuario suba',0,3,15,0,0)
+2008-12-07 11:25:59 INFO: Inicio de autenticacion para el usuario {suba} con la clave {827ccb0eea8a706c4c34a16891f84e7b}
+2008-12-07 11:25:59 INFO: Control de acceso sobre direcciones ip no habilitado para este usuario
+2008-12-07 11:25:59 INFO: Lote {suba} autenticado desde Ubicación No Registrada [192.168.1.128]
+2008-12-07 11:25:59 INFO: 1 conexion activa en el pool de lotes
+2008-12-07 11:26:43 SENTENCIA SQL :: UPDATE mensajes_pda SET entregado=1 
+			WHERE login_destino='000007'
+2008-12-07 11:26:56 SENTENCIA SQL :: INSERT INTO masivos_pda VALUES(342,'000007',to_date('2008-12-07','yyyy-mm-dd'),'11:26:56 AM')
+2008-12-07 11:26:56 INFO: [2008-12-07 11:26:56 AM] Confirmada lectura de mensaje con destino {000007}
+2008-12-07 11:27:00 SENTENCIA SQL :: INSERT INTO masivos_pda VALUES(343,'000007',to_date('2008-12-07','yyyy-mm-dd'),'11:27:00 AM')
+2008-12-07 11:27:00 INFO: [2008-12-07 11:27:00 AM] Confirmada lectura de mensaje con destino {000007}
+2008-12-07 11:28:20 INFO: Leyendo correo del buzon de mensajes
+2008-12-07 11:28:20 INFO: Formato de mensaje -> text/*
+2008-12-07 11:28:20 INFO: Nuevo mensaje desde {xtingray@localhost} con asunto [ suba, intento #3 ]
+2008-12-07 11:28:20 INFO: Enviando mensaje a 1 usuario
+2008-12-07 11:28:20 INFO: Almacenando registro de mensaje en la base de datos [suba]
+2008-12-07 11:28:20 SENTENCIA SQL :: INSERT INTO 
+			mensajes (uid_destino,fecha_envio,hora_envio,asunto,texto,confirmado,tiempo_vida,uid_origen,control,minutos)
+			VALUES (3,to_date('2008-12-07','yyyy-mm-dd'),'11:28:20 AM','intento #3','Mensaje para todas las pda del servidor suba',0,3,15,0,0)
+2008-12-07 11:28:28 SENTENCIA SQL :: UPDATE mensajes_pda SET entregado=1 
+			WHERE login_destino='000007'
+2008-12-07 11:28:37 SENTENCIA SQL :: INSERT INTO masivos_pda VALUES(344,'000007',to_date('2008-12-07','yyyy-mm-dd'),'11:28:37 AM')
+2008-12-07 11:28:37 INFO: [2008-12-07 11:28:37 AM] Confirmada lectura de mensaje con destino {000007}
+2008-12-07 11:29:20 INFO: Leyendo correo del buzon de mensajes
+2008-12-07 11:29:20 INFO: Formato de mensaje -> text/*
+2008-12-07 11:29:20 INFO: Nuevo mensaje desde {xtingray@localhost} con asunto [ PDA, mensaje para todos los moviles ]
+2008-12-07 11:29:20 INFO: Procesando mensaje para todos los usuarios operativos [PDA] del sistema
+2008-12-07 11:29:20 INFO: Enviando mensaje a 1 usuario
+2008-12-07 11:29:20 INFO: Almacenando registro de mensaje en la base de datos [suba]
+2008-12-07 11:29:20 SENTENCIA SQL :: INSERT INTO 
+			mensajes (uid_destino,fecha_envio,hora_envio,asunto,texto,confirmado,tiempo_vida,uid_origen,control,minutos)
+			VALUES (3,to_date('2008-12-07','yyyy-mm-dd'),'11:29:20 AM','mensaje para todos los moviles','Este es un mensaje para todas las pda de todos los servidores javertec',0,3,15,0,0)
+2008-12-07 11:29:44 SENTENCIA SQL :: UPDATE mensajes_pda SET entregado=1 
+			WHERE login_destino='000007'
+2008-12-07 11:29:51 SENTENCIA SQL :: INSERT INTO masivos_pda VALUES(345,'000007',to_date('2008-12-07','yyyy-mm-dd'),'11:29:51 AM')
+2008-12-07 11:29:51 INFO: [2008-12-07 11:29:51 AM] Confirmada lectura de mensaje con destino {000007}
+2008-12-07 11:30:31 INFO: Leyendo correo del buzon de mensajes
+2008-12-07 11:30:31 INFO: Formato de mensaje -> text/*
+2008-12-07 11:30:31 INFO: Nuevo mensaje desde {xtingray@localhost} con asunto [ TODOS, mensaje para todo el mundo ]
+2008-12-07 11:30:31 INFO: Procesando mensaje para [TODOS] los usuarios del sistema
+2008-12-07 11:30:31 INFO: Enviando mensaje a 1 usuario
+2008-12-07 11:30:31 INFO: [Envio a Cuenta de Correo] Remitente {auditor3} - Destino: admin - Asunto: mensaje para todo el mundo
+2008-12-07 11:30:31 INFO: Almacenando registro de mensaje en la base de datos [admin]
+2008-12-07 11:30:31 SENTENCIA SQL :: INSERT INTO 
+			mensajes (uid_destino,fecha_envio,hora_envio,asunto,texto,confirmado,tiempo_vida,uid_origen,control,minutos)
+			VALUES (1,to_date('2008-12-07','yyyy-mm-dd'),'11:30:31 AM','mensaje para todo el mundo','incluidas PDA',0,3,15,0,0)
+2008-12-07 11:30:31 INFO: Enviando mensaje a 1 usuario
+2008-12-07 11:30:31 INFO: [Envio a Cuenta de Correo] Remitente {auditor3} - Destino: auditor - Asunto: mensaje para todo el mundo
+2008-12-07 11:30:31 INFO: Almacenando registro de mensaje en la base de datos [auditor]
+2008-12-07 11:30:31 SENTENCIA SQL :: INSERT INTO 
+			mensajes (uid_destino,fecha_envio,hora_envio,asunto,texto,confirmado,tiempo_vida,uid_origen,control,minutos)
+			VALUES (2,to_date('2008-12-07','yyyy-mm-dd'),'11:30:31 AM','mensaje para todo el mundo','incluidas PDA',0,3,15,0,0)
+2008-12-07 11:30:31 INFO: Enviando mensaje a 1 usuario
+2008-12-07 11:30:31 INFO: [Envio a Cuenta de Correo] Remitente {auditor3} - Destino: auditor2 - Asunto: mensaje para todo el mundo
+2008-12-07 11:30:31 INFO: Almacenando registro de mensaje en la base de datos [auditor2]
+2008-12-07 11:30:31 SENTENCIA SQL :: INSERT INTO 
+			mensajes (uid_destino,fecha_envio,hora_envio,asunto,texto,confirmado,tiempo_vida,uid_origen,control,minutos)
+			VALUES (14,to_date('2008-12-07','yyyy-mm-dd'),'11:30:31 AM','mensaje para todo el mundo','incluidas PDA',0,3,15,0,0)
+2008-12-07 11:30:31 INFO: Enviando mensaje a 1 usuario
+2008-12-07 11:30:31 INFO: [Envio a Cuenta de Correo] Remitente {auditor3} - Destino: auditor3 - Asunto: mensaje para todo el mundo
+2008-12-07 11:30:31 INFO: Almacenando registro de mensaje en la base de datos [auditor3]
+2008-12-07 11:30:31 SENTENCIA SQL :: INSERT INTO 
+			mensajes (uid_destino,fecha_envio,hora_envio,asunto,texto,confirmado,tiempo_vida,uid_origen,control,minutos)
+			VALUES (15,to_date('2008-12-07','yyyy-mm-dd'),'11:30:31 AM','mensaje para todo el mundo','incluidas PDA',0,3,15,0,0)
+2008-12-07 11:30:31 INFO: Enviando mensaje a 1 usuario
+2008-12-07 11:30:31 INFO: [Envio a Cuenta de Correo] Remitente {auditor3} - Destino: auditor4 - Asunto: mensaje para todo el mundo
+2008-12-07 11:30:31 INFO: Almacenando registro de mensaje en la base de datos [auditor4]
+2008-12-07 11:30:31 SENTENCIA SQL :: INSERT INTO 
+			mensajes (uid_destino,fecha_envio,hora_envio,asunto,texto,confirmado,tiempo_vida,uid_origen,control,minutos)
+			VALUES (16,to_date('2008-12-07','yyyy-mm-dd'),'11:30:31 AM','mensaje para todo el mundo','incluidas PDA',0,3,15,0,0)
+2008-12-07 11:30:31 INFO: Enviando mensaje a 1 usuario
+2008-12-07 11:30:31 INFO: [Envio a Cuenta de Correo] Remitente {auditor3} - Destino: batman - Asunto: mensaje para todo el mundo
+2008-12-07 11:30:31 INFO: Almacenando registro de mensaje en la base de datos [batman]
+2008-12-07 11:30:31 SENTENCIA SQL :: INSERT INTO 
+			mensajes (uid_destino,fecha_envio,hora_envio,asunto,texto,confirmado,tiempo_vida,uid_origen,control,minutos)
+			VALUES (18,to_date('2008-12-07','yyyy-mm-dd'),'11:30:31 AM','mensaje para todo el mundo','incluidas PDA',0,3,15,0,0)
+2008-12-07 11:30:31 INFO: Enviando mensaje a 0 usuarios
+2008-12-07 11:30:31 INFO: Enviando mensaje a 1 usuario
+2008-12-07 11:30:32 INFO: [Envio a Cuenta de Correo] Remitente {auditor3} - Destino: mensajero - Asunto: mensaje para todo el mundo
+2008-12-07 11:30:32 INFO: Almacenando registro de mensaje en la base de datos [mensajero]
+2008-12-07 11:30:32 SENTENCIA SQL :: INSERT INTO 
+			mensajes (uid_destino,fecha_envio,hora_envio,asunto,texto,confirmado,tiempo_vida,uid_origen,control,minutos)
+			VALUES (9,to_date('2008-12-07','yyyy-mm-dd'),'11:30:31 AM','mensaje para todo el mundo','incluidas PDA',0,3,15,0,0)
+2008-12-07 11:30:32 INFO: Enviando mensaje a 1 usuario
+2008-12-07 11:30:32 INFO: Almacenando registro de mensaje en la base de datos [pos01]
+2008-12-07 11:30:32 SENTENCIA SQL :: INSERT INTO 
+			mensajes (uid_destino,fecha_envio,hora_envio,asunto,texto,confirmado,tiempo_vida,uid_origen,control,minutos)
+			VALUES (4,to_date('2008-12-07','yyyy-mm-dd'),'11:30:32 AM','mensaje para todo el mundo','incluidas PDA',0,3,15,0,0)
+2008-12-07 11:30:32 INFO: Enviando mensaje a 1 usuario
+2008-12-07 11:30:32 INFO: Almacenando registro de mensaje en la base de datos [pos02]
+2008-12-07 11:30:32 SENTENCIA SQL :: INSERT INTO 
+			mensajes (uid_destino,fecha_envio,hora_envio,asunto,texto,confirmado,tiempo_vida,uid_origen,control,minutos)
+			VALUES (5,to_date('2008-12-07','yyyy-mm-dd'),'11:30:32 AM','mensaje para todo el mundo','incluidas PDA',0,3,15,0,0)
+2008-12-07 11:30:32 INFO: Enviando mensaje a 1 usuario
+2008-12-07 11:30:32 INFO: [Envio a Cuenta de Correo] Remitente {auditor3} - Destino: prueba01 - Asunto: mensaje para todo el mundo
+2008-12-07 11:30:32 INFO: Almacenando registro de mensaje en la base de datos [prueba01]
+2008-12-07 11:30:32 SENTENCIA SQL :: INSERT INTO 
+			mensajes (uid_destino,fecha_envio,hora_envio,asunto,texto,confirmado,tiempo_vida,uid_origen,control,minutos)
+			VALUES (10,to_date('2008-12-07','yyyy-mm-dd'),'11:30:32 AM','mensaje para todo el mundo','incluidas PDA',0,3,15,0,0)
+2008-12-07 11:30:32 INFO: Enviando mensaje a 1 usuario
+2008-12-07 11:30:32 INFO: [Envio a Cuenta de Correo] Remitente {auditor3} - Destino: prueba02 - Asunto: mensaje para todo el mundo
+2008-12-07 11:30:32 INFO: Almacenando registro de mensaje en la base de datos [prueba02]
+2008-12-07 11:30:32 SENTENCIA SQL :: INSERT INTO 
+			mensajes (uid_destino,fecha_envio,hora_envio,asunto,texto,confirmado,tiempo_vida,uid_origen,control,minutos)
+			VALUES (11,to_date('2008-12-07','yyyy-mm-dd'),'11:30:32 AM','mensaje para todo el mundo','incluidas PDA',0,3,15,0,0)
+2008-12-07 11:30:32 INFO: Enviando mensaje a 1 usuario
+2008-12-07 11:30:32 INFO: [Envio a Cuenta de Correo] Remitente {auditor3} - Destino: prueba03 - Asunto: mensaje para todo el mundo
+2008-12-07 11:30:32 INFO: Almacenando registro de mensaje en la base de datos [prueba03]
+2008-12-07 11:30:32 SENTENCIA SQL :: INSERT INTO 
+			mensajes (uid_destino,fecha_envio,hora_envio,asunto,texto,confirmado,tiempo_vida,uid_origen,control,minutos)
+			VALUES (12,to_date('2008-12-07','yyyy-mm-dd'),'11:30:32 AM','mensaje para todo el mundo','incluidas PDA',0,3,15,0,0)
+2008-12-07 11:30:32 INFO: Enviando mensaje a 1 usuario
+2008-12-07 11:30:32 INFO: [Envio a Cuenta de Correo] Remitente {auditor3} - Destino: raul - Asunto: mensaje para todo el mundo
+2008-12-07 11:30:32 INFO: Almacenando registro de mensaje en la base de datos [raul]
+2008-12-07 11:30:32 SENTENCIA SQL :: INSERT INTO 
+			mensajes (uid_destino,fecha_envio,hora_envio,asunto,texto,confirmado,tiempo_vida,uid_origen,control,minutos)
+			VALUES (17,to_date('2008-12-07','yyyy-mm-dd'),'11:30:32 AM','mensaje para todo el mundo','incluidas PDA',0,3,15,0,0)
+2008-12-07 11:30:32 INFO: Enviando mensaje a 1 usuario
+2008-12-07 11:30:32 INFO: [Envio a Cuenta de Correo] Remitente {auditor3} - Destino: secretaria - Asunto: mensaje para todo el mundo
+2008-12-07 11:30:32 INFO: Almacenando registro de mensaje en la base de datos [secretaria]
+2008-12-07 11:30:32 SENTENCIA SQL :: INSERT INTO 
+			mensajes (uid_destino,fecha_envio,hora_envio,asunto,texto,confirmado,tiempo_vida,uid_origen,control,minutos)
+			VALUES (13,to_date('2008-12-07','yyyy-mm-dd'),'11:30:32 AM','mensaje para todo el mundo','incluidas PDA',0,3,15,0,0)
+2008-12-07 11:30:32 INFO: Enviando mensaje a 1 usuario
+2008-12-07 11:30:32 INFO: Almacenando registro de mensaje en la base de datos [suba]
+2008-12-07 11:30:32 SENTENCIA SQL :: INSERT INTO 
+			mensajes (uid_destino,fecha_envio,hora_envio,asunto,texto,confirmado,tiempo_vida,uid_origen,control,minutos)
+			VALUES (3,to_date('2008-12-07','yyyy-mm-dd'),'11:30:32 AM','mensaje para todo el mundo','incluidas PDA',0,3,15,0,0)
+2008-12-07 11:30:48 SENTENCIA SQL :: UPDATE mensajes_pda SET entregado=1 
+			WHERE login_destino='000007'
+2008-12-07 11:30:53 SENTENCIA SQL :: INSERT INTO masivos_pda VALUES(360,'000007',to_date('2008-12-07','yyyy-mm-dd'),'11:30:53 AM')
+2008-12-07 11:30:53 INFO: [2008-12-07 11:30:53 AM] Confirmada lectura de mensaje con destino {000007}
+2008-12-07 13:13:32 INFO: ConfigFile -> /home/xtingray/Projects/comeet/comeet/CoMeet-Server/comeet/conf/server.conf
+2008-12-07 13:13:32 INFO: Cargando archivo de configuracion...
+2008-12-07 13:13:32 INFO: Cargando base de datos... bullet
+2008-12-07 13:13:32 ADVERTENCIA: Base de datos deshabilitada desde configuracion -> comeet
+2008-12-07 13:13:32 ADVERTENCIA: Base de datos deshabilitada desde configuracion -> oracle
+2008-12-07 13:13:32 INFO: Cargando cache de enlace [bullet]
+2008-12-07 13:13:33 INFO: Iniciando demonio pop3
+2008-12-07 13:13:33 INFO: Servidor de correo {localhost}
+2008-12-07 13:13:33 INFO: Iniciando demonio de sincronizacion
+2008-12-07 13:13:33 INFO: Servidor CoMeet escuchando por el puerto 9119
+2008-12-07 13:13:38 INFO: Se ha establecido una nueva conexion TCP/IP Socket[addr=/192.168.1.1,port=61400,localport=9119]
+2008-12-07 13:13:40 INFO: Inicio de autenticacion para el usuario {suba} con la clave {827ccb0eea8a706c4c34a16891f84e7b}
+2008-12-07 13:13:40 INFO: Control de acceso sobre direcciones ip no habilitado para este usuario
+2008-12-07 13:13:41 INFO: Lote {suba} autenticado desde Ubicación No Registrada [192.168.1.128]
+2008-12-07 13:13:41 INFO: 1 conexion activa en el pool de lotes
+2008-12-07 13:14:42 INFO: Nuevo mensaje enviado por Punto de Venta/PDA desde 192.168.1.1
+2008-12-07 13:14:42 INFO: Enviando mensaje a 8 usuarios
+2008-12-07 13:14:42 INFO: [Envio a Cuenta de Correo] Remitente {suba} - Destino: admin - Asunto: 000007
+2008-12-07 13:14:42 INFO: [Envio a Cuenta de Correo] Remitente {suba} - Destino: admin - Asunto: 000007
+2008-12-07 13:14:42 INFO: Almacenando registro de mensaje en la base de datos [admin]
+2008-12-07 13:14:42 SENTENCIA SQL :: INSERT INTO 
+			mensajes (uid_destino,fecha_envio,hora_envio,asunto,texto,confirmado,tiempo_vida,uid_origen,control,minutos)
+			VALUES (1,to_date('2008-12-07','yyyy-mm-dd'),'13:14:42 PM','000007','HOLA DESDE PDA',0,3,3,0,0)
+2008-12-07 13:14:42 INFO: [Envio a Cuenta de Correo] Remitente {suba} - Destino: batman - Asunto: 000007
+2008-12-07 13:14:42 INFO: [Envio a Cuenta de Correo] Remitente {suba} - Destino: batman - Asunto: 000007
+2008-12-07 13:14:42 INFO: Almacenando registro de mensaje en la base de datos [batman]
+2008-12-07 13:14:42 SENTENCIA SQL :: INSERT INTO 
+			mensajes (uid_destino,fecha_envio,hora_envio,asunto,texto,confirmado,tiempo_vida,uid_origen,control,minutos)
+			VALUES (18,to_date('2008-12-07','yyyy-mm-dd'),'13:14:42 PM','000007','HOLA DESDE PDA',0,3,3,0,0)
+2008-12-07 13:14:42 INFO: [Envio a Cuenta de Correo] Remitente {suba} - Destino: mensajero - Asunto: 000007
+2008-12-07 13:14:42 INFO: [Envio a Cuenta de Correo] Remitente {suba} - Destino: mensajero - Asunto: 000007
+2008-12-07 13:14:42 INFO: Almacenando registro de mensaje en la base de datos [mensajero]
+2008-12-07 13:14:42 SENTENCIA SQL :: INSERT INTO 
+			mensajes (uid_destino,fecha_envio,hora_envio,asunto,texto,confirmado,tiempo_vida,uid_origen,control,minutos)
+			VALUES (9,to_date('2008-12-07','yyyy-mm-dd'),'13:14:42 PM','000007','HOLA DESDE PDA',0,3,3,0,0)
+2008-12-07 13:14:42 INFO: [Envio a Cuenta de Correo] Remitente {suba} - Destino: prueba01 - Asunto: 000007
+2008-12-07 13:14:42 INFO: [Envio a Cuenta de Correo] Remitente {suba} - Destino: prueba01 - Asunto: 000007
+2008-12-07 13:14:42 INFO: Almacenando registro de mensaje en la base de datos [prueba01]
+2008-12-07 13:14:42 SENTENCIA SQL :: INSERT INTO 
+			mensajes (uid_destino,fecha_envio,hora_envio,asunto,texto,confirmado,tiempo_vida,uid_origen,control,minutos)
+			VALUES (10,to_date('2008-12-07','yyyy-mm-dd'),'13:14:42 PM','000007','HOLA DESDE PDA',0,3,3,0,0)
+2008-12-07 13:14:42 INFO: [Envio a Cuenta de Correo] Remitente {suba} - Destino: prueba02 - Asunto: 000007
+2008-12-07 13:14:42 INFO: [Envio a Cuenta de Correo] Remitente {suba} - Destino: prueba02 - Asunto: 000007
+2008-12-07 13:14:42 INFO: Almacenando registro de mensaje en la base de datos [prueba02]
+2008-12-07 13:14:42 SENTENCIA SQL :: INSERT INTO 
+			mensajes (uid_destino,fecha_envio,hora_envio,asunto,texto,confirmado,tiempo_vida,uid_origen,control,minutos)
+			VALUES (11,to_date('2008-12-07','yyyy-mm-dd'),'13:14:42 PM','000007','HOLA DESDE PDA',0,3,3,0,0)
+2008-12-07 13:14:42 INFO: [Envio a Cuenta de Correo] Remitente {suba} - Destino: prueba03 - Asunto: 000007
+2008-12-07 13:14:42 INFO: [Envio a Cuenta de Correo] Remitente {suba} - Destino: prueba03 - Asunto: 000007
+2008-12-07 13:14:42 INFO: Almacenando registro de mensaje en la base de datos [prueba03]
+2008-12-07 13:14:42 SENTENCIA SQL :: INSERT INTO 
+			mensajes (uid_destino,fecha_envio,hora_envio,asunto,texto,confirmado,tiempo_vida,uid_origen,control,minutos)
+			VALUES (12,to_date('2008-12-07','yyyy-mm-dd'),'13:14:42 PM','000007','HOLA DESDE PDA',0,3,3,0,0)
+2008-12-07 13:14:42 INFO: [Envio a Cuenta de Correo] Remitente {suba} - Destino: raul - Asunto: 000007
+2008-12-07 13:14:42 INFO: [Envio a Cuenta de Correo] Remitente {suba} - Destino: raul - Asunto: 000007
+2008-12-07 13:14:42 INFO: Almacenando registro de mensaje en la base de datos [raul]
+2008-12-07 13:14:42 SENTENCIA SQL :: INSERT INTO 
+			mensajes (uid_destino,fecha_envio,hora_envio,asunto,texto,confirmado,tiempo_vida,uid_origen,control,minutos)
+			VALUES (17,to_date('2008-12-07','yyyy-mm-dd'),'13:14:42 PM','000007','HOLA DESDE PDA',0,3,3,0,0)
+2008-12-07 13:14:43 INFO: [Envio a Cuenta de Correo] Remitente {suba} - Destino: secretaria - Asunto: 000007
+2008-12-07 13:14:43 INFO: [Envio a Cuenta de Correo] Remitente {suba} - Destino: secretaria - Asunto: 000007
+2008-12-07 13:14:43 INFO: Almacenando registro de mensaje en la base de datos [secretaria]
+2008-12-07 13:14:43 SENTENCIA SQL :: INSERT INTO 
+			mensajes (uid_destino,fecha_envio,hora_envio,asunto,texto,confirmado,tiempo_vida,uid_origen,control,minutos)
+			VALUES (13,to_date('2008-12-07','yyyy-mm-dd'),'13:14:42 PM','000007','HOLA DESDE PDA',0,3,3,0,0)
+2008-12-07 13:15:19 INFO: Cerrando conexion con cliente [OK]
+2008-12-09 10:00:29 INFO: ConfigFile -> /home/xtingray/Projects/comeet/comeet/CoMeet-Server/comeet/conf/server.conf
+2008-12-09 10:00:29 INFO: Cargando archivo de configuracion...
+2008-12-09 10:00:29 INFO: Cargando base de datos... bullet
+2008-12-09 10:00:30 ADVERTENCIA: Base de datos deshabilitada desde configuracion -> comeet
+2008-12-09 10:00:30 ADVERTENCIA: Base de datos deshabilitada desde configuracion -> oracle
+2008-12-09 10:00:30 INFO: Cargando cache de enlace [bullet]
+2008-12-09 10:00:31 INFO: Iniciando demonio pop3
+2008-12-09 10:00:31 INFO: Servidor de correo {localhost}
+2008-12-09 10:00:31 INFO: Iniciando demonio de sincronizacion
+2008-12-09 10:00:31 INFO: Servidor CoMeet escuchando por el puerto 9119
+2009-01-13 11:04:38 INFO: ConfigFile -> /home/xtingray/Projects/comeet/comeet/CoMeet-Server/comeet/conf/server.conf
+2009-01-13 11:04:38 INFO: Cargando archivo de configuracion...
+2009-01-13 11:04:38 INFO: Cargando base de datos... bullet
+2009-01-13 11:04:39 ADVERTENCIA: Base de datos deshabilitada desde configuracion -> comeet
+2009-01-13 11:04:39 ADVERTENCIA: Base de datos deshabilitada desde configuracion -> oracle
+2009-01-13 11:04:39 INFO: Cargando cache de enlace [bullet]
+2009-01-13 11:04:39 INFO: Iniciando demonio pop3
+2009-01-13 11:04:39 INFO: Servidor de correo {localhost}
+2009-01-13 11:04:39 INFO: Iniciando demonio de sincronizacion
+2009-01-13 11:04:40 INFO: Servidor CoMeet escuchando por el puerto 9119
+2009-01-13 11:06:48 INFO: Se ha establecido una nueva conexion TCP/IP Socket[addr=/127.0.0.1,port=56442,localport=9119]
+2009-01-13 11:06:48 INFO: Inicio de autenticacion para el usuario {admin} con la clave {827ccb0eea8a706c4c34a16891f84e7b}
+2009-01-13 11:06:48 INFO: Acceso denegado a {admin} desde la ip 127.0.0.1 ingresando como Administrador/Auditor [Clave incorrecta]
+2009-01-13 11:06:53 INFO: Cerrando conexion con cliente [OK]
+2009-01-13 11:06:56 INFO: Se ha establecido una nueva conexion TCP/IP Socket[addr=/127.0.0.1,port=56445,localport=9119]
+2009-01-13 11:06:56 INFO: Inicio de autenticacion para el usuario {admin} con la clave {21232f297a57a5a743894a0e4a801fc3}
+2009-01-13 11:06:56 INFO: Control de acceso sobre direcciones ip no habilitado para este usuario
+2009-01-13 11:06:57 INFO: Usuario Administrador {admin} autenticado desde BITTER [127.0.0.1]
+2009-01-13 11:06:58 INFO: Cerrando conexion con cliente [OK]
+2009-01-13 11:10:23 ADVERTENCIA: Proceso de sincronizacion con Oracle aplazado
+2009-01-13 11:10:23 ADVERTENCIA: Motivo -> Base de datos deshabilitada desde configuracion [comeet]
+2009-01-13 11:17:46 INFO: Cerrando conexion con cliente [OK]
+2009-01-14 14:19:38 INFO: ConfigFile -> /home/xtingray/Projects/comeet/comeet/CoMeet-Server/comeet/conf/server.conf
+2009-01-14 14:19:38 INFO: Cargando archivo de configuracion...
+2009-01-14 14:19:39 INFO: Cargando base de datos... bullet
+2009-01-14 14:19:39 ADVERTENCIA: Base de datos deshabilitada desde configuracion -> comeet
+2009-01-14 14:19:39 ADVERTENCIA: Base de datos deshabilitada desde configuracion -> oracle
+2009-01-14 14:19:39 INFO: Cargando cache de enlace [bullet]
+2009-01-14 14:19:40 INFO: Iniciando demonio pop3
+2009-01-14 14:19:40 INFO: Servidor de correo {localhost}
+2009-01-14 14:19:40 INFO: Iniciando demonio de sincronizacion
+2009-01-14 14:19:40 INFO: Servidor CoMeet escuchando por el puerto 9119
+2009-01-15 07:18:49 INFO: ConfigFile -> /home/xtingray/Projects/comeet/comeet/CoMeet-Server/comeet/conf/server.conf
+2009-01-15 07:18:50 INFO: Cargando archivo de configuracion...
+2009-01-15 07:18:50 INFO: Cargando base de datos... bullet
+2009-01-15 07:18:50 ADVERTENCIA: Base de datos deshabilitada desde configuracion -> comeet
+2009-01-15 07:18:50 ADVERTENCIA: Base de datos deshabilitada desde configuracion -> oracle
+2009-01-15 07:18:50 INFO: Cargando cache de enlace [bullet]
+2009-01-15 07:18:51 INFO: Iniciando demonio pop3
+2009-01-15 07:18:51 INFO: Servidor de correo {localhost}
+2009-01-15 07:18:51 INFO: Iniciando demonio de sincronizacion
+2009-01-15 07:18:52 INFO: Servidor CoMeet escuchando por el puerto 9119
+2009-01-15 07:20:11 INFO: Se ha establecido una nueva conexion TCP/IP Socket[addr=/127.0.0.1,port=48330,localport=9119]
+2009-01-15 07:20:12 INFO: Inicio de autenticacion para el usuario {admin} con la clave {21232f297a57a5a743894a0e4a801fc3}
+2009-01-15 07:20:12 INFO: Control de acceso sobre direcciones ip no habilitado para este usuario
+2009-01-15 07:20:12 INFO: Usuario Administrador {admin} autenticado desde BITTER [127.0.0.1]
+2009-01-15 07:28:22 ADVERTENCIA: Proceso de sincronizacion con Oracle aplazado
+2009-01-15 07:28:22 ADVERTENCIA: Motivo -> Base de datos deshabilitada desde configuracion [comeet]
+2009-01-15 07:56:15 ADVERTENCIA: Proceso de sincronizacion con Oracle aplazado
+2009-01-15 07:56:15 ADVERTENCIA: Motivo -> Base de datos deshabilitada desde configuracion [comeet]
+2009-01-15 07:56:20 INFO: Cerrando conexion con cliente [OK]
+2009-01-15 07:56:45 INFO: ConfigFile -> /home/xtingray/Projects/comeet/comeet/CoMeet-Server/comeet/conf/server.conf
+2009-01-15 07:56:46 INFO: Cargando archivo de configuracion...
+2009-01-15 07:56:46 INFO: Cargando base de datos... bullet
+2009-01-15 07:56:46 ADVERTENCIA: Base de datos deshabilitada desde configuracion -> comeet
+2009-01-15 07:56:46 ADVERTENCIA: Base de datos deshabilitada desde configuracion -> oracle
+2009-01-15 07:56:46 INFO: Cargando cache de enlace [bullet]
+2009-01-15 07:56:46 INFO: Iniciando demonio pop3
+2009-01-15 07:56:46 INFO: Servidor de correo {localhost}
+2009-01-15 07:56:47 INFO: Iniciando demonio de sincronizacion
+2009-01-15 07:56:47 INFO: Servidor CoMeet escuchando por el puerto 9119
+2009-01-15 08:12:43 INFO: ConfigFile -> /home/xtingray/Projects/comeet/comeet/CoMeet-Server/comeet/conf/server.conf
+2009-01-15 08:12:43 INFO: Cargando archivo de configuracion...
+2009-01-15 08:12:43 INFO: Cargando base de datos... bullet
+2009-01-15 08:12:44 ADVERTENCIA: Base de datos deshabilitada desde configuracion -> comeet
+2009-01-15 08:12:44 ADVERTENCIA: Base de datos deshabilitada desde configuracion -> oracle
+2009-01-15 08:12:44 INFO: Cargando cache de enlace [bullet]
+2009-01-15 08:12:44 INFO: Iniciando demonio pop3
+2009-01-15 08:12:44 INFO: Servidor de correo {localhost}
+2009-01-15 08:12:44 INFO: Iniciando demonio de sincronizacion
+2009-01-15 08:12:44 ADVERTENCIA: Proceso de sincronizacion con Oracle aplazado
+2009-01-15 08:12:44 ADVERTENCIA: Motivo -> Opcion deshabilitada desde configuracion
+2009-01-15 08:12:44 INFO: Servidor CoMeet escuchando por el puerto 9119
+2009-01-15 08:15:31 INFO: ConfigFile -> /home/xtingray/Projects/comeet/comeet/CoMeet-Server/comeet/conf/server.conf
+2009-01-15 08:15:31 INFO: Cargando archivo de configuracion...
+2009-01-15 08:15:31 INFO: Cargando base de datos... bullet
+2009-01-15 08:15:31 ADVERTENCIA: Base de datos deshabilitada desde configuracion -> comeet
+2009-01-15 08:15:31 ADVERTENCIA: Base de datos deshabilitada desde configuracion -> oracle
+2009-01-15 08:15:31 INFO: Cargando cache de enlace [bullet]
+2009-01-15 08:15:32 INFO: Iniciando demonio pop3
+2009-01-15 08:15:32 INFO: Servidor de correo {localhost}
+2009-01-15 08:15:32 INFO: Iniciando demonio de sincronizacion
+2009-01-15 08:15:32 ADVERTENCIA: Proceso de sincronizacion con bases de datos cancelado
+2009-01-15 08:15:32 ADVERTENCIA: Motivo -> Opcion deshabilitada desde configuracion
+2009-01-15 08:15:32 INFO: Servidor CoMeet escuchando por el puerto 9119
+2009-01-15 08:15:47 INFO: Se ha establecido una nueva conexion TCP/IP Socket[addr=/127.0.0.1,port=55215,localport=9119]
+2009-01-15 08:15:47 INFO: Inicio de autenticacion para el usuario {admin} con la clave {21232f297a57a5a743894a0e4a801fc3}
+2009-01-15 08:15:47 INFO: Control de acceso sobre direcciones ip no habilitado para este usuario
+2009-01-15 08:15:47 INFO: Usuario Administrador {admin} autenticado desde BITTER [127.0.0.1]
+2009-01-15 08:18:38 ADVERTENCIA: Proceso de sincronizacion con bases de datos cancelado
+2009-01-15 08:18:38 ADVERTENCIA: Motivo -> Opcion deshabilitada desde configuracion
+2009-01-15 08:20:47 ADVERTENCIA: Proceso de sincronizacion con bases de datos cancelado
+2009-01-15 08:20:47 ADVERTENCIA: Motivo -> Opcion deshabilitada desde configuracion
+2009-01-15 09:12:16 INFO: Cerrando conexion con cliente [OK]
+2009-01-15 09:12:28 INFO: Se ha establecido una nueva conexion TCP/IP Socket[addr=/127.0.0.1,port=45612,localport=9119]
+2009-01-15 09:12:28 INFO: Inicio de autenticacion para el usuario {admin} con la clave {21232f297a57a5a743894a0e4a801fc3}
+2009-01-15 09:12:28 INFO: Control de acceso sobre direcciones ip no habilitado para este usuario
+2009-01-15 09:12:28 INFO: Usuario Administrador {admin} autenticado desde BITTER [127.0.0.1]
+2009-01-15 09:14:57 INFO: Cerrando conexion con cliente [OK]
+2009-01-15 09:15:07 INFO: Se ha establecido una nueva conexion TCP/IP Socket[addr=/127.0.0.1,port=58292,localport=9119]
+2009-01-15 09:15:07 INFO: Inicio de autenticacion para el usuario {admin} con la clave {21232f297a57a5a743894a0e4a801fc3}
+2009-01-15 09:15:08 INFO: Control de acceso sobre direcciones ip no habilitado para este usuario
+2009-01-15 09:15:08 INFO: Usuario Administrador {admin} autenticado desde BITTER [127.0.0.1]
+2009-01-15 09:23:46 INFO: Cerrando conexion con cliente [OK]
+2009-01-15 09:24:23 INFO: Se ha establecido una nueva conexion TCP/IP Socket[addr=/127.0.0.1,port=57747,localport=9119]
+2009-01-15 09:24:23 INFO: Inicio de autenticacion para el usuario {auditor} con la clave {f7d07071ed9431ecae3a8d45b4c82bb2}
+2009-01-15 09:24:23 INFO: Acceso denegado a {auditor} desde la ip 127.0.0.1 ingresando como Administrador/Auditor [Clave incorrecta]
+2009-01-15 09:24:25 INFO: Cerrando conexion con cliente [OK]
+2009-01-15 09:24:29 INFO: Se ha establecido una nueva conexion TCP/IP Socket[addr=/127.0.0.1,port=57750,localport=9119]
+2009-01-15 09:24:29 INFO: Inicio de autenticacion para el usuario {auditor} con la clave {827ccb0eea8a706c4c34a16891f84e7b}
+2009-01-15 09:24:29 INFO: Control de acceso sobre direcciones ip no habilitado para este usuario
+2009-01-15 09:24:29 INFO: Auditor {auditor} autenticado desde BITTER [127.0.0.1]
+2009-01-15 09:24:33 INFO: Cerrando conexion con cliente [OK]
+2009-01-15 09:26:08 INFO: Cerrando conexion con cliente [OK]

@@ -59,6 +59,13 @@ public class SyncManager {
 		try {
             oracleSQL =	getOracleSQLString();
 			LogWriter.write("INFO: Iniciando demonio de sincronizacion");
+			
+	    	if (!ConfigFileHandler.isSyncEnable()) {
+	    		LogWriter.write("ADVERTENCIA: Proceso de sincronizacion con bases de datos cancelado");
+	    		LogWriter.write("ADVERTENCIA: Motivo -> Opcion deshabilitada desde configuracion");	
+	    		return;
+	    	}
+			
 			initGlobalVariables();
 			for (OracleSyncTask oraclesync:ConfigFileHandler.getSyncTaskList()) {				
 				String minute = Integer.toString(oraclesync.getMinute());
@@ -88,13 +95,12 @@ public class SyncManager {
 	public SyncManager (SocketChannel sock) throws SQLException {
 		this.sock = sock;
 		
-		// If there is not access to Oracle, stop sync task
-    	if (!ConfigFileHandler.isConnectOnInit(1)) {
-    		LogWriter.write("ADVERTENCIA: Proceso de sincronizacion con Oracle aplazado");
-    		LogWriter.write("ADVERTENCIA: Motivo -> Base de datos deshabilitada desde configuracion [" 
-    				+ ConfigFileHandler.getDBName(1) + "]");	
+		// If syncEnable flag is down, stop sync task
+    	if (!ConfigFileHandler.isSyncEnable()) {
+    		LogWriter.write("ADVERTENCIA: Proceso de sincronizacion con bases de datos cancelado");
+    		LogWriter.write("ADVERTENCIA: Motivo -> Opcion deshabilitada desde configuracion");	
 
-    		String msg = "ERROR: La base de datos Oracle se encuentra " + 
+    		String msg = "ERROR: La opción de sincronización con bases de datos se encuentra " + 
     					"deshabilitada desde la configuración del sistema.\n" +
     					"Para reactivar el servicio, modifique el archivo server.conf " + 
     					"y reinicie el servidor CoMeet.";

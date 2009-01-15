@@ -63,6 +63,7 @@ public class ConfigFileHandler {
     private static int maxMessagesNumAllowed;
     private static ArrayList<OracleSyncTask> syncTaskList = new ArrayList<OracleSyncTask>();
     private static boolean movilSupport = false;
+    private static boolean syncEnable = false;
       
     /**
      * Este metodo se encarga de cargar el archivo de configuracion
@@ -116,10 +117,12 @@ public class ConfigFileHandler {
     				messageLifeTimeInDB = Integer.parseInt(records.getValue());
     			} else if (records.getName().equals("MessagesMaxLimit")) {
     				maxMessagesNumAllowed = Integer.parseInt(records.getValue());
-    			} else if (records.getName().equalsIgnoreCase("SyncTask")) {
+    			} else if (records.getName().equals("SyncTask")) {
     				syncTaskList.add(createSyncTask(records));
     			} else if (records.getName().equalsIgnoreCase("MovilSupport")) {
     				movilSupport = new Boolean(records.getValue()).booleanValue();
+    			} else if (records.getName().equalsIgnoreCase("SyncEnable")) {
+    				syncEnable = new Boolean(records.getValue()).booleanValue();
     			}
     		}
     		LogWriter.write(Language.getWord("LOADING_CF"));
@@ -269,6 +272,10 @@ public class ConfigFileHandler {
     public static boolean isConnectOnInit(int index) {
         return connectionsPoolVector.get(index).isConnectedOnInit();
     }
+  
+    public static boolean isSyncEnable() {
+        return syncEnable;
+    }    
     
     public static Connection getConnection(String name) throws SQLException, ClassNotFoundException {
     	for (DBConnection dbConnection : connectionsPoolVector) {
