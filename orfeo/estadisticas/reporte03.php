@@ -1,5 +1,8 @@
 <?php
 session_start();
+
+unset($_SESSION['SQL_REPORT']);
+
 $krd = $_GET['krd'];
 include "$ruta_raiz/rec_session.php";
 include_once "../config.php";
@@ -56,52 +59,6 @@ if (!$dbconn) {
 <table  width="40%"  border="0" cellpadding="0" cellspacing="5" class="borde_tab">
  <tr>
    <td class="titulos2">
-    Dependencia: 
-   </td>
-   <td>
-    <select name="tipoDependencia" class="select">
-    <?php
-          $result=pg_query($dbconn, "SELECT depe_codi, depe_nomb FROM dependencia ORDER BY depe_nomb");
-          $size = pg_num_rows($result);
-          if ($size > 0) {
-              echo "<option value=\"-1\">Todos</option>\n";
-              while ($row = pg_fetch_array($result)) {
-                     echo "<option value=\"".$row[0]."\">\n";
-                     echo "$row[1]\n";
-                     echo "</option>\n";
-              }
-          } else {
-            echo "<option value=\"-1\">Todos</option>";
-          }
-    ?>
-    </select>
-   </td>
- </tr>
- <tr>
-   <td class="titulos2">
-    Usuario:
-   </td>
-   <td>
-    <select name="tipoUsuario" class="select">
-    <?php
-          $result=pg_query($dbconn, "SELECT usua_codi,usua_nomb FROM usuario ORDER BY usua_nomb");
-          $size = pg_num_rows($result);
-          if ($size > 0) {
-              echo "<option value=\"-1\">Todos</option>\n";
-              while ($row = pg_fetch_array($result)) {
-                     echo "<option value=\"".$row[0]."\">\n";
-                     echo "$row[1]\n";
-                     echo "</option>\n";
-              }
-          } else {
-            echo "<option value=\"-1\">Todos</option>";
-          }
-    ?>
-    </select>
-   </td>
- </tr>
- <tr>
-   <td class="titulos2">
     Tipo de Radicado:
    </td>
    <td>
@@ -125,12 +82,12 @@ if (!$dbconn) {
  </tr>
  <tr>
    <td class="titulos2">
-    Tipo de Documento:
+    Dependencia: 
    </td>
    <td>
-    <select name="tipoDocumento" class="select">
+    <select name="tipoDependencia" class="select">
     <?php
-          $result=pg_query($dbconn, "SELECT sgd_tpr_codigo, sgd_tpr_descrip FROM sgd_tpr_tpdcumento ORDER BY  sgd_tpr_descrip");
+          $result=pg_query($dbconn, "SELECT depe_codi, depe_nomb FROM dependencia ORDER BY depe_nomb");
           $size = pg_num_rows($result);
           if ($size > 0) {
               echo "<option value=\"-1\">Todos</option>\n";

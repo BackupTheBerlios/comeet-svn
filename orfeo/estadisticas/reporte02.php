@@ -1,5 +1,8 @@
 <?php
 session_start();
+
+unset($_SESSION['SQL_REPORT']);
+
 $krd = $_GET['krd'];
 include "$ruta_raiz/rec_session.php";
 include_once "../config.php";
@@ -18,6 +21,7 @@ if (!$dbconn) {
 <link rel="stylesheet" href="../estilos/orfeo.css">
 <link rel="stylesheet" type="text/css" href="../js/spiffyCal/spiffyCal_v2_1.css">
 <script language="JavaScript" src="../js/spiffyCal/spiffyCal_v2_1.js"></script>
+<script language="JavaScript" src="../js/numeric.js"></script>
 </head>
 
 <body>
@@ -27,7 +31,7 @@ if (!$dbconn) {
   var dateAvailable2 = new ctlSpiffyCalendarBox("dateAvailable2", "adm_serie", "fecha_busq2","btnDate1","<?=$fecha_busq2?>",scBTNMODE_CUSTOMBLUE);
 </script>
 
-<form method="post" action="resultado02.php?krd=<?php echo $krd; ?>" name="adm_serie">
+<form method="post" action="resultado02.php?krd=<?php echo $krd; ?>" name="adm_serie" onsubmit="javascript:return ValidateForm(this)">
 
 <center>
 <table  width="40%"  border="0" cellpadding="0" cellspacing="5" class="borde_tab">
@@ -54,6 +58,14 @@ if (!$dbconn) {
 <br/>
 
 <table  width="40%"  border="0" cellpadding="0" cellspacing="5" class="borde_tab">
+ <tr>
+   <td class="titulos2">
+    Nro de Radicado:
+   </td>
+   <td>
+    <input name="numRadicado" type="text" maxlength="15" size="15" value="" />
+   </td>
+ </tr>
  <tr>
    <td class="titulos2">
     Dependencia: 

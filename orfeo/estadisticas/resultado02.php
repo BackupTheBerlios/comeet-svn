@@ -10,10 +10,6 @@ if (isset($_GET['page'])) {
     $_SESSION['REPORT_PAGE'] = $_GET['page'];
 }
 
-if (isset($_GET['index'])) {
-    $_SESSION['INDEX_REPORT'] = $_GET['index'];
-}
-
 list($host, $port) = split(":", $servidor, 2);
 $dbconn = pg_connect("host=$host port=$port dbname=$db user=$usuario password=$contrasena");
 if (!$dbconn) {
@@ -24,40 +20,30 @@ if (!$dbconn) {
 if (!isset($_SESSION['SQL_REPORT'])) { 
 
     $condiciones = array();
-
+   
+    $numRadicado = $_POST['numRadicado'];
     $tipoDependencia = $_POST['tipoDependencia'];
-    $tipoUsuario = $_POST['tipoUsuario'];
-    $tipoRadicado = $_POST['tipoRadicado'];
-    $tipoDocumento = $_POST['tipoDocumento'];
     $fecha_busq = $_POST['fecha_busq'];
     $fecha_busq2 = $_POST['fecha_busq2'];
 
-    if ($tipoDependencia != -1) {
+    if (strlen($numRadicado) > 1) {
         $condiciones[0] = "r.radi_depe_rapi = $tipoDependencia";
     }
 
-    if ($tipoUsuario != -1) {
-        $condiciones[1] = "r.radi_usua_radi = $tipoUsuario";
-    }
-
-    if ($tipoRadicado != -1) {
-        $condiciones[2] = "r.carp_codi = $tipoRadicado";
-    }
-
-    if ($tipoDocumento != -1) {
-        $condiciones[3] = "r.tdoc_codi = $tipoDocumento";
+    if ($tipoDependencia != -1) {
+        $condiciones[1] = "r.radi_depe_rapi = $tipoDependencia";
     }
 
     if (!$fecha_busq) {
         $fecha_busq = -1;
     } else {
-        $condiciones[4] = "r.radi_fech_radi >= '$fecha_busq'";
+        $condiciones[2] = "r.radi_fech_radi >= '$fecha_busq'";
     }
 
     if (!$fecha_busq2) {
         $fecha_busq2 = -1;
     } else {
-        $condiciones[5] = "r.radi_fech_radi <= '$fecha_busq2'";
+        $condiciones[3] = "r.radi_fech_radi <= '$fecha_busq2'";
     }
 
     $where = "";
@@ -80,14 +66,6 @@ if (!isset($_SESSION['SQL_REPORT'])) {
                     $condiciones[3] = " AND ".$condiciones[3];
                     $where = $where.$condiciones[3];
              break;
-             case 4:
-                    $condiciones[4] = " AND ".$condiciones[4];
-                    $where = $where.$condiciones[4];
-             break;
-             case 5:
-                    $condiciones[5] = " AND ".$condiciones[5];
-                    $where = $where.$condiciones[5];
-             break;
         }
     }
 
@@ -102,7 +80,6 @@ if (!isset($_SESSION['SQL_REPORT'])) {
     $_SESSION['SQL_REPORT'] = $sql;
     $_SESSION['REPORT_PAGE'] = 1;
     $_SESSION['REPORT_SIZE'] = $size;
-    $_SESSION['INDEX_REPORT'] = 1; 
 } 
 
 $index = $_SESSION['REPORT_PAGE'] - 1;
@@ -110,12 +87,6 @@ $offset = $index * 20;
 
 $sql = $_SESSION['SQL_REPORT']." ORDER BY r.radi_nume_radi LIMIT 20 OFFSET ".$offset;
 $result = pg_query($dbconn, $sql);
-
-$pages_total = $_SESSION['REPORT_SIZE']/20;
-if ($_SESSION['REPORT_SIZE']%20 > 0) {
-     $pages_total = floor($pages_total);
-     $pages_total++;
-}
 
 ?>
 
@@ -127,7 +98,7 @@ if ($_SESSION['REPORT_SIZE']%20 > 0) {
 <table width="100%" border="0" cellpadding="0" cellspacing="5" class="borde_tab">
  <tr>
   <td class="titulos4">
-      REPORTE DE RADICADOS POR USUARIO
+      REPORTE DE RADICADOS ACTUALES POR DEPENDENCIA
   </td>
  </tr>
  <tr>
@@ -149,7 +120,7 @@ if ($_SESSION['REPORT_SIZE']%20 > 0) {
     <?php
           if ($_SESSION['REPORT_SIZE'] > 0) {
               echo "<br/>";
-              echo "<font class=\"titulos3b\">Se encontraron ".$_SESSION['REPORT_SIZE']." registros asociados a los criterios de b&uacute;squeda [ ".$pages_total." p&aacute;ginas ]</font><br/>";
+              echo "<font class=\"titulos3b\">Se encontraron ".$_SESSION['REPORT_SIZE']." registros asociados a los criterios de b&uacute;squeda.</font><br/>";
               echo "</center>";
               echo "<font class=\"titulos3b\">P&aacute;gina ".$_SESSION['REPORT_PAGE']."</font><br/>";
               echo "<center>"; 
@@ -187,47 +158,18 @@ if ($_SESSION['REPORT_SIZE']%20 > 0) {
   <font class="titulos3b">
 
 <?php
+ $pages_total = $_SESSION['REPORT_SIZE']/20;
+ if ($_SESSION['REPORT_SIZE']%20 > 0) {
+     $pages_total = floor($pages_total);
+     $pages_total++;
+ } 
 
- if ($pages_total <= 20) {
-     for ($i=1;$i<=$pages_total;$i++) {
-          if ($i != $_SESSION['REPORT_PAGE']) {
-              echo "<a href=\"resultado01.php?krd=$krd&page=$i\">$i</a> ";
-          } else {
-              echo "<b>$i</b> ";
-          }
-     }
-     echo "<br/>";
- } else {
-   if ($_SESSION['REPORT_PAGE'] > 20) {
-       $index = $_SESSION['INDEX_REPORT'] - 20;
-       $page = $_SESSION['INDEX_REPORT'];
-       echo "<a href=\"resultado01.php?krd=".$krd."&page=".$page."&index=".$index."\"><- Anteriores</a>&nbsp;&nbsp;&nbsp;";
-   }
-
-   $init = $_SESSION['INDEX_REPORT'];
-   $end = $_SESSION['INDEX_REPORT'] + 20;
-
-   if ($end > $pages_total) {
-       $end = $pages_total + 1;
-   }
-
-   for ($i=$init;$i<$end;$i++) {
-          if ($i != $_SESSION['REPORT_PAGE']) {
-              echo "<a href=\"resultado01.php?krd=".$krd."&page=".$i."&index=".$_SESSION['INDEX_REPORT']."\">".$i."</a> ";
-          } else {
-              echo "<b>$i</b> ";
-          }
-   }
-
-   $bound = $pages_total % 20;
-
-   if ($_SESSION['REPORT_PAGE'] < ($pages_total-$bound)) {
-       $_SESSION['INDEX_REPORT'] = $_SESSION['INDEX_REPORT'] + 20;
-       $page = $_SESSION['INDEX_REPORT'];
-       echo "&nbsp;&nbsp;&nbsp;<a href=\"resultado01.php?krd=".$krd."&page=".$page."&index=".$_SESSION['INDEX_REPORT']."\">Siguientes -></a>";  
-   }
-
-   echo "<br>BOUND: $bound<br/>";
+ for ($i=1;$i<=$pages_total;$i++) {
+      if ($i != $_SESSION['REPORT_PAGE']) {
+          echo "<a href=\"resultado01.php?krd=$krd&page=$i\">$i</a> ";
+      } else {
+          echo "<b>$i</b> ";
+      }
  }
 ?>
   </font>

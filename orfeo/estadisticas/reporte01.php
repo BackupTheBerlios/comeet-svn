@@ -1,5 +1,8 @@
 <?php
 session_start();
+
+unset($_SESSION['SQL_REPORT']);
+
 $krd = $_GET['krd'];
 include "$ruta_raiz/rec_session.php";
 include_once "../config.php";
