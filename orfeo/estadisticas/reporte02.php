@@ -1,7 +1,12 @@
 <?php
 session_start();
 
+$_SESSION['fecha_busq']  = "";
+$_SESSION['fecha_busq2'] = "";
+
 unset($_SESSION['SQL_REPORT']);
+$_SESSION['fecha_busq']  = "";
+$_SESSION['fecha_busq2'] = "";
 
 $krd = $_GET['krd'];
 include "$ruta_raiz/rec_session.php";

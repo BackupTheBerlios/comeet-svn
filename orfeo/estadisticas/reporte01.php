@@ -2,6 +2,8 @@
 session_start();
 
 unset($_SESSION['SQL_REPORT']);
+$_SESSION['fecha_busq']  = "";
+$_SESSION['fecha_busq2'] = "";
 
 $krd = $_GET['krd'];
 include "$ruta_raiz/rec_session.php";
@@ -83,29 +85,6 @@ if (!$dbconn) {
  </tr>
  <tr>
    <td class="titulos2">
-    Usuario:
-   </td>
-   <td>
-    <select name="tipoUsuario" class="select">
-    <?php
-          $result=pg_query($dbconn, "SELECT usua_codi,usua_nomb FROM usuario ORDER BY usua_nomb");
-          $size = pg_num_rows($result);
-          if ($size > 0) {
-              echo "<option value=\"-1\">Todos</option>\n";
-              while ($row = pg_fetch_array($result)) {
-                     echo "<option value=\"".$row[0]."\">\n";
-                     echo "$row[1]\n";
-                     echo "</option>\n";
-              }
-          } else {
-            echo "<option value=\"-1\">Todos</option>";
-          }
-    ?>
-    </select>
-   </td>
- </tr>
- <tr>
-   <td class="titulos2">
     Tipo de Radicado:
    </td>
    <td>
@@ -134,7 +113,7 @@ if (!$dbconn) {
    <td>
     <select name="tipoDocumento" class="select">
     <?php
-          $result=pg_query($dbconn, "SELECT sgd_tpr_codigo, sgd_tpr_descrip FROM sgd_tpr_tpdcumento ORDER BY  sgd_tpr_descrip");
+          $result=pg_query($dbconn, "SELECT sgd_tpr_codigo, sgd_tpr_descrip FROM sgd_tpr_tpdcumento ORDER BY sgd_tpr_descrip");
           $size = pg_num_rows($result);
           if ($size > 0) {
               echo "<option value=\"-1\">Todos</option>\n";

@@ -90,7 +90,9 @@ if($verradPermisos == "Full" or $datoVer=="985")
 	$rsr=$db->conn->Execute("select codi_nivel from radicado where radi_nume_radi like '$numrad'");
 	$permrad=$rsr->fields['CODI_NIVEL'];
 
-	if($datoVer=="985" and $permrad<=$_SESSION['nivelus'])
+        //if($datoVer=="985" and $permrad<=$_SESSION['nivelus'])
+
+	if($datoVer=="985")
 	{
 ?>
 function  window_onload()
@@ -315,12 +317,16 @@ if( isset( $_POST['ordenarPor'] ) && $_POST['ordenarPor'] != "" )
  	 <?
 	$rsr=$db->conn->Execute("select codi_nivel from radicado where radi_nume_radi like '$numrad'");
 	$permrad=$rsr->fields['CODI_NIVEL'];
- 	 include "ver_datosrad.php";
-	if(($verradPermisos == "Full" or $datoVer=="985") and $permrad<=$_SESSION['nivelus'])
+ 	include "ver_datosrad.php";
+	//if(($verradPermisos == "Full" or $datoVer=="985") and $permrad<=$_SESSION['nivelus'] and $carpeta != 13)
+
+        $datoVer = "985";
+        if (($verradPermisos == "Full" or $datoVer=="985"))
  		{
 
  		}else
  		{
+                        echo "verradPermisos = $verradPermisos - datoVer = $datoVer<br>";
  			$numRad = $verrad;
  			//if($nivelRad==1) 
 			include "$ruta_raiz/seguridad/sinPermisoRadicado.php";
