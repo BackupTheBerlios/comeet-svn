@@ -32,7 +32,7 @@ $encabezadol = "$PHP_SELF?".session_name()."=".session_id()."&num_exp=$num_exp&k
 <?
 	$phpsession = session_name()."=".session_id();
 	?>
-<span class="leidos2"><a href='../expediente/cuerpo_exp.php?<?=$phpsession?>&krd=<?=$krd?>&<?="fechaf=$fechah&carpeta=8&nomcarpeta=Expedientes&orno=1&adodb_next_page=1"; ?>' target='mainFrame' class="menu_princ"><b>1. Busqueda Basica </a></span>
+<span class="leidos2"><a href='../expediente/cuerpo_exp.php?<?=$phpsession?>&krd=<?=$krd?>&<?="fechaf=$fechah&carpeta=8&nomcarpeta=Expedientes&orno=1&adodb_next_page=1"; ?>' target='mainFrame' class="menu_princ"><b>1. B&uacute;squeda B&aacute;sica </a></span>
 	</td>
 	</tr>
 <tr>

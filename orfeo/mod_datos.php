@@ -126,7 +126,7 @@ $db->conn->SetFetchMode(ADODB_FETCH_ASSOC);
     </tr>
     <tr> 
       <td align="right"  height="41" width="24%" class="titulos2">Correo 
-        Electronico<br>
+        Electr&oacute;nico<br>
        </td>
       <td class='listado2' width="17%" > 
         <input type=text name=usua_email  value='<?=trim($usua_email)?>' class=tex_area size=15 maxlength="50"></td>

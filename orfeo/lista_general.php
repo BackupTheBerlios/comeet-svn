@@ -413,11 +413,10 @@ function regresar()
 <?
  $ruta_raiz = ".";
  error_reporting(7);
- /*
+ 
  if($verradPermisos=="Full" or $datoVer=="985") {
  	include ("tipo_documento.php");
  }
- */
 
 ?>
 </td></tr>
