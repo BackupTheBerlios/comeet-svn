@@ -772,7 +772,7 @@ if($tpRadicado) {echo "<input type=hidden name=tpRadicado value=$tpRadicado>";}
 		<td width="15%" class="titulos5" align="right"><?=$_SESSION["descReferencia"]?>CUENTA INTERNA</td>
 		<td width="15%" class="listado5">
 			<font face="Arial, Helvetica, sans-serif">
-			<input name="cuentai" type="text"  maxlength="20" class="tex_area" value='<?php echo $cuentai; ?>' >
+			<input name="cuentai" type="text"  maxlength="30" class="tex_area" value='<?php echo $cuentai; ?>' >
 			</font>
 	</td>
 	</tr>
