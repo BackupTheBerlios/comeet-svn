@@ -248,15 +248,14 @@ alert("Tiene un radicado nuevo en la bandeja <?=$car_r?>");
 	  */
 	$sqlFechaHoy=$db->conn->DBTimeStamp(time());
 	//$db->conn->debug = true;
-	$sqlAgendado=" and (agen.SGD_AGEN_FECHPLAZO >= ".$sqlFechaHoy.")";
-	$isql="select count(*) as CONTADOR from SGD_AGEN_AGENDADOS agen
-					where  usua_doc=$usua_doc
-						and agen.SGD_AGEN_ACTIVO=1
-						$sqlAgendado
-		";
- $rs=$db->query($isql);
- $num_exp = $rs->fields["CONTADOR"];
- $data="Agendados no vencidos";
+	$sqlAgendado=" AND (agen.SGD_AGEN_FECHPLAZO >= ".$sqlFechaHoy.")";
+	$isql="SELECT count(*) AS contador FROM sgd_agen_agendados agen, radicado r WHERE usua_doc=$usua_doc AND agen.SGD_AGEN_ACTIVO=1 AND agen.radi_nume_radi = r.radi_nume_radi $sqlAgendado";
+
+        #echo "<br>SQL: $isql<br>";
+
+        $rs=$db->query($isql);
+        $num_exp = $rs->fields["CONTADOR"];
+        $data="Agendados no vencidos";
 ?>
 
 	<tr  valign="middle">
@@ -272,11 +271,9 @@ alert("Tiene un radicado nuevo en la bandeja <?=$car_r?>");
 *  (Por. SIXTO 20040302)
 */
 	$sqlAgendado=" and (agen.SGD_AGEN_FECHPLAZO <= ".$sqlFechaHoy.")";
-	$isql="select count(*) as CONTADOR from SGD_AGEN_AGENDADOS agen
-					where  usua_doc=$usua_doc
-						and agen.SGD_AGEN_ACTIVO=1
-						$sqlAgendado
-		";
+	$isql="SELECT count(*) AS contador FROM sgd_agen_agendados agen WHERE usua_doc=$usua_doc AND agen.SGD_AGEN_ACTIVO=1 $sqlAgendado";
+
+        #echo "<br>SQL: $isql<br>";
 
 	$rs=$db->query($isql);
 	$num_exp = $rs->fields["CONTADOR"];
@@ -306,7 +303,10 @@ alert("Tiene un radicado nuevo en la bandeja <?=$car_r?>");
 	}
 
 	//Modificado idrd para poner en rojo SI tiene copias importantes
-	$isql="select count(*) as CONTADOR from informados where depe_codi=$dependencia and usua_codi=$codusuario and info_resp!="."0";
+	$isql="SELECT count(*) AS contador FROM informados WHERE depe_codi=$dependencia AND usua_codi=$codusuario AND info_resp!="."0";
+
+        #echo "<br>SQL: $isql<br>";
+
 	$rs1=$db->query($isql);
 	$numerot = $rs1->fields["CONTADOR"];
 
@@ -326,7 +326,10 @@ alert("Tiene un radicado nuevo en la bandeja <?=$car_r?>");
         <?
         }
 	else {
-	$isql2="select count(*) as CONTADOR from informados where depe_codi=$dependencia and usua_codi=$codusuario";
+	$isql2="SELECT count(*) AS contador FROM informados WHERE depe_codi=$dependencia AND usua_codi=$codusuario";
+
+        //echo "<br>SQL: $isql<br>";
+
 	$rs2=$db->query($isql2);
 	$numerot2 = $rs2->fields["CONTADOR"];
 

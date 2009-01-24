@@ -7,7 +7,7 @@
  	if(!$dependencia) 
  	{
  		include "$ruta_raiz/rec_session.php";
- 		echo $usua_doc;
+ 		//echo $usua_doc;
  	}
  	
 	if (!$nurad) $nurad= $rad;

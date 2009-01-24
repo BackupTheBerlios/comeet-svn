@@ -177,6 +177,7 @@ if(isset($_POST['Realizar'])) {
 <table class="borde_tab">
 <tr><td class="titulosError">
 <?
+  $fileGrb = "/".$fileGrb; 
   $query = "update radicado
   			set radi_path='$fileGrb'
   			where radi_nume_radi=$valRadio";

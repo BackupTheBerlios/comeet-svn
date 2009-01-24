@@ -1,6 +1,8 @@
 <?PHP 
 
-if (!$db->driver){	$db = $this->db; print "Aqui";}	//Esto sirve para cuando se llama este archivo dentro de clases donde no se conoce $db.
+if (!$db->driver) {
+    $db = $this->db;  //Esto sirve para cuando se llama este archivo dentro de clases donde no se conoce $db.
+}
 
 switch($db->driver)
 {	case 'mssql':
