@@ -1,6 +1,6 @@
 <?php
 
-$servicio = "pruebas";
+$servicio = "orfeo";
 
 $usuario = "orfeo";
 
@@ -8,7 +8,7 @@ $contrasena = "3ld0r4d0";
 
 $servidor = "localhost:5432";
 
-$db = "pruebas";
+$db = "orfeo";
 
 $driver = "postgres";
 

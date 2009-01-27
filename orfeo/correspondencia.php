@@ -353,16 +353,16 @@ alert("Tiene un radicado nuevo en la bandeja <?=$car_r?>");
 
 
     	</td>
-		<td width="125"><a onclick="cambioMenu(<?=$i?>);verPersonales(<?=$i?>);" href='#' class="menu_princ"  alt="Despliegue de Carpetas Personales" title="Despliegue de Carpetas Personales">
+		<td width="125" class="menu_princ"><!--a onclick="cambioMenu(<?=$i?>);verPersonales(<?=$i?>);" href='#' class="menu_princ"  alt="Despliegue de Carpetas Personales" title="Despliegue de Carpetas Personales"-->
 		<? echo "PERSONALES";?>
-		</a> </td>
+		<!--/a--> </td>
 	</tr>
 
-       </table>
+       <!--/table>
 
-       <table width="100%"  border="0" cellpadding="0" cellspacing="0" bgcolor="cacac9" id=carpersolanes style="display:none"  >
+       <table width="100%"  border="0" cellpadding="0" cellspacing="0" bgcolor="cacac9" id=carpersolanes style="display:none"  -->
 	<tr>
-    <td><a class="vinculos" href="crear_carpeta.php?<?=$phpsession ?>&krd=<?=$krd?>&<? echo "fechah=$fechah&adodb_next_page=1"; ?>" class="menu_princ" target='mainFrame' alt='Creacion de Carpetas Personales'  title='Creacion de Carpetas Personales' ><font size=2>Nueva carpeta</font></a> </td>
+    <td colspan="2"><a class="vinculos" href="crear_carpeta.php?<?=$phpsession ?>&krd=<?=$krd?>&<? echo "fechah=$fechah&adodb_next_page=1"; ?>" class="menu_princ" target='mainFrame' alt='Creacion de Carpetas Personales'  title='Creacion de Carpetas Personales' ><font size=2>Nueva carpeta</font></a> </td>
     </tr>
 		<?
 	// BUSCA LAS CARPETAS PERSONALES DE CADA USUARIO Y LAS COLOCA contando el numero de documentos en cada carpeta.
@@ -391,7 +391,7 @@ alert("Tiene un radicado nuevo en la bandeja <?=$car_r?>");
 		?>
 	    <tr>
 
-	    	<td height="18"><a href="cuerpo.php?<?=$phpsession ?>&krd=<?=$krd?>&<? echo "fechah=$fechah&nomcarpeta=$data "; ?>(Personal)<? echo "&tipo_carp=1&carpeta=$numdata&adodb_next_page=1"; ?>" alt="<?=$detalle?>" title="<?=$detalle?>" class="menu_princ" target="mainFrame">	<? echo "$data($numerot)";?></a> </td>
+	    	<td height="18" colspan="2" ><a href="cuerpo.php?<?=$phpsession ?>&krd=<?=$krd?>&<? echo "fechah=$fechah&nomcarpeta=$data "; ?>(Personal)<? echo "&tipo_carp=1&carpeta=$numdata&adodb_next_page=1"; ?>" alt="<?=$detalle?>" title="<?=$detalle?>" class="menu_princ" target="mainFrame">	<? echo "$data($numerot)";?></a> </td>
          </tr>
 
     	<?
