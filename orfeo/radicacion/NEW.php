@@ -984,7 +984,7 @@ while(!$rs->EOF)
 	{
 ?>
 <tr class=e_tablas>
-	<td width="13%" class="titulos5" height="25" align="right" ><font face="Arial, Helvetica, sans-serif" class="etextomenu">Dignatario</font></td>
+	<td width="13%" class="titulos5" height="25" align="right" ><font face="Arial, Helvetica, sans-serif" class="etextomenu">Signatario</font></td>
 	<td bgcolor="#FFFFFF" height="25" class="listado5" colspan="3">
 	<?php
 	//$otro = htmlspecialchars(stripcslashes($otro));
