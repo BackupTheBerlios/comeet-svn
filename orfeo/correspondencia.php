@@ -11,7 +11,7 @@ error_reporting(7);
 $db->conn->SetFetchMode(ADODB_FETCH_ASSOC);
 ?>
 <head>
-<META HTTP-EQUIV="Refresh" CONTENT="150">
+<META HTTP-EQUIV="Refresh" CONTENT="60">
 <link rel="stylesheet" href="estilos/orfeo.css">
 <script>
 // Variable que guarda la �ltima opci�n de la barra de herramientas de funcionalidades seleccionada
@@ -90,23 +90,43 @@ function verPersonales(img){
 ?>
 <form action=correspondencia.php method="post" >
 <?
+function fnc_date_calcd($this_date,$num_days){
+echo $this_date;
+	  //puts the UNIX timestamp back into string format
+    return $return_date;//exit function and return string
+}//end of function
+
 $fechC=date('Y-m-d');
 $ho=date('H');
 $mi=date('i')+1;
 $hf=$ho;
-$mo=$mi-3;
+$mo=$mi-1;
 if($mo<0){
-	$mo=57;
+	$mo=59;
 	$hf=$hf-1;
 }
 //$db->conn->debug=true;
-$rsA=$db->conn->Execute("select r.radi_nume_radi,c.carp_desc from radicado r,usuario u, hist_eventos h, carpeta c where r.radi_depe_actu=u.depe_codi and r.radi_usua_actu=u.usua_codi and u.usua_login like '$krd' and c.carp_codi=r.carp_codi and h.radi_nume_radi=r.radi_nume_radi and h.hist_fech between '$fechC $hf:$mo' and '$fechC $ho:$mi'");
+$rsA=$db->conn->Execute("select distinct(r.radi_nume_radi), c.carp_desc, p.nomb_carp,r.carp_per from usuario u, hist_eventos h,
+ carpeta c, radicado r left join carpeta_per p on p.codi_carp=r.carp_codi 
+and p.usua_codi=r.radi_usua_actu and p.depe_codi=r.radi_depe_actu
+ where r.radi_depe_actu=u.depe_codi and r.radi_usua_actu=u.usua_codi 
+ and u.usua_login like '$krd' and c.carp_codi=r.carp_codi and h.radi_nume_radi=r.radi_nume_radi 
+and h.hist_fech between '$fechC $hf:$mo' and '$fechC $ho:$mi' and h.sgd_ttr_codigo in (2,9,10,12,16)");
 $rad_r=$rsA->fields['RADI_NUME_RADI'];
 $car_r=$rsA->fields['CARP_DESC'];
-if($rad_r!=""){
+$car_p=$rsA->fields['NOMB_CARP'];
+$car_pe=$rsA->fields['CARP_PER'];
+if($rad_r!="" and $car_r!="" and $car_pe==0){
 ?>
 <script>
 alert("Tiene un radicado nuevo en la bandeja <?=$car_r?>");
+</script>
+<?
+}
+elseif($rad_r!=""){
+?>
+<script>
+alert("Tiene un radicado nuevo en la bandeja <?=$car_p?>");
 </script>
 <?
 }
@@ -242,13 +262,54 @@ alert("Tiene un radicado nuevo en la bandeja <?=$car_r?>");
    }
 	?>
 <?
+//Modificado idrd para poner en rojo SI tiene copias importantes
+	$isql="SELECT count(*) AS contador FROM rta_compartida WHERE depe_codi=$dependencia AND usua_codi=$codusuario AND rta_resp!="."0";
+
+        #echo "<br>SQL: $isql<br>";
+
+	$rs1=$db->query($isql);
+	$numerot = $rs1->fields["CONTADOR"];
+
+    $i++;
+    $data="Documentos De Asignacion Compartida";
+
+	if($numerot!= '0')
+        {
+        ?>
+
+                  <tr  valign="middle">
+                <td width="25"><img src="imagenes/menu.gif" width="15" height="18" alt='<?=$data ?> ' title='<?=$data ?>' name="plus<?=$i?>"></td>
+                <td width="125"><a onclick="cambioMenu(<?=$i?>);" href='cuerporta.php?<?=$phpsession?>&krd=<?=$krd?>&<?= "mostrar_opc_envio=1&orderNo=2&fechaf=$fechah&carpeta=13&nomcarpeta=Rta_Compartida&orderTipo=desc&adodb_next_page=1"; ?>' class="menu_princ" target="mainFrame" alt='Documentos De Asignacion Compartida' title="Documentos De Asignacion Compartida">
+                <? echo "<font color='#990000'>Rta Compartida($numerot)</font>";  $i++;?>
+                </a> </td>
+                </tr>
+        <?
+        }
+	else {
+	$isql2="SELECT count(*) AS contador FROM rta_compartida WHERE depe_codi=$dependencia AND usua_codi=$codusuario";
+
+        //echo "<br>SQL: $isql<br>";
+
+	$rs2=$db->query($isql2);
+	$numerot2 = $rs2->fields["CONTADOR"];
+
+	?>
+
+	  <tr  valign="middle">
+    	<td width="25"><img src="imagenes/menu.gif" width="15" height="18" alt='<?=$data ?> ' title='<?=$data ?>' name="plus<?=$i?>"></td>
+		<td width="125"><a onclick="cambioMenu(<?=$i?>);" href='cuerporta.php?<?=$phpsession?>&krd=<?=$krd?>&<?= "mostrar_opc_envio=1&orderNo=2&fechaf=$fechah&carpeta=13&nomcarpeta=Rta_Compartida&orderTipo=desc&adodb_next_page=1"; ?>' class="menu_princ" target="mainFrame" alt='Documentos De Asignacion Compartida' title="Documentos De Asignacion Compartida">
+		<? echo "Rta Compartida($numerot2)";  $i++;?>
+		</a> </td>
+	</tr>
+	<?
+	}
     /**
 	  * PARA ARCHIVOS AGENDADOS NO VENCIDOS
 	  *  (Por. SIXTO 20040302)
 	  */
 	$sqlFechaHoy=$db->conn->DBTimeStamp(time());
 	//$db->conn->debug = true;
-	$sqlAgendado=" AND (agen.SGD_AGEN_FECHPLAZO >= ".$sqlFechaHoy.")";
+	$sqlAgendado=" AND (agen.SGD_AGEN_FECHPLAZO > ".$sqlFechaHoy.")";
 	$isql="SELECT count(*) AS contador FROM sgd_agen_agendados agen, radicado r WHERE usua_doc=$usua_doc AND agen.SGD_AGEN_ACTIVO=1 AND agen.radi_nume_radi = r.radi_nume_radi $sqlAgendado";
 
         #echo "<br>SQL: $isql<br>";
@@ -266,6 +327,7 @@ alert("Tiene un radicado nuevo en la bandeja <?=$car_r?>");
 	</tr>
 
 	<?
+//$db->conn->debug=true;
 /**
 * PARA ARCHIVOS AGENDADOS  VENCIDOS
 *  (Por. SIXTO 20040302)
@@ -289,7 +351,35 @@ alert("Tiene un radicado nuevo en la bandeja <?=$car_r?>");
 		<? echo "Agendado Vencido(<font color='#990000'>$num_exp</font>)";?>
 		</a> </td>
 		</tr>
+	<?
+/**
+* PARA ARCHIVOS AGENDADOS  UN DIA
+*  (Por. fabian losada)
+*/
+	$sqlFechaHoy3=date('Y-m-d');
+	$my_time = strtotime ($sqlFechaHoy3); //converts date string to UNIX timestamp
+   	$timestam = $my_time +  86400; //calculates # of days passed ($num_days) * # seconds in a day (86400)
+	$sqlFechaHoy2 = date("Y-m-d",$timestam);
+	//$sqlFechaHoy2=fnc_date_calc($sqlFechaHoy3,1);
+	$sqlAgendado=" and (agen.SGD_AGEN_FECHPLAZO > '".$sqlFechaHoy3."' and agen.SGD_AGEN_FECHPLAZO <='".$sqlFechaHoy2."')";
+	$isql="SELECT count(*) AS contador FROM sgd_agen_agendados agen, radicado r WHERE usua_doc=$usua_doc AND agen.SGD_AGEN_ACTIVO=1 AND agen.radi_nume_radi = r.radi_nume_radi $sqlAgendado";
 
+       #echo "<br>SQL: $isql<br>";
+//$db->conn->debug=true;
+	$rs=$db->query($isql);
+	$num_exp = $rs->fields["CONTADOR"];
+	$data="Agendados un Dia";
+	$i++;
+?>
+
+
+
+		<tr  valign="middle">
+    	<td width="25"><img src="imagenes/menu.gif" width="15" height="18" alt='<?=$data ?> ' title='<?=$data ?>' name="plus<?=$i?>"></td>
+		<td width="125"><a onclick="cambioMenu(<?=$i?>);" href='cuerpoAgenda.php?<?=$phpsession?>&agendado=3&krd=<?=$krd?>&fechah=<?php echo "$fechah&nomcarpeta=$data&&tipo_carpt=0&adodb_next_page=1"; ?>' class="menu_princ2" target="mainFrame" alt="Seleccione una Carpeta">
+		<? echo "Agendado un Dia(<font color='#990000'>$num_exp</font>)";?>
+		</a> </td>
+		</tr>
 	        <?
 	// Coloca el mensaje de Informados y cuenta cuantos registros hay en informados
 

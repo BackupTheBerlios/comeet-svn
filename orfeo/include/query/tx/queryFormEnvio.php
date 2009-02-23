@@ -225,6 +225,56 @@ switch($db->driver)
 								'.$whereCarpeta.'
 					  		order by '.$order.' '.$orderTipo;
 				}break;
+			case 3:
+				{	$radi_nume_radi = "to_char(i.RADI_NUME_RADI)";
+					$tmp_cad1 = "to_char(".$db->conn->concat("'0'","'-'",$radi_nume_radi).")";
+					$tmp_cad2 = "to_char(".$db->conn->concat('i.info_codi',"'-'",$radi_nume_radi).")";
+					$isql = 'select
+								cast(b.RADI_NUME_RADI as varchar(15)) as "IMG_Numero Radicado"
+								,b.RADI_PATH as "HID_RADI_PATH"
+								,b.RADI_FECH_RADI as "HOR_RAD_FECH_RADI"
+								,'.$sqlFecha.' as "DAT_Fecha Radicado"
+								,cast(b.RADI_NUME_RADI as varchar(15)) as "HID_Numero Radicado"
+								,i.rta_codi as "HID_InfoCodi"
+								,i.rta_desc  as "Descripcion"
+								,'.chr(39).chr(39).' "Asignado Por"
+								,'.$tmp_cad1.' "CHK_CHKANULAR"
+						 	from
+						 		rta_compartida i, radicado b
+						 	where
+						 		i.radi_nume_radi = b.radi_nume_radi and
+						  		i.RADI_NUME_RADI is not null
+						  		AND (i.USUA_CODI = '.$_SESSION['codusuario'].') AND (i.DEPE_CODI = '.$_SESSION['dependencia'].')
+								'.$whereFiltro.$tmp_where.'
+								'.$whereCarpeta.'
+					  		order by '.$order.' '.$orderTipo;
+				}break;
+			case 4:
+				{	$radi_nume_radi = "cast(b.RADI_NUME_RADI as 		varchar(15))";
+					$tmp_cad1 = "to_char(".$db->conn->concat("'0'","'-'",$radi_nume_radi).")";
+//					$tmp_cad2 = "to_char(".$db->conn->concat('i.info_codi',"'-'",$radi_nume_radi).")";
+					$tmp_cad2 = "(".$db->conn->concat('i.rta_codi',"'-'",$radi_nume_radi).")";
+					$isql = 'select
+								'.$radi_nume_radi.' as "IMG_Numero Radicado"
+								,b.RADI_PATH as "HID_RADI_PATH"
+								,b.RADI_FECH_RADI as "HOR_RAD_FECH_RADI"
+								,'.$sqlFecha.' as "DAT_Fecha Radicado"
+								,'.$radi_nume_radi.' as "HID_Numero Radicado"
+								,i.rta_codi as "HID_InfoCodi"
+								,i.rta_desc  as "Descripcion"
+								,u.USUA_NOMB as "Asignado Por"
+								,'.$tmp_cad2.' as "CHK_CHKANULAR"
+						 	from
+						 		rta_compartida i, radicado b,  usuario u
+						 	where
+						 		i.radi_nume_radi = b.radi_nume_radi and
+						 		i.rta_codi = u.usua_doc and
+						  		i.RADI_NUME_RADI is not null
+						  		AND (i.USUA_CODI = '.$_SESSION['codusuario'].') AND (i.DEPE_CODI = '.$_SESSION['dependencia'].')
+								'.$whereFiltro.$tmp_where.'
+								'.$whereCarpeta.'
+					  		order by '.$order.' '.$orderTipo;
+				}break;
 		}
 	}
 }

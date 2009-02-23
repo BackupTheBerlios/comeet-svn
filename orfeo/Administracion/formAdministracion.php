@@ -22,21 +22,23 @@
 		</td>
 		<td align="center" class="listado2" width="48%"><a href="tbasicas/adm_dependencias.php" class="vinculos">2. DEPENDENCIAS</a></td>
   </tr>
-  <tr bordercolor="#FFFFFF">
+  <!--tr bordercolor="#FFFFFF">
     <td align="center" class="listado2" width="48%"> <a  class="vinculos" target='mainFrame'>3. CARPETAS</a></td>
     <td align="center" class="listado2" width="48%"><a href="tbasicas/adm_fenvios.php" class="vinculos" target='mainFrame'>4. ENVIO DE CORRESPONDENCIA</a> </td>
   </tr>
   <tr bordercolor="#FFFFFF">
-    <td align="center" class="listado2" width="48%"><a href="tbasicas/adm_tsencillas.php" class="vinculos" target='mainFrame'>5. TABLAS SENCILLAS</a></td>
+    <td align="center" class="listado2" width="48%"><a href="tbasicas/adm_tsencillas.php" class="vinculos" target='mainFrame'>5. TABLAS SENCILLAS</a></td-->
+<tr bordercolor="#FFFFFF">
     <td align="center" class="listado2" width="48%"><a href="tbasicas/adm_trad.php" class="vinculos" target='mainFrame'>6. TIPOS DE RADICACI&Oacute;N</a></td>
+<td align="center" class="listado2" width="48%"><a href="tbasicas/adm_paises.php" class="vinculos" target='mainFrame'>7. PA&Iacute;SES</a></td>
   </tr>
   <tr bordercolor="#FFFFFF">
-    <td align="center" class="listado2" width="48%"><a href="tbasicas/adm_paises.php" class="vinculos" target='mainFrame'>7. PA&Iacute;SES</a></td>
-    <td align="center" class="listado2" width="48%"><a href="tbasicas/adm_dptos.php" class="vinculos" target='mainFrame'>8. DEPARTAMENTOS</a></td>
+        <td align="center" class="listado2" width="48%"><a href="tbasicas/adm_dptos.php" class="vinculos" target='mainFrame'>8. DEPARTAMENTOS</a></td>
+<td align="center" class="listado2" width="48%"><a href="tbasicas/adm_mcpios.php" class="vinculos" target='mainFrame'>9. MUNICIPIOS</a></td>
   </tr>
-  <tr bordercolor="#FFFFFF">
-    <td align="center" class="listado2" width="48%"><a href="tbasicas/adm_mcpios.php" class="vinculos" target='mainFrame'>9. MUNICIPIOS</a></td>
-	<td align="center" class="listado2" width="48%"><a href="tbasicas/adm_tarifas.php" class="vinculos" target='mainFrame'>10. TARIFAS</a></td>
+  
+    
+	<!--td align="center" class="listado2" width="48%"><a href="tbasicas/adm_tarifas.php" class="vinculos" target='mainFrame'>10. TARIFAS</a></td>
   </tr>
   <tr bordercolor="#FFFFFF">
     <td align="center" class="listado2" width="48%"><a href="tbasicas/adm_contactos.php" class="vinculos" target='mainFrame'>11. CONTACTOS</a></td>
@@ -47,8 +49,7 @@
   <tr bordercolor="#FFFFFF">
     <td align="center" class="listado2" width="48%"><a href="tbasicas/adm_temas.php" class="vinculos" target='mainFrame'>13. TABLAS TEM&Aacute;TICAS</a></td>
 	<td align="center" class="listado2" width="48%">
-	</td>
-  </tr>
-</table>
+	</td-->
+  </table>
 </body>
 </html>

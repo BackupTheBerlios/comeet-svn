@@ -56,6 +56,10 @@ if($carpeta==8)
 {	$info=8;
 	$nombcarpeta = "Informados";
 }
+if($carpeta==13)
+{	$rta=13;
+	$nombcarpeta = "Rta Compartida";
+}
 
 /** verificacion si el radicado se encuentra en el usuario Actual
 *
@@ -456,7 +460,15 @@ else
 			$row1["RADI_NUME_RADI"] = $verrad;
 			$rs = $db->update("informados", $row, $row1);
 			}
-		elseif (($leido!="no" or !$leido) and $datoVer!=985)
+		elseif($rta)
+			{
+			$row["RTA_LEIDO"]=1;
+			$row1["DEPE_CODI"] = $dependencia;
+			$row1["USUA_CODI"] = $codusuario;
+			$row1["RADI_NUME_RADI"] = $verrad;
+			$rs = $db->update("rta_compartida", $row, $row1);
+			}
+		elseif ($leido!="no" or !$leido)
 			{
 			$row["RADI_LEIDO"]=1;
 			$row1["radi_depe_actu"] = $dependencia;

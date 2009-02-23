@@ -174,8 +174,9 @@ if ($swLog==1)
 	//$sqlFecha = $db->conn->DBTimeStamp("b.RADI_FECH_RADI","" ,"Y-m-d H:i:s");
   //$db->SQLDate('Y-\QQ');
 	//$db->conn->debug = true;
+$trd=$db->conn->Concat("sd.SGD_SRD_DESCRIP","'/'","sbr.SGD_SBRD_DESCRIP","'/'","c.SGD_TPR_DESCRIP");
 
-	include "$ruta_raiz/include/query/queryCuerpo.php";
+	include "$ruta_raiz/include/query/queryCuerpo2.php";
 	
 	$rs=$db->conn->Execute($isql);
 	if ($rs->EOF and $busqRadicados)  {

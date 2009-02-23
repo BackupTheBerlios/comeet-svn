@@ -78,8 +78,7 @@ function Responsable(numeroExpediente) {
 	$responsable= $rs->fields['USUA_DOC_RESPONSABLE'];
 ?>
 
-window.open("<?=$ruta_raiz?>/expediente/responsable.php?&numeroExpediente=" + numeroExpediente +
-				"&numRad=<?=$verrad?>&krd=<?=$krd?>&ind_ProcAnex=<?=$ind_ProcAnex?>&responsable=<?=$responsable?>&coddepe=<?=$coddepe?>&codusua=<?=$codusua?>","Responsable","height=300,width=450,scrollbars=yes");
+window.open("<?=$ruta_raiz?>/expediente/responsable.php?&numeroExpediente=" + numeroExpediente +				"&numRad=<?=$verrad?>&krd=<?=$krd?>&ind_ProcAnex=<?=$ind_ProcAnex?>&responsable=<?=$responsable?>&coddepe=<?=$coddepe?>&codusua=<?=$codusua?>","Responsable","height=300,width=450,scrollbars=yes");
 }
 
 function CambiarE(est,numeroExpediente) {
@@ -441,7 +440,7 @@ $time_start = microtime_float();
     <?php
 	if ($num_expediente != "" && !isset( $_POST['expIncluido'][0] )) {
     ?>
-    Nombre de Expediente
+    Numero o Codigo de Expediente
     <input name="num_expediente" type="text" size="30" maxlength="18" id='num_expediente' value="<?=$num_expediente?>" class="tex_area" '<?=$datoss?>'>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Responsable: &nbsp;&nbsp;&nbsp;<b><span class=leidos2>
     <? echo $responsable;?></b> &nbsp;&nbsp;&nbsp;
@@ -606,13 +605,13 @@ if($descPExpediente){
 }
 if($num_expediente !=""){
 ?>
-     <td colspan="2">Historia del Expediente :<span class=leidos2> </span>&nbsp;&nbsp;&nbsp;
+     <td colspan="3">Historia del Expediente :<span class=leidos2> </span>&nbsp;&nbsp;&nbsp;
 	 <input type="button" value="..." class=botones_2 onClick="verHistExpediente('<?=$num_expediente?>');">
 	 </td>
 <?php if($usuaPermExpediente and $verradPermisos == "Full") {?>
-	 <td colspan="2" nowrap>Adicionar Proceso :<span class=leidos2> </span>&nbsp;&nbsp;&nbsp;
+	 <!--td colspan="2" nowrap>Adicionar Proceso :<span class=leidos2> </span>&nbsp;&nbsp;&nbsp;
 	 <input type="button" value="..." class=botones_2 onClick="crearProc('<?=$num_expediente?>');">
-	</td>
+	</td-->
 <?php } else {?>
 	<td>&nbsp;</td>	
 <?php } ?>	
@@ -659,7 +658,7 @@ if($num_expediente !=""){
     </table>
   </td>
 </tr>
-<tr >
+<!--tr >
   <td class="titulos5">
     Proceso:
   </td>
@@ -674,6 +673,13 @@ if($num_expediente !=""){
         }
     ?>
   </td>
+</tr-->
+<tr>
+ <td class="titulos5" nowrap>
+    Palaba Clave:
+  </td>
+  <td colspan="4" class='leidos2'>
+  <?=$arrTRDExp['pclaveE']?>
 </tr>
 <tr >
   <td class="titulos5" nowrap>

@@ -11,7 +11,7 @@ include_once "$ruta_raiz/include/tx/Expediente.php";
 	$db->conn->debug=true;
 	$db = new ConnectionHandler("$ruta_raiz");
 	$objHistorico= new Historico($db); 
-$encabezadol = "$PHP_SELF?".session_name()."=".session_id()."&numeroExpediente=$numeroExpediente&dependencia=$dependencia&krd=$krd&numRad=$numRad&coddepe=$coddepe&codusua=$codusua&depende=$depende&codserie=$codserie";
+$encabezadol = "$PHP_SELF?".session_name()."=".session_id()."&numeroExpediente=$numeroExpediente&dependencia=$dependencia&krd=$krd&numRad=$numRad&coddepe=$coddepe&codusua=$codusua&depende=$depende&codserie=$codserie&responsable=$responsable";
 ?>
 <html height=50,width=150>
 <head>
@@ -26,25 +26,40 @@ $encabezadol = "$PHP_SELF?".session_name()."=".session_id()."&numeroExpediente=$
 
  </script>
 
-<form name=responsable action="<?=$encabezadol?>" method='post' action='responsable.php?<?=session_name()?>=<?=trim(session_id())?>&numeroExpediente=<?=$numeroExpediente?>&krd=<?=$krd?>&texp=<?=$texp?>&numRad=<?=$numRad?>&<?="&mostrar_opc_envio=$mostrar_opc_envio&nomcarpeta=$nomcarpeta&carpeta=$carpeta&leido=$leido"?>'>
+<form name=responsable action="<?=$encabezadol?>" method='post' action='responsable.php?<?=session_name()?>=<?=trim(session_id())?>&numeroExpediente=<?=$numeroExpediente?>&krd=<?=$krd?>&texp=<?=$texp?>&numRad=<?=$numRad?>&<?="&mostrar_opc_envio=$mostrar_opc_envio&nomcarpeta=$nomcarpeta&carpeta=$carpeta&leido=$leido&responsable=$responsable"?>'>
 <br>
 
 <table border=0 width 100% cellpadding="0" cellspacing="5" class="borde_tab">
+<tr>
+<TD class=titulos5 >
+		Dependencia Responsable del Proceso
+	</TD>
+	<td class=listado2>
+<?
+	if(!$depeDocExp)$depeDocExp=$coddepe;
+	$queryDs = "select depe_nomb, depe_codi from dependencia order by depe_nomb";
+	$rsDs = $db->conn->Execute($queryDs);
+	print $rsDs->GetMenu2("depeDocExp", "$depeDocExp", "0:-- Seleccione --", false,""," class='select' onChange='submit()'");
+?>
+</td></tr>
+<tr>
 <TD class=titulos5 >
 		Usuario Responsable del Proceso
 	</TD>
 	<td class=listado2>
 <?
-
-$depe=substr($numeroExpediente,4,3);
-
-	$queryUs = "select usua_nomb, usua_doc from usuario where depe_codi=$depe AND USUA_ESTA=1
+	$depe=substr($numeroExpediente,4,3);
+	$rsDus=$db->conn->Execute("SELECT USUA_DOC_RESPONSABLE	FROM SGD_SEXP_SECEXPEDIENTES WHERE SGD_EXP_NUMERO = '$numeroExpediente' ");
+	if(!$usuaDocExp) $usuaDocExp=$rsDus->fields['USUA_DOC_RESPONSABLE'];
+	$queryUs = "select usua_nomb, usua_doc from usuario where depe_codi=$depeDocExp AND USUA_ESTA=1
 							order by usua_nomb";
 	$rsUs = $db->conn->Execute($queryUs);
 	print $rsUs->GetMenu2("usuaDocExp", "$usuaDocExp", "0:-- Seleccione --", false,""," class='select' ");
 		$observa = "Se modifico el responsable  ";
 		$arrayRad[0]=$numRad;
-
+?>
+</td></tr>
+<?
 	if($Grabar){
 	if($usuaDocExp!=0 ){
 	$query="update sgd_sexp_secexpedientes set USUA_DOC_RESPONSABLE='$usuaDocExp' 
@@ -55,7 +70,6 @@ $depe=substr($numeroExpediente,4,3);
 }
 	if(!$Grabar){
 ?>
-</td>
 <tr><TD colspan='2'>
 <CENTER><input name='Grabar' type=submit class="botones_funcion" value="Grabar" >
 

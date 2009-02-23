@@ -42,6 +42,8 @@ class Radicacion
 	var $tdocCodi;
 	var $estaCodi;
 	var $radiPath;
+	var $fechrd;
+	var $pclave;
 
 	/**
 	  *  VARIABLES DEL USUARIO ACTUAL
@@ -131,13 +133,19 @@ function newRadicado($tpRad, $tpDepeRad)
 		$recordR["CARP_PER"]=0;
 		$recordR["RADI_NUME_RADI"]=$newRadicado;
 		$recordR["TRTE_CODI"]=$this->trteCodi;
+		if($tpRad!=8){
 		$recordR["RADI_FECH_RADI"]=$this->db->conn->OffsetDate(0,$this->db->conn->sysTimeStamp);
+		}
+		else{
+		  $recordR["RADI_FECH_RADI"]="'".$this->fechrd." 12:00:00.303'";
+		}
 		$recordR["RADI_DEPE_ACTU"]=$this->radiDepeActu;
 		$recordR["TDOC_CODI"]=$this->tdocCodi;
 		$recordR["TDID_CODI"]=$this->tdidCodi;
 		$recordR["CODI_NIVEL"]=$usNivel;
 		$recordR["SGD_APLI_CODI"]=$this->sgd_apli_codi;
 		$recordR["RADI_PATH"] = "$this->radiPath";
+		$recordR["RADI_ARCH4"] = "'".$this->pclave."'";
 		
 		$whereNivel = "";
 		$insertSQL = $this->db->conn->Replace("RADICADO", $recordR, "RADI_NUME_RADI", false);
@@ -162,6 +170,7 @@ function newRadicado($tpRad, $tpDepeRad)
 		$recordR["tdid_codi"]	= $this->tdidCodi;
 		$recordR["radi_nume_radi"] = $radicado;
 		$recordR["SGD_APLI_CODI"] = $this->sgd_apli_codi;
+		$recordR["RADI_ARCH4"] = "'".$this->pclave."'";
 		
 		// Linea para realizar radicacion Web de archivos pdf
 		if(!empty($radPathUpdate) && $radPathUpdate != ""){

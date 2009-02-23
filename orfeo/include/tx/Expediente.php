@@ -33,6 +33,7 @@ class Expediente
    var $codiSRD;
    var $codiSBRD;
    var $db;
+   var $pclaveE;
 
 
 /** Variable que ALmacena los dias Habiles de un Proceso
@@ -131,7 +132,7 @@ class Expediente
 	*	@return Numero de Expediente que posee el radicado
 	*
   */
- function insertar_expediente($num_expediente,$radicado,$depe_codi,$usua_codi,$usua_doc)
+ function insertar_expediente($num_expediente,$radicado,$depe_codi,$usua_codi,$usua_doc,$pclaveE)
  {
 	$estado_expediente =0;
 	$creadoOld = 0;
@@ -160,7 +161,7 @@ class Expediente
 					$codiSRD = 0;
 					$codiSBRD = 0;
 					$fechaExp = $rs2->fields["SGD_EXP_FECH"];
-					$this->crearExpediente($num_expediente,$radicado,$depe_codi,$usua_codi,$usua_doc,$usua_doc,$codiSRD,$codiSBRD,"true",$fechaExp);
+					$this->crearExpediente($num_expediente,$radicado,$depe_codi,$usua_codi,$usua_doc,$usua_doc,$codiSRD,$codiSBRD,$pclaveE,"true",$fechaExp);
 					if($rs2!=-1) $creadoOld = 1;
 			}
 
@@ -236,7 +237,7 @@ class Expediente
   * @param  $arrParametro Array Arreglo que contiene los parï¿½metros asociados al expediente
   *         indexado con el orden.
   */
-function crearExpediente($numExpediente,$radicado,$depe_codi,$usua_codi,$usua_doc,$usuaDocExp,$codiSRD,$codiSBRD,$expOld=null,$fechaExp=null, $codiPROC=null, $arrParametro=null )
+function crearExpediente($numExpediente,$radicado,$depe_codi,$usua_codi,$usua_doc,$usuaDocExp,$codiSRD,$codiSBRD,$pclaveE,$expOld=null,$fechaExp=null, $codiPROC=null, $arrParametro=null )
 {
     $p = 1;
     // Valida que $arrParametro contenga un arreglo
@@ -305,13 +306,13 @@ function crearExpediente($numExpediente,$radicado,$depe_codi,$usua_codi,$usua_do
 	//$queryDel = "DELETE FROM SGD_SEXP_SECEXPEDIENTES WHERE SGD_EXP_NUMERO='$numExpediente'";
 	//$this->db->conn->query($queryDel);
 	
-	$query = "insert into SGD_SEXP_SECEXPEDIENTES(SGD_EXP_NUMERO   ,SGD_SEXP_FECH      ,DEPE_CODI   ,USUA_DOC   ,SGD_FEXP_CODIGO,SGD_SRD_CODIGO,SGD_SBRD_CODIGO,SGD_SEXP_SECUENCIA, SGD_SEXP_ANO, USUA_DOC_RESPONSABLE, SGD_PEXP_CODIGO";
+	$query = "insert into SGD_SEXP_SECEXPEDIENTES(SGD_EXP_NUMERO   ,SGD_SEXP_FECH      ,DEPE_CODI   ,USUA_DOC   ,SGD_FEXP_CODIGO,SGD_SRD_CODIGO,SGD_SBRD_CODIGO,SGD_SEXP_SECUENCIA, SGD_SEXP_ANO, USUA_DOC_RESPONSABLE, SGD_PEXP_CODIGO,SGD_SEXP_PAREXP5";
     if( $campoParametro != "" )
     {
         $query .= ", $campoParametro";
     }
     $query .= " )";
-    $query .= " VALUES ('$numExpediente',". $sqlFechaHoy ." ,'$depe_codi','$usua_doc',{$etapa},$codiSRD     ,$codiSBRD        ,'$secExp' ,$anoExp, $usuaDocExp, $codiPROC";
+    $query .= " VALUES ('$numExpediente',". $sqlFechaHoy ." ,'$depe_codi','$usua_doc',{$etapa},$codiSRD     ,$codiSBRD        ,'$secExp' ,$anoExp, $usuaDocExp, $codiPROC, '$pclaveE'";
     if( $valorParametro != "" )
     {
         $query .= " , $valorParametro";
@@ -485,6 +486,7 @@ function crearExpediente($numExpediente,$radicado,$depe_codi,$usua_codi,$usua_do
 		  $this->exp_unicon = $this->rs->fields['sgd_exp_unicon'] ;
 		  $this->exp_fechaIni = $this->rs->fields['SGD_EXP_FECH'];
 		  $this->exp_fechaFin = $this->rs->fields['SGD_EXP_FECHFIN'];
+		
 
 
 			 return 1;
@@ -502,6 +504,7 @@ function crearExpediente($numExpediente,$radicado,$depe_codi,$usua_codi,$usua_do
 				, sb.SGD_SBRD_DESCRIP
 				, se.SGD_FEXP_CODIGO
 				, se.SGD_SEXP_FECH
+				, se.SGD_SEXP_PAREXP5
                 , se.USUA_DOC_RESPONSABLE
                 , se.SGD_PEXP_CODIGO
 			from SGD_SEXP_SECEXPEDIENTES se
@@ -529,6 +532,7 @@ function crearExpediente($numExpediente,$radicado,$depe_codi,$usua_codi,$usua_do
 			$this->expFechaCrea=$rs->fields["SGD_SEXP_FECH"];
             $this->expUsuaDoc=$rs->fields["USUA_DOC_RESPONSABLE"];
             $this->codigoTipoExp=$rs->fields["SGD_PEXP_CODIGO"];
+	    $this->pclaveE = $this->rs->fields['SGD_SEXP_PAREXP5'];
 
 /** EN ESTA CONSULTA TRAEMOS EL TIPO DE PROCESO
 	*/
@@ -664,6 +668,7 @@ function crearExpediente($numExpediente,$radicado,$depe_codi,$usua_codi,$usua_do
         $q_TRDExp .= " PEXP.SGD_PEXP_DESCRIP,";
         $q_TRDExp .= " PEXP.SGD_PEXP_TERMINOS,";
         $q_TRDExp .= " SEXP.SGD_SEXP_FECH,";
+	$q_TRDExp .= " SEXP.SGD_SEXP_PAREXP5,";
         $q_TRDExp .= " FEXP.SGD_FEXP_CODIGO, FEXP.SGD_FEXP_DESCRIP";
         $q_TRDExp .= " FROM SGD_SRD_SERIESRD SRD, SGD_SBRD_SUBSERIERD SBRD,";
         $q_TRDExp .= " SGD_PEXP_PROCEXPEDIENTES PEXP";
@@ -705,6 +710,7 @@ function crearExpediente($numExpediente,$radicado,$depe_codi,$usua_codi,$usua_do
         $arrTRDExp['terminoProceso'] = $rs_TRDExp->fields['SGD_PEXP_TERMINOS']." Dias Calendario de Termino Total";
         $arrTRDExp['fecha'] = $rs_TRDExp->fields['SGD_SEXP_FECH'];
         $arrTRDExp['estado'] = $rs_TRDExp->fields['SGD_FEXP_DESCRIP'];
+	$arrTRDExp['pclaveE'] = $rs_TRDExp->fields['SGD_SEXP_PAREXP5'];
 
 		return $arrTRDExp;
 	}

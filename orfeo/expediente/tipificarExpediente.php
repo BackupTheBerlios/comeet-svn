@@ -91,7 +91,7 @@ function Start(URL, WIDTH, HEIGHT)
       *  Modificado: 09-Junio-2006 Supersolidaria
       *  La funcion crearExpediente() recibe los parametros $codiPROC y $arrParametro
 	  */
-		$numeroExpedienteE = $expediente->crearExpediente( $numeroExpediente,$nurad,$dependencia,$codusuario,$usua_doc,$usuaDocExp,$codiSRD,$codiSBRD,'false',$fechaExp, $_POST['codProc'], $arrParametro );
+		$numeroExpedienteE = $expediente->crearExpediente( $numeroExpediente,$nurad,$dependencia,$codusuario,$usua_doc,$usuaDocExp,$codiSRD,$codiSBRD,$pclaveE,'false',$fechaExp, $_POST['codProc'], $arrParametro );
 		if($numeroExpedienteE==0)
 		{
 			echo "<CENTER><table class=borde_tab><tr><td class=titulosError>EL EXPEDIENTE QUE INTENTO CREAR YA EXISTE.</td></tr></table>";
@@ -101,7 +101,7 @@ function Start(URL, WIDTH, HEIGHT)
 			  *  @param $insercionExp Numeric  Devuelve 1 si inserto el expediente correctamente 0 si Fallo.
 				*
 			  */
-			$insercionExp = $expediente->insertar_expediente( $numeroExpediente,$nurad,$dependencia,$codusuario,$usua_doc);
+			$insercionExp = $expediente->insertar_expediente( $numeroExpediente,$nurad,$dependencia,$codusuario,$usua_doc,$pclaveE);
 		}
 			$codiTRDS = $codiTRD;
 			$i++;
@@ -167,12 +167,12 @@ function Start(URL, WIDTH, HEIGHT)
         <?php print $arrTRDExp['subserie']; ?>
 	  </td>
     </tr>
-	<tr class="titulos5">
+	<!--tr class="titulos5">
       <td>PROCESO</td>
       <td>
         <?php print $arrTRDExp['proceso']; ?>
        </td>
-	</tr>
+	</tr-->
     <?php
     }
     ?>
@@ -267,13 +267,13 @@ if ( !isset( $Actualizar ) ) //Inicio if( $Actualizar )
         <!--
 		<td class="titulos5" colspan="2" ><center>&nbsp;<?=$descTipoExpediente?> - <?=$expDesc?></center></td>
         -->
-        <td class="titulos5" >PROCESO</td>
+        <!--td class="titulos5" >PROCESO</td>
         <td class="listado5" colspan="2" >
           <?
             $comentarioDev = "Muestra los procesos segun la combinacion Serie-Subserie";
             include "$ruta_raiz/include/tx/ComentarioTx.php";
 
-            print $rs->GetMenu2("codProc", $codProc, "0:-- Seleccione --", false,"","onChange='submit()' class='select'" );
+           // print $rs->GetMenu2("codProc", $codProc, "0:-- Seleccione --", false,"","onChange='submit()' class='select'" );
 
             /*
              *  Modificado: 17-Agosto-2006 Supersolidaria
@@ -303,9 +303,10 @@ if ( !isset( $Actualizar ) ) //Inicio if( $Actualizar )
                 }
             }
             print "&nbsp;".$expDesc;
+	    $codProc=0;
           ?>
         </td>
-	</tr>
+	</tr-->
 </table>
 <br>
 <table border=0 width=100% align="center" class="borde_tab">
@@ -417,12 +418,21 @@ if ( !isset( $Actualizar ) ) //Inicio if( $Actualizar )
         $rsParExp->MoveNext();
     }
   ?>
+<tr alig="center">
+    <td width="13%" height="25" class="titulos5" align="left" >
+     Palabra Clave
+    </td>
+    <td width="13%" height="25" class="titulos5" align="left" >
+    <input type="text" name="pclaveE" value="<?=$pclaveE?>">
+    </td>
+  </tr>
 
-  <tr align="center">
+  <!--tr alig="center">
+    <td
     <td width="13%" height="25" class="titulos5" align="center" colspan="2">
       <input type="button" name="Button" value="BUSCAR" class="botones" onClick="Start('buscarParametro.php?busq_salida=<?=$busq_salida?>&krd=<?=$krd?>',1024,420);">
     </td>
-  </tr>
+  </tr-->
 
   <tr>
 	<TD class=titulos5>
@@ -442,12 +452,29 @@ if ( !isset( $Actualizar ) ) //Inicio if( $Actualizar )
 			</script>
   </td>
  </tr>
+<TR>
 <TD class=titulos5>
-		Usuario Responsable del Proceso
+		Dependencia Responsable del Proceso
 	</TD>
 	<td class=listado2>
 <?
-	$queryUs = "select usua_nomb, usua_doc from usuario where depe_codi=$dependencia AND USUA_ESTA=1
+	//$queryUs = "select usua_nomb, usua_doc from usuario where depe_codi=$dependencia AND USUA_ESTA=1						order by usua_nomb";
+	if(!$depeDocExp)$depeDocExp=$dependencia;
+	$queryDs = "select depe_nomb,depe_codi from dependencia order by depe_nomb";
+	
+	$rsDs = $db->conn->Execute($queryDs);
+	print $rsDs->GetMenu2("depeDocExp", "$depeDocExp", "0:-- Seleccione --", false,""," class='select' onChange='submit()'");
+
+?>
+	</td>
+</tr>
+<TR>
+<TD class=titulos5>
+		Dependencia Responsable del Proceso
+	</TD>
+	<td class=listado2>
+<?
+	$queryUs = "select usua_nomb, usua_doc from usuario where depe_codi=$depeDocExp AND USUA_ESTA=1
 							order by usua_nomb";
 	$rsUs = $db->conn->Execute($queryUs);
 	print $rsUs->GetMenu2("usuaDocExp", "$usuaDocExp", "0:-- Seleccione --", false,""," class='select' onChange='submit()'");

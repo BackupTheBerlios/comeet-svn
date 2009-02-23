@@ -89,11 +89,11 @@ for(i=3;i<document.form1.elements.length;i++)
 		else	cnt_inf += 1;
 	}
 if (sw==0)
-{	alert ("Debe seleccionar uno o mas informados");
+{	alert ("Debe seleccionar uno o mas respuestas compartidas");
 	return;
 }
 if (cnt_inf > 0 && cnt_notinf > 0 && document.getElementById('enviara').value == 7)
-{	alert ("Los informados seleccionados ... o todos tienen informador o no tienen informador.");
+{	alert ("Las respuestas seleccionadas ");
 	return;
 }
 document.form1.submit();
@@ -133,7 +133,7 @@ $encabezado="".session_name()."=".session_id()."&krd=$krd&depeBuscada=$depeBusca
       				<td height="20" bgcolor="377584"><div align="left" class="titulo1">LISTADO DE: </div></td>
       			</tr>
       			<tr class="info">
-      				<td height="20">Informados</td>
+      				<td height="20">Rta compartida</td>
       			</tr>
       			</table>
       		</td>
@@ -163,7 +163,7 @@ $encabezado="".session_name()."=".session_id()."&krd=$krd&depeBuscada=$depeBusca
 		<tr class="tablas">
 			<TD>
 			<FORM name=form_busq_rad action='cuerpoinf.php?krd=<?=$krd?>&<?=session_name()."=".trim(session_id()).$encabezado?>' method=post>
-				Buscar radicado(s) informado(s) (Separados por coma)<input name="busq_radicados" type="text" size="70" class="tex_area" value="<?=$busq_radicados?>">
+				Buscar radicado(s) compartidos(s) (Separados por coma)<input name="busq_radicados" type="text" size="70" class="tex_area" value="<?=$busq_radicados?>">
 				<input type=submit value='Buscar ' name=Buscar valign='middle' class='botones' onChange="form_busq_rad.submit()";>
 			</FORM>
 			</td>
@@ -209,12 +209,11 @@ $numerot=$rs->RecordCount();
 ?>
 					<span class='etitulos'><b>
 						<select name='enviara' id='enviara' class='select'  language='javascript' onchange=changedepesel()>
-						<option value=7>Borrar Documento informado</option>
-						<option value=8>Informar (Enviar copia de documentos)</option>
+						<option value=17>Borrar Documento Asignado</option>
 						</select><br>
 						<select name='depsel8[]' id='depsel8' class='select' multiple size="5">
 <?
-include "$ruta_raiz/include/query/queryCuerpoinf.php";
+include "$ruta_raiz/include/query/queryCuerporta.php";
 $a = new combo($db);
 $concatSQL=$db->conn->Concat($concatenar,"' '","depe_nomb");
 $s = "SELECT DEPE_CODI, $concatSQL as NOMBRE  from dependencia order by depe_nomb asc ";
@@ -254,7 +253,7 @@ if($orden_cambio==1)
 	   $orderTipo="ASC";
 }
 $trd=$db->conn->Concat("sd.SGD_SRD_DESCRIP","'/'","sbr.SGD_SBRD_DESCRIP","'/'","b.SGD_TPR_DESCRIP");
-include "$ruta_raiz/include/query/queryCuerpoinf.php";
+include "$ruta_raiz/include/query/queryCuerporta.php";
 $linkPagina = "$PHP_SELF?$encabezado&orderTipo=$orderTipo&orderNo=$orderNo";
 $encabezado .= "&adodb_next_page=1&orderTipo=$orderTipo&orderNo=";
 

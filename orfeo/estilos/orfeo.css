@@ -315,6 +315,15 @@
 	text-decoration: none;
 	text-indent: 3pt;
 }
+.menu_princ2 {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	font-weight: bolder;
+	color: #000000;
+	cursor: pointer;
+	text-decoration: none;
+	text-indent: 3pt;
+}
 .titulosError {
 
 	font-family: Verdana, Arial, Helvetica, sans-serif;

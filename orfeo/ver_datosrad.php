@@ -57,6 +57,7 @@
 	$radi_depe_radicacion = substr($verradicado,4,3);
 	$radi_depe_radi = $rs->fields["RADI_DEPE_RADI"];
 	$radi_usua_radi = $rs->fields["RADI_USUA_RADI"];
+	$pclave=$rs->fields["RADI_ARCH4"];
 
 	if($rs->fields["CARP_PER"]==1) {
 		$personal="(personal)";

@@ -93,6 +93,8 @@ $nomcarpeta = get_param("nomcarpeta");
 	{
 	   document.Search.elements['s_RADI_NUME_RADI'].value = "";
 		 document.Search.elements['s_RADI_NOMB'].value = "";
+		 document.Search.elements['s_PCLAVE'].value = "";
+		 document.Search.elements['s_PCLAVEE'].value = "";
 		 document.Search.elements['s_RADI_DEPE_ACTU'].value = "";
 		 document.Search.elements['s_TDOC_CODI'].value = "9999";
         /**
@@ -168,11 +170,11 @@ $nomcarpeta = get_param("nomcarpeta");
 		<td valign="top" width="80%">
 			<?php Search_show() ?>
 		</td>
-		<td valign="top">
+		<!--td valign="top">
 		     <a class="vinculos" href="busquedaHist.php?<?=session_name()."=".session_id()."&fechah=$fechah&krd=$krd" ?>">B&uacute;squeda por hist&oacute;rico</a><br>
 		     <a class="vinculos" href="busquedaUsuActu.php?<?=session_name()."=".session_id()."&fechah=$fechah&krd=$krd" ?>">Reporte por Usuarios</a><br>
 			 <a class="vinculos" href="../busqueda/busquedaExp.php?<?=$phpsession ?>&krd=<?=$krd?>&<? ECHO "&fechah=$fechah&primera=1&ent=2"; ?>">B&uacute;squeda Expediente</a>
-		</td>
+		</td-->
 	</tr>
 </table>
 <table>
@@ -276,6 +278,8 @@ function Search_show()
   $flds_RADI_NUME_RADI = strip(get_param("s_RADI_NUME_RADI"));
   $flds_DOCTO = strip(get_param("s_DOCTO"));
   $flds_RADI_NOMB = strip(get_param("s_RADI_NOMB"));
+  $flds_PCLAVE = strip(get_param("s_PCLAVE"));
+  $flds_PCLAVEE = strip(get_param("s_PCLAVEE"));
   $krd = get_param("krd");
   $flds_ciudadano = strip(get_param("s_ciudadano"));
 	if($flds_ciudadano) $checkCIU = "checked";
@@ -419,6 +423,16 @@ if($s_Listado=="VerListado")
           </tr>
         </table>
       </td>
+    </tr>
+    <tr>
+<td class="titulos5"> Palabras Claves Radicado
+ </td>
+    <td class="titulos5"><input class="tex_area" type="text" name="s_PCLAVE" maxlength="70" value="<?=tohtml($flds_PCLAVE) ?>" size="70" ></td>
+    </tr>
+<tr>
+<td class="titulos5"> Palabras Claves Expediente
+ </td>
+    <td class="titulos5"><input class="tex_area" type="text" name="s_PCLAVEE" maxlength="70" value="<?=tohtml($flds_PCLAVEE) ?>" size="70" ></td>
     </tr>
     <tr>
       <td class="titulos5"> Buscar en Radicados
@@ -649,7 +663,7 @@ function Ciudadano_show($nivelus, $tpRemDes, $whereFlds)
   $iSort = get_param("FormCIUDADANO_Sorting");
   $iSorted = get_param("FormCIUDADANO_Sorted");
   $krd = get_param("krd");
-  $form_params = trim(session_name())."=".trim(session_id())."&krd=$krd&verrad=$verrad&indiVinculo=$indiVinculo&carpeAnt=$carpeAnt&nomcarpeta=$nomcarpeta&s_RADI_DEPE_ACTU=" . tourl(get_param("s_RADI_DEPE_ACTU")) . "&s_RADI_NOMB=" . tourl(get_param("s_RADI_NOMB")) . "&s_RADI_NUME_RADI=" . tourl(get_param("s_RADI_NUME_RADI")) . "&s_TDOC_CODI=" . tourl(get_param("s_TDOC_CODI")) . "&s_desde_dia=" . tourl(get_param("s_desde_dia")) . "&s_desde_mes=" . tourl(get_param("s_desde_mes")) . "&s_desde_ano=" . tourl(get_param("s_desde_ano")) . "&s_hasta_dia=" . tourl(get_param("s_hasta_dia")) . "&s_hasta_mes=" . tourl(get_param("s_hasta_mes")) . "&s_hasta_ano=" . tourl(get_param("s_hasta_ano")) . "&s_solo_nomb=" . tourl(get_param("s_solo_nomb")) . "&s_ciudadano=" . tourl(get_param("s_ciudadano")) . "&s_empresaESP=" . tourl(get_param("s_empresaESP")) . "&s_oEmpresa=" . tourl(get_param("s_oEmpresa")) . "&s_FUNCIONARIO=" . tourl(get_param("s_FUNCIONARIO")) . "&s_entrada=" . tourl(get_param("s_entrada")) . "&s_salida=" . tourl(get_param("s_salida")) .  "&nivelus=$nivelus&s_Listado=".get_param("s_Listado")."&s_SGD_EXP_SUBEXPEDIENTE=".get_param("s_SGD_EXP_SUBEXPEDIENTE")."&";
+  $form_params = trim(session_name())."=".trim(session_id())."&krd=$krd&verrad=$verrad&indiVinculo=$indiVinculo&carpeAnt=$carpeAnt&nomcarpeta=$nomcarpeta&s_RADI_DEPE_ACTU=" . tourl(get_param("s_RADI_DEPE_ACTU")) . "&s_RADI_NOMB=" . tourl(get_param("s_RADI_NOMB")) . "&s_PCLAVE=" . tourl(get_param("s_PCLAVE")). "&s_PCLAVEE=" . tourl(get_param("s_PCLAVEE")) . "&s_RADI_NUME_RADI=" . tourl(get_param("s_RADI_NUME_RADI")) . "&s_TDOC_CODI=" . tourl(get_param("s_TDOC_CODI")) . "&s_desde_dia=" . tourl(get_param("s_desde_dia")) . "&s_desde_mes=" . tourl(get_param("s_desde_mes")) . "&s_desde_ano=" . tourl(get_param("s_desde_ano")) . "&s_hasta_dia=" . tourl(get_param("s_hasta_dia")) . "&s_hasta_mes=" . tourl(get_param("s_hasta_mes")) . "&s_hasta_ano=" . tourl(get_param("s_hasta_ano")) . "&s_solo_nomb=" . tourl(get_param("s_solo_nomb")) . "&s_ciudadano=" . tourl(get_param("s_ciudadano")) . "&s_empresaESP=" . tourl(get_param("s_empresaESP")) . "&s_oEmpresa=" . tourl(get_param("s_oEmpresa")) . "&s_FUNCIONARIO=" . tourl(get_param("s_FUNCIONARIO")) . "&s_entrada=" . tourl(get_param("s_entrada")) . "&s_salida=" . tourl(get_param("s_salida")) .  "&nivelus=$nivelus&s_Listado=".get_param("s_Listado")."&s_SGD_EXP_SUBEXPEDIENTE=".get_param("s_SGD_EXP_SUBEXPEDIENTE")."&";
 	// s_Listado s_ciudadano s_empresaESP s_FUNCIONARIO
   if(!$iSort)
   {
@@ -688,6 +702,8 @@ function Ciudadano_show($nivelus, $tpRemDes, $whereFlds)
 	case   22: $sOrder = " order by dir.sgd_dir_nombre" . $sDirection; break;
 	case   23: $sOrder = " order by dir.sgd_dir_nombre" . $sDirection; break;
 	case   24: $sOrder = " order by dir.sgd_dir_nombre" . $sDirection; break;
+	case   25: $sOrder = " order by r.radi_arch4" . $sDirection; break;
+	case   26: $sOrder = " order by SEXP.SGD_SEXP_PAREXP5" . $sDirection; break;
     }
   }
 
@@ -717,6 +733,8 @@ function Ciudadano_show($nivelus, $tpRemDes, $whereFlds)
         -->
         <td class="titulos5"><font class="ColumnFONT">Expediente</td>
 		<td class="titulos5"><a class="vinculos" href="<?=$sFileName?>?<?=$form_params?>FormCIUDADANO_Sorting=3&FormCIUDADANO_Sorted=<?=$form_sorting?>&">Asunto</a></td>
+		<td class="titulos5"><a class="vinculos" href="<?=$sFileName?>?<?=$form_params?>FormCIUDADANO_Sorting=25&FormCIUDADANO_Sorted=<?=$form_sorting?>&">Palabras Clave Radicado</a></td>
+		<td class="titulos5"><a class="vinculos" href="<?=$sFileName?>?<?=$form_params?>FormCIUDADANO_Sorting=26&FormCIUDADANO_Sorted=<?=$form_sorting?>&">Palabras Clave Expediente</a></td>
 		<td class="titulos5"><a class="vinculos" href="<?=$sFileName?>?<?=$form_params?>FormCIUDADANO_Sorting=4&FormCIUDADANO_Sorted=<?=$form_sorting?>&">Tipo de Documento</a></td>
 		<td class="titulos5"><font class="ColumnFONT">Tipo</td>
 		<td class="titulos5"><a class="vinculos" href="<?=$sFileName?>?<?=$form_params?>FormCIUDADANO_Sorting=5&FormCIUDADANO_Sorted=<?=$form_sorting?>&">Numero de Hojas</a></td>
@@ -848,8 +866,49 @@ function Ciudadano_show($nivelus, $tpRemDes, $whereFlds)
   }
  /* Se recibe la caadena a buscar y el tipo de busqueda (All) (Any) */
   $ps_RADI_NOMB = strip(get_param("s_RADI_NOMB"));
+$ps_PCLAVE = strip(get_param("s_PCLAVE"));
+$ps_PCLAVEE = strip(get_param("s_PCLAVEE"));
   $ps_solo_nomb = get_param("s_solo_nomb");
   $yaentro=false;
+if($ps_PCLAVE!=""){
+$ps_PCLAVE = strtoupper($ps_PCLAVE);
+if($sWhere != "")
+      $sWhere .= " and ";
+	$HasParam=true;
+	$sWhere .= " ";
+    $tok = strtok($ps_PCLAVE,",");
+	$sWhere .= "(";
+	while ($tok) {
+		$sWhere .= "";
+		if ($yaentro == true ) {
+			$sWhere .= " or ";
+		}
+		$sWhere .= "UPPER(r.RADI_ARCH4) LIKE '%".$tok."%' ";
+	    $tok = strtok(" ");
+		$yaentro=true;
+	}
+      $sWhere .= ")";
+}
+
+if($ps_PCLAVEE!=""){
+$ps_PCLAVEE = strtoupper($ps_PCLAVEE);
+if($sWhere != "")
+	$sWhere .= " and ";
+	$HasParam=true;
+	$sWhere .= " ";
+	$tok2 = strtok($ps_PCLAVEE,",");
+	$sWhere .= "(";
+	while ($tok2) {
+		$sWhere .= "";
+		if ($yaentro2 == true ) {
+			$sWhere .= " or ";
+		}
+		$sWhere .= "UPPER(SEXP.SGD_SEXP_PAREXP5) LIKE '%".$tok2."%' ";
+	    $tok2 = strtok(" ");
+		$yaentro2=true;
+	}
+      $sWhere .= ")";
+}
   if(strlen($ps_RADI_NOMB)) //&& $ps_solo_nomb == "Any")
   {
     if($sWhere != "")
@@ -938,8 +997,8 @@ function Ciudadano_show($nivelus, $tpRemDes, $whereFlds)
 //-------------------------------
 
 require_once("../include/query/busqueda/busquedaPiloto1.php");
-$sSQL = "SELECT ".$radi_nume_radi." AS RADI_NUME_RADI,
-		r.RADI_FECH_RADI, r.RA_ASUN, td.sgd_tpr_descrip, ".$redondeo." as diasr,
+$sSQL = "SELECT distinct(".$radi_nume_radi.") AS RADI_NUME_RADI,
+		r.RADI_FECH_RADI, r.RA_ASUN,r.RADI_ARCH4,SEXP.SGD_SEXP_PAREXP5, td.sgd_tpr_descrip, ".$redondeo." as diasr,
 		r.RADI_NUME_HOJA, r.RADI_PATH, dir.SGD_DIR_DIRECCION, dir.SGD_DIR_MAIL,
 		dir.SGD_DIR_NOMREMDES, dir.SGD_DIR_TELEFONO, dir.SGD_DIR_DIRECCION,
 		dir.SGD_DIR_DOC, r.RADI_USU_ANTE, r.RADI_PAIS, dir.SGD_DIR_NOMBRE,
@@ -950,22 +1009,22 @@ $sSQL = "SELECT ".$radi_nume_radi." AS RADI_NUME_RADI,
   * Fecha de modificaci�n: 11-Agosto-2006
   * Modificador: Supersolidaria
   */
-if( strlen( $ps_SGD_EXP_SUBEXPEDIENTE ) != 0 )
+if( strlen( $ps_SGD_EXP_SUBEXPEDIENTE ) != 0 or strlen( $ps_PCLAVEE ) != 0)
 {
     $sSQL .= " ,EXP.SGD_EXP_NUMERO";
 }
 
-	$sSQL .= " FROM sgd_dir_drecciones dir, radicado r, sgd_tpr_tpdcumento td";
+	$sSQL .= " FROM sgd_dir_drecciones dir, sgd_tpr_tpdcumento td,radicado r left join (SGD_EXP_EXPEDIENTE EXP left join 
+SGD_SEXP_SECEXPEDIENTES SEXP on EXP.SGD_EXP_NUMERO = SEXP.SGD_EXP_NUMERO ) on
+R.RADI_NUME_RADI = EXP.RADI_NUME_RADI";
 /**
   * B�squeda por expediente
   * Fecha de modificaci�n: 30-Junio-2006
   * Modificador: Supersolidaria
   */
-if( strlen( $ps_SGD_EXP_SUBEXPEDIENTE ) != 0 )
-{
-    $sSQL .= ", SGD_EXP_EXPEDIENTE EXP, SGD_SEXP_SECEXPEDIENTES SEXP";
-}
+
 $sSQL .= " WHERE dir.sgd_dir_tipo = 1 AND dir.RADI_NUME_RADI=r.RADI_NUME_RADI AND r.TDOC_CODI=td.SGD_TPR_CODIGO";
+
 //-------------------------------
 //SE QUITA " AND r.CODI_NIVEL <=$nivelus "
 //-------------------------------
@@ -981,7 +1040,8 @@ $db->conn->SetFetchMode(ADODB_FETCH_ASSOC);
 //$db->conn->debug = true;
 $rs=$db->conn->Execute($sSQL);
 $db->conn->SetFetchMode(ADODB_FETCH_NUM);
-	//echo "<hr>$sSQL<hr>";
+
+//echo "<hr>$sSQL<hr>";
 
 //-------------------------------
 // Process empty recordset
@@ -1008,6 +1068,10 @@ $db->conn->SetFetchMode(ADODB_FETCH_NUM);
 
     return;
   }
+/*$sslq="select count(r.radi_nume_radi) as CON FROM sgd_dir_drecciones dir, radicado r, sgd_tpr_tpdcumento td, SGD_SEXP_SECEXPEDIENTES SEXP WHERE dir.sgd_dir_tipo = 1 AND dir.RADI_NUME_RADI=r.RADI_NUME_RADI AND r.TDOC_CODI=td.SGD_TPR_CODIGO ".$sWhere . $whereTrd ;
+$rsss=$db->conn->Execute($sslq);
+$con=$rsss->fields["CON"];
+echo "<hr>Son ".$con." Resultados<hr>";*/
 
 //-------------------------------
 
@@ -1079,6 +1143,8 @@ while((!$rs->EOF && $rs)  && $iCounter < $iRecordsPerPage)
     $fldsSGD_EXP_SUBEXPEDIENTE = $rs->fields['SGD_EXP_NUMERO'];
 
 	$fldASUNTO = $rs->fields['RA_ASUN'];
+	$fldPCLAVE = $rs->fields['RADI_ARCH4'];
+	$fldPCLAVEE = $rs->fields['SGD_SEXP_PAREXP5'];
 	$fldTIPO_DOC = $rs->fields['SGD_TPR_DESCRIP'];
 	$fldNUME_HOJAS = $rs->fields['RADI_NUME_HOJA'];
 	$fldRADI_PATH = $rs->fields['RADI_PATH'];
@@ -1106,6 +1172,8 @@ if($tipoReg==3) $tipoRegDesc = "Entidad";
 if($tipoReg==4) $tipoRegDesc = "Funcionario";
 
 $fldNOMBRE = str_replace($ps_RADI_NOMB,"<font color=green><b>$ps_RADI_NOMB</b>",tohtml($fldNOMBRE));
+$fldPCLAVE = str_replace(strtoupper($ps_PCLAVE),"<font color=green><b>$ps_PCLAVE</b>",tohtml($fldPCLAVE));
+$fldPCLAVEE = str_replace(strtoupper($ps_PCLAVEE),"<font color=green><b>$ps_PCLAVEE</b>",tohtml($fldPCLAVEE));
 $fldASUNTO = str_replace($ps_RADI_NOMB,"<font color=green><b>$ps_RADI_NOMB</b>",tohtml($fldASUNTO));
 //-------------------------------
 // Busquedas Anidadas
@@ -1134,7 +1202,7 @@ $verImg=( $seguridadRadicado==1)?($fldUSUA_ACTU !=$_SESSION['usua_nomb']?false:t
 
 if(strlen( $ps_SGD_EXP_SUBEXPEDIENTE ) == 0 ){
         $consultaExpediente="SELECT SGD_EXP_NUMERO  FROM SGD_EXP_EXPEDIENTE 
-				WHERE radi_nume_radi= $fldRADI_NUME_RADI AND sgd_exp_fech=(SELECT MIN(SGD_EXP_FECH) minFech from sgd_exp_expediente where radi_nume_radi= $fldRADI_NUME_RADI)";
+				WHERE radi_nume_radi= $fldRADI_NUME_RADI AND sgd_exp_fech=(SELECT MIN(SGD_EXP_FECH) AS minFech from sgd_exp_expediente where radi_nume_radi= $fldRADI_NUME_RADI)";
         $rsE=$db->query($consultaExpediente);
 	$fldsSGD_EXP_SUBEXPEDIENTE=$rsE->fields[0];
 }
@@ -1177,6 +1245,10 @@ if($i==1){
 
 	<td class="leidos">
 	<?= $fldASUNTO ?>&nbsp;</td>
+	<td class="leidos">
+	<?= $fldPCLAVE ?>&nbsp;</td>
+	<td class="leidos">
+	<?= $fldPCLAVEE ?>&nbsp;</td>
 	<td class="leidos">
 	<?= tohtml($fldTIPO_DOC) ?>&nbsp;</td>
 	<td class="leidos">
@@ -1355,8 +1427,10 @@ function resalaltarTokens(&$tkens,$busqueda){
 	return $salida;
 }
 function pintarResultadoConsultas(&$fila,$indice,$numColumna){
-	global $ruta_raiz,$ps_RADI_NOMB;
+	global $ruta_raiz,$ps_RADI_NOMB,$ps_PCLAVE,$ps_PCLAVEE;
 	$ps_RADI_NOMB = trim(strip(get_param("s_RADI_NOMB")));
+	$ps_PCLAVE = strtoupper(trim(strip(get_param("s_PCLAVE"))));
+	$ps_PCLAVEE = strtoupper(trim(strip(get_param("s_PCLAVEE"))));
 	$verImg=($fila['SGD_SPUB_CODIGO']==1)?($fila['USUARIO_ACTUAL']!=$_SESSION['usua_nomb']?false:true):($fila['USUA_NIVEL']>$_SESSION['nivelus']?false:true);
 	$verImg=$verImg && !($fila['SGD_EXP_PRIVADO']==1);
    	$salida="<span class=\"leidos\">";
@@ -1384,62 +1458,73 @@ function pintarResultadoConsultas(&$fila,$indice,$numColumna){
 		   		$salida.=resalaltarTokens($ps_RADI_NOMB,$fila['RA_ASUN']);
 		   	   else  
 		   	   	$salida.=htmlentities($fila['RA_ASUN']);
-		   	  break;
 		   case 5:
-		   	  $salida.=tohtml($fila ['SGD_TPR_DESCRIP']);  //resolverTipoDocumento($fila['TD']);
+			  if($ps_PCLAVE)
+		   		$salida.=resalaltarTokens($ps_PCLAVE,$fila['RADI_ARCH4']);
+		   	   else  
+		   	   	$salida.=htmlentities($fila['RADI_ARCH4']);
 		   	  break;
 		   case 6:
-		   			$salida.=resolverTipoCodigo($fila['SGD_TRD_CODIGO']);
+			  if($ps_PCLAVEE)
+		   		$salida.=resalaltarTokens($ps_PCLAVEE,$fila['SGD_SEXP_PAREXP5']);
+		   	   else  
+		   	   	$salida.=htmlentities($fila['SGD_SEXP_PAREXP5']);
 		   	  break;
 		   case 7:
+		   	  $salida.=tohtml($fila ['SGD_TPR_DESCRIP']);  //resolverTipoDocumento($fila['TD']);
+		   	  break;
+		   case 8:
+		   			$salida.=resolverTipoCodigo($fila['SGD_TRD_CODIGO']);
+		   	  break;
+		   case 9:
 		   $salida.=tohtml($fila['RADI_NUME_HOJA']);
 		   	break;
-		   case 8:
+		   case 10:
 		   	 if($ps_RADI_NOMB)
 		   	 	$salida.=resalaltarTokens($ps_RADI_NOMB,$fila['SGD_DIR_DIRECCION']);
 		   	   else  
 		   		$salida.=htmlentities($fila['SGD_DIR_DIRECCION']);
 		   	break;
-		   case 9:
+		   case 11:
 		   $salida.=  tohtml($fila['SGD_DIR_TELEFONO']);
 		   	break;
-		   case 10:
+		   case 12:
 		   $salida.=tohtml($fila['SGD_DIR_MAIL']);
 		   	break;
-		   case 11:
+		   case 13:
 		   	if($ps_RADI_NOMB)
 		   		$salida.= resalaltarTokens($ps_RADI_NOMB,$fila['SGD_DIR_NOMBRE']);
 		   	else 
 		   		$salida.= tohtml($fila['SGD_DIR_NOMBRE']);
 		   	break;
-		   case 12:
+		   case 14:
 		   	if($ps_RADI_NOMB)
 		   		$salida.= resalaltarTokens($ps_RADI_NOMB,$fila['SGD_DIR_NOMREMDES']);
 		   	else
 		   		$salida.= tohtml($fila['SGD_DIR_NOMREMDES']);
 		   	break;
-		   case 13:
+		   case 15:
 		   $salida.= tohtml($fila['SGD_DIR_DOC']);
 		   	break;
-		   case 14:
+		   case 16:
 		   	if($ps_RADI_NOMB)
 		   		$salida.= resalaltarTokens($ps_RADI_NOMB,$fila['USUARIO_ACTUAL']);
 		   	else
 		   		$salida.=tohtml($fila['USUARIO_ACTUAL']);
 		   	break;
-		   case 15:
+		   case 17:
 		   	$salida.=tohtml($fila['DEPE_NOMB']);
 		   break;
-		   case 16:
+		   case 18:
 		   	if($ps_RADI_NOMB)
 		   		$salida.= resalaltarTokens($ps_RADI_NOMB,$fila['USUARIO_ANTERIOR']);
 		   	else
 		   		$salida.=htmlentities(tohtml($fila['USUARIO_ANTERIOR']));
 		   	break;
-		   case 17:
+		   case 19:
 		   		$salida.=tohtml($fila['RADI_PAIS']); 
 		   	break;
-		   case 18:
+		   case 20:
 		   	$salida.=($fila['RADI_DEPE_ACTU']!=999)?tohtml($fila['DIASR']):"Sal";
 		  break;
 	}
@@ -1461,6 +1546,8 @@ function buscar_prueba($nivelus, $tpRemDes, $whereFlds){
 	$ps_SGD_EXP_SUBEXPEDIENTE =trim(get_param("s_SGD_EXP_SUBEXPEDIENTE" ));
   	$ps_solo_nomb = get_param("s_solo_nomb");
 	$ps_RADI_NOMB = trim(strip(get_param("s_RADI_NOMB")));
+	$ps_PCLAVE = trim(strip(get_param("s_PCLAVE")));
+	$ps_PCLAVEE = trim(strip(get_param("s_PCLAVEE")));
   	$ps_entrada = strip(get_param("s_entrada"));
   	$ps_TDOC_CODI = get_param("s_TDOC_CODI");
   	$ps_salida = strip(get_param("s_salida"));
@@ -1526,16 +1613,28 @@ function buscar_prueba($nivelus, $tpRemDes, $whereFlds){
 	$where .="OR ( UPPER(dir.sgd_dir_nombre) LIKE '%".implode("%' AND UPPER(dir.sgd_dir_nombre) LIKE '%",$tok)."%')";
 	$where .= " OR (".$concatenacion.implode("%' AND ".$concatenacion,$tok)."%'))";
   }
+if(strlen($ps_PCLAVE)) //&& $ps_solo_nomb == "Any")
+  {
+    $ps_PCLAVE = strtoupper($ps_PCLAVE);
+    $tok= explode(",",$ps_PCLAVE);
+	$where .= "UPPER(R.RADI_ARCH4) LIKE '%".$tok."%')";
+  }
+if(strlen($ps_PCLAVEE)) //&& $ps_solo_nomb == "Any")
+  {
+    $ps_PCLAVEE = strtoupper($ps_PCLAVEE);
+    $tok= explode(",",$ps_PCLAVEE);
+	$where .= "UPPER(SEXP.SGD_SEXP_PAREXP5) LIKE '%".$tok."%')";
+  }
  //-------------------------------
 // Build base SQL statement
 //-------------------------------
 	include("{$ruta_raiz}/include/query/busqueda/busquedaPiloto1.php");
 	require_once("{$ruta_raiz}/include/myPaginador.inc.php");
 	
-	$titulos=array("#","1#RADICADO","3#FECHA RADICACION","2#EXPEDIENTE","4#ASUNTO","14#TIPO DE DIOCUMENTO","21#TIPO","7#NO DE HOJAS","15#DIRECCION CONTACTO","18#TELEFONO CONTACTO","16#MAIL CONTACTO ","20#DIGNATARIO","17#NOMBRE","19#DOCUMENTO","22#USUARIO ACTUAL","10#DEPENDENCIA ACTUAL","23#USUARIO ANTERIOR","11#PAIS","13#DIAS RESTANTES");
+	$titulos=array("#","1#RADICADO","3#FECHA RADICACION","2#EXPEDIENTE","4#ASUNTO","5#PALABRA CLAVE RADICADO","6#PALABRA CLAVE EXPEDIENTE","14#TIPO DE DIOCUMENTO","21#TIPO","7#NO DE HOJAS","15#DIRECCION CONTACTO","18#TELEFONO CONTACTO","16#MAIL CONTACTO ","20#DIGNATARIO","17#NOMBRE","19#DOCUMENTO","22#USUARIO ACTUAL","10#DEPENDENCIA ACTUAL","23#USUARIO ANTERIOR","11#PAIS","13#DIAS RESTANTES");
 	
 	$sSQL="select 
-	        R.RADI_NUME_RADI,MINEXP.SGD_EXP_NUMERO,R.RADI_FECH_RADI,R.RA_ASUN,
+	        R.RADI_NUME_RADI,MINEXP.SGD_EXP_NUMERO,R.RADI_FECH_RADI,R.RA_ASUN,R.RADI_ARCH4,SEXP.SGD_SEXP_PAREXP5,
 	        R.RADI_NUME_HOJA,R.RADI_PATH,R.RADI_USUA_ACTU,R.CODI_NIVEL, 
 	        R.SGD_SPUB_CODIGO,R.RADI_DEPE_ACTU,R.RADI_PAIS,D.DEPE_NOMB,
 	        {$redondeo} AS DIASR,TD.SGD_TPR_DESCRIP,DIR.SGD_DIR_DIRECCION, DIR.SGD_DIR_MAIL,

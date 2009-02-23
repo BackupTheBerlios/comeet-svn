@@ -144,6 +144,27 @@ function borrarInformado( $radicados, $loginOrigen,$depDestino,$depOrigen,$codUs
 	}
 	else return $deleteSQL;
 }
+function borrarRta( $radicados, $loginOrigen,$depDestino,$depOrigen,$codUsDestino, $codUsOrigen,$observa)
+{	$tmp_rad = array();
+	$deleteSQL = true;
+	while ((list(,$noRadicado)=each($radicados)) and $deleteSQL)
+	{	//foreach($radicados as $noRadicado)
+		# Borrar el informado seleccionado
+		$tmp = explode('-',$noRadicado);
+		($tmp[0]) ? $wtmp = ' and RTA_CODI = '.$tmp[0] : $wtmp = ' and RTA_CODI IS NULL ';
+		$record["RADI_NUME_RADI"] = $tmp[1];
+		$record["USUA_CODI"] = $codUsOrigen;
+		$record["DEPE_CODI"] = $depOrigen;
+		$deleteSQL = $this->db->conn->Execute("DELETE FROM RTA_COMPARTIDA WHERE RADI_NUME_RADI=".$tmp[1]." and USUA_CODI=".$codUsOrigen." and DEPE_CODI=".$depOrigen.$wtmp);
+		if ($deleteSQL)	$tmp_rad[] = $record["RADI_NUME_RADI"];
+	}
+	$codTx = 7;
+	if ($deleteSQL)
+	{	$this->insertarHistorico($tmp_rad,$depOrigen,$codUsOrigen,$depOrigen,$codUsOrigen, $observa,$codTx,$observa);
+		return $tmp_rad;
+	}
+	else return $deleteSQL;
+}
 
 
   function cambioCarpeta( $radicados, $usuaLogin,$carpetaDestino,$carpetaTipo,$tomarNivel,$observa)
@@ -226,7 +247,7 @@ function borrarInformado( $radicados, $loginOrigen,$depDestino,$depOrigen,$codUs
 		$whereNivel = ",CODI_NIVEL=$usNivel";
 	}
 
-
+	$observa="A: ".$nombreUsuario." - ".$observa;
 	$radicadosIn = join(",",$radicados);
 	$proccarp= "Reasignar";
 	$carp_per = 0;
@@ -279,33 +300,75 @@ function borrarInformado( $radicados, $loginOrigen,$depDestino,$depOrigen,$codUs
 		return $isql;
   }
   // Hecho por Fabian Mauricio Losada
-   function nrr( $radicados, $loginOrigen,$depOrigen,$codUsOrigen,$observa)
+   function rtaC( $radicados, $loginOrigen,$depDestino,$depOrigen,$codUsDestino, $codUsOrigen,$tomarNivel, $observa,$codTx)
   {
-  		$whereNivel = "";
-		$radicadosIn = join(",",$radicados);
-		$carp_codi=substr($depOrigen,0,2);
-		$carp_per = 0;
-		$carp_codi = 0;
-		$isql = "update radicado
-					set
-					  RADI_USU_ANTE='$loginOrigen'
-					  ,RADI_DEPE_ACTU=999
-					  ,RADI_USUA_ACTU=1
-					  ,CARP_CODI=$carp_codi
-					  ,CARP_PER=$carp_per
-					  ,RADI_LEIDO=0
-					  ,radi_fech_agend=null
-					  ,radi_agend=null
-					  ,CODI_NIVEL=1
-					  ,SGD_SPUB_CODIGO=0
-					  ,RADI_NRR=1
-				 where radi_depe_actu=$depOrigen
-				 	   AND radi_usua_actu=$codUsOrigen
-					   AND RADI_NUME_RADI in($radicadosIn)";
-		//$this->conn->Execute($isql);
-		$this->db->conn->Execute($isql); # Ejecuta la busqueda
-		$this->insertarHistorico($radicados,  $depOrigen , $codUsOrigen, 999, 1, $observa, 65);
-		return $isql;
+$whereNivel = "";
+
+   $this->db->conn->SetFetchMode(ADODB_FETCH_ASSOC);
+
+	$sql = "SELECT
+				USUA_DOC
+				,USUA_LOGIN
+				,CODI_NIVEL
+				,USUA_NOMB
+			FROM
+				USUARIO
+			WHERE
+				DEPE_CODI=$depDestino
+				AND USUA_CODI=$codUsDestino";
+	# Busca el usuairo Origen para luego traer sus datos.
+
+	$rs = $this->db->query($sql);
+	//$usNivel = $rs->fields["CODI_NIVEL"];
+	//$nombreUsuario = $rs->fields["USUA_NOMB"];
+	$usNivel = $rs->fields['CODI_NIVEL'];
+	$nombreUsuario = $rs->fields['USUA_NOMB'];
+	$docUsuaDest = $rs->fields['USUA_DOC'];
+$sql = "SELECT
+				USUA_DOC
+			FROM
+				USUARIO
+			WHERE
+				DEPE_CODI=$depOrigen
+				AND USUA_CODI=$codUsOrigen";
+	# Busca el usuairo Origen para luego traer sus datos.
+
+	$rs = $this->db->query($sql);
+	$docUsuaOrig = $rs->fields['USUA_DOC'];
+	
+	$observa="A: ".$nombreUsuario." - ".$observa;
+	$radicadosIn = join(",",$radicados);
+	$proccarp= "Respuesta Compartida";
+	$carp_per = 0;
+
+	while (list(,$noRadicado)=each($radicados))
+	{	if (strstr($noRadicado,'-'))	$tmp = explode('-',$noRadicado);
+		else $tmp = $noRadicado;
+		if (is_array($tmp))
+		{	$record["RADI_NUME_RADI"] = $tmp[1];}
+		else
+		{	$record["RADI_NUME_RADI"] = $noRadicado;}
+		# Asignar el valor de los campos en el registro
+		# Observa que el nombre de los campos pueden ser mayusculas o minusculas
+		//insert into INFORMADOS(DEPE_CODI,INFO_FECH,USUA_CODI,RADI_NUME_RADI,INFO_DESC) values ($depsel, to_date ($formatfecha) ,$codus,$chk3,'$observa')
+		//$record["RADI_NUME_RADI"] = $noRadicado;
+		$record["DEPE_CODI"] = $depDestino;
+		$record["USUA_CODI"] = $codUsDestino;
+		$record["RTA_CODI"] = $docUsuaOrig;
+		$record["RTA_DESC"] = "'$observa'";
+		$record["USUA_DOC"] = "'$docUsuaDest'";
+		$record["RTA_FECH"] = $this->db->conn->OffsetDate(0,$this->db->conn->sysTimeStamp);
+		$record["USUA_CODI_INFO"] = $codUsOrigen;
+
+		# Mandar como parametro el recordset vacio y el arreglo conteniendo los datos a insertar
+		# a la funcion GetInsertSQL. Esta procesara los datos y regresara un enunciado SQL
+		# para procesar el INSERT.
+		$informaSql = $this->db->conn->Replace("RTA_COMPARTIDA",$record,array('RADI_NUME_RADI','RTA_CODI','USUA_DOC'),false);
+	}
+
+	
+ 	$this->insertarHistorico($radicados,$depOrigen,$codUsOrigen,$depDestino,$codUsDestino, $observa,$codTx);
+	return $nombreUsuario;  		
   }
   /**
    * Nueva Funcion para agendar.

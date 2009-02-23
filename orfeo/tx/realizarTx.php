@@ -134,8 +134,20 @@ switch ($codTx)
 		$txSql = $rs->noAgendar( $radicadosSel, $krd,$dependencia,$codusuario,$observa);
 		break;
 	case 16:
-		$nombTx = "Radicados NRR";
-		$txSql = $rs->nrr( $radicadosSel, $krd,$dependencia,$codusuario,$observa);
+		if (is_array($_POST['usCodSelect']))
+			while (list(,$var)=each($_POST['usCodSelect']))
+			{	$depsel8 = split('-',$var);
+				$usCodSelect = $depsel8[1];
+				$depsel8 = $depsel8[0];
+				$nombTx = "Respuesta Compartida";
+				$usCodDestino .= $rs->rtaC( $radicadosSel, $krd,$depsel8,$dependencia,$usCodSelect, $codusuario,$tomarNivel,$observa,62).", ";
+			}
+			$usCodDestino = substr($usCodDestino,0,strlen(trim($usCodDestino))-1);
+		break;
+	case 17:
+		$nombTx = "Borrar Rta Compartida";
+		$observa = "($krd) $observa";
+		$radicadosSel = $rs->borrarRta( $radicadosSel, $krd,$depsel8,$_SESSION['dependencia'],$_SESSION['codusuario'], $codusuario,$observa);
 		break;
 }
 if($okTx== -1)  $okTxDesc = " No ";

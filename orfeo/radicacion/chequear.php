@@ -8,6 +8,7 @@ define('ADODB_ASSOC_CASE', 1);
 include_once "../include/db/ConnectionHandler.php";
 $db = new ConnectionHandler("$ruta_raiz");
 $db->conn->SetFetchMode(ADODB_FETCH_ASSOC);
+
 //$db->conn->SetFetchMode(ADODB_FETCH_NUM);
 session_cache_limiter('public');
 
@@ -143,7 +144,7 @@ $datos_enviar = session_name()."=".trim(session_id())."&krd=$krd&fechah=$fechah&
 ?>
   </div>
 </form>
-<form action='NEW.php?<?=session_name()."=".trim(session_id())?>&krd=<?=$krd?>&dependencia=<?=$dependencia?>&krd=<?=$krd?>&faxPath=<?=$faxPath?>' method="post" name="form1" class="style1">
+<form action='NEW.php?krd=<?=$krd?>&dependencia=<?=$dependencia?>&krd=<?=$krd?>' method="post" name="form1" class="style1">
 <input type=hidden name=ent value='<?=$ent?>'>
 <tr> 
  <td colspan="3"> <div align="center">

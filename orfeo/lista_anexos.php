@@ -384,7 +384,11 @@ if($anex_estado==4) {$img_estado = "<img src=$ruta_raiz/imagenes/docEnviado.gif>
 		//Estas variables se utilizan para verificar si se debe mostrar la opción de tipificación de anexo .TIF
 		$anexTipo = $rs->fields["ANEX_TIPO"];
     	$anexTPRActual = $rs->fields["SGD_TPR_CODIGO"];
-   	if ($verradPermisos == "Full")
+
+	//permite anexar archivos cuando ha sido informado a otra persona
+	 $rsi=$db->conn->Execute("select i.usua_codi from rta_compartida i,usuario u where i.radi_nume_radi like '$verrad' and i.usua_codi=u.usua_codi and i.depe_codi=u.depe_codi and u.usua_login like '$krd' ");
+	//or !$rsi->EOF*/
+   	if ($verradPermisos == "Full" or !$rsi->EOF)
 	{
     ?>
 		<td  <? if (!$rs->fields["SGD_PNUFE_CODI"]) echo " class='listado2 ' "; else echo " class='e_tablas ' "; ?>  ><font size=1>
@@ -532,7 +536,8 @@ if($mostrar_lista==1)
 ?>
 </table>
 <?
-if($verradPermisos == "Full")
+//or 
+if($verradPermisos == "Full" or !$rsi->EOF)
 {
 ?>
 <br>

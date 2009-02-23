@@ -48,6 +48,7 @@ function changedepesel(enviara)
 	MM_swapImage('Image11','','<?=$ruta_raiz?>/imagenes/internas/devolver.gif',1);
 	MM_swapImage('Image12','','<?=$ruta_raiz?>/imagenes/internas/vobo.gif',1);
 	MM_swapImage('Image13','','<?=$ruta_raiz?>/imagenes/internas/archivar.gif',1);
+	MM_swapImage('Image14','','<?=$ruta_raiz?>/imagenes/internas/nrr.gif',1);
 	document.getElementById('Enviar').style.display = '';
 	
   //  document.getElementById('informar').style.display = ''; 
@@ -67,9 +68,27 @@ function changedepesel(enviara)
 	MM_swapImage('Image9','','<?=$ruta_raiz?>/imagenes/internas/reasignar.gif',1);
 	MM_swapImage('Image12','','<?=$ruta_raiz?>/imagenes/internas/vobo.gif',1);
 	MM_swapImage('Image8','','<?=$ruta_raiz?>/imagenes/internas/moverA.gif',1);
+	MM_swapImage('Image14','','<?=$ruta_raiz?>/imagenes/internas/nrr.gif',1);
+
    // document.getElementById('informar').style.display = ''; 
 	envioTx();
   }
+
+//nrr
+if(enviara==16)
+{
+  	document.getElementById('depsel').style.display = 'none';
+	document.getElementById('carpper').style.display = 'none';
+	document.getElementById('depsel8').style.display = '';
+  	MM_swapImage('Image8','','<?=$ruta_raiz?>/imagenes/internas/moverA.gif',1);
+	MM_swapImage('Image10','','<?=$ruta_raiz?>/imagenes/internas/informar.gif',1);
+	MM_swapImage('Image11','','<?=$ruta_raiz?>/imagenes/internas/devolver.gif',1);
+	MM_swapImage('Image9','','<?=$ruta_raiz?>/imagenes/internas/reasignar.gif',1);
+	MM_swapImage('Image12','','<?=$ruta_raiz?>/imagenes/internas/vobo.gif',1);
+	MM_swapImage('Image13','','<?=$ruta_raiz?>/imagenes/internas/archivar.gif',1);
+	document.getElementById('Enviar').style.display = '';
+	
+}
    
    //Devolver
    if(enviara==12)  {    
@@ -78,6 +97,8 @@ function changedepesel(enviara)
     MM_swapImage('Image8','','<?=$ruta_raiz?>/imagenes/internas/moverA.gif',1);
     MM_swapImage('Image12','','<?=$ruta_raiz?>/imagenes/internas/vobo.gif',1);
     MM_swapImage('Image13','','<?=$ruta_raiz?>/imagenes/internas/archivar.gif',1);
+	MM_swapImage('Image14','','<?=$ruta_raiz?>/imagenes/internas/nrr.gif',1);
+
     envioTx();
   }
      
@@ -99,6 +120,7 @@ function changedepesel(enviara)
 	MM_swapImage('Image9','','<?=$ruta_raiz?>/imagenes/internas/reasignar.gif',1);
 	MM_swapImage('Image12','','<?=$ruta_raiz?>/imagenes/internas/vobo.gif',1);
 	MM_swapImage('Image13','','<?=$ruta_raiz?>/imagenes/internas/archivar.gif',1);
+	MM_swapImage('Image14','','<?=$ruta_raiz?>/imagenes/internas/nrr.gif',1);
 	
 
   }
@@ -118,6 +140,8 @@ function changedepesel(enviara)
 	MM_swapImage('Image11','','<?=$ruta_raiz?>/imagenes/internas/devolver.gif',1);
 	MM_swapImage('Image12','','<?=$ruta_raiz?>/imagenes/internas/vobo.gif',1);
 	MM_swapImage('Image13','','<?=$ruta_raiz?>/imagenes/internas/archivar.gif',1);
+	MM_swapImage('Image14','','<?=$ruta_raiz?>/imagenes/internas/nrr.gif',1);
+
 	document.getElementById('Enviar').style.display = '';
   }  
   
@@ -135,6 +159,8 @@ function changedepesel(enviara)
 	MM_swapImage('Image11','','<?=$ruta_raiz?>/imagenes/internas/devolver.gif',1);
 	MM_swapImage('Image9','','<?=$ruta_raiz?>/imagenes/internas/reasignar.gif',1);
 	MM_swapImage('Image13','','<?=$ruta_raiz?>/imagenes/internas/archivar.gif',1);
+	MM_swapImage('Image14','','<?=$ruta_raiz?>/imagenes/internas/nrr.gif',1);
+
 	document.getElementById('Enviar').style.display = '';
 	
   }
@@ -153,6 +179,8 @@ function changedepesel(enviara)
   	MM_swapImage('Image9','','<?=$ruta_raiz?>/imagenes/internas/reasignar.gif',1);
   	MM_swapImage('Image12','','<?=$ruta_raiz?>/imagenes/internas/vobo.gif',1);
   	MM_swapImage('Image13','','<?=$ruta_raiz?>/imagenes/internas/archivar.gif',1);
+	MM_swapImage('Image14','','<?=$ruta_raiz?>/imagenes/internas/nrr.gif',1);
+
   	document.getElementById('Enviar').style.display = '';
   }
 }

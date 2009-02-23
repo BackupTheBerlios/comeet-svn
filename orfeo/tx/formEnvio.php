@@ -225,50 +225,28 @@ if(isset($_POST['checkValue']))
 						$i++;
 					
 					$whereFiltro.= ' b.radi_nume_radi = '.$record_id.' or';
-
-
-					/**
-					 * Modificaciones Febrero de 2007, por SSPD para el DNP
-					 * Archivar:
-					 * Se verifica si el radicado se encuentra o no en un expediente,
-					 * si es negativa la verificacion, ese radicado no se puede archivar
-					 */
-					//echo $codTx;&& $archivado_requiere_exp
-					
-												
-					    include_once "$ruta_raiz/include/db/ConnectionHandler.php";
-					    $db = new ConnectionHandler("$ruta_raiz");
-
-					   $isqlExp = "select SGD_EXP_NUMERO as NumExpediente from SGD_EXP_EXPEDIENTE
-						where RADI_NUME_RADI = '$record_id'";
-						$rsExp = $db->conn->Execute($isqlExp);
-						$resultadoJGL .= "CONSULTA: $isqlExp ";
-						if ( $rsExp && !$rsExp->EOF )
-						{
-							$expNumero = $rsExp->fields[0];
-
-					    	if ( $expNumero =='' || $expNumero == null )
-					    	{
-								$setFiltroSinEXP .= $record_id ;
-								if($jglCounter<=($num))
-								{
-									$setFiltroSinEXP .= ",";
-								}
-								break;
-							}
-
-							$rsExp->MoveNext();
-						}else {
-							$setFiltroSinEXP .= $record_id ;
-								if($jglCounter<=($num))
-								{
-									$setFiltroSinEXP .= ",";
-								}
-						}
-						$jglCounter++;
-					
 			
-				}break;			
+				}break;	
+			case  17:
+				{	if (strpos($record_id,'-'))
+					{	//Si trae el informador concatena el informador con el radicado sino solo concatena los radicados.
+						$tmp = explode('-',$record_id);
+						if ($tmp[0])
+						{	$whereFiltro .= ' (b.radi_nume_radi = '.$tmp[1].' and i.rta_codi='.$tmp[0].') or';
+							$tmp_arr_id=4;
+						}
+						else
+						{	$whereFiltro .= ' b.radi_nume_radi = '.$tmp[1].' or';
+							$tmp_arr_id=3;
+						}
+
+					}
+					else
+					{	$whereFiltro .= ' b.radi_nume_radi = '.$record_id.' or';
+						$tmp_arr_id=0;
+					}
+					$record_id = $tmp[1];
+				}break;
 			default:
 				{
 					$whereFiltro.= ' b.radi_nume_radi = '.$record_id.' or';
@@ -442,6 +420,10 @@ switch ($codTx)
 		{	print "Borrar Informados ";
 			echo "<input type='hidden' name='info_doc' value='".$tmp_arr_id."'>";
 		}break;
+	case 17:
+		{	print "Borrar Rta Compartida ";
+			echo "<input type='hidden' name='rta_doc' value='".$tmp_arr_id."'>";
+		}break;
 	case 8:	$usDefault = 1;
 			$cad = $db->conn->Concat("RTRIM(u.depe_codi)","'-'","RTRIM(u.usua_codi)");
 			$cad2 = $db->conn->Concat($db->conn->IfNull("d.DEP_SIGLA", "'N.N.'"),"'-'","RTRIM(u.usua_nomb)");
@@ -571,9 +553,92 @@ switch ($codTx)
 		   case 13:
 		   	    print "Archivo de Documentos";
 				break;
-			case 16:
-		   	    print "Archivo de NRR";
+		case 16:
+			$usDefault = 1;
+			$cad = $db->conn->Concat("RTRIM(u.depe_codi)","'-'","RTRIM(u.usua_codi)");
+			$cad2 = $db->conn->Concat($db->conn->IfNull("d.DEP_SIGLA", "'N.N.'"),"'-'","RTRIM(u.usua_nomb)");
+			$sql = "select $cad2 as usua_nomb, $cad as usua_codi from usuario u,dependencia d where u.depe_codi in(".implode($depsel8,',').")
+					$whereReasignar and u.USUA_ESTA=1 and u.depe_codi = d.depe_codi ORDER BY usua_nomb";
+			$rs = $db->conn->Execute($sql);
+			$usuario = $codUsuario;
+			//print "Informados";
+			print $rs->GetMenu2('usCodSelect[]',$usDefault,false,true,10," id='usCodSelect' class='select' ");
+			//break;
+			/*$whereDep = "and u.depe_codi=$depsel ";
+			if($dependencia==$depsel)
+			{	$usDefault = $codusuario;	}
+			// Esta secci�n selecciona las dependencias que se deben visualizar a partir de otras
+			// By Brayan Plazas
+			// 18/10/2005
+			$sql = "SELECT DEPENDENCIA_OBSERVA, DEPENDENCIA_VISIBLE FROM DEPENDENCIA_VISIBILIDAD WHERE DEPENDENCIA_OBSERVA=$dependencia and DEPENDENCIA_VISIBLE = " . $depsel;
+			//$sql = "SELECT DEPENDENCIA_VISIBLE FROM DEPENDENCIA_VISIBILIDAD WHERE DEPENDENCIA_OBSERVA = " . $depsel;
+			$rs1 = $db->conn->Execute($sql);
+			$usuario_publico = "";
+			if (!$rs1->EOF)
+			{	//Se adicionan las dependencias que puedan ver a otras en la consulta
+				$usuario_publico = "or u.DEPE_CODI in (";
+				while(!$rs1->EOF)
+				{	$usuario_publico = $usuario_publico .$rs1->fields["DEPENDENCIA_VISIBLE"].",";
+					$rs1->MoveNext();
+				}
+				$usuario_publico = substr($usuario_publico , 0, strlen($usuario_publico) - 1). ") AND u.USUARIO_PUBLICO = 1 ";
+			}
+			//Fin Modificaci�n
+			//
+			
+			$cad = $db->conn->Concat("RTRIM(u.depe_codi)","'-'","RTRIM(u.usua_codi)");
+			$sql = "select
+				u.USUA_NOMB
+				, $cad as USUA_COD
+				,u.DEPE_CODI
+				from usuario u
+				where
+				u.USUA_ESTA=1
+				$whereReasignar
+				$whereDep
+				$usuario_publico
+				ORDER BY u.USUA_CODI,USUA_NOMB";
+				$rs = $db->conn->Execute($sql);
+				$usuario = $codUsuario;
+				//print $rs->GetMenu2('usCodSelect',$usDefault,false,false,0," id ='usCodSelect' class='select' ");
+				?>
+				<!--
+				<?php
+				echo $sql;
+				?>
+				-->
+				<select name=usCodSelect class=select>
+				<?
+				while(!$rs->EOF)
+				{
+					$depCodiP = $rs->fields["DEPE_CODI"];
+					$usuNombP = $rs->fields["USUA_NOMB"];
+					$usuCodiP = $rs->fields["USUA_COD"];
+					$valOptionP = "";
+					$valOptionP =$usuNombP;
+					$class = "";
+					if($depCodiP!=$dependencia)
+						{
+							$sql = "select DEPE_NOMB from dependencia where depe_codi=$depCodiP";
+							$rs2 = $db->conn->Execute($sql);
+							$depNombP = $rs2->fields["DEPE_NOMB"];
+							$valOptionP .= " [ ".$depNombP."] ";
+
+							$class = " class='leidos'";
+						}
+
+				?>
+				<option <?=$class?>  value=<?=$usuCodiP?>><?=$valOptionP?></option>
+				<?
+				$rs->MoveNext();
+				}
+				?>
+				</select>
+				<?*/
+		   	    print "Respuesta Compartida";
 				break;
+
+		
 		}
 		?>
 		<BR>

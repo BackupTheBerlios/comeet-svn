@@ -58,7 +58,7 @@ function regresar()
 	<td bgcolor="#CCCCCC" width="25%" align="right" height="25" class="titulos2" ><?=$_SESSION["descMunicipio"]?>/<?=$_SESSION["descDepartamento"]?></td>
 	<td class='listado2' width="25%"><?=$dpto_nombre_us1."/".$muni_nombre_us1 ?></td>
 </tr>
-<tr> 
+<!--tr> 
 	<td align="right" bgcolor="#CCCCCC" height="25" class="titulos2"><?=$tip3Nombre[2][$ent]?></td>
 	<td class='listado2' width="25%" height="25"> <?=$nombret_us2 ?></td>
     <td bgcolor="#CCCCCC" width="25%" align="right" height="25" class="titulos2">Direcci&oacute;n Correspondencia</td>
@@ -73,7 +73,7 @@ function regresar()
     <td class='listado2' width="25%"> <?=$direccion_us3 ?></td>
     <td bgcolor="#CCCCCC" width="25%" align="right" height="25" class="titulos2"><?=$_SESSION["descMunicipio"]?>/<?=$_SESSION["descDepartamento"]?></td>
     <td class='listado2' width="25%"> <?=$dpto_nombre_us3."/".$muni_nombre_us3 ?></td>
-</tr>
+</tr-->
 <tr>
 	<td height="25" bgcolor="#CCCCCC" align="right" class="titulos2"> <p>N&ordm; DE PAGINAS</p></td>
     <td class='listado2' width="25%" height="25"> <?=$radi_nume_hoja ?></td>
@@ -123,7 +123,8 @@ function regresar()
   <tr> 
 	<td align="right" height="25" class="titulos2">IMAGEN</td>
 	<td class='listado2' colspan="1"><span class='vinculos'><?=$imagenv ?></span></td>
-	<td align="right" height="25"  class="titulos2">ESTADO ACTUAL</td>
+	 <td align="right" height="25"  class="titulos2">PALABRA CLAVE</td><td  class='listado2'><?=$pclave?></td>
+	<!--td align="right" height="25"  class="titulos2">ESTADO ACTUAL</td>
 	<td class='listado2' >
 		<?=$flujo_nombre?>
 		<? 
@@ -134,7 +135,7 @@ function regresar()
 		<?
 			}
 		?>
-	</td>
+	</td-->
 	<td align="right" height="25"  class="titulos2">Nivel de Seguridad</td>
 	<td class='listado2' colspan="3">
 	<?

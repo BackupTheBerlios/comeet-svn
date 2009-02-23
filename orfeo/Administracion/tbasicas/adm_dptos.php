@@ -191,7 +191,7 @@ function ver_listado()
 	<td align="center" class="titulos2">2.</td>
 	<td align="left" class="titulos2" height="26"><b>&nbsp;Seleccione Pa&iacute;s</b></td>
     <td align="left" class="listado2">
-		<select name="idpais" class='select' onChange="this.form.submit()">
+		<select name="idpais" class='select' onChange="submit();">
 			<option value="0" selected>&lt;&lt; Seleccione Continente &gt;&gt;</option>
 		<?	// Listamos los paises segun continente.
 			if ($_POST['idpais'] > 0)

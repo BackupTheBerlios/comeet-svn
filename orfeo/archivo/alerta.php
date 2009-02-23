@@ -92,7 +92,27 @@ while(!$fr->EOF)
 	}
 	$fr->MoveNext();
 }*/
+$db->conn->debug=true;
+$rsa=$db->conn->Execute("select radi_nume_radi from INFORMADOS");
+while(!$rsa->EOF){
+  $radi=$rsa->fields['RADI_NUME_RADI'];
+  $rsr=$db->conn->Execute("select radi_nume_radi from radicado where radi_nume_radi like '$radi'");
+  if($rsr->EOF){
+echo $radi;
+     $rsag=$db->conn->Execute("delete from INFORMADOS where radi_nume_radi like '$radi'");
+    }
+  $rsa->MoveNext();
+}
 
+$rsa=$db->conn->Execute("select anex_radi_nume from ANEXOS");
+while(!$rsa->EOF){
+  $radi=$rsa->fields['ANEX_RADI_NUME'];
+  $rsr=$db->conn->Execute("select radi_nume_radi from radicado where radi_nume_radi like '$radi'");
+  if($rsr->EOF){
+echo $radi;
+     $rsag=$db->conn->Execute("delete from ANEXOS where anex_radi_nume like '$radi'");
+    }
+  $rsa->MoveNext();
 
 function fnc_date_calc($this_date,$num_years){
 	$my_time = strtotime ($this_date); //converts date string to UNIX timestamp

@@ -44,7 +44,7 @@ require_once("$ruta_raiz/pestanas.js");
 <script language="JavaScript" type="text/JavaScript">
 // Variable que guarda la �ltima opci�n de la barra de herramientas de funcionalidades seleccionada
 seleccionBarra = -1;
-<!--
+//<!--
 function MM_swapImgRestore() { //v3.0
   var i,x,a=document.MM_sr; for(i=0;a&&i<a.length&&(x=a[i])&&x.oSrc;i++) x.src=x.oSrc;
 }
@@ -101,7 +101,7 @@ function archivar()
    changedepesel(13);
    envioTx();
 }
-function nrr()
+function rtaC()
 {
    changedepesel(16);
    envioTx();
@@ -242,11 +242,11 @@ if (!$agendado) {
 			<img src="<?=$ruta_raiz?>/imagenes/internas/archivar.gif" name="Image13" width="61" height="51" border="0"></a>		</td>
 		<?php
 			}
-			/*if($codusuario == 1){
+			//if($codusuario == 1){
 			?>
 		<td width="61" valign="bottom"><a href="#" onmouseout="MM_swapImgRestore()" onclick="seleccionBarra = 14;changedepesel(16);" onmouseover="MM_swapImage('Image14','','<?=$ruta_raiz?>/imagenes/internas/overNRR.gif',1)"><img src="<?=$ruta_raiz?>/imagenes/internas/NRR.gif" name="Image14" width="61" height="51" border="0" /></a></td>
 		<?php
-		}*/
+		//}
 	}
 ?>
 	</tr>

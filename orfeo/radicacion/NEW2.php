@@ -1,5 +1,9 @@
+
 <?php
+print_r($GLOBALS);
 $krdOld = $krd;
+/*
+echo "sfbfgsdg sdbf";
 session_start();
 error_reporting(7);
 $ruta_raiz = "..";
@@ -1014,7 +1018,7 @@ while(!$rs->EOF)
 	{
 ?>
 <tr class=e_tablas>
-	<td width="13%" class="titulos5" height="25" align="right" ><font face="Arial, Helvetica, sans-serif" class="etextomenu">Signatario</font></td>
+	<td width="13%" class="titulos5" height="25" align="right" ><font face="Arial, Helvetica, sans-serif" class="etextomenu">Dignatario</font></td>
 	<td bgcolor="#FFFFFF" height="25" class="listado5" colspan="3">
 	<?php
 	//$otro = htmlspecialchars(stripcslashes($otro));
@@ -1318,8 +1322,8 @@ if($tipoanexo==0 and $radicadopadre and !$radicadopadreseg and (!$Submit3  and !
 echo "<!-- Dependencia - Usuario Actual  $coddepe / $radi_usua_actu  -->";
 include "$ruta_raiz/include/tx/Tx.php";
 include("../include/tx/Radicacion.php");
-include("../class_control/Municipio.php");
 include("../include/tx/Expediente.php");
+include("../class_control/Municipio.php");
 $hist = new Historico($db);
 $Tx = new Tx($db);
 $Exp= new Expediente($db);
@@ -1444,13 +1448,12 @@ $ddate=date("d");
 		$rad->sgd_apli_codi = $aplintegra;
 		$codTx = 2;
 		$flag = 1;
-
 		$noRad = $rad->newRadicado($ent, $tpDepeRad[$ent]);
 		if ($noRad=="0")
 			echo "<font color=red >Ha ocurrido un Problema<br>Verfique los datos e intente de nuevo</font>";
 		else 
 		{
-			if($radicadopadre and ($tpRadicado==2 or $tpRadicado==1)){
+			if($radicadopadre and ($tpRadicado==2 or $tpRadicado==1){
 			  $sqlE="select sgd_exp_numero from sgd_exp_expediente where radi_nume_radi like '".$radicadopadre."'";
 			  $rsE=$db->conn->Execute($sqlE);
 			  $expe=$rsE->fields['SGD_EXP_NUMERO'];
@@ -1599,8 +1602,7 @@ if($Submit4 and !$Buscar)
 	$rad->radiPais =  "'$pais'";
 	$rad->descAnex = $ane;
 	$rad->raAsun = $asu;
-	$rad->radiDepeRadi = $dependencia ;
-	$rad->usuaCodi=$codusuario;
+	$rad->radiDepeActu = $coddepe ;
 	$rad->radiUsuaActu = $radi_usua_actu ;
 	$rad->trteCodi =  $tip_rem;
 	$rad->tdocCodi=$tdoc;

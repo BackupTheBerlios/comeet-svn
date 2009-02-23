@@ -131,12 +131,12 @@ function PRESTAMO_action($sAction) {
   	  $fldPRES_FECH_PEDI = $db->conn->OffsetDate(0,$db->conn->sysTimeStamp);
 	  // Obtiene la ubicaci�n f�sica de los documentos	  
       $fldPRES_DEPE_ARCH=substr($fldradicado,4,3);	
-      $query="SELECT UBIC_DEPE_ARCH FROM UBICACION_FISICA WHERE UBIC_DEPE_RADI=".$fldPRES_DEPE_ARCH; 
+      /*$query="SELECT UBIC_DEPE_ARCH FROM UBICACION_FISICA WHERE UBIC_DEPE_RADI=".$fldPRES_DEPE_ARCH; 
       $db->conn->SetFetchMode(ADODB_FETCH_ASSOC);
       $rs = $db->conn->query($query);
       if(!$rs->EOF){ 
            	$fldPRES_DEPE_ARCH = $rs->fields['UBIC_DEPE_ARCH']; 
-      }
+      }*/
 	  // Genera PRES_ID
 	  //$db->conn->debug = true;
 	  $sec=$db->conn->nextId('SEC_PRESTAMO');
