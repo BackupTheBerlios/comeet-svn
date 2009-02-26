@@ -77,7 +77,6 @@ switch($db->driver)
 			,UPPER(a.RADI_ARCH4)  as "Palabra Clave"
 			,UPPER(a.RADI_CUENTAI)  as "Cuenta Interna",
 			('.$trd.') as "Serie/Subserie/Tipo Documental",
-			ag.sgd_agen_fechplazo 	as "Fecha Agendado",
 			d2.usua_nomb  		AS "Informador",
 			'.$tmp_cad2.' 		AS "CHK_checkValue",
 			c.RTA_LEIDO 		AS "HID_RADI_LEIDO"
@@ -92,7 +91,6 @@ switch($db->driver)
 			and sbr.sgd_srd_codigo=m.sgd_srd_codigo)
 			on m.sgd_mrd_codigo=r.sgd_mrd_codigo )
 			on r.radi_nume_radi=a.radi_nume_radi
-			left join sgd_agen_agendados ag on ag.radi_nume_radi=a.radi_nume_radi
 			where a.radi_nume_radi=c.radi_nume_radi and a.tdoc_codi=b.sgd_tpr_codigo
 			and a.radi_usua_actu=d.usua_codi and a.radi_depe_actu=d.depe_codi
 			and c.depe_codi='.$dependencia.' and c.usua_codi='.$codusuario.' '.$where_filtro .'
@@ -109,7 +107,6 @@ $isql = 'select '.$radi_nume_radi.' 		AS "IMG_Numero Radicado",
 			,UPPER(a.RADI_ARCH4)  as "Palabra Clave"
 			,UPPER(a.RADI_CUENTAI)  as "Cuenta Interna",
 			('.$trd.') as "Serie/Subserie/Tipo Documental",
-			ag.sgd_agen_fechplazo 	as "Fecha Agendado",
 			'.chr(39).chr(39).'  	AS "Asignador",
 			'.$tmp_cad1.' 		AS "CHK_checkValue",
 			c.RTA_LEIDO 		as "HID_RADI_LEIDO"
@@ -124,7 +121,6 @@ $isql = 'select '.$radi_nume_radi.' 		AS "IMG_Numero Radicado",
 			and sbr.sgd_srd_codigo=m.sgd_srd_codigo)
 			on m.sgd_mrd_codigo=r.sgd_mrd_codigo )
 			on r.radi_nume_radi=a.radi_nume_radi
-			left join sgd_agen_agendados ag on ag.radi_nume_radi=a.radi_nume_radi
 		where a.radi_nume_radi=c.radi_nume_radi and a.tdoc_codi=b.sgd_tpr_codigo
 			and a.radi_usua_actu=d.usua_codi and a.radi_depe_actu=d.depe_codi
 			and c.depe_codi='.$dependencia.' and c.usua_codi='.$codusuario.' '.$where_filtro .'
@@ -138,7 +134,6 @@ $isql = 'select '.$radi_nume_radi.' 		AS "IMG_Numero Radicado",
 			,UPPER(a.RADI_ARCH4)  as "Palabra Clave"
 			,UPPER(a.RADI_CUENTAI)  as "Cuenta Interna",
 			('.$trd.') as "Serie/Subserie/Tipo Documental",
-			ag.sgd_agen_fechplazo 	as "Fecha Agendado",
 			d2.usua_nomb  AS "Asignador",
 			'.$tmp_cad2.' AS "CHK_checkValue",
 			c.rta_LEIDO as "HID_RADI_LEIDO"
@@ -153,7 +148,6 @@ $isql = 'select '.$radi_nume_radi.' 		AS "IMG_Numero Radicado",
 			and sbr.sgd_srd_codigo=m.sgd_srd_codigo)
 			on m.sgd_mrd_codigo=r.sgd_mrd_codigo )
 			on r.radi_nume_radi=a.radi_nume_radi
-			left join sgd_agen_agendados ag on ag.radi_nume_radi=a.radi_nume_radi
 		where a.radi_nume_radi=c.radi_nume_radi and a.tdoc_codi=b.sgd_tpr_codigo
 			and a.radi_usua_actu=d.usua_codi and a.radi_depe_actu=d.depe_codi
 			and c.depe_codi='.$dependencia.' and c.usua_codi='.$codusuario.' '.$where_filtro .'
